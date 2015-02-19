@@ -41,6 +41,7 @@ pos_check[2] = 0;
 move_timer = false;
 move_timer_count = 0;
 move_timer_max = 8;
+move_time_mult = 3;
 
 run = false;
 oGame.map[x, y] = instance_create(x, y, oSpace);
@@ -91,15 +92,6 @@ switch (keyboard_key)
 }
 */
 
-if keyboard_check(vk_shift)
-{
-    shift_time += 1;
-}
-else
-{
-    shift_time = 0;
-}
-
 if move_timer == false
 {
     if keyboard_check(vk_shift) and run == true
@@ -114,20 +106,15 @@ if move_timer == false
         {
             pos_check[0] += speed_run;
             move_timer = true;
-            if shift_time &gt;= 0
+            move_timer_count = move_timer_max*move_timer_mult;
+            audio_sound_pitch(sndBloop, move_timer_mult);
+            audio_play_sound(sndBloop, 1, false);
+            if move_timer_mult &gt; 1
             {
-                move_timer_count = move_timer_max*3;
-            }
-            if shift_time &gt; 30
-            {
-                move_timer_count = move_timer_max*4;
-            }
-            if shift_time &gt; 60
-            {
-                move_timer_count = move_timer_max/2;
+                move_timer_mult -= 1;
             }
         }
-        if keyboard_check(vk_up)
+        else if keyboard_check(vk_up)
         {
             pos_check[1] -= speed_run;
             move_timer = true;
@@ -138,6 +125,11 @@ if move_timer == false
             pos_check[1] += speed_run;
             move_timer = true;
             move_timer_count = move_timer_max;
+        }
+        else
+        {
+            move_timer_mult = 3;
+            audio_sound_pitch(sndBloop, 1);
         }
     }
     else

@@ -9,6 +9,7 @@
     <sound>sound\sndBump</sound>
     <sound>sound\sndCrash</sound>
     <sound>sound\sndDeath</sound>
+    <sound>sound\sndBloop</sound>
   </sounds>
   <sprites name="sprites"/>
   <backgrounds name="background"/>
