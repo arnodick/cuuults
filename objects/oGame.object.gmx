@@ -34,10 +34,10 @@ r_width = room_width / tile_size;   // the width/height of each room array is ju
 r_height = room_height / tile_size;
 
 map[r_width, r_height] = 0;         // the somewhat static map of the level
-map_display[r_width, r_height] = 0; // the array of instances that will actually be draw. (NOTE: should this be in a screen object at the end of the list?)
+map_update[r_width, r_height] = 0; // the array of instances that will actually be draw. (NOTE: should this be in a screen object at the end of the list?)
 room_count = 0;                     // room count. determines what you find in a room. (NOTE: will have to figure out a way to save specific room to file)
 
-global.player = instance_create(r_width / 2, r_height / 2, oPlayer);    //spawn th player in the middle of the room. (NOTE: does it need to be global? should only ever be 1 player, can refer to oPlayer)
+global.player = instance_create(r_width / 2, r_height / 2, oPlayer);    //spawn the player in the middle of the room. (NOTE: does it need to be global? should only ever be 1 player, can refer to oPlayer)
 
 // objects assigned to variables so they can be referenced by random number in arrays for random proc gen of levels
 road = oRoad;
@@ -121,7 +121,8 @@ if generate == true
                     case 1:                                             // room 1
                         if (a == 32 and b == 24)
                         {
-                            map[a, b] = instance_create(a, b, oNPC);    // spawns NPC at middle of room
+                            map[a, b] = instance_create(a, b, oSpace);
+                            instance_create(a, b, oNPC);                // spawns NPC at middle of room
                         }                                               // NOTE: old instance from this spot still, exists. will be destroyed when leaving room, but still could be cleaned up
                                                                         // NOTE: make this spot a proper variable, not a constant
                         else
@@ -140,7 +141,7 @@ if generate == true
     room_count += 1;                                                // increment room count (this is 1 higher than actual CURRENT room?)
                                                                     // NOTE: will have to figure out a way to DECREMENT this when returning to old room, once array saving is figured out
                                                                     
-    map_display = map;                                              // sets the display array to the map array, so that terrain is redrawn, instead of leaving paths of the player character's symbol
+    map_update = map;                                              // sets the display array to the map array, so that terrain is redrawn, instead of leaving paths of the player character's symbol
     
 }
 

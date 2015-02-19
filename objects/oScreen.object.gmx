@@ -32,7 +32,7 @@ r_width = oGame.r_width;
 r_height = oGame.r_height;
 
 map_draw[r_width, r_height] = 0;
-map_draw = oGame.map_display;
+map_draw = oGame.map_update;
 
 screen_shake_init();
 </string>
@@ -60,7 +60,7 @@ screen_shake_init();
             <string>/// Screen Shake
 
 //map_draw[r_width, r_height] = 0;
-map_draw = oGame.map_display;
+map_draw = oGame.map_update;
 
 screen_shake_check();   // checks if the screen is set to shake, then sets shake values
 </string>
@@ -104,6 +104,9 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
         }
     }
 }
+
+draw_set_colour(c_red);
+draw_text(32, 32, "FPS = " + string(fps_real));
 </string>
           </argument>
         </arguments>

@@ -66,15 +66,15 @@ event_inherited();
 
 if (x != global.player.pos_2nd_last[0]) or (y != global.player.pos_2nd_last[1])
 {
-    oGame.map_display[x, y] = oGame.map[x, y];
+    oGame.map_update[x, y] = oGame.map[x, y];
     x = global.player.pos_2nd_last[0];
     y = global.player.pos_2nd_last[1];
 }
 
-cell_current_left  = oGame.map_display[x - 1, y];
-cell_current_right = oGame.map_display[x + 1, y];
-cell_current_top   = oGame.map_display[x, y - 1];
-cell_current_bot   = oGame.map_display[x, y + 1];
+cell_current_left  = oGame.map_update[x - 1, y];
+cell_current_right = oGame.map_update[x + 1, y];
+cell_current_top   = oGame.map_update[x, y - 1];
+cell_current_bot   = oGame.map_update[x, y + 1];
 
 if (cell_current_left.object_index == oPlayer or cell_current_right.object_index == oPlayer or cell_current_top.object_index == oPlayer or cell_current_bot.object_index == oPlayer)
 {
@@ -89,7 +89,7 @@ else if instance_exists(oMessage2)
     }
 }
 
-oGame.map_display[x, y] = id;
+oGame.map_update[x, y] = id;
 </string>
           </argument>
         </arguments>

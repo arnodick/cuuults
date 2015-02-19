@@ -1,4 +1,4 @@
-var cell_current = oGame.map_display[x, y];
+var cell_current = oGame.map_update[x, y];
 
 if move_timer == false
 {
@@ -26,14 +26,14 @@ if move_timer == false
     break;
     }
     
-    var cell_next = oGame.map_display[pos_check[0], pos_check[1]];
+    var cell_next = oGame.map_update[pos_check[0], pos_check[1]];
 
     if cell_next.solid == false
     {
-        oGame.map_display[x, y] = oGame.map[x, y];
+        oGame.map_update[x, y] = oGame.map[x, y];
         x = pos_check[0];
         y = pos_check[1];
-        oGame.map_display[x, y] = id;
+        oGame.map_update[x, y] = id;
     }
     else
     {
