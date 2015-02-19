@@ -49,7 +49,6 @@ map_display[r_width, r_height] = 0;
 
 room_count = 0;
 global.player = instance_create(r_width / 2, r_height / 2, oPlayer);
-instance_create(0, 0, oScreen);
 </string>
           </argument>
         </arguments>
@@ -86,9 +85,23 @@ if generate == true
     {
         for (var b = 0; b &lt; r_height; b++)
         {
-            map[a, b] = instance_create(a, b, ground[irandom(2)]); 
+            if a == 0 or b == 0 or a == 1 or b == 1 or a == r_width - 2 or b == r_height - 2 or a == r_width - 1 or b == r_height - 1
+            {
+                map[a, b] = instance_create(a, b, oSpace);
+            }
+            else
+            {
+                map[a, b] = instance_create(a, b, ground[irandom(2)]);
+            }
             switch(room_count)
             {
+                case 0:
+                    if (a == 33 and b == 25)
+                    {
+                        //map[a, b].hp = 0;
+                        map[a, b] = instance_create(a, b, oSpace);
+                    }
+                break;
                 case 1:
                     if (a == 32 and b == 24)
                         map[a, b] = instance_create(a, b, oMan);
@@ -102,12 +115,47 @@ if generate == true
     room_count += 1;
 }
 
-//map_display = map;
+map_display = map;
 
 if keyboard_check_pressed(vk_escape)
 {
     game_end();
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw
+draw_set_font(fontScore);
+draw_set_halign(fa_left);
+//draw_set_colour(c_gray);
+for (var a = 0; a &lt; r_width; a++)
+{
+    for (var b = 0; b &lt; r_height; b++)
+    {
+        var cell = map_display[a, b];
+        draw_text_colour ( a * tile_size, b * tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
+    }
+}
+//draw_text (player.x * tile_size, player.y * tile_size, player.char);
 </string>
           </argument>
         </arguments>

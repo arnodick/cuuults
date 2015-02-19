@@ -68,8 +68,6 @@ move_timer_max = 8;
 pos_check[0] = x;
 pos_check[1] = y;
 
-oGame.map_display[x, y] = id;
-
 if hp == 0
 {
     instance_destroy();

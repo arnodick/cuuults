@@ -28,7 +28,7 @@
             <string>event_inherited();
 
 char = '?';
-colour = c_blue;
+colour = c_red;
 
 cell_current_left  = oGame.map_display[x - 1, y];
 cell_current_right = oGame.map_display[x + 1, y];
@@ -119,8 +119,7 @@ else if instance_exists(oMessage)
     }
 }
 
-
-oGame.map_display[x, y] = id;
+//oGame.map[x, y] = id;
 
 if hp == 0
 {
