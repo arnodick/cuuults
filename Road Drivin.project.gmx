@@ -50,7 +50,8 @@
     <object>objects\oPlayer</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rRoom</room>
+    <room>rooms\rRoom0</room>
+    <room>rooms\rRoom1</room>
   </rooms>
   <constants number="2">
     <constant name="GM_build_date">41968.6761868403</constant>

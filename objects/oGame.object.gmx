@@ -28,7 +28,8 @@
             <string>///Variables
 randomize();
 
-global.room = 0;
+instance_create(0, 0, oRoom);
+global.player = instance_create(oRoom.r_width / 2, oRoom.r_height / 2, oPlayer);
 </string>
           </argument>
         </arguments>

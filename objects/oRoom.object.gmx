@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,13 +25,30 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>char = '@';
-colour = c_white;
+            <string>///Variables
 
-move_speed = 0.15;
-pos_check[2] = 0;
+tile_size = 10;
+r_width = room_width / tile_size;
+r_height = room_height / tile_size;
 
-room_str = "A";
+road = instance_create(0, 0, oRoad);
+rock = instance_create(0, 0, oRock);
+space = instance_create(0, 0, oSpace);
+
+ground[0] = road;
+ground[1] = rock;
+ground[2] = space;
+
+map[r_width, r_height] = 0;
+for (var a = 0; a &lt; r_width; a++)
+{
+    for (var b = 0; b &lt; r_height; b++)
+    {
+        map[a, b] = ground[irandom(2)];
+    }
+}
+
+map_display[r_width, r_height] = 0;
 </string>
           </argument>
         </arguments>
@@ -54,41 +71,43 @@ room_str = "A";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>pos_check[0] = x;
-pos_check[1] = y;
-switch (keyboard_key)
+            <string>///Map Process
+
+map_display = map;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw
+draw_set_font(fontScore);
+//draw_set_colour(c_gray);
+for (var a = 0; a &lt; r_width; a++)
 {
-    case vk_up:
-        pos_check[1] -= move_speed;
-        break;
-    case vk_down:
-        pos_check[1] += move_speed;
-        break;
-    case vk_left:
-        pos_check[0] -= move_speed;
-        break;
-    case vk_right:
-        pos_check[0] += move_speed;
-        break;
-}
-if oRoom.map[round(pos_check[0]), round(pos_check[1])] != oRoom.rock
-{
-    x = pos_check[0];
-    y = pos_check[1];
-    if x &gt; 63
+    for (var b = 0; b &lt; r_height; b++)
     {
-        if room_next(room) != -1
-        {
-            y = 1;
-            room_goto(room_next(room));
-        }
+        var cell = map_display[a, b];
+        draw_text_colour ( a * tile_size, b * tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
     }
 }
-else if !audio_is_playing(sndBump)
-{
-    audio_play_sound(sndBump, 1, false);
-}
-oRoom.map_display[round(x), round(y)] = global.player;
+//draw_text (player.x * tile_size, player.y * tile_size, player.char);
 </string>
           </argument>
         </arguments>
