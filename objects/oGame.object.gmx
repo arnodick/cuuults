@@ -80,9 +80,15 @@ instance_create(0, 0, oScreen);
 
 //Map Generate
 
+check_OOB();
+
 if generate == true
 {
     with(oThing)                                                    // destroys all the oThings in the room (NOTE: does this NOT destroy the NPC?)
+    {
+        instance_destroy();
+    }
+    with(oNPC)
     {
         instance_destroy();
     }
@@ -123,7 +129,8 @@ if generate == true
                             map[a, b] = instance_create(a, b, ground[irandom(2)]);
                         }
                     break;
-                    default:                                            // does nothing right now
+                    default:                             
+                        map[a, b] = instance_create(a, b, ground[irandom(2)]);
                     break;
                 }
             }

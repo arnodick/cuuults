@@ -52,11 +52,13 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>
+    <font>fonts\font2</font>
     <font>fonts\fontLib</font>
   </fonts>
   <objects name="objects">
     <object>objects\oGame</object>
     <object>objects\oCreature</object>
+    <object>objects\oPlayer</object>
     <object>objects\oNPC</object>
     <object>objects\oThing</object>
     <object>objects\oRoad</object>
@@ -66,7 +68,6 @@
     <object>objects\oStump</object>
     <object>objects\oBlood</object>
     <object>objects\oMessage</object>
-    <object>objects\oPlayer</object>
     <object>objects\oScreen</object>
   </objects>
   <rooms name="rooms">

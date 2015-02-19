@@ -32,6 +32,7 @@ r_width = oGame.r_width;
 r_height = oGame.r_height;
 
 map_draw[r_width, r_height] = 0;
+map_draw = oGame.map_display;
 
 screen_shake_init();
 </string>
@@ -58,7 +59,7 @@ screen_shake_init();
             <kind>1</kind>
             <string>/// Screen Shake
 
-map_draw[r_width, r_height] = 0;
+//map_draw[r_width, r_height] = 0;
 map_draw = oGame.map_display;
 
 screen_shake_check();   // checks if the screen is set to shake, then sets shake values

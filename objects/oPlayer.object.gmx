@@ -95,7 +95,6 @@ if move_timer == false
         }
         x = pos_check[0];
         y = pos_check[1];
-        check_OOB();
     }
     else
     {

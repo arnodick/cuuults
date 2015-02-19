@@ -1,21 +1,21 @@
 //check to see if the player is out of bounds of the map. If they are, generate a new level.
-if x < 1
+if oPlayer.x < 1
 {
-    oGame.generate = true;
-    x = 64;
+    generate = true;
+    oPlayer.x = 64;
 }
-else if x > 64
+else if oPlayer.x > 64
 {
-    oGame.generate = true;
-    x = 1;
+    generate = true;
+    oPlayer.x = 1;
 }
-if y < 1
+if oPlayer.y < 1
 {
-    oGame.generate = true;
-    y = 48;
+    generate = true;
+    oPlayer.y = 48;
 }
-else if y > 48
+else if oPlayer.y > 48
 {
-    oGame.generate = true;
-    y = 1;
+    generate = true;
+    oPlayer.y = 1;
 }
