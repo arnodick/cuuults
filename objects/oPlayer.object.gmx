@@ -185,7 +185,11 @@ else
         audio_play_sound(sndBump, 1, false);
         
         if keyboard_check(vk_shift)
+        {
             oGame.map[round(pos_check[0]), round(pos_check[1])] = oGame.stump;
+            audio_play_sound(1, sndCrash, false);
+            move_timer_count = move_timer_max * 2;
+        }
 }
 if cell_current == oGame.man
 {

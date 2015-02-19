@@ -98,6 +98,11 @@ if generate == true
 }
 
 map_display = map;
+
+if keyboard_check_pressed(vk_escape)
+{
+    game_end();
+}
 </string>
           </argument>
         </arguments>
