@@ -90,7 +90,7 @@ if generate == true
             {
                 case 1:
                     if (a == 32 and b == 24)
-                        map[a, b] = instance_create(a, b, man);
+                        map[a, b] = instance_create(a, b, oMan);
                 break;
                 default:
                 break;

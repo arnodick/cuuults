@@ -190,6 +190,7 @@ else
             move_timer_count = move_timer_max * 2;
         }
 }
+/*
 if cell_current.object_index == oMan
 {
     instance_create(0, 0, oMessage);
@@ -201,6 +202,7 @@ else if instance_exists(oMessage)
         instance_destroy();
     }
 }
+*/
 
 oGame.map_display[x, y] = global.player;
 </string>

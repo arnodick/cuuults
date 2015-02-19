@@ -34,6 +34,44 @@ colour = c_red;
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var cell_current_left  = oGame.map_display[x - 1, y];
+var cell_current_right = oGame.map_display[x + 1, y];
+var cell_current_top   = oGame.map_display[x, y - 1];
+var cell_current_bot   = oGame.map_display[x, y + 1];
+
+if (cell_current_left.object_index == oPlayer or cell_current_right.object_index == oPlayer or cell_current_top.object_index == oPlayer or cell_current_bot.object_index == oPlayer)
+{
+    instance_create(0, 0, oMessage);
+}
+else if instance_exists(oMessage)
+{
+    with(oMessage)
+    {
+        instance_destroy();
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
