@@ -119,7 +119,7 @@ else if instance_exists(oMessage)
     }
 }
 
-oGame.map_display[x, y] = id;
+//oGame.map[x, y] = id;
 
 if hp == 0
 {
