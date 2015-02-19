@@ -55,6 +55,7 @@
     <object>objects\oRock</object>
     <object>objects\oSpace</object>
     <object>objects\oMessage</object>
+    <object>objects\oScreen</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rRoom</room>

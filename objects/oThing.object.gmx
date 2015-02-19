@@ -56,6 +56,8 @@ solid = false;
             <kind>1</kind>
             <string>///Controller
 
+oGame.map_display[x, y] = id;
+
 if hp == 0
 {
     instance_destroy();
