@@ -40,9 +40,11 @@
     <script>scripts\createHorizontalwall.gml</script>
     <script>scripts\createSide.gml</script>
     <script>scripts\createParticles.gml</script>
+    <script>scripts\screenShake.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>
+    <font>fonts\fontLib</font>
   </fonts>
   <objects name="objects">
     <object>objects\oGame</object>

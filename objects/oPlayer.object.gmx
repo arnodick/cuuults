@@ -109,7 +109,7 @@ if move_timer == false
             move_timer = true;
             move_timer_count = move_timer_max*move_timer_mult;
             
-            audio_sound_pitch(sndBloop, move_timer_mult);
+            audio_sound_pitch(sndBloop, step_count);
             audio_play_sound(sndBloop, 1, false);
             if move_timer_mult &gt; 1
             {
@@ -163,7 +163,10 @@ if move_timer == false
 
     if cell_next.solid == false
     {
-        step_count += 1;
+        if step_count &lt; 5
+        {
+            step_count += 1;
+        }
         x = pos_check[0];
         y = pos_check[1];
         if x &lt; 1
@@ -190,17 +193,28 @@ if move_timer == false
     else
     {
         //if !audio_is_playing(sndBump)
-            audio_play_sound(sndBump, 1, false);
+        if keyboard_check(vk_shift) and run == true
+        {
+            screenShake(oGame.shake_count_max_crash, 4*step_count);
+            move_timer = true;
+            move_timer_count = oGame.shake_count_max_crash;
             
-            if keyboard_check(vk_shift) and run == true and step_count &gt; 5
+            if step_count &gt; 4
             {
                 oGame.map[pos_check[0], pos_check[1]].hp = 0;
                 oGame.map[pos_check[0], pos_check[1]] = instance_create(pos_check[0], pos_check[1], oStump);
                 //audio_play_sound(1, sndCrash, false);
-                move_timer_count = move_timer_max * 2;
+                //move_timer_count = move_timer_max * 2;
             }
-            step_count = 0;
-            oGame.shaking = true;
+        }
+        else
+        {
+            screenShake(oGame.shake_count_max_bump, 4);
+            move_timer = true;
+            move_timer_count = oGame.shake_count_max_bump;
+        }
+        audio_play_sound(sndBump, 1, false);
+        step_count = 0;
     }
 }
 else

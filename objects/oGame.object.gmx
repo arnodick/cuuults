@@ -50,8 +50,11 @@ map_display[r_width, r_height] = 0;
 room_count = 0;
 global.player = instance_create(r_width / 2, r_height / 2, oPlayer);
 
+shake_count_max_bump = 17;
+shake_count_max_crash = 60;
 shake_count_max = 60;
-shake_count = shake_count_max;
+shake_count = shake_count_max_bump;
+shake_intensity = 0;
 shake = 0;
 shaking = false;
 
@@ -125,12 +128,14 @@ if shaking == true
 {
     if shake_count &gt; 0
     {
-        shake = random(4);
+        shake = random(shake_intensity);
         shake_count -= 1;
     }
     else
     {
+        shake = 0;
         shaking = false;
+        shake_intensity = 0;
         shake_count = shake_count_max;
     }
 }
