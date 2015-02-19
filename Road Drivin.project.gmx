@@ -38,7 +38,6 @@
     <script>scripts\createHorizontalwall.gml</script>
     <script>scripts\createSide.gml</script>
     <script>scripts\createParticles.gml</script>
-    <script>scripts\screen_shake.gml</script>
     <script>scripts\arrows_check.gml</script>
     <script>scripts\step_take.gml</script>
     <script>scripts\step_stop.gml</script>
@@ -46,6 +45,9 @@
     <script>scripts\check_running.gml</script>
     <script>scripts\check_OOB.gml</script>
     <script>scripts\game_quit.gml</script>
+    <script>scripts\screen_shake.gml</script>
+    <script>scripts\screen_shake_check.gml</script>
+    <script>scripts\screen_shake_draw.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>

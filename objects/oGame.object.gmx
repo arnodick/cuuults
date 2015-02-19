@@ -158,22 +158,7 @@ game_quit();
             <kind>1</kind>
             <string>/// Screen Shake
 
-if shaking == true                          // shake code, preprocessed before drawing, to avoid putting a load of calcs on the draw event
-{
-    if shake_count &gt; 0                      // if there is still time to screen shake, then shake away!
-    {
-                                            // NOTE: make this decrement with time? divide it by shake_count/shake_count_max?
-        shake = random(shake_intensity);    // assigns the actual shake value to a random number within a shake range.
-        shake_count -= 1;                   // decrement shake count
-    }
-    else                                    // if we're out of shake time, stop shaking, reset shake values
-    {
-        shake = 0;                          // sets the shake offset back to 0, so screen doesn't get stuck drawing off to one side
-        shaking = false;                    // turns of shaking, gets us out of this shake field
-        shake_intensity = 0;                // sets shake intensity back to 0. this is reset to something above 0 by player. NOTE: is this causing problems of wrong shake intensity occuring?
-        shake_count = shake_count_max;      // resets the shake timer to a generic max. NOTE: actually i think it's this one causing the shake intensity problem
-    }
-}
+screen_shake_check();   // checks if the screen is set to shake, then sets shake values
 </string>
           </argument>
         </arguments>
@@ -197,22 +182,24 @@ if shaking == true                          // shake code, preprocessed before d
           <argument>
             <kind>1</kind>
             <string>///Draw
-draw_set_font(fontScore);
-draw_set_halign(fa_left);
-//draw_set_colour(c_gray);
-for (var a = 0; a &lt; r_width; a++)
+draw_set_font(fontScore);               // sets the font (NOTE: can this just happen once? does it need to happen every step?)
+draw_set_halign(fa_left);               // aligns all the text to the left
+
+for (var a = 0; a &lt; r_width; a++)       // loops through the display array
 {
     for (var b = 0; b &lt; r_height; b++)
     {
-        var cell = map_display[a, b];
+        var cell = map_display[a, b];   // captures the current cell of the array in a temp var
         draw_text_colour ( a * tile_size + shake, b * tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
-        if shaking == true
+                                        // draws the cell's font with the cell's colour to it's proper spot on the screen
+                                        // NOTE: THIS IS DRAWING THE SHAKE OFFSET STUFF! set it so it only draws normal, put shake in shake function
+        if shaking == true              // checks if shake is on, if so, draws shake-offset characters
         {
             draw_text_colour ( a * tile_size - shake, b * tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 0.2);
+                                        // draws a faint double in the opposite direciton of the opaque characters
         }
     }
 }
-//draw_text (player.x * tile_size, player.y * tile_size, player.char);
 </string>
           </argument>
         </arguments>
