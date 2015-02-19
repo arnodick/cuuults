@@ -28,8 +28,20 @@
             <string>///Attributes
 event_inherited();
 
-char = '"';
-colour = c_teal;
+symbol[0] = '_';
+symbol[1] = '/';
+symbol[2] = '\';
+symbol[3] = ',';
+symbol[4] = '.';
+symbol[5] = '`';
+symbol[6] = ';';
+symbol[7] = ':';
+symbol[8] = '"';
+symbol[9] = '-';
+symbol[10] = '^';
+
+char = symbol[irandom(10)];
+colour = c_olive;
 </string>
           </argument>
         </arguments>

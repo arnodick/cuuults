@@ -38,9 +38,13 @@
     <script>scripts\createHorizontalwall.gml</script>
     <script>scripts\createSide.gml</script>
     <script>scripts\createParticles.gml</script>
-    <script>scripts\screenShake.gml</script>
+    <script>scripts\screen_shake.gml</script>
     <script>scripts\arrows_check.gml</script>
-    <script>scripts\take_step.gml</script>
+    <script>scripts\step_take.gml</script>
+    <script>scripts\step_stop.gml</script>
+    <script>scripts\check_walking.gml</script>
+    <script>scripts\check_running.gml</script>
+    <script>scripts\check_OOB.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>
@@ -50,7 +54,7 @@
     <object>objects\oGame</object>
     <object>objects\oCreature</object>
     <object>objects\oPlayer</object>
-    <object>objects\oMan</object>
+    <object>objects\oNPC</object>
     <object>objects\oThing</object>
     <object>objects\oRoad</object>
     <object>objects\oFence</object>

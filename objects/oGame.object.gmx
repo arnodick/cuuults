@@ -35,7 +35,7 @@ r_height = room_height / tile_size;
 road = oRoad;
 tree = oTree;
 space = oSpace;
-man = oMan;
+NPC = oNPC;
 stump = oStump;
 
 ground[0] = road;
@@ -113,7 +113,7 @@ if generate == true
                 break;
                 case 1:
                     if (a == 32 and b == 24)
-                        map[a, b] = instance_create(a, b, oMan);
+                        map[a, b] = instance_create(a, b, oNPC);
                 break;
                 default:
                 break;
