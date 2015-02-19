@@ -80,15 +80,9 @@ instance_create(0, 0, oScreen);
 
 //Map Generate
 
-check_OOB();
-
 if generate == true
 {
     with(oThing)                                                    // destroys all the oThings in the room (NOTE: does this NOT destroy the NPC?)
-    {
-        instance_destroy();
-    }
-    with(oNPC)
     {
         instance_destroy();
     }
@@ -129,8 +123,7 @@ if generate == true
                             map[a, b] = instance_create(a, b, ground[irandom(2)]);
                         }
                     break;
-                    default:                             
-                        map[a, b] = instance_create(a, b, ground[irandom(2)]);
+                    default:                                            // does nothing right now
                     break;
                 }
             }
@@ -139,10 +132,9 @@ if generate == true
     generate = false;                                               // set generate to false, so room doesn't keep regenerating
     room_count += 1;                                                // increment room count (this is 1 higher than actual CURRENT room?)
                                                                     // NOTE: will have to figure out a way to DECREMENT this when returning to old room, once array saving is figured out
-                                                                    
-    map_display = map;                                              // sets the display array to the map array, so that terrain is redrawn, instead of leaving paths of the player character's symbol
-    
 }
+
+map_display = map;                                                  // sets the display array to the map array, so that terrain is redrawn, instead of leaving paths of the player character's symbol
 
 game_quit();
 </string>
