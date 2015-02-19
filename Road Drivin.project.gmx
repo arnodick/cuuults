@@ -8,6 +8,7 @@
   <sounds name="sound">
     <sound>sound\sndBump</sound>
     <sound>sound\sndCrash</sound>
+    <sound>sound\sndDeath</sound>
   </sounds>
   <sprites name="sprites"/>
   <backgrounds name="background"/>
@@ -44,14 +45,15 @@
   </fonts>
   <objects name="objects">
     <object>objects\oGame</object>
+    <object>objects\oCreature</object>
     <object>objects\oPlayer</object>
+    <object>objects\oMan</object>
     <object>objects\oThing</object>
     <object>objects\oRoad</object>
     <object>objects\oStump</object>
     <object>objects\oFence</object>
     <object>objects\oRock</object>
     <object>objects\oSpace</object>
-    <object>objects\oMan</object>
     <object>objects\oMessage</object>
   </objects>
   <rooms name="rooms">

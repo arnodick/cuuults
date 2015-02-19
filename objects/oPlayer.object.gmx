@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>-1</persistent>
-  <parentName>self</parentName>
+  <parentName>oCreature</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,8 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Variables
-//event_inherited();
+            <string>///Attributes
+event_inherited();
 
 
 char = '@';
@@ -63,12 +63,11 @@ run = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>///Controls
+
+event_inherited();
 
 var cell_current = oGame.map[x, y];
-
-pos_check[0] = x;
-pos_check[1] = y;
 
 /*
 switch (keyboard_key)
@@ -149,9 +148,7 @@ else
     }
 }
 
-
-
-var cell_next = oGame.map[pos_check[0], pos_check[1]]
+var cell_next = oGame.map[pos_check[0], pos_check[1]];
 
 if cell_next.solid == false
 {
@@ -185,8 +182,9 @@ else
         
         if keyboard_check(vk_shift) and run == true
         {
+            oGame.map[pos_check[0], pos_check[1]].hp = 0;
             oGame.map[pos_check[0], pos_check[1]] = instance_create(pos_check[0], pos_check[1], oStump);
-            audio_play_sound(1, sndCrash, false);
+            //audio_play_sound(1, sndCrash, false);
             move_timer_count = move_timer_max * 2;
         }
 }
