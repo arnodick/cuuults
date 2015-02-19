@@ -71,8 +71,6 @@ if (x != global.player.pos_last[0]) or (y != global.player.pos_last[1])
     y = global.player.pos_2nd_last[1];
 }
 
-event_inherited();
-
 cell_current_left  = oGame.map_display[x - 1, y];
 cell_current_right = oGame.map_display[x + 1, y];
 cell_current_top   = oGame.map_display[x, y - 1];
@@ -91,7 +89,7 @@ else if instance_exists(oMessage2)
     }
 }
 
-oGame.map_display[x, y] = global.follower;
+oGame.map_display[x, y] = id;
 </string>
           </argument>
         </arguments>

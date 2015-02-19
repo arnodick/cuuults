@@ -39,7 +39,7 @@
     <script>scripts\createSide.gml</script>
     <script>scripts\createParticles.gml</script>
     <script>scripts\arrows_check.gml</script>
-    <script>scripts\step_take.gml</script>
+    <script>scripts\run_start.gml</script>
     <script>scripts\step_stop.gml</script>
     <script>scripts\check_walking.gml</script>
     <script>scripts\check_running.gml</script>
@@ -49,6 +49,10 @@
     <script>scripts\screen_shake_check.gml</script>
     <script>scripts\screen_shake_draw.gml</script>
     <script>scripts\screen_shake_init.gml</script>
+    <script>scripts\pos_prev.gml</script>
+    <script>scripts\move_key.gml</script>
+    <script>scripts\move_run_check.gml</script>
+    <script>scripts\move_step_check.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>
@@ -58,8 +62,8 @@
   <objects name="objects">
     <object>objects\oGame</object>
     <object>objects\oCreature</object>
-    <object>objects\oPlayer</object>
     <object>objects\oFollower</object>
+    <object>objects\oPlayer</object>
     <object>objects\oNPC</object>
     <object>objects\oThing</object>
     <object>objects\oRoad</object>

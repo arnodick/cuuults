@@ -58,7 +58,9 @@ dir = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>///Controller
+
+event_inherited();
 
 cell_current_left  = oGame.map_display[x - 1, y];
 cell_current_right = oGame.map_display[x + 1, y];
@@ -125,6 +127,8 @@ if hp == 0
 {
     audio_play_sound(sndDeath, 1, false);
 }
+
+//oGame.map_display[x, y] = oNPC;
 </string>
           </argument>
         </arguments>
