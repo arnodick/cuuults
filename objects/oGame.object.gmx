@@ -26,37 +26,40 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
-randomize();
+randomize();                        // gives a random seed EVERY time the game is run
 
-tile_size = 10;
-r_width = room_width / tile_size;
+tile_size = 10;                     // the size of each cell on the screen. (mess with this to get weird overlapping effects)
+r_width = room_width / tile_size;   // the width/height of each room array is just the width/height of the actual room divided by the size of the cells
 r_height = room_height / tile_size;
 
+map[r_width, r_height] = 0;         // the somewhat static map of the level
+map_display[r_width, r_height] = 0; // the array of instances that will actually be draw. (NOTE: should this be in a screen object at the end of the list?)
+room_count = 0;                     // room count. determines what you find in a room. (NOTE: will have to figure out a way to save specific room to file)
+
+global.player = instance_create(r_width / 2, r_height / 2, oPlayer);    //spawn th player in the middle of the room. (NOTE: does it need to be global? should only ever be 1 player, can refer to oPlayer)
+
+// objects assigned to variables so they can be referenced by random number in arrays for random proc gen of levels
 road = oRoad;
 tree = oTree;
 space = oSpace;
-NPC = oNPC;
-stump = oStump;
+NPC = oNPC;     // do we need this one? not in any proc arrays i think
+stump = oStump; // same as above
 
+// array of objects for proc generation
 ground[0] = road;
 ground[1] = tree;
 ground[2] = space;
 
-generate = true;
+generate = true;    // if set to true, regenerates the level. set to true, because gen code is in the STEP, not CREATE, so has to generate when game is started
 
-map[r_width, r_height] = 0;
-map_display[r_width, r_height] = 0;
-
-room_count = 0;
-global.player = instance_create(r_width / 2, r_height / 2, oPlayer);
-
-shake_count_max_bump = 17;
-shake_count_max_crash = 60;
-shake_count_max = 60;
-shake_count = shake_count_max_bump;
-shake_intensity = 0;
-shake = 0;
-shaking = false;
+// screen shake settings
+shake_count_max_bump = 17;          // the amount of time to shake when WALKING into solid object
+shake_count_max_crash = 60;         // the amount of time to shake when RUNNING into solid object 
+shake_count_max = 60;               // generic shake time maximum, in case nothing is set (NOTE: necessary?)
+shake_count = shake_count_max_bump; // the actual screen shake timer
+shake_intensity = 0;                // the range of distance the shake can move the screen drawing
+shake = 0;                          // the actual amount of shake drawn on a specific step
+shaking = false;                    // needs to be on for shaking to happen
 
 </string>
           </argument>
@@ -82,69 +85,94 @@ shaking = false;
             <kind>1</kind>
             <string>///Map Processing
 
-///Map Generate
+//Map Generate
 
 if generate == true
 {
-    with(oThing)
+    with(oThing)                                                    // destroys all the oThings in the room (NOTE: does this NOT destroy the NPC?)
     {
         instance_destroy();
     }
-    for (var a = 0; a &lt; r_width; a++)
+    for (var a = 0; a &lt; r_width; a++)                               // loops through each cell of the map array
     {
         for (var b = 0; b &lt; r_height; b++)
         {
             if a == 0 or b == 0 or a == 1 or b == 1 or a == r_width - 2 or b == r_height - 2 or a == r_width - 1 or b == r_height - 1
+                                                                    // edge and outside edge are assigned open space so player doesn't get stuck inside anything
             {
                 map[a, b] = instance_create(a, b, oSpace);
             }
-            else
+            else                                                    // assigns proc objects to each cell
             {
                 map[a, b] = instance_create(a, b, ground[irandom(2)]);
             }
-            switch(room_count)
+            switch(room_count)                                      // specific actions for each room
             {
-                case 0:
+                case 0:                                             // room 0
                     if (a == 33 and b == 25)
                     {
-                        //map[a, b].hp = 0;
-                        map[a, b] = instance_create(a, b, oSpace);
+                        //map[a, b].hp = 0;                         // figure out a way to make this properly destroy object at spot?
+                        map[a, b] = instance_create(a, b, oSpace);  // puts a space where player will spawn
+                                                                    // NOTE: old instance from this spot still, exists. will be destroyed when leaving room, but still could be cleaned up
+                                                                    // NOTE: make this spot a proper variable, not a constant
                     }
                 break;
-                case 1:
+                case 1:                                             // room 1
                     if (a == 32 and b == 24)
-                        map[a, b] = instance_create(a, b, oNPC);
+                        map[a, b] = instance_create(a, b, oNPC);    // spawns NPC at middle of room
+                                                                    // NOTE: old instance from this spot still, exists. will be destroyed when leaving room, but still could be cleaned up
+                                                                    // NOTE: make this spot a proper variable, not a constant
                 break;
-                default:
+                default:                                            // does nothing right now
                 break;
             }
         }
     }
-    generate = false;
-    room_count += 1;
+    generate = false;                                               // set generate to false, so room doesn't keep regenerating
+    room_count += 1;                                                // increment room count (this is 1 higher than actual CURRENT room?)
+                                                                    // NOTE: will have to figure out a way to DECREMENT this when returning to old room, once array saving is figured out
 }
 
-if shaking == true
-{
-    if shake_count &gt; 0
-    {
-        shake = random(shake_intensity);
-        shake_count -= 1;
-    }
-    else
-    {
-        shake = 0;
-        shaking = false;
-        shake_intensity = 0;
-        shake_count = shake_count_max;
-    }
-}
+map_display = map;                                                  // sets the display array to the map array, so that terrain is redrawn, instead of leaving paths of the player character's symbol
 
-map_display = map;
+game_quit();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Screen Shake
 
-if keyboard_check_pressed(vk_escape)
+if shaking == true                          // shake code, preprocessed before drawing, to avoid putting a load of calcs on the draw event
 {
-    game_end();
+    if shake_count &gt; 0                      // if there is still time to screen shake, then shake away!
+    {
+                                            // NOTE: make this decrement with time? divide it by shake_count/shake_count_max?
+        shake = random(shake_intensity);    // assigns the actual shake value to a random number within a shake range.
+        shake_count -= 1;                   // decrement shake count
+    }
+    else                                    // if we're out of shake time, stop shaking, reset shake values
+    {
+        shake = 0;                          // sets the shake offset back to 0, so screen doesn't get stuck drawing off to one side
+        shaking = false;                    // turns of shaking, gets us out of this shake field
+        shake_intensity = 0;                // sets shake intensity back to 0. this is reset to something above 0 by player. NOTE: is this causing problems of wrong shake intensity occuring?
+        shake_count = shake_count_max;      // resets the shake timer to a generic max. NOTE: actually i think it's this one causing the shake intensity problem
+    }
 }
 </string>
           </argument>

@@ -45,6 +45,7 @@
     <script>scripts\check_walking.gml</script>
     <script>scripts\check_running.gml</script>
     <script>scripts\check_OOB.gml</script>
+    <script>scripts\game_quit.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>
