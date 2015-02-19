@@ -145,7 +145,7 @@ if move_timer == false
         {
             pos_check[0] += speed_run;
         }
-        if keyboard_check_pressed(vk_up)
+        else if keyboard_check_pressed(vk_up)
         {
             pos_check[1] -= speed_run;
         }
@@ -157,6 +157,50 @@ if move_timer == false
         {
             step_count = 0;
         }
+    }
+    
+    var cell_next = oGame.map[pos_check[0], pos_check[1]];
+
+    if cell_next.solid == false
+    {
+        step_count += 1;
+        x = pos_check[0];
+        y = pos_check[1];
+        if x &lt; 1
+        {
+            oGame.generate = true;
+            x = 64;
+        }
+        else if x &gt; 64
+        {
+            oGame.generate = true;
+            x = 1;
+        }
+        if y &lt; 1
+        {
+            oGame.generate = true;
+            y = 48;
+        }
+        else if y &gt; 48
+        {
+            oGame.generate = true;
+            y = 1;
+        }
+    }
+    else
+    {
+        //if !audio_is_playing(sndBump)
+            audio_play_sound(sndBump, 1, false);
+            
+            if keyboard_check(vk_shift) and run == true and step_count &gt; 5
+            {
+                oGame.map[pos_check[0], pos_check[1]].hp = 0;
+                oGame.map[pos_check[0], pos_check[1]] = instance_create(pos_check[0], pos_check[1], oStump);
+                //audio_play_sound(1, sndCrash, false);
+                move_timer_count = move_timer_max * 2;
+            }
+            step_count = 0;
+            oGame.shaking = true;
     }
 }
 else
@@ -172,48 +216,6 @@ else
     }
 }
 
-var cell_next = oGame.map[pos_check[0], pos_check[1]];
-
-if cell_next.solid == false
-{
-    step_count += 1;
-    x = pos_check[0];
-    y = pos_check[1];
-    if x &lt; 1
-    {
-        oGame.generate = true;
-        x = 64;
-    }
-    else if x &gt; 64
-    {
-        oGame.generate = true;
-        x = 1;
-    }
-    if y &lt; 1
-    {
-        oGame.generate = true;
-        y = 48;
-    }
-    else if y &gt; 48
-    {
-        oGame.generate = true;
-        y = 1;
-    }
-}
-else
-{
-    //if !audio_is_playing(sndBump)
-        step_count = 0;
-        audio_play_sound(sndBump, 1, false);
-        
-        if keyboard_check(vk_shift) and run == true and step_count &gt; 5
-        {
-            oGame.map[pos_check[0], pos_check[1]].hp = 0;
-            oGame.map[pos_check[0], pos_check[1]] = instance_create(pos_check[0], pos_check[1], oStump);
-            //audio_play_sound(1, sndCrash, false);
-            move_timer_count = move_timer_max * 2;
-        }
-}
 /*
 if cell_current.object_index == oMan
 {

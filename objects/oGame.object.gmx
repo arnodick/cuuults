@@ -49,6 +49,12 @@ map_display[r_width, r_height] = 0;
 
 room_count = 0;
 global.player = instance_create(r_width / 2, r_height / 2, oPlayer);
+
+shake_count_max = 60;
+shake_count = shake_count_max;
+shake = 0;
+shaking = false;
+
 </string>
           </argument>
         </arguments>
@@ -71,7 +77,7 @@ global.player = instance_create(r_width / 2, r_height / 2, oPlayer);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string> /// Map Processing
+            <string>///Map Processing
 
 ///Map Generate
 
@@ -115,6 +121,20 @@ if generate == true
     room_count += 1;
 }
 
+if shaking == true
+{
+    if shake_count &gt; 0
+    {
+        shake = random(4);
+        shake_count -= 1;
+    }
+    else
+    {
+        shaking = false;
+        shake_count = shake_count_max;
+    }
+}
+
 map_display = map;
 
 if keyboard_check_pressed(vk_escape)
@@ -152,7 +172,11 @@ for (var a = 0; a &lt; r_width; a++)
     for (var b = 0; b &lt; r_height; b++)
     {
         var cell = map_display[a, b];
-        draw_text_colour ( a * tile_size, b * tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
+        draw_text_colour ( a * tile_size + shake, b * tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
+        if shaking == true
+        {
+            draw_text_colour ( a * tile_size - shake, b * tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 0.2);
+        }
     }
 }
 //draw_text (player.x * tile_size, player.y * tile_size, player.char);
