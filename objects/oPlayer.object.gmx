@@ -153,7 +153,7 @@ else
 
 var cell_next = oGame.map[pos_check[0], pos_check[1]]
 
-if cell_next.object_index != oRock
+if cell_next.solid == false
 {
     x = pos_check[0];
     y = pos_check[1];

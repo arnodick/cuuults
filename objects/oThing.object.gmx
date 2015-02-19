@@ -30,6 +30,8 @@ hp = 1;
 
 char = '#';
 colour = c_maroon;
+
+solid = false;
 </string>
           </argument>
         </arguments>

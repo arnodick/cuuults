@@ -94,7 +94,8 @@ window_right = window_centre[0] + window_length;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_rectangle_colour(window_left - font_size, window_top - font_size, window_right + font_size, window_bot + font_size, c_white, c_white, c_white, c_white, false);
+            <string>draw_set_halign(fa_center);
+draw_rectangle_colour(window_left - font_size, window_top - font_size, window_right + font_size, window_bot + font_size, c_white, c_white, c_white, c_white, false);
 draw_rectangle_colour(window_left, window_top, window_right, window_bot, c_black, c_black, c_black, c_black, false);
 draw_text_colour(window_centre[0], window_centre[1], message_string, c_white, c_white, c_white, c_white, 1);
 </string>

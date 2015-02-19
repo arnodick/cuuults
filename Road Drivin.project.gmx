@@ -45,13 +45,13 @@
   <objects name="objects">
     <object>objects\oGame</object>
     <object>objects\oPlayer</object>
+    <object>objects\oThing</object>
     <object>objects\oRoad</object>
     <object>objects\oStump</object>
     <object>objects\oFence</object>
     <object>objects\oRock</object>
     <object>objects\oSpace</object>
     <object>objects\oMan</object>
-    <object>objects\oThing</object>
     <object>objects\oMessage</object>
   </objects>
   <rooms name="rooms">
