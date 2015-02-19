@@ -53,13 +53,13 @@ ground[2] = space;
 generate = true;    // if set to true, regenerates the level. set to true, because gen code is in the STEP, not CREATE, so has to generate when game is started
 
 // screen shake settings
-shake_count_max_bump = 17;          // the amount of time to shake when WALKING into solid object
-shake_count_max_crash = 60;         // the amount of time to shake when RUNNING into solid object 
-shake_count_max = 60;               // generic shake time maximum, in case nothing is set (NOTE: necessary?)
-shake_count = shake_count_max_bump; // the actual screen shake timer
-shake_intensity = 0;                // the range of distance the shake can move the screen drawing
-shake = 0;                          // the actual amount of shake drawn on a specific step
-shaking = false;                    // needs to be on for shaking to happen
+shake_count_max_bump = 17;              // the amount of time to shake when WALKING into solid object
+shake_count_max_crash = 60;             // the amount of time to shake when RUNNING into solid object 
+//shake_count_max = shake_count_max_bump; // generic shake time maximum, in case nothing is set (NOTE: necessary?)
+shake_count = 0;                        // the actual screen shake timer
+shake_intensity = 0;                    // the range of distance the shake can move the screen drawing
+shake = 0;                              // the actual amount of shake drawn on a specific step
+shaking = false;                        // needs to be on for shaking to happen
 
 </string>
           </argument>
@@ -104,27 +104,35 @@ if generate == true
             }
             else                                                    // assigns proc objects to each cell
             {
-                map[a, b] = instance_create(a, b, ground[irandom(2)]);
-            }
-            switch(room_count)                                      // specific actions for each room
-            {
-                case 0:                                             // room 0
-                    if (a == 33 and b == 25)
-                    {
-                        //map[a, b].hp = 0;                         // figure out a way to make this properly destroy object at spot?
-                        map[a, b] = instance_create(a, b, oSpace);  // puts a space where player will spawn
-                                                                    // NOTE: old instance from this spot still, exists. will be destroyed when leaving room, but still could be cleaned up
-                                                                    // NOTE: make this spot a proper variable, not a constant
-                    }
-                break;
-                case 1:                                             // room 1
-                    if (a == 32 and b == 24)
-                        map[a, b] = instance_create(a, b, oNPC);    // spawns NPC at middle of room
-                                                                    // NOTE: old instance from this spot still, exists. will be destroyed when leaving room, but still could be cleaned up
-                                                                    // NOTE: make this spot a proper variable, not a constant
-                break;
-                default:                                            // does nothing right now
-                break;
+                switch(room_count)                                      // specific actions for each room
+                {
+                    case 0:                                             // room 0
+                        if (a == 33 and b == 25)
+                        {
+                            //map[a, b].hp = 0;                         // figure out a way to make this properly destroy object at spot?
+                            map[a, b] = instance_create(a, b, oSpace);  // puts a space where player will spawn
+                                                                        // NOTE: old instance from this spot still, exists. will be destroyed when leaving room, but still could be cleaned up
+                                                                        // NOTE: make this spot a proper variable, not a constant
+                        }
+                        else
+                        {
+                            map[a, b] = instance_create(a, b, ground[irandom(2)]);
+                        }
+                    break;
+                    case 1:                                             // room 1
+                        if (a == 32 and b == 24)
+                        {
+                            map[a, b] = instance_create(a, b, oNPC);    // spawns NPC at middle of room
+                        }                                               // NOTE: old instance from this spot still, exists. will be destroyed when leaving room, but still could be cleaned up
+                                                                        // NOTE: make this spot a proper variable, not a constant
+                        else
+                        {
+                            map[a, b] = instance_create(a, b, ground[irandom(2)]);
+                        }
+                    break;
+                    default:                                            // does nothing right now
+                    break;
+                }
             }
         }
     }
