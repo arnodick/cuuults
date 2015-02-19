@@ -85,6 +85,7 @@
   </fonts>
   <objects name="objects">
     <object>objects\oGame</object>
+    <object>objects\oGround</object>
     <object>objects\oPlayer</object>
   </objects>
   <rooms name="rooms">
