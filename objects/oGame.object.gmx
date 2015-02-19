@@ -42,25 +42,17 @@ global.player = instance_create(r_width / 2, r_height / 2, oPlayer);    //spawn 
 road = oRoad;
 tree = oTree;
 space = oSpace;
-NPC = oNPC;     // do we need this one? not in any proc arrays i think
-stump = oStump; // same as above
+NPC = oNPC;                             // do we need this one? not in any proc arrays i think
+stump = oStump;                         // same as above
 
 // array of objects for proc generation
 ground[0] = road;
 ground[1] = tree;
 ground[2] = space;
 
-generate = true;    // if set to true, regenerates the level. set to true, because gen code is in the STEP, not CREATE, so has to generate when game is started
+generate = true;                        // if set to true, regenerates the level. set to true at create, bc gen code is in the STEP, not CREATE, so has to generate when game is started
 
-// screen shake settings
-shake_count_max_bump = 17;              // the amount of time to shake when WALKING into solid object
-shake_count_max_crash = 60;             // the amount of time to shake when RUNNING into solid object 
-//shake_count_max = shake_count_max_bump; // generic shake time maximum, in case nothing is set (NOTE: necessary?)
-shake_count = 0;                        // the actual screen shake timer
-shake_intensity = 0;                    // the range of distance the shake can move the screen drawing
-shake = 0;                              // the actual amount of shake drawn on a specific step
-shaking = false;                        // needs to be on for shaking to happen
-
+screen_shake_init();
 </string>
           </argument>
         </arguments>

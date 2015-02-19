@@ -36,7 +36,7 @@ solid = true;
 
 dead = oBlood;
 
-speed_run = 1;
+move_distance = 1;
 
 pos_check[0] = x;
 pos_check[1] = y;
@@ -66,7 +66,7 @@ move_timer_max = 8;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>///Controller
 pos_check[0] = x;
 pos_check[1] = y;
 

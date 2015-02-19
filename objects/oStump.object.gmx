@@ -41,7 +41,7 @@ symbol[9] = '-';
 symbol[10] = '^';
 
 char = symbol[irandom(10)];
-colour = c_olive;
+colour = c_dkgray;
 </string>
           </argument>
         </arguments>

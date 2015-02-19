@@ -33,9 +33,6 @@ char = '@'; //graphic
 colour = c_white; //colour
 
 // Player attributes + variables
-speed_run = 1; //how far you go with each step 
-    //NOTE: rename this!
-
 shift_time = 0;
 step_count = 0;
 

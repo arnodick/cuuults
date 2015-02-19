@@ -74,16 +74,16 @@ if move_timer == false
     switch(dir)
     {
         case 0: //left
-            pos_check[0] -= speed_run;
+            pos_check[0] -= move_distance;
             break;
         case 1: //right
-            pos_check[0] += speed_run;
+            pos_check[0] += move_distance;
             break;
         case 2: //up
-            pos_check[1] -= speed_run;
+            pos_check[1] -= move_distance;
             break;
         case 3: //down
-            pos_check[1] += speed_run;
+            pos_check[1] += move_distance;
             break;
     }
 }

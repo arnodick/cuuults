@@ -15,7 +15,7 @@ if shaking == true
     {
         shake = 0;                          // sets the shake offset back to 0, so screen doesn't get stuck drawing off to one side
         shaking = false;                    // turns of shaking, gets us out of this shake field
-        shake_intensity = 0;                // sets shake intensity back to 0. this is reset to something above 0 by player. NOTE: is this causing problems of wrong shake intensity occuring?
-        shake_count = shake_count_max_bump; // resets the shake timer to a generic max. NOTE: actually i think it's this one causing the shake intensity problem
+        shake_intensity = 0;                // sets shake intensity back to 0. this is reset to something above 0 by player.
+        shake_count = shake_count_max_bump; // resets the shake timer to a generic max.
     }
 }
