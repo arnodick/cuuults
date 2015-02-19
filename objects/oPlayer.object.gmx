@@ -71,24 +71,36 @@ switch (keyboard_key)
         pos_check[0] += move_speed;
         break;
 }
-if oRoom.map[round(pos_check[0]), round(pos_check[1])] != oRoom.rock
+if oGame.map[round(pos_check[0]), round(pos_check[1])] != oRoom.rock
 {
     x = pos_check[0];
     y = pos_check[1];
-    if x &gt; 63
+    if x &lt; 0
     {
-        if room_next(room) != -1
-        {
-            y = 1;
-            room_goto(room_next(room));
-        }
+        oRoom.generate = true;
+        x = 63;
+    }
+    else if x &gt; 63
+    {
+        oRoom.generate = true;
+        x = 0;
+    }
+    if y &lt; 0
+    {
+        oRoom.generate = true;
+        y = 47;
+    }
+    else if y &gt; 47
+    {
+        oRoom.generate = true;
+        y = 0;
     }
 }
 else if !audio_is_playing(sndBump)
 {
     audio_play_sound(sndBump, 1, false);
 }
-oRoom.map_display[round(x), round(y)] = global.player;
+oGame.map_display[round(x), round(y)] = global.player;
 </string>
           </argument>
         </arguments>
