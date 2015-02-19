@@ -6,14 +6,7 @@
   <datafiles number="5" name="datafiles"/>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\sndPaddull</sound>
-    <sound>sound\sndBaddull</sound>
-    <sound>sound\sndSelect</sound>
-    <sound>sound\sndBounce</sound>
-    <sound>sound\sndHurt</sound>
-    <sound>sound\sndDeath</sound>
-    <sound>sound\sndRespawn</sound>
-    <sound>sound\sndGoal</sound>
+    <sound>sound\sndBump</sound>
   </sounds>
   <sprites name="sprites"/>
   <backgrounds name="background"/>
@@ -50,7 +43,10 @@
   </fonts>
   <objects name="objects">
     <object>objects\oGame</object>
-    <object>objects\oGround</object>
+    <object>objects\oRoom</object>
+    <object>objects\oRoad</object>
+    <object>objects\oRock</object>
+    <object>objects\oSpace</object>
     <object>objects\oPlayer</object>
   </objects>
   <rooms name="rooms">
