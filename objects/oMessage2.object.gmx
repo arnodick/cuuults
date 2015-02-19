@@ -3,9 +3,9 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1000</depth>
   <persistent>0</persistent>
-  <parentName>oCreature</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,20 +25,25 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Attributes
-event_inherited();
+            <string>font_size = font_get_size(fontScore);
+message_string = "hey hey can i talk to you for a sec?";
+message_length = string_length(message_string);
 
-char = '+';
-colour = c_blue;
+window_length = (message_length * font_size);
+window_height = font_size * 3;
+window_centre[0] = room_width/2
+window_centre[1] = 45;
+window_left = window_centre[0] - window_length;
+window_right = window_centre[0] + window_length;
+window_top = window_centre[1] - window_height;
+window_bot = window_centre[1] + window_height;
 
-cell_current_left  = 1;
-cell_current_right = 1;
-cell_current_top   = 1;
-cell_current_bot   = 1;
+if global.player.run == false
+{
+    global.player.run = true;
+}
 
-pos_last[2] = 0;
-pos_2nd_last[2] = 0;
-pos_3rd_last[2] = 0;
+parent = 0;
 </string>
           </argument>
         </arguments>
@@ -61,37 +66,46 @@ pos_3rd_last[2] = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Controller
-event_inherited();
-
-if (x != global.player.pos_last[0]) or (y != global.player.pos_last[1])
+            <string>
+if keyboard_check_pressed(vk_space)
 {
-    oGame.map_display[x, y] = oGame.map[x, y];
-    x = global.player.pos_2nd_last[0];
-    y = global.player.pos_2nd_last[1];
+    message_string = message_string + "!";
 }
+message_length = string_length(message_string);
+window_length = (message_length * font_size);
+window_left = window_centre[0] - window_length;
+window_right = window_centre[0] + window_length;
 
-event_inherited();
-
-cell_current_left  = oGame.map_display[x - 1, y];
-cell_current_right = oGame.map_display[x + 1, y];
-cell_current_top   = oGame.map_display[x, y - 1];
-cell_current_bot   = oGame.map_display[x, y + 1];
-
-if (cell_current_left.object_index == oPlayer or cell_current_right.object_index == oPlayer or cell_current_top.object_index == oPlayer or cell_current_bot.object_index == oPlayer)
+if !instance_exists(parent)
 {
-    mess = instance_create(0, 0, oMessage2);
-    mess.parent = id;
+    instance_destroy();
 }
-else if instance_exists(oMessage2)
-{
-    with(oMessage2)
-    {
-        instance_destroy();
-    }
-}
-
-oGame.map_display[x, y] = global.follower;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_set_halign(fa_center);
+draw_rectangle_colour(window_left - font_size, window_top - font_size, window_right + font_size, window_bot + font_size, c_white, c_white, c_white, c_white, false);
+draw_rectangle_colour(window_left, window_top, window_right, window_bot, c_black, c_black, c_black, c_black, false);
+draw_text_colour(window_centre[0], window_centre[1], message_string, c_white, c_white, c_white, c_white, 1);
 </string>
           </argument>
         </arguments>

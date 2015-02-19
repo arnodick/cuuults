@@ -69,6 +69,7 @@
     <object>objects\oStump</object>
     <object>objects\oBlood</object>
     <object>objects\oMessage</object>
+    <object>objects\oMessage2</object>
     <object>objects\oScreen</object>
   </objects>
   <rooms name="rooms">
