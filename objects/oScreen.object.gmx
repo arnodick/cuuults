@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-500</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,38 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Variables
-randomize();
-
-tile_size = 10;
-r_width = room_width;
-r_height = room_height;
-
-road = instance_create(0, 0, oRoad);
-rock = instance_create(0, 0, oRock);
-space = instance_create(0, 0, oSpace);
-man = instance_create(0, 0, oMan);
-stump = instance_create(0, 0, oStump);
-
-ground[0] = road;
-ground[1] = rock;
-ground[2] = space;
-
-generate = true;
-
-map[r_width, r_height] = 0;
-map_display[r_width, r_height] = 0;
-
-room_count = 0;
-global.player = instance_create(r_width / 2, r_height / 2, oPlayer);
-
-instance_create(0, 0, oScreen);
+            <string>screenInitSurfaces();
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="8" enumb="73">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -73,39 +48,13 @@ instance_create(0, 0, oScreen);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Map Processing
-
-///Map Generate
-
-if generate == true
-{
-    for (var a = 0; a &lt; r_width; a++)
-    {
-        for (var b = 0; b &lt; r_height; b++)
-        {
-            map[a, b] = ground[irandom(2)];
-            switch(room_count)
-            {
-                case 1:
-                    if (a == 32 and b == 24)
-                        map[a, b] = man;
-                break;
-                default:
-                break;
-            }
-        }
-    }
-    generate = false;
-    room_count += 1;
-}
-
-map_display = map;
+            <string>screenEndSurfaces();
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="72">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -122,18 +71,7 @@ map_display = map;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw
-draw_set_font(fontScore);
-//draw_set_colour(c_gray);
-for (var a = 0; a &lt; r_width; a++)
-{
-    for (var b = 0; b &lt; r_height; b++)
-    {
-        var cell = map_display[a, b];
-        draw_text_colour ( a * tile_size, b * tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
-    }
-}
-//draw_text (player.x * tile_size, player.y * tile_size, player.char);
+            <string>screenBeginSurfaces();
 </string>
           </argument>
         </arguments>

@@ -2,7 +2,7 @@
     // Re-create the screen surface
 if !surface_exists(screen)
 {
-    screen = surface_create(view_wview[0], view_hview[0]);
+    screen = surface_create(room_width * oGame.tile_size, room_height * oGame.tile_size);
 }
 
 // If the screen surface does exist, then:

@@ -2,7 +2,8 @@
     // Re-create the screen surface
 if !surface_exists(screen)
 {
-    screen = surface_create(display_get_gui_width(), display_get_gui_height());
+    //screen = surface_create(display_get_gui_width(), display_get_gui_height());
+    screen = surface_create(320, 240);
     view_surface_id[0] = screen;
 }
 

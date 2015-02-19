@@ -43,6 +43,7 @@
   </fonts>
   <objects name="objects">
     <object>objects\oGame</object>
+    <object>objects\oScreen</object>
     <object>objects\oPlayer</object>
     <object>objects\oRoad</object>
     <object>objects\oStump</object>
