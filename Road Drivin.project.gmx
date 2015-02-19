@@ -23,8 +23,6 @@
     <script>scripts\screenInitSurfaces.gml</script>
     <script>scripts\screenBeginSurfaces.gml</script>
     <script>scripts\screenEndSurfaces.gml</script>
-    <script>scripts\keyArrowspressed.gml</script>
-    <script>scripts\keyArrowspress.gml</script>
     <script>scripts\gamepadsInit.gml</script>
     <script>scripts\menuInit.gml</script>
     <script>scripts\menuCreate.gml</script>
@@ -41,6 +39,8 @@
     <script>scripts\createSide.gml</script>
     <script>scripts\createParticles.gml</script>
     <script>scripts\screenShake.gml</script>
+    <script>scripts\arrows_check.gml</script>
+    <script>scripts\take_step.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>
@@ -53,10 +53,11 @@
     <object>objects\oMan</object>
     <object>objects\oThing</object>
     <object>objects\oRoad</object>
-    <object>objects\oStump</object>
     <object>objects\oFence</object>
-    <object>objects\oRock</object>
+    <object>objects\oTree</object>
     <object>objects\oSpace</object>
+    <object>objects\oStump</object>
+    <object>objects\oBlood</object>
     <object>objects\oMessage</object>
   </objects>
   <rooms name="rooms">

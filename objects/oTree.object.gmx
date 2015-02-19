@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>oThing</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,25 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Attributes
+            <string>event_inherited();
 
-hp = 1;
-
-char = '#';
-colour = c_maroon;
+char = '*';
+hue = colour_get_hue(c_olive) + (irandom(80) - 40);
+val = colour_get_value(c_olive) + (irandom(80) - 40);
+colour = make_colour_hsv(hue, colour_get_saturation(c_olive), val);
 
 solid = true;
-
-dead = oBlood;
-
-speed_run = 1;
-
-pos_check[0] = x;
-pos_check[1] = y;
-
-move_timer = false;
-move_timer_count = 0;
-move_timer_max = 8;
 </string>
           </argument>
         </arguments>
@@ -66,13 +55,10 @@ move_timer_max = 8;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-pos_check[0] = x;
-pos_check[1] = y;
-
+            <string>event_inherited();
 if hp == 0
 {
-    instance_destroy();
+    audio_play_sound(sndCrash, 1, false);
 }
 </string>
           </argument>

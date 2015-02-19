@@ -97,43 +97,7 @@ if move_timer == false
 {
     if keyboard_check(vk_shift) and run == true
     {
-        if keyboard_check(vk_left)
-        {
-            pos_check[0] -= speed_run;
-            move_timer = true;
-            move_timer_count = move_timer_max;
-        }
-        else if keyboard_check(vk_right)
-        {
-            pos_check[0] += speed_run;
-            move_timer = true;
-            move_timer_count = move_timer_max*move_timer_mult;
-            
-            audio_sound_pitch(sndBloop, step_count);
-            audio_play_sound(sndBloop, 1, false);
-            if move_timer_mult &gt; 1
-            {
-                move_timer_mult -= 1;
-            }
-        }
-        else if keyboard_check(vk_up)
-        {
-            pos_check[1] -= speed_run;
-            move_timer = true;
-            move_timer_count = move_timer_max;
-        }
-        else if keyboard_check(vk_down)
-        {
-            pos_check[1] += speed_run;
-            move_timer = true;
-            move_timer_count = move_timer_max;
-        }
-        else
-        {
-            move_timer_mult = 3;
-            audio_sound_pitch(sndBloop, 1);
-            step_count = 0;
-        }
+        arrows_check();
     }
     else
     {
@@ -202,7 +166,8 @@ if move_timer == false
             if step_count &gt; 4
             {
                 oGame.map[pos_check[0], pos_check[1]].hp = 0;
-                oGame.map[pos_check[0], pos_check[1]] = instance_create(pos_check[0], pos_check[1], oStump);
+                oGame.map[pos_check[0], pos_check[1]] = instance_create(pos_check[0], pos_check[1], oGame.map[pos_check[0], pos_check[1]].dead);
+                
                 //audio_play_sound(1, sndCrash, false);
                 //move_timer_count = move_timer_max * 2;
             }

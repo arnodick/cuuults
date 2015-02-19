@@ -33,13 +33,13 @@ r_width = room_width / tile_size;
 r_height = room_height / tile_size;
 
 road = oRoad;
-rock = oRock;
+tree = oTree;
 space = oSpace;
 man = oMan;
 stump = oStump;
 
 ground[0] = road;
-ground[1] = rock;
+ground[1] = tree;
 ground[2] = space;
 
 generate = true;

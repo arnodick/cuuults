@@ -32,6 +32,8 @@ char = '#';
 colour = c_maroon;
 
 solid = false;
+
+dead = oStump;
 </string>
           </argument>
         </arguments>

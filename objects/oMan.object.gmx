@@ -28,7 +28,7 @@
             <string>event_inherited();
 
 char = '?';
-colour = c_red;
+colour = c_purple;
 
 cell_current_left  = oGame.map_display[x - 1, y];
 cell_current_right = oGame.map_display[x + 1, y];
