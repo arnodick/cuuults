@@ -30,10 +30,14 @@ hp = 1;
 
 char = '#';
 colour = c_maroon;
+colour = merge_colour(colour, c_black, y/oGame.r_height);
 
 solid = false;
 
+anim = 0;
+
 dead = oStump;
+
 </string>
           </argument>
         </arguments>

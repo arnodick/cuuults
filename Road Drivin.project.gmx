@@ -10,6 +10,7 @@
     <sound>sound\sndCrash</sound>
     <sound>sound\sndDeath</sound>
     <sound>sound\sndBloop</sound>
+    <sound>sound\sndSwish</sound>
   </sounds>
   <sprites name="sprites"/>
   <backgrounds name="background"/>
@@ -56,6 +57,9 @@
     <script>scripts\move_run_check.gml</script>
     <script>scripts\move_step_check.gml</script>
     <script>scripts\move_coll.gml</script>
+    <script>scripts\move_coll_run.gml</script>
+    <script>scripts\bloody_init.gml</script>
+    <script>scripts\bloody_check.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>
@@ -65,15 +69,17 @@
   <objects name="objects">
     <object>objects\oGame</object>
     <object>objects\oCreature</object>
-    <object>objects\oFollower</object>
     <object>objects\oPlayer</object>
+    <object>objects\oFollower</object>
     <object>objects\oNPC</object>
     <object>objects\oThing</object>
     <object>objects\oRoad</object>
     <object>objects\oFence</object>
     <object>objects\oTree</object>
+    <object>objects\oGrass</object>
     <object>objects\oSpace</object>
     <object>objects\oStump</object>
+    <object>objects\oStamped</object>
     <object>objects\oBlood</object>
     <object>objects\oMessage</object>
     <object>objects\oMessage2</object>

@@ -1,4 +1,4 @@
-var cell_current = oGame.map_update[x, y];
+//var cell_current = oGame.map_update[x, y];
 
 if move_timer == false
 {
@@ -9,7 +9,7 @@ if move_timer == false
             pos_prev();
             move_run_check();
             run_start();
-            move_coll();
+            move_coll_run();
         }
         else
         {
@@ -20,7 +20,7 @@ if move_timer == false
     {
         move_step_check();
     }
-    
+    oGame.map_update[x, y] = global.player;
 }
 else
 {

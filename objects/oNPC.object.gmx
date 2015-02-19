@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>event_inherited();
 
-char = '?';
-colour = c_purple;
+char = '$';
+colour = c_maroon;
 
 cell_current_left  = oGame.map_update[x - 1, y];
 cell_current_right = oGame.map_update[x + 1, y];
@@ -80,19 +80,22 @@ cell_current_right = oGame.map_update[x + 1, y];
 cell_current_top   = oGame.map_update[x, y - 1];
 cell_current_bot   = oGame.map_update[x, y + 1];
 
-move_rand();
+
 
 if (cell_current_left.object_index == oPlayer or cell_current_right.object_index == oPlayer or cell_current_top.object_index == oPlayer or cell_current_bot.object_index == oPlayer)
 {
     mess = instance_create(0, 0, oMessage);
     mess.parent = id;
 }
-else if instance_exists(oMessage)
-{
-    with(oMessage)
+else
+{   if instance_exists(oMessage)
     {
-        instance_destroy();
+        with(oMessage)
+        {
+            instance_destroy();
+        }
     }
+    move_rand();
 }
 
 if hp == 0

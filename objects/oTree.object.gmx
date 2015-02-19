@@ -27,12 +27,32 @@
             <kind>1</kind>
             <string>event_inherited();
 
-char = '*';
+/*
+char_options[0] = '/';
+char_options[1] = '/';
+char_options[2] = '/';
+char_options[3] = '/';
+char_options[4] = '/';
+char_options[5] = '/';
+char_options[6] = '/';
+
+char = char_options[irandom(6)];
+*/
+char = '/';
+
+/*
 hue = colour_get_hue(c_olive) + (irandom(80) - 40);
 val = colour_get_value(c_olive) + (irandom(80) - 40);
 colour = make_colour_hsv(hue, colour_get_saturation(c_olive), val);
+*/
+colour = c_gray;
 
 solid = true;
+
+anim = 0;
+anim_offset = 3;
+anim_timer_max = 30;
+anim_timer = anim_timer_max;
 </string>
           </argument>
         </arguments>
@@ -56,6 +76,18 @@ solid = true;
           <argument>
             <kind>1</kind>
             <string>event_inherited();
+
+if anim_timer &gt; 0
+{
+    anim_timer -= 1;
+}
+else
+{
+    anim += anim_offset;
+    anim_offset = -anim_offset;
+    anim_timer = anim_timer_max;
+}
+
 if hp == 0
 {
     audio_play_sound(sndCrash, 1, false);

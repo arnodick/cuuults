@@ -1,4 +1,4 @@
-var cell_current = oGame.map_update[x, y];
+//var cell_current = oGame.map_update[x, y];
 
 if move_timer == false
 {
@@ -33,12 +33,12 @@ if move_timer == false
         oGame.map_update[x, y] = oGame.map[x, y];
         x = pos_check[0];
         y = pos_check[1];
-        oGame.map_update[x, y] = id;
     }
     else
     {
         move_rand_start();
     }
+    oGame.map_update[x, y] = id;
 }
 else
 {

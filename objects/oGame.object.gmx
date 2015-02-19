@@ -43,13 +43,14 @@ global.player = instance_create(r_width / 2, r_height / 2, oPlayer);    //spawn 
 road = oRoad;
 tree = oTree;
 space = oSpace;
+grass = oGrass;
 NPC = oNPC;                             // do we need this one? not in any proc arrays i think
 stump = oStump;                         // same as above
 
 // array of objects for proc generation
 ground[0] = road;
-ground[1] = tree;
-ground[2] = space;
+ground[1] = grass;
+ground[2] = road;//space;
 
 generate = true;                        // if set to true, regenerates the level. set to true at create, bc gen code is in the STEP, not CREATE, so has to generate when game is started
 
@@ -106,7 +107,7 @@ if generate == true
                 switch(room_count)                                      // specific actions for each room
                 {
                     case 0:                                             // room 0
-                        if (a == 33 and b == 25)
+                        if (a == r_width / 2 and b == r_height / 2)
                         {
                             //map[a, b].hp = 0;                         // figure out a way to make this properly destroy object at spot?
                             map[a, b] = instance_create(a, b, oSpace);  // puts a space where player will spawn
@@ -142,7 +143,6 @@ if generate == true
                                                                     // NOTE: will have to figure out a way to DECREMENT this when returning to old room, once array saving is figured out
                                                                     
     map_update = map;                                              // sets the display array to the map array, so that terrain is redrawn, instead of leaving paths of the player character's symbol
-    
 }
 
 game_quit();

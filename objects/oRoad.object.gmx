@@ -29,6 +29,7 @@
 
 char = '.';
 colour = c_gray;
+colour = merge_colour(colour, c_black, y/48);
 </string>
           </argument>
         </arguments>
