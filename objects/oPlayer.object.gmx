@@ -39,8 +39,9 @@ speed_array[1] = speed_run;
 
 pos_check[2] = 0;
 
-move_timer_value = 0;
 move_timer = false;
+move_timer_count = 0;
+move_timer_max = 8;
 </string>
           </argument>
         </arguments>
@@ -88,63 +89,67 @@ switch (keyboard_key)
     
 }
 */
-if keyboard_check(vk_shift) and keyArrowspress() == true and move_timer == false
+if move_timer == false
 {
-    if move_timer == false
-    {
-        move_timer = true;
-    }
-    else
+    if keyboard_check(vk_shift)
     {
         if keyboard_check(vk_left)
         {
             pos_check[0] -= speed_run;
+            move_timer = true;
+            move_timer_count = move_timer_max;
         }
         else if keyboard_check(vk_right)
         {
             pos_check[0] += speed_run;
+            move_timer = true;
+            move_timer_count = move_timer_max;
         }
         if keyboard_check(vk_up)
         {
             pos_check[1] -= speed_run;
+            move_timer = true;
+            move_timer_count = move_timer_max;
         }
         else if keyboard_check(vk_down)
         {
             pos_check[1] += speed_run;
+            move_timer = true;
+            move_timer_count = move_timer_max;
         }
-        if move_timer_value == 0
+    }
+    else
+    {
+        if keyboard_check_pressed(vk_left)
         {
-            move_timer_value = 30;
+            pos_check[0] -= speed_run;
         }
-        else
+        else if keyboard_check_pressed(vk_right)
         {
-            move_timer_value -= 1;
+            pos_check[0] += speed_run;
         }
-        if move_timer == 0
+        if keyboard_check_pressed(vk_up)
         {
-            move_timer = false;
+            pos_check[1] -= speed_run;
+        }
+        else if keyboard_check_pressed(vk_down)
+        {
+            pos_check[1] += speed_run;
         }
     }
 }
 else
 {
-    if keyboard_check_pressed(vk_left)
+    if move_timer_count &gt; 0
     {
-        pos_check[0] -= speed_run;
+        move_timer_count -= 1;
     }
-    else if keyboard_check_pressed(vk_right)
+    else
     {
-        pos_check[0] += speed_run;
-    }
-    if keyboard_check_pressed(vk_up)
-    {
-        pos_check[1] -= speed_run;
-    }
-    else if keyboard_check_pressed(vk_down)
-    {
-        pos_check[1] += speed_run;
+        move_timer = false;
     }
 }
+
 
 
 var cell_next = oGame.map[round(pos_check[0]), round(pos_check[1])]
