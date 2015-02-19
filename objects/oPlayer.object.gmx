@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>-1</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>oThing</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
+event_inherited();
+
 
 char = '@';
 colour = c_white;
@@ -58,7 +60,9 @@ pos_check[2] = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>pos_check[0] = x;
+            <string>event_inherited();
+
+pos_check[0] = x;
 pos_check[1] = y;
 
 /*
@@ -118,6 +122,7 @@ else
     }
 }
 
+
 var cell_next = oGame.map[round(pos_check[0]), round(pos_check[1])]
 
 if cell_next != oGame.rock
@@ -129,7 +134,7 @@ if cell_next != oGame.rock
         oGame.generate = true;
         x = 63;
     }
-    else if x &gt; 63
+    else if x &gt;= 63
     {
         oGame.generate = true;
         x = 0;
@@ -139,7 +144,7 @@ if cell_next != oGame.rock
         oGame.generate = true;
         y = 47;
     }
-    else if y &gt; 47
+    else if y &gt;= 47
     {
         oGame.generate = true;
         y = 0;
@@ -147,9 +152,11 @@ if cell_next != oGame.rock
 }
 else
 {
-    cell_next = oGame.space;
-    if !audio_is_playing(sndBump)
+    //if !audio_is_playing(sndBump)
         audio_play_sound(sndBump, 1, false);
+        
+        if keyboard_check(vk_shift)
+            oGame.map[round(pos_check[0]), round(pos_check[1])] = oGame.stump;
 }
 oGame.map_display[round(x), round(y)] = global.player;
 </string>

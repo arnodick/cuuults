@@ -45,13 +45,15 @@
     <object>objects\oGame</object>
     <object>objects\oPlayer</object>
     <object>objects\oRoad</object>
+    <object>objects\oStump</object>
+    <object>objects\oFence</object>
     <object>objects\oRock</object>
     <object>objects\oSpace</object>
     <object>objects\oMan</object>
+    <object>objects\oThing</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rRoom0</room>
-    <room>rooms\rRoom1</room>
+    <room>rooms\rRoom</room>
   </rooms>
   <constants number="2">
     <constant name="GM_build_date">41968.6761868403</constant>

@@ -25,10 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>///Variables
+event_inherited();
 
-char = '*';
-colour = c_olive;
+char = '~';
+colour = c_maroon;
 </string>
           </argument>
         </arguments>

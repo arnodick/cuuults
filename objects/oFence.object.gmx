@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>event_inherited();
 
-char = '*';
-colour = c_olive;
+char = '\#';
+colour = c_gray;
 </string>
           </argument>
         </arguments>
