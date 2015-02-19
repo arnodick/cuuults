@@ -110,9 +110,9 @@ if move_timer == false
     {
         if keyboard_check(vk_shift) and run == true
         {
-            screen_shake(oScreen.shake_count_max_crash, 4*step_count);
+            screen_shake(oGame.shake_count_max_crash, 4*step_count);
             move_timer = true;
-            move_timer_count = oScreen.shake_count_max_crash;
+            move_timer_count = oGame.shake_count_max_crash;
             
             if step_count &gt; 4
             {
@@ -123,9 +123,9 @@ if move_timer == false
         }
         else
         {
-            screen_shake(oScreen.shake_count_max_bump, 4);
+            screen_shake(oGame.shake_count_max_bump, 4);
             move_timer = true;
-            move_timer_count = oScreen.shake_count_max_bump;
+            move_timer_count = oGame.shake_count_max_bump;
         }
         audio_play_sound(sndBump, 1, false);
         step_count = 0;
