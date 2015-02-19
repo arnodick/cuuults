@@ -43,7 +43,6 @@
   </fonts>
   <objects name="objects">
     <object>objects\oGame</object>
-    <object>objects\oScreen</object>
     <object>objects\oPlayer</object>
     <object>objects\oRoad</object>
     <object>objects\oStump</object>
@@ -52,6 +51,7 @@
     <object>objects\oSpace</object>
     <object>objects\oMan</object>
     <object>objects\oThing</object>
+    <object>objects\oMessage</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rRoom</room>

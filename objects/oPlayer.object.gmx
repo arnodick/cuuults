@@ -62,6 +62,8 @@ pos_check[2] = 0;
             <kind>1</kind>
             <string>event_inherited();
 
+var cell_current = oGame.map[x, y];
+
 pos_check[0] = x;
 pos_check[1] = y;
 
@@ -129,25 +131,25 @@ if cell_next != oGame.rock
 {
     x = pos_check[0];
     y = pos_check[1];
-    if x &lt; 0
+    if x &lt; 1
     {
         oGame.generate = true;
-        x = 63;
+        x = 64;
     }
-    else if x &gt;= 63
+    else if x &gt; 64
     {
         oGame.generate = true;
-        x = 0;
+        x = 1;
     }
-    if y &lt; 0
+    if y &lt; 1
     {
         oGame.generate = true;
-        y = 47;
+        y = 48;
     }
-    else if y &gt;= 47
+    else if y &gt; 48
     {
         oGame.generate = true;
-        y = 0;
+        y = 1;
     }
 }
 else
@@ -158,6 +160,18 @@ else
         if keyboard_check(vk_shift)
             oGame.map[round(pos_check[0]), round(pos_check[1])] = oGame.stump;
 }
+if cell_current == oGame.man
+{
+    instance_create(0, 0, oMessage);
+}
+else if instance_exists(oMessage)
+{
+    with(oMessage)
+    {
+        instance_destroy();
+    }
+}
+
 oGame.map_display[round(x), round(y)] = global.player;
 </string>
           </argument>

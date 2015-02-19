@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-500</depth>
+  <depth>-1000</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,30 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Variables
-randomize();
+            <string>font_size = font_get_size(fontScore);
+message_string = "you have to SHIFT things around!";
+message_length = string_length(message_string);
 
-tile_size = 10;
-r_width = room_width / tile_size;
-r_height = room_height / tile_size;
-
-road = instance_create(0, 0, oRoad);
-rock = instance_create(0, 0, oRock);
-space = instance_create(0, 0, oSpace);
-man = instance_create(0, 0, oMan);
-stump = instance_create(0, 0, oStump);
-
-ground[0] = road;
-ground[1] = rock;
-ground[2] = space;
-
-generate = true;
-
-map[r_width, r_height] = 0;
-map_display[r_width, r_height] = 0;
-
-room_count = 0;
-global.player = instance_create(r_width / 2, r_height / 2, oPlayer);
+window_length = (message_length * font_size);
+window_height = font_size * 3;
+window_centre[0] = room_width/2
+window_centre[1] = 45;
+window_left = window_centre[0] - window_length;
+window_right = window_centre[0] + window_length;
+window_top = window_centre[1] - window_height;
+window_bot = window_centre[1] + window_height;
 </string>
           </argument>
         </arguments>
@@ -71,33 +59,14 @@ global.player = instance_create(r_width / 2, r_height / 2, oPlayer);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string> /// Map Processing
-
-///Map Generate
-
-if generate == true
+            <string>if keyboard_check_pressed(vk_space)
 {
-    for (var a = 0; a &lt; r_width; a++)
-    {
-        for (var b = 0; b &lt; r_height; b++)
-        {
-            map[a, b] = ground[irandom(2)];
-            switch(room_count)
-            {
-                case 1:
-                    if (a == 32 and b == 24)
-                        map[a, b] = man;
-                break;
-                default:
-                break;
-            }
-        }
-    }
-    generate = false;
-    room_count += 1;
+    message_string = message_string + "!";
 }
-
-map_display = map;
+message_length = string_length(message_string);
+window_length = (message_length * font_size);
+window_left = window_centre[0] - window_length;
+window_right = window_centre[0] + window_length;
 </string>
           </argument>
         </arguments>
@@ -120,19 +89,9 @@ map_display = map;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw
-draw_set_font(fontScore);
-draw_set_halign(fa_center);
-//draw_set_colour(c_gray);
-for (var a = 0; a &lt; r_width; a++)
-{
-    for (var b = 0; b &lt; r_height; b++)
-    {
-        var cell = map_display[a, b];
-        draw_text_colour ( a * tile_size, b * tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
-    }
-}
-//draw_text (player.x * tile_size, player.y * tile_size, player.char);
+            <string>draw_rectangle_colour(window_left - font_size, window_top - font_size, window_right + font_size, window_bot + font_size, c_white, c_white, c_white, c_white, false);
+draw_rectangle_colour(window_left, window_top, window_right, window_bot, c_black, c_black, c_black, c_black, false);
+draw_text_colour(window_centre[0], window_centre[1], message_string, c_white, c_white, c_white, c_white, 1);
 </string>
           </argument>
         </arguments>
