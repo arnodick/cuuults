@@ -43,11 +43,11 @@
   </fonts>
   <objects name="objects">
     <object>objects\oGame</object>
-    <object>objects\oRoom</object>
+    <object>objects\oPlayer</object>
     <object>objects\oRoad</object>
     <object>objects\oRock</object>
     <object>objects\oSpace</object>
-    <object>objects\oPlayer</object>
+    <object>objects\oMan</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rRoom0</room>

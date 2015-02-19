@@ -30,8 +30,6 @@ colour = c_white;
 
 move_speed = 0.15;
 pos_check[2] = 0;
-
-room_str = "A";
 </string>
           </argument>
         </arguments>
@@ -71,28 +69,28 @@ switch (keyboard_key)
         pos_check[0] += move_speed;
         break;
 }
-if oGame.map[round(pos_check[0]), round(pos_check[1])] != oRoom.rock
+if oGame.map[round(pos_check[0]), round(pos_check[1])] != oGame.rock
 {
     x = pos_check[0];
     y = pos_check[1];
     if x &lt; 0
     {
-        oRoom.generate = true;
+        oGame.generate = true;
         x = 63;
     }
     else if x &gt; 63
     {
-        oRoom.generate = true;
+        oGame.generate = true;
         x = 0;
     }
     if y &lt; 0
     {
-        oRoom.generate = true;
+        oGame.generate = true;
         y = 47;
     }
     else if y &gt; 47
     {
-        oRoom.generate = true;
+        oGame.generate = true;
         y = 0;
     }
 }
