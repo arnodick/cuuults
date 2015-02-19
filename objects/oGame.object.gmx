@@ -71,7 +71,7 @@ global.player = instance_create(r_width / 2, r_height / 2, oPlayer);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string> /// Map Processing
+            <string>/// Map Processing
 
 ///Map Generate
 
