@@ -25,10 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>char = '@';
+            <string>///Variables
+
+char = '@';
 colour = c_white;
 
-move_speed = 0.15;
+speed_walk = 0.15;
+speed_run = 1;
+speed_array[0] = speed_walk;
+speed_array[1] = speed_run;
+
 pos_check[2] = 0;
 </string>
           </argument>
@@ -54,8 +60,9 @@ pos_check[2] = 0;
             <kind>1</kind>
             <string>pos_check[0] = x;
 pos_check[1] = y;
+/*
 switch (keyboard_key)
-{
+{   
     case vk_up:
         pos_check[1] -= move_speed;
         break;
@@ -68,7 +75,48 @@ switch (keyboard_key)
     case vk_right:
         pos_check[0] += move_speed;
         break;
+    
 }
+*/
+if keyboard_check(vk_shift)
+{
+    if keyboard_check(vk_left)
+    {
+        pos_check[0] -= speed_walk;
+    }
+    else if keyboard_check(vk_right)
+    {
+        pos_check[0] += speed_walk;
+    }
+    if keyboard_check(vk_up)
+    {
+        pos_check[1] -= speed_walk;
+    }
+    else if keyboard_check(vk_down)
+    {
+        pos_check[1] += speed_walk;
+    }
+}
+else
+{
+    if keyboard_check_pressed(vk_left)
+    {
+        pos_check[0] -= speed_run;
+    }
+    else if keyboard_check_pressed(vk_right)
+    {
+        pos_check[0] += speed_run;
+    }
+    if keyboard_check_pressed(vk_up)
+    {
+        pos_check[1] -= speed_run;
+    }
+    else if keyboard_check_pressed(vk_down)
+    {
+        pos_check[1] += speed_run;
+    }
+}
+
 if oGame.map[round(pos_check[0]), round(pos_check[1])] != oGame.rock
 {
     x = pos_check[0];
