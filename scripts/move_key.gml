@@ -2,26 +2,25 @@ var cell_current = oGame.map_display[x, y];
 
 if move_timer == false
 {
-    if arrows_check() == true
+    if keyboard_check(vk_shift) and run == true
     {
-        pos_prev();
-        if keyboard_check(vk_shift) and run == true
+        if arrows_check() == true
         {
+            pos_prev();
             move_run_check();
             run_start();
         }
         else
         {
-            move_step_check();
+            step_stop();
         }
-
     }
     else
     {
-        step_stop();
+        move_step_check();
     }
     
-    var cell_next = oGame.map[pos_check[0], pos_check[1]];
+    var cell_next = oGame.map_display[pos_check[0], pos_check[1]];
 
     if cell_next.solid == false
     {

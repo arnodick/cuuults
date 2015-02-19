@@ -32,6 +32,8 @@ event_inherited();
 char = '@'; //graphic
 colour = c_white; //colour
 
+solid = false;
+
 // Player attributes + variables
 shift_time = 0;
 step_count = 0;
@@ -43,6 +45,7 @@ pos_2nd_last[0] = x;
 pos_2nd_last[1] = y;
 pos_3rd_last[0] = x;
 pos_3rd_last[1] = y;
+
 pos_check[2] = 0;
 
 move_timer = false;

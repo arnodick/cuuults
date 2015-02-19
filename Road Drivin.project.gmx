@@ -51,6 +51,8 @@
     <script>scripts\screen_shake_init.gml</script>
     <script>scripts\pos_prev.gml</script>
     <script>scripts\move_key.gml</script>
+    <script>scripts\move_rand.gml</script>
+    <script>scripts\move_rand_start.gml</script>
     <script>scripts\move_run_check.gml</script>
     <script>scripts\move_step_check.gml</script>
   </scripts>
