@@ -36,20 +36,6 @@ cell_current_top   = oGame.map_display[x, y - 1];
 cell_current_bot   = oGame.map_display[x, y + 1];
 
 dir = 0;
-
-pos_last[0] = x;
-pos_last[1] = y;
-pos_2nd_last[0] = x;
-pos_2nd_last[1] = y;
-pos_3rd_last[0] = x;
-pos_3rd_last[1] = y;
-
-pos_check[2] = 0;
-
-move_timer = false;
-move_timer_count = 0;
-move_timer_max = 30;
-move_time_mult = 3;
 </string>
           </argument>
         </arguments>
@@ -73,14 +59,13 @@ move_time_mult = 3;
           <argument>
             <kind>1</kind>
             <string>///Controller
+
 event_inherited();
 
 cell_current_left  = oGame.map_display[x - 1, y];
 cell_current_right = oGame.map_display[x + 1, y];
 cell_current_top   = oGame.map_display[x, y - 1];
 cell_current_bot   = oGame.map_display[x, y + 1];
-
-move_rand();
 
 if (cell_current_left.object_index == oPlayer or cell_current_right.object_index == oPlayer or cell_current_top.object_index == oPlayer or cell_current_bot.object_index == oPlayer)
 {

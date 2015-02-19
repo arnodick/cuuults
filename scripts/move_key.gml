@@ -15,12 +15,17 @@ if move_timer == false
             step_stop();
         }
     }
-    else
+    else if arrows_check() == true
     {
+        pos_prev();
         move_step_check();
     }
+    else
+    {
+        step_stop();
+    }
     
-    var cell_next = oGame.map_display[pos_check[0], pos_check[1]];
+    var cell_next = oGame.map[pos_check[0], pos_check[1]];
 
     if cell_next.solid == false
     {

@@ -32,8 +32,6 @@ event_inherited();
 char = '@'; //graphic
 colour = c_white; //colour
 
-solid = false;
-
 // Player attributes + variables
 shift_time = 0;
 step_count = 0;

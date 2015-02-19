@@ -14,3 +14,4 @@ else if keyboard_check(vk_down)
 {
     pos_check[1] += move_distance;
 }
+
