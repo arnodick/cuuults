@@ -36,6 +36,8 @@ colour = c_white; //colour
 shift_time = 0;
 step_count = 0;
 
+pos_last[2] = 0;
+pos_2nd_last[2] = 0;
 pos_check[2] = 0;
 
 move_timer = false;
@@ -46,6 +48,8 @@ move_time_mult = 3;
 //run = false;
 run = true; // delete this and un-comment the above line when not testing run mechanics
 oGame.map[x, y] = instance_create(x, y, oSpace);
+
+global.follower = instance_create(x + 1, y, oFollower);
 </string>
           </argument>
         </arguments>
@@ -72,7 +76,7 @@ oGame.map[x, y] = instance_create(x, y, oSpace);
 
 event_inherited();
 
-var cell_current = oGame.map[x, y];
+var cell_current = oGame.map_display[x, y];
 
 if move_timer == false
 {
@@ -93,6 +97,7 @@ if move_timer == false
         {
             step_count += 1;
         }
+        oGame.map_display[x, y] = oGame.map[x, y];
         x = pos_check[0];
         y = pos_check[1];
     }
@@ -108,6 +113,7 @@ if move_timer == false
             {
                 oGame.map[pos_check[0], pos_check[1]].hp = 0;
                 oGame.map[pos_check[0], pos_check[1]] = instance_create(pos_check[0], pos_check[1], oGame.map[pos_check[0], pos_check[1]].dead);
+                oGame.map_display[pos_check[0], pos_check[1]] = oGame.map[pos_check[0], pos_check[1]];
             }
         }
         else

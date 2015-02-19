@@ -58,6 +58,7 @@
   <objects name="objects">
     <object>objects\oGame</object>
     <object>objects\oCreature</object>
+    <object>objects\oFollower</object>
     <object>objects\oPlayer</object>
     <object>objects\oNPC</object>
     <object>objects\oThing</object>
