@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>-1</persistent>
-  <parentName>oThing</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,22 +26,21 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
-event_inherited();
+//event_inherited();
 
 
 char = '@';
 colour = c_white;
 
-speed_walk = 0.15;
 speed_run = 1;
-speed_array[0] = speed_walk;
-speed_array[1] = speed_run;
 
 pos_check[2] = 0;
 
 move_timer = false;
 move_timer_count = 0;
 move_timer_max = 8;
+
+run = false;
 </string>
           </argument>
         </arguments>
@@ -91,7 +90,7 @@ switch (keyboard_key)
 */
 if move_timer == false
 {
-    if keyboard_check(vk_shift)
+    if keyboard_check(vk_shift) and run == true
     {
         if keyboard_check(vk_left)
         {
@@ -152,9 +151,9 @@ else
 
 
 
-var cell_next = oGame.map[round(pos_check[0]), round(pos_check[1])]
+var cell_next = oGame.map[pos_check[0], pos_check[1]]
 
-if cell_next != oGame.rock
+if cell_next.object_index != oRock
 {
     x = pos_check[0];
     y = pos_check[1];
@@ -184,14 +183,14 @@ else
     //if !audio_is_playing(sndBump)
         audio_play_sound(sndBump, 1, false);
         
-        if keyboard_check(vk_shift)
+        if keyboard_check(vk_shift) and run == true
         {
-            oGame.map[round(pos_check[0]), round(pos_check[1])] = oGame.stump;
+            oGame.map[pos_check[0], pos_check[1]] = instance_create(pos_check[0], pos_check[1], oStump);
             audio_play_sound(1, sndCrash, false);
             move_timer_count = move_timer_max * 2;
         }
 }
-if cell_current == oGame.man
+if cell_current.object_index == oMan
 {
     instance_create(0, 0, oMessage);
 }
@@ -203,7 +202,7 @@ else if instance_exists(oMessage)
     }
 }
 
-oGame.map_display[round(x), round(y)] = global.player;
+oGame.map_display[x, y] = global.player;
 </string>
           </argument>
         </arguments>

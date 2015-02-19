@@ -25,19 +25,23 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//font_size = font_get_size(fontScore);
-font_width = oGame.tile_size;
+            <string>font_size = font_get_size(fontScore);
 message_string = "you have to SHIFT things around!";
 message_length = string_length(message_string);
 
-window_length = (message_length * font_width) + 10;
-window_height = font_width * 3;
+window_length = (message_length * font_size);
+window_height = font_size * 3;
 window_centre[0] = room_width/2
 window_centre[1] = 45;
-window_left = window_centre[0] - window_length/2;
-window_right = window_centre[0] + window_length/2;
+window_left = window_centre[0] - window_length;
+window_right = window_centre[0] + window_length;
 window_top = window_centre[1] - window_height;
 window_bot = window_centre[1] + window_height;
+
+if global.player.run == false
+{
+    global.player.run = true;
+}
 </string>
           </argument>
         </arguments>
@@ -65,9 +69,9 @@ window_bot = window_centre[1] + window_height;
     message_string = message_string + "!";
 }
 message_length = string_length(message_string);
-window_length = (message_length * font_width);
-window_left = window_centre[0] - window_length/2;
-window_right = window_centre[0] + window_length/2;
+window_length = (message_length * font_size);
+window_left = window_centre[0] - window_length;
+window_right = window_centre[0] + window_length;
 </string>
           </argument>
         </arguments>
@@ -90,7 +94,7 @@ window_right = window_centre[0] + window_length/2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_rectangle_colour(window_left - font_width, window_top - font_width, window_right + font_width, window_bot + font_width, c_white, c_white, c_white, c_white, false);
+            <string>draw_rectangle_colour(window_left - font_size, window_top - font_size, window_right + font_size, window_bot + font_size, c_white, c_white, c_white, c_white, false);
 draw_rectangle_colour(window_left, window_top, window_right, window_bot, c_black, c_black, c_black, c_black, false);
 draw_text_colour(window_centre[0], window_centre[1], message_string, c_white, c_white, c_white, c_white, 1);
 </string>

@@ -32,11 +32,11 @@ tile_size = 10;
 r_width = room_width / tile_size;
 r_height = room_height / tile_size;
 
-road = instance_create(0, 0, oRoad);
-rock = instance_create(0, 0, oRock);
-space = instance_create(0, 0, oSpace);
-man = instance_create(0, 0, oMan);
-stump = instance_create(0, 0, oStump);
+road = oRoad;
+rock = oRock;
+space = oSpace;
+man = oMan;
+stump = oStump;
 
 ground[0] = road;
 ground[1] = rock;
@@ -77,16 +77,20 @@ global.player = instance_create(r_width / 2, r_height / 2, oPlayer);
 
 if generate == true
 {
+    with(oThing)
+    {
+        instance_destroy();
+    }
     for (var a = 0; a &lt; r_width; a++)
     {
         for (var b = 0; b &lt; r_height; b++)
         {
-            map[a, b] = ground[irandom(2)];
+            map[a, b] = instance_create(a, b, ground[irandom(2)]); 
             switch(room_count)
             {
                 case 1:
                     if (a == 32 and b == 24)
-                        map[a, b] = man;
+                        map[a, b] = instance_create(a, b, man);
                 break;
                 default:
                 break;
