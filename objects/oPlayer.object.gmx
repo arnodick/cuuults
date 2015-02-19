@@ -60,6 +60,7 @@ pos_check[2] = 0;
             <kind>1</kind>
             <string>pos_check[0] = x;
 pos_check[1] = y;
+
 /*
 switch (keyboard_key)
 {   
@@ -117,7 +118,9 @@ else
     }
 }
 
-if oGame.map[round(pos_check[0]), round(pos_check[1])] != oGame.rock
+var cell_next = oGame.map[round(pos_check[0]), round(pos_check[1])]
+
+if cell_next != oGame.rock
 {
     x = pos_check[0];
     y = pos_check[1];
@@ -142,9 +145,11 @@ if oGame.map[round(pos_check[0]), round(pos_check[1])] != oGame.rock
         y = 0;
     }
 }
-else if !audio_is_playing(sndBump)
+else
 {
-    audio_play_sound(sndBump, 1, false);
+    cell_next = oGame.space;
+    if !audio_is_playing(sndBump)
+        audio_play_sound(sndBump, 1, false);
 }
 oGame.map_display[round(x), round(y)] = global.player;
 </string>
