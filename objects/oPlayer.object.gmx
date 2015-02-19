@@ -38,6 +38,9 @@ speed_array[0] = speed_walk;
 speed_array[1] = speed_run;
 
 pos_check[2] = 0;
+
+move_timer_value = 0;
+move_timer = false;
 </string>
           </argument>
         </arguments>
@@ -85,23 +88,42 @@ switch (keyboard_key)
     
 }
 */
-if keyboard_check(vk_shift)
+if keyboard_check(vk_shift) and keyArrowspress() == true and move_timer == false
 {
-    if keyboard_check(vk_left)
+    if move_timer == false
     {
-        pos_check[0] -= speed_walk;
+        move_timer = true;
     }
-    else if keyboard_check(vk_right)
+    else
     {
-        pos_check[0] += speed_walk;
-    }
-    if keyboard_check(vk_up)
-    {
-        pos_check[1] -= speed_walk;
-    }
-    else if keyboard_check(vk_down)
-    {
-        pos_check[1] += speed_walk;
+        if keyboard_check(vk_left)
+        {
+            pos_check[0] -= speed_run;
+        }
+        else if keyboard_check(vk_right)
+        {
+            pos_check[0] += speed_run;
+        }
+        if keyboard_check(vk_up)
+        {
+            pos_check[1] -= speed_run;
+        }
+        else if keyboard_check(vk_down)
+        {
+            pos_check[1] += speed_run;
+        }
+        if move_timer_value == 0
+        {
+            move_timer_value = 30;
+        }
+        else
+        {
+            move_timer_value -= 1;
+        }
+        if move_timer == 0
+        {
+            move_timer = false;
+        }
     }
 }
 else

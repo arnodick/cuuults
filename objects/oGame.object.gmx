@@ -87,7 +87,7 @@ if generate == true
                 case 1:
                     if (a == 32 and b == 24)
                         map[a, b] = man;
-                        map.colour = make_colour_rgb(irandom(225), irandom(225), irandom(225));
+                        //map.colour = make_colour_rgb(irandom(225), irandom(225), irandom(225));
                 break;
                 default:
                 break;
@@ -130,7 +130,6 @@ for (var a = 0; a &lt; r_width; a++)
     for (var b = 0; b &lt; r_height; b++)
     {
         var cell = map_display[a, b];
-        draw_text_colour ( a * tile_size, b * tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
     }
 }
 //draw_text (player.x * tile_size, player.y * tile_size, player.char);
