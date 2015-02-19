@@ -34,6 +34,8 @@ colour = c_white;
 
 speed_run = 1;
 
+shift_time = 0;
+
 pos_check[2] = 0;
 
 move_timer = false;
@@ -87,6 +89,16 @@ switch (keyboard_key)
     
 }
 */
+
+if keyboard_check(vk_shift)
+{
+    shift_time += 1;
+}
+else
+{
+    shift_time = 0;
+}
+
 if move_timer == false
 {
     if keyboard_check(vk_shift) and run == true
@@ -101,7 +113,18 @@ if move_timer == false
         {
             pos_check[0] += speed_run;
             move_timer = true;
-            move_timer_count = move_timer_max;
+            if shift_time &gt;= 0
+            {
+                move_timer_count = move_timer_max*3;
+            }
+            if shift_time &gt; 30
+            {
+                move_timer_count = move_timer_max*4;
+            }
+            if shift_time &gt; 60
+            {
+                move_timer_count = move_timer_max/2;
+            }
         }
         if keyboard_check(vk_up)
         {
