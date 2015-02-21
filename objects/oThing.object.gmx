@@ -63,6 +63,9 @@ italic = false;
             <kind>1</kind>
             <string>///Controller
 
+colour = merge_colour(colour, c_black, point_distance(x, y, global.player.x, global.player.y) );
+//colour = merge_colour(colour, c_black, (point_distance(x, y, global.player.x, global.player.y))/640 );
+
 if hp == 0
 {
     instance_destroy();
