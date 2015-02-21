@@ -47,7 +47,7 @@ colour = make_colour_hsv(hue, colour_get_saturation(c_olive), val);
 */
 colour_init = c_silver;
 colour = colour_init;
-//colour = merge_colour(colour, c_black, y/48);
+colour = merge_colour(colour, c_black, y/48);
 
 solid = false;
 
