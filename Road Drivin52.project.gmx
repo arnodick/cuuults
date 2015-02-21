@@ -18,27 +18,11 @@
   <scripts name="scripts">
     <script>scripts\textfileLength.gml</script>
     <script>scripts\textfileReadlines.gml</script>
-    <script>scripts\screenInit.gml</script>
-    <script>scripts\screenBegin.gml</script>
-    <script>scripts\screenEnd.gml</script>
-    <script>scripts\screenInitSurfaces.gml</script>
-    <script>scripts\screenBeginSurfaces.gml</script>
-    <script>scripts\screenEndSurfaces.gml</script>
-    <script>scripts\gamepadsInit.gml</script>
     <script>scripts\menuInit.gml</script>
     <script>scripts\menuCreate.gml</script>
     <script>scripts\menuSelect.gml</script>
     <script>scripts\menuConfirm.gml</script>
     <script>scripts\menuButtons.gml</script>
-    <script>scripts\collHor.gml</script>
-    <script>scripts\collVer.gml</script>
-    <script>scripts\createPaddles.gml</script>
-    <script>scripts\createDefense.gml</script>
-    <script>scripts\createOffense.gml</script>
-    <script>scripts\createSidewall.gml</script>
-    <script>scripts\createHorizontalwall.gml</script>
-    <script>scripts\createSide.gml</script>
-    <script>scripts\createParticles.gml</script>
     <script>scripts\arrows_check.gml</script>
     <script>scripts\run_start.gml</script>
     <script>scripts\step_stop.gml</script>
