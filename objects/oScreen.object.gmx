@@ -109,8 +109,8 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
     }
 }
 
-draw_set_colour(c_red);
-draw_text(32, 32, "FPS = " + string(fps_real));
+//draw_set_colour(c_red);
+//draw_text(32, 32, "FPS = " + string(fps_real));
 </string>
           </argument>
         </arguments>

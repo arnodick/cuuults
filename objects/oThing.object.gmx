@@ -30,7 +30,8 @@ hp = 1;
 
 char = '#';
 colour_init = c_maroon;
-colour = merge_colour(colour_init, c_black, y/oGame.r_height);
+colour = colour_init;
+colour = merge_colour(colour, c_black, y/oGame.r_height);
 
 solid = false;
 
@@ -64,9 +65,8 @@ italic = false;
             <string>///Controller
 
 //colour = merge_colour(colour, c_black, point_distance(x, y, global.player.x, global.player.y) );
-
-//colour = colour_init;
-//colour = merge_colour(colour, c_black, (point_distance(x, y, global.player.x, global.player.y))/10 );
+colour = colour_init;
+colour = merge_colour(colour, c_black, (point_distance(x, y, global.player.x, global.player.y))/10 );
 
 if hp == 0
 {
