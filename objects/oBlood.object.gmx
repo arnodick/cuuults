@@ -62,6 +62,16 @@ cell_adj[7] = oGame.map[x - 1   ,  y - 1    ];
           <argument>
             <kind>1</kind>
             <string>// to do: put a timer on this, so it's not calculating random numbers every step. more efficient
+
+cell_adj[0] = oGame.map[x       ,  y - 1    ];
+cell_adj[1] = oGame.map[x + 1   ,  y - 1    ];
+cell_adj[2] = oGame.map[x + 1   ,  y        ];
+cell_adj[3] = oGame.map[x + 1   ,  y + 1    ];
+cell_adj[4] = oGame.map[x       ,  y + 1    ];
+cell_adj[5] = oGame.map[x - 1   ,  y + 1    ];
+cell_adj[6] = oGame.map[x - 1   ,  y        ];
+cell_adj[7] = oGame.map[x - 1   ,  y - 1    ];
+
 if random(100) &lt; 1
 {
     cell_adj[irandom_range(0, 7)].colour = c_red;

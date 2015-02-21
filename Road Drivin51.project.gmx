@@ -63,6 +63,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>
+    <font>fonts\fontScore_italic</font>
     <font>fonts\font2</font>
     <font>fonts\fontLib</font>
   </fonts>

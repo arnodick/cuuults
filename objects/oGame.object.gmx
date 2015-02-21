@@ -50,7 +50,7 @@ stump = oStump;                         // same as above
 // array of objects for proc generation
 ground[0] = road;
 ground[1] = grass;
-ground[2] = road;//space;
+ground[2] = space;
 
 generate = true;                        // if set to true, regenerates the level. set to true at create, bc gen code is in the STEP, not CREATE, so has to generate when game is started
 

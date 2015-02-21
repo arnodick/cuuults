@@ -52,8 +52,8 @@ move_timer_count = 0;
 move_timer_max = 8;
 move_time_mult = 3;
 
-run = false;
-//run = true; // delete this and un-comment the above line when not testing run mechanics
+//run = false;
+run = true; // delete this and un-comment the above line when not testing run mechanics
 oGame.map[x, y] = instance_create(x, y, oSpace);
 
 //global.follower = instance_create(x + 1, y, oFollower);

@@ -38,6 +38,7 @@ anim = 0;
 
 dead = oStump;
 
+italic = false;
 </string>
           </argument>
         </arguments>
