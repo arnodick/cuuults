@@ -45,8 +45,7 @@ hue = colour_get_hue(c_olive) + (irandom(80) - 40);
 val = colour_get_value(c_olive) + (irandom(80) - 40);
 colour = make_colour_hsv(hue, colour_get_saturation(c_olive), val);
 */
-colour_init = c_silver;
-colour = colour_init;
+colour = c_silver;
 colour = merge_colour(colour, c_black, y/48);
 
 solid = false;
@@ -81,9 +80,6 @@ dead = oStamped;
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-
-colour = colour_init;
-//colour = merge_colour(colour, c_black, (point_distance(x, y, global.player.x, global.player.y))/100 );
 
 cell_current = oGame.map_update[x, y];
 

@@ -97,8 +97,8 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
     for (var b = 0; b &lt; r_height; b++)
     {
         var cell = map_draw[a, b];   // captures the current cell of the array in a temp var
-        draw_set_font(font[cell.italic]);
-        draw_text_colour ( a * tile_size + shake + cell.anim, b * tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
+        //draw_set_font(font[cell.italic]);
+        draw_text_colour ( a * tile_size + shake /*+ cell.anim*/, b * tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
                                         // draws the cell's font with the cell's colour to it's proper spot on the screen
                                         // NOTE: THIS IS DRAWING THE SHAKE OFFSET STUFF! set it so it only draws normal, put shake in shake function
         if shaking == true              // checks if shake is on, if so, draws shake-offset characters
