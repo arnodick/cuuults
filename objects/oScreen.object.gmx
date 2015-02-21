@@ -38,11 +38,6 @@ screen_shake_init();
 
 font[0] = fontScore;
 font[1] = fontScore_italic;
-
-flip = false;
-
-timer_init = 50;
-timer = timer_init;
 </string>
           </argument>
         </arguments>
@@ -69,16 +64,6 @@ timer = timer_init;
 
 //map_draw[r_width, r_height] = 0;
 map_draw = oGame.map_update;
-
-if (timer &gt; 0)
-{
-    timer -= 1;
-}
-else
-{
-    timer = timer_init;
-    flip = !flip;
-}
 
 screen_shake_check();   // checks if the screen is set to shake, then sets shake values
 </string>
@@ -112,9 +97,8 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
     for (var b = 0; b &lt; r_height; b++)
     {
         var cell = map_draw[a, b];   // captures the current cell of the array in a temp var
-        //draw_set_font(font[cell.italic]);
-        draw_sprite(spritey, flip, a*10, b*10);
-        //draw_text_colour ( a * tile_size + shake + cell.anim, b * tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
+        draw_set_font(font[cell.italic]);
+        draw_text_colour ( a * tile_size + shake + cell.anim, b * tile_size, cell.char, cell.colour, cell.colour, cell.colour, cell.colour, 1);
                                         // draws the cell's font with the cell's colour to it's proper spot on the screen
                                         // NOTE: THIS IS DRAWING THE SHAKE OFFSET STUFF! set it so it only draws normal, put shake in shake function
         if shaking == true              // checks if shake is on, if so, draws shake-offset characters
@@ -125,8 +109,8 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
     }
 }
 
-draw_set_colour(c_gray);
-draw_text(32, 32, "FPS = " + string(round(fps_real)));
+draw_set_colour(c_red);
+draw_text(32, 32, "FPS = " + string(fps_real));
 </string>
           </argument>
         </arguments>

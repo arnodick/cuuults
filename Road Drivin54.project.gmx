@@ -12,10 +12,7 @@
     <sound>sound\sndBloop</sound>
     <sound>sound\sndSwish</sound>
   </sounds>
-  <sprites name="sprites">
-    <sprite>sprites\spritey</sprite>
-    <sprite>sprites\sprite1</sprite>
-  </sprites>
+  <sprites name="sprites"/>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
