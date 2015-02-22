@@ -31,6 +31,8 @@
     <script>scripts\check_OOB.gml</script>
     <script>scripts\key_arrows_check.gml</script>
     <script>scripts\move_rand.gml</script>
+    <script>scripts\move_dir_grass.gml</script>
+    <script>scripts\move_dir_object.gml</script>
     <script>scripts\move_rand_start.gml</script>
     <script>scripts\move_key.gml</script>
     <script>scripts\move_pos_prev.gml</script>
@@ -54,6 +56,8 @@
     <object>objects\oThing</object>
     <object>objects\oPlayer</object>
     <object>objects\oNPC</object>
+    <object>objects\oLawnmower</object>
+    <object>objects\oPlanter</object>
     <object>objects\oFollower</object>
     <object>objects\oGrass</object>
     <object>objects\oRoad</object>
