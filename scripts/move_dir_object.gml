@@ -1,27 +1,29 @@
 //var cell_current = oGame.map_update[x, y];
-
+var nearest_object = instance_nearest(x, y, argument0);
 if move_timer == false
 {
-    if      cell_current_left.object_index   == argument0
+    if (floor(nearest_object.x) < x)
     {
         dir = 0;
     }
-    else if cell_current_right.object_index  == argument0
+    if (floor(nearest_object.x) > x)
     {
         dir = 1;
     }
-    else if cell_current_top.object_index    == argument0
+    if (floor(nearest_object.y) < y)
     {
         dir = 2;
     }
-    else if cell_current_bot.object_index    == argument0
+    if (floor(nearest_object.y) > y)
     {
         dir = 3;
     }
+    /*
     else
     {
         dir = irandom(4);
     }
+    */
     
     switch(dir)
     {

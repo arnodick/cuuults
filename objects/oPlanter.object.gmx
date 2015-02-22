@@ -78,8 +78,30 @@ cell_current_right = oGame.map_update[x + 1, y];
 cell_current_top   = oGame.map_update[x, y - 1];
 cell_current_bot   = oGame.map_update[x, y + 1];
 
+move_dir_object(oStamped);
 
-move_dir_grass();
+/*
+if cell_current_left.object_index == oStamped
+{
+    thing_place(cell_current_left, oGrass);
+}
+else if cell_current_right.object_index == oStamped
+{
+    thing_place(cell_current_right, oGrass);
+}
+else if cell_current_top.object_index == oStamped
+{
+    thing_place(cell_current_top, oGrass);
+}
+else if cell_current_bot.object_index == oStamped
+{
+    thing_place(cell_current_bot, oGrass);
+}
+else
+{
+    move_dir_object(oStamped);
+}
+*/
 
 if hp == 0
 {

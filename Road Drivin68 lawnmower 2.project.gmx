@@ -45,6 +45,7 @@
     <script>scripts\bloody_init.gml</script>
     <script>scripts\bloody_check.gml</script>
     <script>scripts\game_quit.gml</script>
+    <script>scripts\thing_place.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>
