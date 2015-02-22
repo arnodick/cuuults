@@ -16,34 +16,32 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\textfileLength.gml</script>
-    <script>scripts\textfileReadlines.gml</script>
-    <script>scripts\menuInit.gml</script>
-    <script>scripts\menuCreate.gml</script>
-    <script>scripts\menuSelect.gml</script>
-    <script>scripts\menuConfirm.gml</script>
-    <script>scripts\menuButtons.gml</script>
-    <script>scripts\arrows_check.gml</script>
-    <script>scripts\move_run_start.gml</script>
-    <script>scripts\move_stop.gml</script>
-    <script>scripts\check_walking.gml</script>
-    <script>scripts\check_running.gml</script>
-    <script>scripts\check_OOB.gml</script>
-    <script>scripts\game_quit.gml</script>
+    <script>scripts\textfile_length.gml</script>
+    <script>scripts\textfile_readlines.gml</script>
+    <script>scripts\menu_init.gml</script>
+    <script>scripts\menu_create.gml</script>
+    <script>scripts\menu_select.gml</script>
+    <script>scripts\menu_confirm.gml</script>
+    <script>scripts\menu_buttons.gml</script>
     <script>scripts\screen_shake.gml</script>
     <script>scripts\screen_shake_check.gml</script>
     <script>scripts\screen_shake_draw.gml</script>
     <script>scripts\screen_shake_init.gml</script>
+    <script>scripts\check_OOB.gml</script>
+    <script>scripts\arrows_check.gml</script>
     <script>scripts\pos_prev.gml</script>
-    <script>scripts\move_key.gml</script>
     <script>scripts\move_rand.gml</script>
     <script>scripts\move_rand_start.gml</script>
-    <script>scripts\move_run_check.gml</script>
-    <script>scripts\move_step_check.gml</script>
+    <script>scripts\move_key.gml</script>
+    <script>scripts\move_step_dir.gml</script>
+    <script>scripts\move_run_dir.gml</script>
+    <script>scripts\move_run_start.gml</script>
     <script>scripts\move_coll.gml</script>
     <script>scripts\move_coll_run.gml</script>
+    <script>scripts\move_stop.gml</script>
     <script>scripts\bloody_init.gml</script>
     <script>scripts\bloody_check.gml</script>
+    <script>scripts\game_quit.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>

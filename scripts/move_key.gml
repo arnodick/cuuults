@@ -7,7 +7,7 @@ if move_timer == false
         if arrows_check() == true
         {
             pos_prev();
-            move_run_check();
+            move_run_dir();
             move_run_start();
             move_coll_run();
         }
@@ -18,7 +18,7 @@ if move_timer == false
     }
     else
     {
-        move_step_check();
+        move_step_dir();
     }
     oGame.map_update[x, y] = global.player;
 }
