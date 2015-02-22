@@ -34,8 +34,11 @@ colour = merge_colour(colour, c_black, y/oGame.r_height);
 
 solid = false;
 
+move_distance = 1;
+
 dead = oStamped;
 
+is_creature = false;
 //anim = 0;
 //italic = false;
 </string>
@@ -61,10 +64,13 @@ dead = oStamped;
           <argument>
             <kind>1</kind>
             <string>///Controller
+pos_check[0] = x;
+pos_check[1] = y;
 
 if hp == 0
 {
     instance_destroy();
+    oGame.map[x, y] = instance_create(x, y, dead);
 }
 </string>
           </argument>

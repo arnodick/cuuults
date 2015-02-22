@@ -127,12 +127,17 @@ if generate == true
 {
     with(oThing)                                                    // destroys all the oThings in the room (NOTE: does this NOT destroy the NPC?)
     {
-        instance_destroy();
+        if (is_creature != true)
+        {
+            instance_destroy();
+        }
     }
+    /*
     with(oNPC)
     {
         instance_destroy();
     }
+    */
     for (var a = 0; a &lt; r_width; a++)                               // loops through each cell of the map array
     {
         for (var b = 0; b &lt; r_height; b++)
