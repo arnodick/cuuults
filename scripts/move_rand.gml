@@ -22,7 +22,7 @@ if move_timer == false
         move_rand_start();
     break;
     default:
-            step_stop();
+            move_stop();
     break;
     }
     

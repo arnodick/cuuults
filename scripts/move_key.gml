@@ -8,12 +8,12 @@ if move_timer == false
         {
             pos_prev();
             move_run_check();
-            run_start();
+            move_run_start();
             move_coll_run();
         }
         else
         {
-            step_stop();
+            move_stop();
         }
     }
     else

@@ -24,8 +24,8 @@
     <script>scripts\menuConfirm.gml</script>
     <script>scripts\menuButtons.gml</script>
     <script>scripts\arrows_check.gml</script>
-    <script>scripts\run_start.gml</script>
-    <script>scripts\step_stop.gml</script>
+    <script>scripts\move_run_start.gml</script>
+    <script>scripts\move_stop.gml</script>
     <script>scripts\check_walking.gml</script>
     <script>scripts\check_running.gml</script>
     <script>scripts\check_OOB.gml</script>
@@ -68,7 +68,6 @@
     <object>objects\oBlood</object>
     <object>objects\oMessage</object>
     <object>objects\oMessage2</object>
-    <object>objects\oScreen</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rRoom</room>

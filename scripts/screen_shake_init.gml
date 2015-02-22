@@ -1,4 +1,5 @@
 // screen shake settings
+// YOU NEED THIS TO USE screen_shake functions!
 shake_count_max_bump = 17;              // the amount of time to shake when WALKING into solid object
 shake_count_max_crash = 60;             // the amount of time to shake when RUNNING into solid object 
 //shake_count_max = shake_count_max_bump; // generic shake time maximum, in case nothing is set (NOTE: necessary?)

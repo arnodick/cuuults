@@ -52,5 +52,5 @@ else if keyboard_check_pressed(vk_down)
 }
 else
 {
-    step_stop();
+    move_stop();
 }

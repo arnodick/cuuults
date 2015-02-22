@@ -9,9 +9,9 @@ if cell_next.solid == false
 }
 else
 {
-    screen_shake(oScreen.shake_count_max_bump, 4);
+    screen_shake(oGame.shake_count_max_bump, 4);
     move_timer = true;
-    move_timer_count = oScreen.shake_count_max_bump;
+    move_timer_count = oGame.shake_count_max_bump;
     audio_play_sound(sndBump, 1, false);
     step_count = 0;
 }

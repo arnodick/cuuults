@@ -15,9 +15,9 @@ if cell_next.solid == false
 }
 else
 {
-    screen_shake(oScreen.shake_count_max_crash, 4*step_count);
+    screen_shake(oGame.shake_count_max_crash, 4*step_count);
     move_timer = true;
-    move_timer_count = oScreen.shake_count_max_crash;
+    move_timer_count = oGame.shake_count_max_crash;
     if step_count > 4
     {
         oGame.map_update[pos_check[0], pos_check[1]].hp = 0;

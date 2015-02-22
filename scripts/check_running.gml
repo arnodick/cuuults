@@ -17,9 +17,9 @@ if arrows_check() == true
         pos_check[1] += move_distance;
     }
     
-    run_start();
+    move_run_start();
 }
 else
 {
-    step_stop();
+    move_stop();
 }
