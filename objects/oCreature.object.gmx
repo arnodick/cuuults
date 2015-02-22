@@ -34,20 +34,20 @@ colour = c_maroon;
 
 solid = true;
 
-anim = 0;
+//anim = 0;
 
 dead = oBlood;
 
 move_distance = 1;
 
-pos_check[0] = x;
-pos_check[1] = y;
+//pos_check[0] = x;
+//pos_check[1] = y;
 
-move_timer = false;
-move_timer_count = 0;
-move_timer_max = 8;
+//move_timer = false;
+//move_timer_count = 0;
+//move_timer_max = 8;
 
-italic = false;
+//italic = false;
 </string>
           </argument>
         </arguments>
