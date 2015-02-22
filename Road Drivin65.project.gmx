@@ -56,15 +56,11 @@
     <object>objects\oNPC</object>
     <object>objects\oThing</object>
     <object>objects\oRoad</object>
-    <object>objects\oFence</object>
-    <object>objects\oTree</object>
     <object>objects\oGrass</object>
     <object>objects\oSpace</object>
-    <object>objects\oStump</object>
     <object>objects\oStamped</object>
     <object>objects\oBlood</object>
     <object>objects\oMessage</object>
-    <object>objects\oMessage2</object>
     <object>objects\oGame</object>
   </objects>
   <rooms name="rooms">

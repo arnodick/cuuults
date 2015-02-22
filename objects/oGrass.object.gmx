@@ -90,6 +90,7 @@ if cell_current == global.player
     oGame.map[x, y] = instance_create(x, y, dead);
 }
 
+/*
 if anim_timer &gt; 0
 {
     anim_timer -= 1;
@@ -110,7 +111,7 @@ else
         italic = 0;
     }
 }
-
+*/
 
 if hp == 0
 {

@@ -34,11 +34,10 @@ colour = merge_colour(colour, c_black, y/oGame.r_height);
 
 solid = false;
 
-anim = 0;
+dead = oStamped;
 
-dead = oStump;
-
-italic = false;
+//anim = 0;
+//italic = false;
 </string>
           </argument>
         </arguments>
