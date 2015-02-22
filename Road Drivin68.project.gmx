@@ -51,13 +51,12 @@
     <font>fonts\fontLib</font>
   </fonts>
   <objects name="objects">
-    <object>objects\oCreature</object>
-    <object>objects\oPlayer</object>
-    <object>objects\oFollower</object>
-    <object>objects\oNPC</object>
     <object>objects\oThing</object>
-    <object>objects\oRoad</object>
+    <object>objects\oPlayer</object>
+    <object>objects\oNPC</object>
+    <object>objects\oFollower</object>
     <object>objects\oGrass</object>
+    <object>objects\oRoad</object>
     <object>objects\oSpace</object>
     <object>objects\oStamped</object>
     <object>objects\oBlood</object>

@@ -78,8 +78,6 @@ cell_current_right = oGame.map_update[x + 1, y];
 cell_current_top   = oGame.map_update[x, y - 1];
 cell_current_bot   = oGame.map_update[x, y + 1];
 
-
-
 if (cell_current_left.object_index == oPlayer or cell_current_right.object_index == oPlayer or cell_current_top.object_index == oPlayer or cell_current_bot.object_index == oPlayer)
 {
     mess = instance_create(0, 0, oMessage);

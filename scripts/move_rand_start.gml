@@ -1,3 +1,3 @@
-//this function sets all the timers and sounds for running
+//this function sets the timer for movement
 move_timer = true;
 move_timer_count = move_timer_max;
