@@ -83,7 +83,7 @@ dead = oStamped;
 
 cell_current = oGame.map_update[x, y];
 
-if cell_current == global.player
+if (cell_current.is_creature == true)
 {
     audio_play_sound(sndSwish, 1, false);
     instance_destroy();

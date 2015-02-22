@@ -27,6 +27,7 @@
     <script>scripts\screen_shake_init.gml</script>
     <script>scripts\screen_shake_check.gml</script>
     <script>scripts\screen_shake_draw.gml</script>
+    <script>scripts\create_creature.gml</script>
     <script>scripts\check_OOB.gml</script>
     <script>scripts\key_arrows_check.gml</script>
     <script>scripts\move_rand.gml</script>

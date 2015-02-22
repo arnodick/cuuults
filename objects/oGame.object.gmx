@@ -168,9 +168,9 @@ if generate == true
                         if (a == 32 and b == 24)
                         {
                             map[a, b] = instance_create(a, b, oSpace);
-                            instance_create(a, b, oNPC);                // spawns NPC at middle of room
-                        }                                               // NOTE: old instance from this spot still, exists. will be destroyed when leaving room, but still could be cleaned up
-                                                                        // NOTE: make this spot a proper variable, not a constant
+                            create_creature(a, b, oNPC, 'R', c_aqua, oBlood); // spawns NPC at middle of room
+                        }                                                       // NOTE: old instance from this spot still, exists. will be destroyed when leaving room, but still could be cleaned up
+                                                                                // NOTE: make this spot a proper variable, not a constant
                         else
                         {
                             map[a, b] = instance_create(a, b, ground[irandom(2)]);

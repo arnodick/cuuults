@@ -27,13 +27,6 @@
             <kind>1</kind>
             <string>event_inherited();
 
-is_creature = true;
-solid = true;
-dead = oBlood;
-
-char = '$';
-colour = c_maroon;
-
 cell_current_left  = oGame.map_update[x - 1, y];
 cell_current_right = oGame.map_update[x + 1, y];
 cell_current_top   = oGame.map_update[x, y - 1];
