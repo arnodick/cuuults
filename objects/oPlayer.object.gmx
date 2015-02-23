@@ -55,8 +55,11 @@ move_timer_max = 8;
 move_time_mult_init = 3;
 move_time_mult = move_time_mult_init;
 
-//run = false;
-run = true; // delete this and un-comment the above line when not testing run mechanics
+run = false;
+if global.debug == true
+{
+    run = true; // delete this and un-comment the above line when not testing run mechanics
+}
 oGame.map[x, y] = instance_create(x, y, oSpace);
 
 //global.follower = instance_create(x + 1, y, oFollower);
@@ -84,6 +87,9 @@ bloody_init();
           <argument>
             <kind>1</kind>
             <string>///Controls
+
+pos_check[0] = x;
+pos_check[1] = y;
 
 event_inherited();
 colour = merge_colour(colour_init, c_black, y/48);

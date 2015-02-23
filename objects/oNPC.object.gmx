@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>///Variables
+event_inherited();
 
 cell_current_left  = oGame.map_update[x - 1, y];
 cell_current_right = oGame.map_update[x + 1, y];
@@ -72,6 +73,9 @@ move_time_mult = move_time_mult_init;
             <kind>1</kind>
             <string>///Controller
 event_inherited();
+
+pos_check[0] = x;
+pos_check[1] = y;
 
 cell_current_left  = oGame.map_update[x - 1, y];
 cell_current_right = oGame.map_update[x + 1, y];
