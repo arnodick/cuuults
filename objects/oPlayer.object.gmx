@@ -36,7 +36,7 @@ colour_init = c_white; //colour
 colour = merge_colour(colour_init, c_black, y/48);
 
 // Player attributes + variables
-shift_time = 0;
+//shift_time = 0;
 step_count = 0;
 
 
@@ -47,13 +47,7 @@ pos_2nd_last[1] = y;
 pos_3rd_last[0] = x;
 pos_3rd_last[1] = y;
 
-pos_check[2] = 0;
 
-move_timer = false;
-move_timer_count = 0;
-move_timer_max = 8;
-move_time_mult_init = 3;
-move_time_mult = move_time_mult_init;
 
 run = false;
 if global.debug == true
@@ -63,6 +57,7 @@ if global.debug == true
 oGame.map[x, y] = instance_create(x, y, oSpace);
 
 //global.follower = instance_create(x + 1, y, oFollower);
+move_init();
 bloody_init();
 </string>
           </argument>

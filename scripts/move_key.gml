@@ -6,7 +6,7 @@ if move_timer == false
     {
         if key_arrows_check() == true
         {
-            move_pos_prev();
+            //move_pos_prev();
             move_run_dir();
             move_run_start();
             move_coll_run();

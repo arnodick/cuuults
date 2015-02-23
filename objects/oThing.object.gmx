@@ -69,13 +69,13 @@ is_creature = false;
 //pos_check[0] = x;
 //pos_check[1] = y;
 
-/*
+
 if hp == 0
 {
     instance_destroy();
     oGame.map[x, y] = instance_create(x, y, dead);
 }
-*/
+
 </string>
           </argument>
         </arguments>
