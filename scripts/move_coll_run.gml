@@ -20,6 +20,7 @@ else
     move_timer_count = oGame.shake_count_max_crash;
     if step_count > 4
     {
+        audio_play_sound(sndCrash, 1, false);
         oGame.map_update[pos_check[0], pos_check[1]].hp = 0;
         oGame.map[pos_check[0], pos_check[1]] = instance_create(pos_check[0], pos_check[1], oGame.map_update[pos_check[0], pos_check[1]].dead);
         oGame.map_update[pos_check[0], pos_check[1]] = oGame.map[pos_check[0], pos_check[1]];

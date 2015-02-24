@@ -42,11 +42,18 @@ ground[0] = oRoad;
 ground[1] = oGrass;
 ground[2] = oSpace;
 
+wall[0] = oRoad;
+wall[1] = oWall;
+wall[2] = oSpace;
+
 generate = true;                        // if set to true, regenerates the level. set to true at create, bc gen code is in the STEP, not CREATE, so has to generate when game is started
 
 //instance_create(0, 0, oScreen);
 
-global.debug = true;
+draw_set_font(fontScore);
+draw_set_halign(fa_left);
+
+global.debug = false;
 
 global.player = instance_create(r_width / 2, r_height / 2, oPlayer);    //spawn the player in the middle of the room. (NOTE: does it need to be global? should only ever be 1 player, can refer to oPlayer)
 </string>
@@ -165,12 +172,13 @@ if generate == true
                         }
                     break;
                     case 1:                                             // room 1
+                        draw_set_font(font2);
                         if (a == 32 and b == 24)
                         {
                             map[a, b] = instance_create(a, b, oSpace);
                             create_creature(a, b, oNPC, '3', c_blue, oBlood); // spawns NPC at middle of room
                         }                                                       // NOTE: old instance from this spot still, exists. will be destroyed when leaving room, but still could be cleaned up
-                                                                                // NOTE: make this spot a proper variable, not a constant                                               
+                          /*                                                      // NOTE: make this spot a proper variable, not a constant                                               
                         else if (a == 35 and b == 28)
                         {
                             map[a, b] = instance_create(a, b, oSpace);
@@ -181,13 +189,31 @@ if generate == true
                             map[a, b] = instance_create(a, b, oSpace);
                             create_creature(a, b, oBloooder, 'B', c_maroon, oBlood); // spawns NPC at middle of room
                         }   
-                    
+                        */
+                        else
+                        {
+                            map[a, b] = instance_create(a, b, wall[irandom(2)]);
+                        }
+                    break;
+                    case 2:                                             // room 1
+                        draw_set_font(fontScore);
+                        if (a == 35 and b == 28)
+                        {
+                            map[a, b] = instance_create(a, b, oSpace);
+                            create_creature(a, b, oLawnmower, 'L', c_green, oBlood); // spawns NPC at middle of room
+                        }      
+                        else if (a == 12 and b == 12)
+                        {
+                            map[a, b] = instance_create(a, b, oSpace);
+                            create_creature(a, b, oBloooder, 'B', c_maroon, oBlood); // spawns NPC at middle of room
+                        } 
                         else
                         {
                             map[a, b] = instance_create(a, b, ground[irandom(2)]);
                         }
                     break;
-                    default:                             
+                    default:   
+                        draw_set_font(fontScore);                          
                         map[a, b] = instance_create(a, b, ground[irandom(2)]);
                     break;
                 }
@@ -282,8 +308,8 @@ if (global.debug == true)
           <argument>
             <kind>1</kind>
             <string>///Draw
-draw_set_font(fontScore);               // sets the font (NOTE: can this just happen once? does it need to happen every step?)
-draw_set_halign(fa_left);               // aligns all the text to the left
+//draw_set_font(fontScore);               // sets the font (NOTE: can this just happen once? does it need to happen every step?)
+//draw_set_halign(fa_left);               // aligns all the text to the left
 
 for (var a = 0; a &lt; r_width; a++)       // loops through the display array
 {
