@@ -1,5 +1,6 @@
 //var cell_current = oGame.map_update[x, y];
 var nearest_object = instance_nearest(x, y, argument0);
+var dir = 0;
 if move_timer == false
 {
     if (floor(nearest_object.x) < x)
@@ -18,12 +19,6 @@ if move_timer == false
     {
         dir = 3;
     }
-    /*
-    else
-    {
-        dir = irandom(4);
-    }
-    */
     
     switch(dir)
     {

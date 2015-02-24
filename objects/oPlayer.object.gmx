@@ -28,8 +28,6 @@
             <string>///Attributes
 event_inherited();
 
-is_creature = true;
-
 // Basic attributes
 char = '@'; //graphic
 colour_init = c_white; //colour
@@ -44,7 +42,7 @@ pos_check[1] = y;
 
 move_init(8);
 move_run_init();
-bloody_init();
+check_creature_init();
 </string>
           </argument>
         </arguments>
@@ -72,11 +70,11 @@ bloody_init();
 pos_check[0] = x;
 pos_check[1] = y;
 
-event_inherited();
+//event_inherited();
 colour = merge_colour(colour_init, c_black, y/48);
-move_key();
 
-bloody_check();
+move_key();
+check_creature();
 </string>
           </argument>
         </arguments>

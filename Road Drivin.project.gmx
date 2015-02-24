@@ -29,6 +29,8 @@
     <script>scripts\screen_shake_draw.gml</script>
     <script>scripts\create_creature.gml</script>
     <script>scripts\check_OOB.gml</script>
+    <script>scripts\check_creature_init.gml</script>
+    <script>scripts\check_creature.gml</script>
     <script>scripts\key_arrows_check.gml</script>
     <script>scripts\move_init.gml</script>
     <script>scripts\move_rand.gml</script>
@@ -38,6 +40,7 @@
     <script>scripts\move_pos_prev_init.gml</script>
     <script>scripts\move_pos_prev.gml</script>
     <script>scripts\move_step_dir.gml</script>
+    <script>scripts\move_run_init.gml</script>
     <script>scripts\move_run_dir.gml</script>
     <script>scripts\move_run_start.gml</script>
     <script>scripts\move_coll.gml</script>
@@ -47,7 +50,6 @@
     <script>scripts\bloody_check.gml</script>
     <script>scripts\game_quit.gml</script>
     <script>scripts\thing_place.gml</script>
-    <script>scripts\move_run_init.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>
@@ -60,6 +62,7 @@
     <object>objects\oPlayer</object>
     <object>objects\oNPC</object>
     <object>objects\oLawnmower</object>
+    <object>objects\oBloooder</object>
     <object>objects\oPlanter</object>
     <object>objects\oFollower</object>
     <object>objects\oGrass</object>

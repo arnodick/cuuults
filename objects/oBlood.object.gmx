@@ -76,10 +76,6 @@ if random(100) &lt; 1
 {
     cell_adj[irandom_range(0, 7)].colour = c_red;
 }
-if (oGame.map_update[x, y] == global.player)
-{
-    global.player.bloody = true;
-}
 </string>
           </argument>
         </arguments>

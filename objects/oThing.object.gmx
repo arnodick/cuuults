@@ -26,56 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
-hp = 1;
-char = '#';
-colour_init = c_maroon;
-colour = merge_colour(colour_init, c_black, y/oGame.r_height);
+// this gives all in-game objects these values:
+hp = 1;                                                             // TODO: do we NEED this for every object? could just change terrain to solid = false and different char
+char = '#';                                                         // the default symbol displayed for the object. will be set by a function usually
+colour_init = c_maroon;                                             // default colour. will also be changed by function most likely
+colour = merge_colour(colour_init, c_black, y/oGame.r_height);      // TODO: prob won't need this if sprites are used. changes the colour of every object so that they fade to black near bottom of screen.
+solid = false;      // sets the object to solid, so it can't be walked through
+dead = oStamped;    // the default object created when the instance is destroyed. set by a function usually
 
-solid = false;
-dead = oStamped;
-
-move_distance = 1;
-
-is_creature = false;
-
-// these will be handled in step by animation scripts once (if) sprites are implemented           
-//anim = 0;
-//italic = false;
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Controller
-//pos_check[0] = x;
-//pos_check[1] = y;
-
-
-if hp == 0
-{
-    instance_destroy();
-    oGame.map[x, y] = instance_create(x, y, dead);
-}
-
+is_creature = false;    // things are default, not creatures, must be set to be creatures by function
 </string>
           </argument>
         </arguments>
