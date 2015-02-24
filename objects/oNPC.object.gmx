@@ -33,22 +33,9 @@ cell_current_right = oGame.map_update[x + 1, y];
 cell_current_top   = oGame.map_update[x, y - 1];
 cell_current_bot   = oGame.map_update[x, y + 1];
 
-dir = 0;
-
-pos_last[0] = x;
-pos_last[1] = y;
-pos_2nd_last[0] = x;
-pos_2nd_last[1] = y;
-pos_3rd_last[0] = x;
-pos_3rd_last[1] = y;
-
 pos_check[2] = 0;
 
-move_timer = false;
-move_timer_count = 0;
-move_timer_max = 30;
-move_time_mult_init = 3;
-move_time_mult = move_time_mult_init;
+move_init(30); // NPC waits 30 after each step it takes
 </string>
           </argument>
         </arguments>
