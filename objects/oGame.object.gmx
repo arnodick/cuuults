@@ -53,7 +53,7 @@ generate = true;                        // if set to true, regenerates the level
 draw_set_font(fontScore);
 draw_set_halign(fa_left);
 
-global.debug = false;
+global.debug = true;
 
 global.player = instance_create(r_width / 2, r_height / 2, oPlayer);    //spawn the player in the middle of the room. (NOTE: does it need to be global? should only ever be 1 player, can refer to oPlayer)
 </string>

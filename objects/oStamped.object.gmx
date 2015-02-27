@@ -28,53 +28,9 @@
             <string>///Attributes
 event_inherited();
 
-cell_current_left  = oGame.map_update[x - 1, y];
-cell_current_right = oGame.map_update[x + 1, y];
-cell_current_top   = oGame.map_update[x, y - 1];
-cell_current_bot   = oGame.map_update[x, y + 1];
-
 char = '-';
 colour = c_gray;
-
 colour = merge_colour(colour, c_black, y/48);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Controller
-
-cell_current_left  = oGame.map_update[x - 1, y];
-cell_current_right = oGame.map_update[x + 1, y];
-cell_current_top   = oGame.map_update[x, y - 1];
-cell_current_bot   = oGame.map_update[x, y + 1];
-
-if (cell_current_left.object_index == oPlanter
-or  cell_current_right.object_index == oPlanter
-or  cell_current_top.object_index == oPlanter
-or  cell_current_bot.object_index == oPlanter)
-{
-    instance_destroy();
-    oGame.map[x, y] = instance_create(x, y, oGrass);
-    oGame.map_update[x, y] = oGame.map[x, y];
-}
 </string>
           </argument>
         </arguments>

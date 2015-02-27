@@ -27,24 +27,8 @@
             <kind>1</kind>
             <string>event_inherited();
 
-/*
-char_options[0] = '/';
-char_options[1] = '/';
-char_options[2] = '/';
-char_options[3] = '/';
-char_options[4] = '/';
-char_options[5] = '/';
-char_options[6] = '/';
-
-char = char_options[irandom(6)];
-*/
 char = '*';
 
-/*
-hue = colour_get_hue(c_olive) + (irandom(80) - 40);
-val = colour_get_value(c_olive) + (irandom(80) - 40);
-colour = make_colour_hsv(hue, colour_get_saturation(c_olive), val);
-*/
 hue = colour_get_hue(c_olive) + (irandom(80) - 40);
 val = colour_get_value(c_olive) + (irandom(80) - 40);
 colour = make_colour_hsv(hue, colour_get_saturation(c_olive), val);
@@ -53,17 +37,6 @@ colour = merge_colour(colour, c_black, y/48);
 
 
 solid = true;
-//solid = false;
-
-/*
-anim = 0;
-anim_offset = 1;
-anim_timer_max = 30;
-anim_timer = anim_timer_max;
-*/
-
-//cell_current = 0;
-//dead = oStamped;
 </string>
           </argument>
         </arguments>

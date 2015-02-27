@@ -86,11 +86,6 @@ else
     move_rand();
 }
 
-if hp == 0
-{
-    audio_play_sound(sndDeath, 1, false);
-}
-
 check_creature();
 </string>
           </argument>

@@ -33,6 +33,7 @@ colour_init = c_maroon;                                             // default c
 colour = merge_colour(colour_init, c_black, y/oGame.r_height);      // TODO: prob won't need this if sprites are used. changes the colour of every object so that they fade to black near bottom of screen.
 solid = false;      // sets the object to solid, so it can't be walked through
 dead = oStamped;    // the default object created when the instance is destroyed. set by a function usually
+dead_sound = sndCrash;
 
 is_creature = false;    // things are default, not creatures, must be set to be creatures by function
 </string>
