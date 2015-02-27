@@ -106,6 +106,7 @@ if !instance_exists(parent)
 draw_rectangle_colour(window_left - font_size, window_top - font_size, window_right + font_size, window_bot + font_size, c_white, c_white, c_white, c_white, false);
 draw_rectangle_colour(window_left, window_top, window_right, window_bot, c_black, c_black, c_black, c_black, false);
 draw_text_colour(window_centre[0], window_centre[1], message_string, c_white, c_white, c_white, c_white, 1);
+draw_set_halign(fa_left); //NOTE: remove this to make the screen actually shift when the tells you to shift things around
 </string>
           </argument>
         </arguments>

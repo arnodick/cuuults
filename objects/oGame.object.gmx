@@ -102,6 +102,8 @@ screen_shake_init();                // initializes variables for screen shake
 fps_timer_init = 60;
 fps_timer = fps_timer_init;
 fps_string = "FPS = " + string(round(fps_real));
+
+inst_string = "Instance # = " + string(instance_count);
 </string>
           </argument>
         </arguments>
@@ -134,7 +136,7 @@ if generate == true
 {
     with(oThing)                                                    // destroys all the oThings in the room (NOTE: does this NOT destroy the NPC?)
     {
-        if (is_creature != true)
+        if (object_index != oPlayer)
         {
             instance_destroy();
         }
@@ -284,6 +286,8 @@ if (global.debug == true)
         fps_timer = fps_timer_init;
         fps_string = "FPS = " + string(round(fps_real));
     }
+    
+    inst_string = "Instance cnt = " + string(instance_count);
 }
 </string>
           </argument>
@@ -347,12 +351,16 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Debug draw
+            <string>///Debug Draw
 
 if (global.debug == true)
 {
+    //draw the FPS, top left
     draw_set_colour(c_red);
     draw_text(32, 32, fps_string);
+    
+    //draw the number of instances, below fps count
+    draw_text(32, 64, inst_string);
 }
 </string>
           </argument>
