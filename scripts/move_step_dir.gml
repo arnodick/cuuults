@@ -1,5 +1,5 @@
-/*
-if (key_arrows_check() == true)
+
+if (key_arrows_check_pressed() == true)
 {
     switch(keyboard_key)
     {
@@ -15,17 +15,15 @@ if (key_arrows_check() == true)
     case vk_down:
         pos_check[1] += move_distance;
         break;
-    default:
-        move_coll();
-        break;
     }
+    move_coll();
 }
 else
 {
     move_stop();
 }
-*/
 
+/*
 if keyboard_check_pressed(vk_left)
 {
     pos_check[0] -= move_distance;
@@ -50,3 +48,4 @@ else
 {
     move_stop();
 }
+*/
