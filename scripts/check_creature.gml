@@ -22,9 +22,3 @@ if (cell_current.object_index == oBlood)
     bloody = true;
 }
 bloody_check();
-if hp == 0
-{
-    instance_destroy();
-    audio_play_sound(sndDeath, 1, false);
-    oGame.map[x, y] = instance_create(x, y, dead);
-}
