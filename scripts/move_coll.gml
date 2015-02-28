@@ -9,8 +9,9 @@ if cell_next.solid == false
 else
 {
     screen_shake(oGame.shake_count_max_bump, 4);
+    audio_play_sound(sndBump, 1, false);
+    //TO DO: make these inputs into the movement function, so anything can make noise, shake on impact
     move_timer = true;
     move_timer_count = oGame.shake_count_max_bump;
-    audio_play_sound(sndBump, 1, false);
     step_count = 0;
 }
