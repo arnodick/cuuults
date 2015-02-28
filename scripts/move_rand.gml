@@ -18,4 +18,3 @@ case 3:
     pos_check[1] = y + move_distance;
     break;
 }
-
