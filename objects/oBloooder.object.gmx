@@ -69,17 +69,17 @@ if bloody == false
     if instance_exists(oBlood)
     {
         move_timer_max = 10;
-        move_dir_object(oBlood);
+        move_type(mt_obj, oBlood);
     }
     else
     {
-        move_rand();
         move_timer_max = 30;
+        move_type(mt_rand, -1);
     }
 }
 else
 {
-    move_rand();
+    move_type(mt_rand, -1);
 }
 
 check_creature();

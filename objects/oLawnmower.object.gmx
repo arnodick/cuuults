@@ -58,7 +58,7 @@ check_creature_init();
             <kind>1</kind>
             <string>///Controller
 
-move_dir_object(oGrass);
+move_type(mt_obj, oGrass);
 check_creature();
 </string>
           </argument>

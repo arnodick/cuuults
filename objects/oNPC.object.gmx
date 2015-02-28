@@ -83,7 +83,7 @@ else
             instance_destroy();
         }
     }
-    move_rand();
+    move_type(mt_rand, -1);
 }
 
 check_creature();
