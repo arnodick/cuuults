@@ -1,3 +1,4 @@
+
 if keyboard_check_pressed(vk_left)
 {
     //move_pos_prev();
@@ -30,3 +31,4 @@ else
 {
     move_stop();
 }
+

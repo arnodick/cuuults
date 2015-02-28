@@ -5,22 +5,23 @@ if move_timer == false
     
     var dir = irandom(4); // sets the direction of us to 1 of 4 directions
                         // TODO: make this more direct, less variables
+    //var pos_check[2] = 0;
     switch(dir) // sets the position to checked based on our direction
     {
     case 0:
-        pos_check[0] -= move_distance;
+        pos_check[0] = x - move_distance;
         move_rand_start();
     break;
     case 1:
-        pos_check[0] += move_distance;
+        pos_check[0] = x + move_distance;
         move_rand_start();
     break;
     case 2:
-        pos_check[1] -= move_distance;
+        pos_check[1] = y - move_distance;
         move_rand_start();
     break;
     case 3:
-        pos_check[1] += move_distance;
+        pos_check[1] = y + move_distance;
         move_rand_start();
     break;
     }
@@ -41,13 +42,5 @@ if move_timer == false
 }
 else
 {
-    if move_timer_count > 0
-    {
-        move_timer_count -= 1;
-    }
-    else
-    {
-        move_timer = false;
-        // put shift speed multipler here if shift is pressed! decrease move_timer_ma or it's equivalent
-    }
+    move_stopped();
 }

@@ -5,7 +5,6 @@ if cell_next.solid == false
     oGame.map_update[x, y] = oGame.map[x, y];
     x = pos_check[0];
     y = pos_check[1];
-    //oGame.map_update[x, y] = global.player;
 }
 else
 {

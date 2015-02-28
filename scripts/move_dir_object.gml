@@ -59,13 +59,5 @@ if move_timer == false
 }
 else
 {
-    if move_timer_count > 0
-    {
-        move_timer_count -= 1;
-    }
-    else
-    {
-        move_timer = false;
-        // put shift speed multipler here if shift is pressed! decrease move_timer_ma or it's equivalent
-    }
+    move_stopped();
 }
