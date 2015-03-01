@@ -204,6 +204,11 @@ if generate == true
                             map[a, b] = instance_create(a, b, oSpace);
                             create_creature(a, b, oLawnmower, 'L', c_green, oBlood); // spawns NPC at middle of room
                         }      
+                        else if (a == 40 and b == 40)
+                        {
+                            map[a, b] = instance_create(a, b, oSpace);
+                            create_creature(a, b, oPlanter, 'p', c_yellow, oBlood); // spawns NPC at middle of room
+                        }    
                         else if (a == 12 and b == 12)
                         {
                             map[a, b] = instance_create(a, b, oSpace);

@@ -25,22 +25,21 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>///Attributes
+event_inherited();
 
-cell_current_left  = oGame.map_update[x - 1, y];
-cell_current_right = oGame.map_update[x + 1, y];
-cell_current_top   = oGame.map_update[x, y - 1];
-cell_current_bot   = oGame.map_update[x, y + 1];
+cell_current        = oGame.map_update[x    , y];
+cell_current_left   = oGame.map_update[x - 1, y];
+cell_current_right  = oGame.map_update[x + 1, y];
+cell_current_top    = oGame.map_update[x, y - 1];
+cell_current_bot    = oGame.map_update[x, y + 1];
 
-dir = 0;
+pos_check[0] = x;
+pos_check[1] = y;
 
-pos_check[2] = 0;
-
-move_timer = false;
-move_timer_count = 0;
-move_timer_max = 30;
-move_time_mult_init = 3;
-move_time_mult = move_time_mult_init;
+move_init(20); // waits 20 steps after each move it makes
+move_run_init();
+check_creature_init();
 </string>
           </argument>
         </arguments>
@@ -65,40 +64,39 @@ move_time_mult = move_time_mult_init;
             <kind>1</kind>
             <string>///Controller
 
-cell_current_left  = oGame.map_update[x - 1, y];
-cell_current_right = oGame.map_update[x + 1, y];
-cell_current_top   = oGame.map_update[x, y - 1];
-cell_current_bot   = oGame.map_update[x, y + 1];
+cell_current        = oGame.map_update[x    , y];
+cell_current_left   = oGame.map_update[x - 1, y];
+cell_current_right  = oGame.map_update[x + 1, y];
+cell_current_top    = oGame.map_update[x, y - 1];
+cell_current_bot    = oGame.map_update[x, y + 1];
 
-move_dir_object(oStamped);
-
-/*
 if cell_current_left.object_index == oStamped
 {
     thing_place(cell_current_left, oGrass);
 }
-else if cell_current_right.object_index == oStamped
+if cell_current_right.object_index == oStamped
 {
     thing_place(cell_current_right, oGrass);
 }
-else if cell_current_top.object_index == oStamped
+if cell_current_top.object_index == oStamped
 {
     thing_place(cell_current_top, oGrass);
 }
-else if cell_current_bot.object_index == oStamped
+if cell_current_bot.object_index == oStamped
 {
     thing_place(cell_current_bot, oGrass);
 }
+
+if cell_current.object_index != oStamped
+{
+    move_type(mt_obj, oStamped);
+}
 else
 {
-    move_dir_object(oStamped);
+    move_type(mt_rand, -1);
 }
-*/
 
-if hp == 0
-{
-    audio_play_sound(sndDeath, 1, false);
-}
+check_creature();
 </string>
           </argument>
         </arguments>

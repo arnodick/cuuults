@@ -35,10 +35,12 @@
     <script>scripts\key_arrows_check_pressed.gml</script>
     <script>scripts\move_init.gml</script>
     <script>scripts\move_type.gml</script>
+    <script>scripts\move_key.gml</script>
     <script>scripts\move_rand.gml</script>
     <script>scripts\move_dir_object.gml</script>
-    <script>scripts\move_key.gml</script>
     <script>scripts\move_halt.gml</script>
+    <script>scripts\move_collision.gml</script>
+    <script>scripts\move_stopped.gml</script>
     <script>scripts\move_pos_prev_init.gml</script>
     <script>scripts\move_pos_prev.gml</script>
     <script>scripts\move_step_dir.gml</script>
@@ -48,12 +50,10 @@
     <script>scripts\move_coll.gml</script>
     <script>scripts\move_coll_run.gml</script>
     <script>scripts\move_stop.gml</script>
-    <script>scripts\move_stopped.gml</script>
     <script>scripts\bloody_init.gml</script>
     <script>scripts\bloody_check.gml</script>
     <script>scripts\game_quit.gml</script>
     <script>scripts\thing_place.gml</script>
-    <script>scripts\move_collision.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>
@@ -66,8 +66,8 @@
     <object>objects\oPlayer</object>
     <object>objects\oNPC</object>
     <object>objects\oLawnmower</object>
-    <object>objects\oBloooder</object>
     <object>objects\oPlanter</object>
+    <object>objects\oBloooder</object>
     <object>objects\oFollower</object>
     <object>objects\oGrass</object>
     <object>objects\oWall</object>
