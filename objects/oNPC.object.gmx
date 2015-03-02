@@ -33,9 +33,6 @@ cell_current_right = oGame.map_update[x + 1, y];
 cell_current_top   = oGame.map_update[x, y - 1];
 cell_current_bot   = oGame.map_update[x, y + 1];
 
-pos_check[0] = x;
-pos_check[1] = y;
-
 move_init(30); // waits 30 steps after each move it makes
 check_creature_init();
 </string>
@@ -61,9 +58,6 @@ check_creature_init();
           <argument>
             <kind>1</kind>
             <string>///Controller
-
-pos_check[0] = x;
-pos_check[1] = y;
 
 cell_current_left  = oGame.map_update[x - 1, y];
 cell_current_right = oGame.map_update[x + 1, y];

@@ -1,28 +1,19 @@
-//var cell_current = oGame.map_update[x, y];
-
-if move_timer == false
+if keyboard_check(vk_shift) and run == true
 {
-    if keyboard_check(vk_shift) and run == true
+    if key_arrows_check() == true
     {
-        if key_arrows_check() == true
-        {
-            //move_pos_prev();
-            move_run_dir();
-            move_run_start();
-            move_coll_run();
-        }
-        else
-        {
-            move_stop();
-        }
+        //move_pos_prev();
+        move_run_dir();
+        move_run_start();
+        move_coll_run();
     }
     else
     {
-        move_step_dir();
+        move_stop();
     }
-    oGame.map_update[x, y] = global.player;
 }
 else
 {
-    move_stopped();
+    move_step_dir();
 }
+oGame.map_update[x, y] = global.player;

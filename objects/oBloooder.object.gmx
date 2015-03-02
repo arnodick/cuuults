@@ -28,11 +28,6 @@
             <string>///Attributes
 event_inherited();
 
-
-
-pos_check[0] = x;
-pos_check[1] = y;
-
 move_init(30); // waits 30 steps after each move it makes
 move_run_init();
 check_creature_init();
@@ -59,10 +54,6 @@ check_creature_init();
           <argument>
             <kind>1</kind>
             <string>///Controller
-
-pos_check[0] = x;
-pos_check[1] = y;
-
 
 if bloody == false
 {

@@ -73,7 +73,7 @@ pos_check[1] = y;
 //event_inherited();
 colour = merge_colour(colour_init, c_black, y/48);
 
-move_key();
+move_type(mt_key, -1);
 check_creature();
 </string>
           </argument>
