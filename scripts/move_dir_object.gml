@@ -1,8 +1,6 @@
 move_halt(move_timer_max);  //conceptually comes after actual movement, but needs to be here bc of breaks in swithc below
 
-var x_pos = x;
-var y_pos = y;
-var nearest_object = instance_nearest(x, y, argument0);
+var x_pos = x, y_pos = y, nearest_object = instance_nearest(x, y, argument0);
 
 if (floor(nearest_object.x) < x)
 {
