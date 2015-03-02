@@ -34,8 +34,6 @@ colour = merge_colour(colour_init, c_black, y/oGame.r_height);      // TODO: pro
 solid = false;      // sets the object to solid, so it can't be walked through
 dead = oStamped;    // the default object created when the instance is destroyed. set by a function usually
 dead_sound = sndCrash;
-
-is_creature = false;    // things are default, not creatures, must be set to be creatures by function
 </string>
           </argument>
         </arguments>

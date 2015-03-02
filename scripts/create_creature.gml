@@ -7,6 +7,5 @@ creature.dead = argument5;
 
 creature.solid = true;
 creature.move_distance = 1;
-creature.is_creature = true;
 
 // todo: make this return the id of the instance
