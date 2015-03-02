@@ -178,6 +178,7 @@ if generate == true
                         if (a == 32 and b == 24)
                         {
                             map[a, b] = instance_create(a, b, oSpace);
+                            // TODO: functions for creating terrain, to customize each piece, and remove create code from them
                             create_creature(a, b, oNPC, '3', c_blue, oBlood); // spawns NPC at middle of room
                         }                                                       // NOTE: old instance from this spot still, exists. will be destroyed when leaving room, but still could be cleaned up
                           /*                                                      // NOTE: make this spot a proper variable, not a constant                                               
@@ -232,6 +233,16 @@ if generate == true
                                                                     // NOTE: will have to figure out a way to DECREMENT this when returning to old room, once array saving is figured out
                                                                     
     map_update = map;                                              // sets the display array to the map array, so that terrain is redrawn, instead of leaving paths of the player character's symbol
+    //TODO: here is where you can put in creatures!
+    //have list of possible objects
+    //  0 = nothing
+    //  1 = player
+    //  2 = npc etc.
+    // array init to 0
+    // put creatures in cell ie: [a,b] = npc
+    // loop through each cell
+    // if 0 then map_update[a,b] = map[a,b]
+    // else map_update[a,b] = instance_create npc (2)
 }
 
 game_quit();

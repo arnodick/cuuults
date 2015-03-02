@@ -61,7 +61,7 @@ cell_adj[7] = oGame.map[x - 1   ,  y - 1    ];
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// to do: put a timer on this, so it's not calculating random numbers every step. more efficient
+            <string>// TODO: put a timer on this, so it's not calculating random numbers every step. more efficient
 
 cell_adj[0] = oGame.map[x       ,  y - 1    ];
 cell_adj[1] = oGame.map[x + 1   ,  y - 1    ];
