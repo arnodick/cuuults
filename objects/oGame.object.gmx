@@ -131,7 +131,7 @@ inst_string = "Instance # = " + string(instance_count);
 
 //Map Generate
 
-check_OOB();
+check_room_change();
 
 if generate == true
 {
@@ -142,12 +142,6 @@ if generate == true
             instance_destroy();
         }
     }
-    /*
-    with(oNPC)
-    {
-        instance_destroy();
-    }
-    */
     for (var a = 0; a &lt; r_width; a++)                               // loops through each cell of the map array
     {
         for (var b = 0; b &lt; r_height; b++)

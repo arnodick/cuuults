@@ -29,6 +29,7 @@
     <script>scripts\screen_shake_draw.gml</script>
     <script>scripts\create_creature.gml</script>
     <script>scripts\check_OOB.gml</script>
+    <script>scripts\check_room_change.gml</script>
     <script>scripts\check_creature_init.gml</script>
     <script>scripts\check_creature.gml</script>
     <script>scripts\key_arrows_check.gml</script>

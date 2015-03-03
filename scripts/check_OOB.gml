@@ -1,24 +1,19 @@
-//check to see if the player is out of bounds of the map. If they are, generate a new level.
-if instance_exists(oPlayer)
+//check to see if the object is out of bounds of the map. If they are, generate a new level.
+var side = -1;
+if argument0.x < 1
 {
-    if oPlayer.x < 1
-    {
-        generate = true;
-        oPlayer.x = 64;
-    }
-    else if oPlayer.x > 64
-    {
-        generate = true;
-        oPlayer.x = 1;
-    }
-    if oPlayer.y < 1
-    {
-        generate = true;
-        oPlayer.y = 48;
-    }
-    else if oPlayer.y > 48
-    {
-        generate = true;
-        oPlayer.y = 1;
-    }
+    side = 0;
 }
+else if argument0.x > 64
+{
+    side = 1;
+}
+if argument0.y < 1
+{
+    side = 2;
+}
+else if argument0.y > 48
+{
+    side = 3;
+}
+return side;
