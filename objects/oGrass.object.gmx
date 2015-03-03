@@ -29,7 +29,7 @@
 
 char = '/';
 colour = c_silver;
-colour = merge_colour(colour, c_black, y/48);
+//colour = merge_colour(colour, c_black, y/48);
 </string>
           </argument>
         </arguments>

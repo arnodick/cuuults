@@ -2,7 +2,7 @@
 // if they are, it transposes them to the other side of the screen and generates a new map
 if instance_exists(oPlayer)
 {
-    switch(check_OOB(oPlayer))
+    switch(check_OOB(oPlayer.x, oPlayer.y))
     {
         case -1:                // not OOB, do nothing
         {

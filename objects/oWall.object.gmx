@@ -33,7 +33,7 @@ hue = colour_get_hue(c_olive) + (irandom(80) - 40);
 val = colour_get_value(c_olive) + (irandom(80) - 40);
 colour = make_colour_hsv(hue, colour_get_saturation(c_olive), val);
 
-colour = merge_colour(colour, c_black, y/48);
+//colour = merge_colour(colour, c_black, y/48);
 
 
 solid = true;

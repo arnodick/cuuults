@@ -177,7 +177,7 @@ if generate == true
                             create_creature(a, b, oNPC, '3', c_blue, oBlood); // spawns NPC at middle of room
                         }                                                       // NOTE: old instance from this spot still, exists. will be destroyed when leaving room, but still could be cleaned up
                         
-                        else if (a == 35 and b == 28)
+                        else if (a == 60 and b == 40)
                         {
                             map[a, b] = instance_create(a, b, oSpace);
                             create_creature(a, b, oLawnmower, 'L', c_green, oBlood); // spawns NPC at middle of room

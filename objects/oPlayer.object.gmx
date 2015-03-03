@@ -70,8 +70,7 @@ check_creature_init();
 pos_check[0] = x;
 pos_check[1] = y;
 
-//event_inherited();
-colour = merge_colour(colour_init, c_black, y/48);
+//colour = merge_colour(colour_init, c_black, y/48);
 
 move_type(mt_key, -1);
 check_creature();
