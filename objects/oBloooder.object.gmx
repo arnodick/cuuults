@@ -66,6 +66,9 @@ if bloody == false
     {
         move_timer_max = 30;
         move_type(mt_rand, -1);
+        // ZOMBIE MODE!
+        //move_timer_max = 10;
+        //move_type(mt_obj, oPlayer);
     }
 }
 else

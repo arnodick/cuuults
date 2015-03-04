@@ -1,10 +1,10 @@
-var cell_next = oGame.map_update[pos_check[0], pos_check[1]];
+var cell_next = oGame.map_update[argument0, argument1];
 
 if cell_next.solid == false
 {
     oGame.map_update[x, y] = oGame.map[x, y];
-    x = pos_check[0];
-    y = pos_check[1];
+    x = argument0;
+    y = argument1;
 }
 else
 {

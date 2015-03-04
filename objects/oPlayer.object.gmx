@@ -37,9 +37,6 @@ colour = merge_colour(colour_init, c_black, y/48);
 
 oGame.map[x, y] = instance_create(x, y, oSpace);
 
-pos_check[0] = x;
-pos_check[1] = y;
-
 move_init(8);
 move_run_init();
 check_creature_init();
@@ -66,9 +63,6 @@ check_creature_init();
           <argument>
             <kind>1</kind>
             <string>///Controls
-
-pos_check[0] = x;
-pos_check[1] = y;
 
 //colour = merge_colour(colour_init, c_black, y/48);
 
