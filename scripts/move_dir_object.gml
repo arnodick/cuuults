@@ -3,26 +3,44 @@ move_halt(move_timer_max);  //conceptually comes after actual movement, but need
 var x_pos = x, y_pos = y;
 if instance_exists(argument0)
 // TODO: randomize this a bit? so that they don't beeline, give a bit of variation
+// TODO: do we need floor here?
 {
-    var nearest_object = instance_nearest(x, y, argument0);
+    var nearest_object = instance_nearest(x, y, argument0), obj_x = nearest_object.x, obj_y = nearest_object.y;
 
-    if (floor(nearest_object.x) < x)
+    if (floor(obj_x) < x)
     {
         x_pos = x - move_distance;
+        // TODO: give them memory, so they will know if something was a wall
+        if ( floor(obj_y) == y )
+        {
+            y_pos = y + (irandom(2) - 1);   // this gives you a 1/3 chance of actually getting to the target when next to it
+                                            // with 50/50 chance on < or >, we never actually get to the target, bc we are forced to step to the side
+        }
     }
-    if (floor(nearest_object.x) > x)
+    if (floor(obj_x) > x)
     {
         x_pos = x + move_distance;
+        if ( floor(obj_y) == y )
+        {
+            y_pos = y + (irandom(2) - 1);   // with 50/50 chance on < or >, we never actually get to the target, bc we are forced to step to the side
+        }
     }
-    if (floor(nearest_object.y) < y)
+    if (floor(obj_y) < y)
     {
         y_pos = y - move_distance;
+        if ( floor(obj_x) == x )
+        {
+            x_pos = x + (irandom(2) - 1);
+        }
     }
-    if (floor(nearest_object.y) > y)
+    if (floor(obj_y) > y)
     {
         y_pos = y + move_distance;
+        if ( floor(obj_x) == x )
+        {
+            x_pos = x + (irandom(2) - 1);
+        }
     }
-
 }
 if move_collision(x_pos, y_pos) == true
 // TODO: MAKE THIS SCRIPT MORE ROBUST AT PATHFINDING!
