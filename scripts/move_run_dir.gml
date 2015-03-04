@@ -7,7 +7,7 @@ if key_arrows_check() == true
     {
         x_pos -= move_distance;
     }
-    if keyboard_check(vk_right)
+    else if keyboard_check(vk_right)
     {
         x_pos += move_distance;
     }
@@ -15,7 +15,7 @@ if key_arrows_check() == true
     {
         y_pos -= move_distance;
     }
-    if keyboard_check(vk_down)
+    else if keyboard_check(vk_down)
     {
         y_pos += move_distance;
     }

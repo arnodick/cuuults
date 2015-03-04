@@ -26,8 +26,8 @@ else
         //audio_play_sound(sndCrash, 1, false);
         //oGame.map_update[argument0, argument1].hp = 0;
         var cell_hit = oGame.map_update[argument0, argument1]
-        oGame.map[argument0, argument1] = instance_create(argument0, argument1, oGame.map_update[argument0, argument1].dead);
-        oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1];
+        oGame.map[argument0, argument1] = instance_create(argument0, argument1, cell_hit.dead);
+        oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1]; // TODO: this code makes the game crash when you kill yourself for some reason?
         audio_play_sound(cell_hit.dead_sound, 1, false);
         with (cell_hit)
         {
