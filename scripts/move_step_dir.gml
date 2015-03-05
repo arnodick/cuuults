@@ -1,7 +1,7 @@
-var x_pos = x, y_pos = y;
-
 if (key_arrows_check_pressed() == true)
 {
+    var x_pos = x, y_pos = y;
+    
     switch(keyboard_key)
     {
     case vk_left:
@@ -23,30 +23,3 @@ else
 {
     move_stop();
 }
-
-/*
-if keyboard_check_pressed(vk_left)
-{
-    x_pos -= move_distance;
-    move_coll();
-}
-else if keyboard_check_pressed(vk_right)
-{
-    x_pos += move_distance;
-    move_coll();
-}
-else if keyboard_check_pressed(vk_up)
-{
-    y_pos -= move_distance;
-    move_coll();
-}
-else if keyboard_check_pressed(vk_down)
-{
-    y_pos += move_distance;
-    move_coll();
-}
-else
-{
-    move_stop();
-}
-*/

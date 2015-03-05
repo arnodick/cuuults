@@ -1,8 +1,7 @@
-
-
-var x_pos = x, y_pos = y;
-if key_arrows_check() == true
+if (key_arrows_check() == true)
 {
+    var x_pos = x, y_pos = y;
+    
     if keyboard_check(vk_left)
     {
         x_pos -= move_distance;
