@@ -1,20 +1,20 @@
-// TODO: pressing < and > together makes you run into yourself and die!
-//      keep this in as suicide?
-
 var cell_next = oGame.map_update[argument0, argument1];
 
 if cell_next.solid == false
 {
-    if step_count < 5
-    {
-        step_count += 1;
-    }
     oGame.map_update[x, y] = oGame.map[x, y];
     x = argument0;
     y = argument1;
-    audio_sound_pitch(sndBloop, step_count);
-    audio_play_sound(sndBloop, 1, false);
-    //oGame.map_update[x, y] = global.player;
+    if argument2
+    {
+        if step_count < 5
+        {
+            step_count += 1;
+        }
+        audio_sound_pitch(sndBloop, step_count);
+        audio_play_sound(sndBloop, 1, false);
+        //oGame.map_update[x, y] = global.player;
+    }
 }
 else
 {

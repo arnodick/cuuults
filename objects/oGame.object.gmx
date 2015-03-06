@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Variables
 randomize();                        // gives a random seed EVERY time the game is run
-texture_set_interpolation(true);   // gets rid of "smudginess" on sprites
+texture_set_interpolation(false);   // gets rid of "smudginess" on sprites
 
 tile_size = 10;                     // the size of each cell on the screen. (mess with this to get weird overlapping effects)
 
