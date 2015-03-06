@@ -65,7 +65,10 @@ check_creature_init();
             <string>///Controls
 
 //colour = merge_colour(colour_init, c_black, y/48);
-
+if (keyboard_check(vk_space))
+{
+    draw_random_char();
+}
 move_type(mt_key, -1);
 check_creature();
 </string>

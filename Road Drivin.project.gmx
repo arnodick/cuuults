@@ -54,6 +54,8 @@
     <script>scripts\bloody_check.gml</script>
     <script>scripts\game_quit.gml</script>
     <script>scripts\thing_place.gml</script>
+    <script>scripts\draw_random_char_init.gml</script>
+    <script>scripts\draw_random_char.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>
