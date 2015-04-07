@@ -11,6 +11,7 @@
     <sound>sound\sndDeath</sound>
     <sound>sound\sndBloop</sound>
     <sound>sound\sndSwish</sound>
+    <sound>sound\sndRock2</sound>
   </sounds>
   <sprites name="sprites"/>
   <backgrounds name="background"/>

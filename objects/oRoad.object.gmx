@@ -30,6 +30,7 @@
 char = '.';
 colour = c_gray;
 //colour = merge_colour(colour, c_black, y/48);
+sound_step = sndRock2;
 </string>
           </argument>
         </arguments>

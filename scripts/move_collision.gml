@@ -5,6 +5,7 @@ if (object_index == oPlayer)
 {
     if cant_move == false
     {
+        audio_play_sound(cell_next.sound_step, 1, false);
         oGame.map_update[x, y] = oGame.map[x, y];
         x = argument0;
         y = argument1;

@@ -1,0 +1,15 @@
+104
+
+true,true,29,2
+
+Jump:,0.5,,0.3417,,0.1376,0.3,0.5879,,0.1577,,,,,,,,,,,0.376,,,,,1,,,0.127,,,,masterVolume:1
+talk:2,0.5,,0.3157,,0.395,0.3,0.24,,0.0849,0.2099,0.25,0.155,,,,,,,,0.2815,,0.66,,,1,,,,,,,masterVolume:17
+pickup:2,0.5,,0.3157,,0.395,0.3,0.24,,0.0849,0.2099,0.25,0.155,,,,,,,,0.2815,,0.22,,,1,,,,,,,masterVolume:18
+explosion:3,0.5,,0.3907,0.6158,0.4124,0.3,0.4751,,-0.2275,,,,,,,-0.1923,0.7708,,,,,,0.1273,-0.1115,1,,,,,,,masterVolume:22
+alert:2,0.2,,0.3746,,0.4041,0.3,0.3137,,0.2533,,,,,,,,,,,0.5942,,0.6356,,,1,,,,,,,masterVolume:26
+rock1:3,0.32,,0.01,,0.22,0.075,0.12,,0.0449,-0.76,,,0.165,,,0.01,,,,0.4024,,,0.01,-0.54,0.185,0.705,,0.385,,0.1,-0.8,masterVolume,decayTime,compressionAmount,startFrequency,slide,deltaSlide,overtones,flangerSweep,lpFilterCutoff,lpFilterCutoffSweep,hpFilterCutoff,hpFilterCutoffSweep,bitCrush,bitCrushSweep:28
+rock2:3,0.32,,0.01,,0.22,0.075,0.12,,0.0449,-0.76,,,0.165,,,0.01,,,,0.4024,,,-0.615,0.54,0.185,0.705,,0.385,,0.1,-0.8,masterVolume,decayTime,compressionAmount,startFrequency,slide,deltaSlide,overtones,flangerSweep,lpFilterCutoff,lpFilterCutoffSweep,hpFilterCutoff,hpFilterCutoffSweep,bitCrush,bitCrushSweep:29
+Electroblip:6,0.32,0.0001,0.3388,0.273,0.22,0.075,0.12,,0.0449,-0.76,0.7986,0.0573,0.165,0.7522,0.3387,0.0979,0.8085,0.0585,0.1194,0.1117,-0.9114,0.043,-0.8626,0.54,0.185,0.705,0.805,0.385,,0.1,-0.8,masterVolume,decayTime,compressionAmount,startFrequency,slide,deltaSlide,overtones,flangerSweep,lpFilterCutoff,lpFilterCutoffSweep,hpFilterCutoff,hpFilterCutoffSweep,bitCrush,bitCrushSweep:60
+Hit_Hurt4:3,0.32,,0.01,,0.22,0.075,0.12,,0.0449,-0.76,,,0.165,,,0.01,,,,0.4024,,,-0.615,0.54,0.185,0.705,,0.385,,0.1,-0.8,masterVolume,decayTime,compressionAmount,startFrequency,slide,deltaSlide,overtones,flangerSweep,lpFilterCutoff,lpFilterCutoffSweep,hpFilterCutoff,hpFilterCutoffSweep,bitCrush,bitCrushSweep:61
+
+Default:-1>1>-1||0|1|false>-1||0|1|false>-1||0|1|false>-1||0|1|false>-1||0|1|false:2

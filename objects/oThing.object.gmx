@@ -34,7 +34,7 @@ colour_init = c_maroon;                                             // default c
 solid = false;      // sets the object to solid, so it can't be walked through
 dead = oStamped;    // the default object created when the instance is destroyed. set by a function usually
 dead_sound = sndCrash;
-
+sound_step = -1; // NOTE: is this a good idea? seems to work, just not sure if it will screw up somehow
 draw_random_char_init();
 </string>
           </argument>
