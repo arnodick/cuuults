@@ -27,9 +27,11 @@
             <kind>1</kind>
             <string>event_inherited();
 
+
+
 char = 'X';
 colour = c_gray;
-seed = irandom(5);
+seed = irandom(6);
 switch (seed)
 {
     case 0:
@@ -53,6 +55,10 @@ switch (seed)
         break;
     case 5:
         char = 'y';
+        colour = c_yellow;
+        break;
+    case 6:
+        char = '$';
         colour = c_yellow;
         break;
 }
