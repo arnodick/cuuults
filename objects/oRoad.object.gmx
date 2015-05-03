@@ -31,39 +31,22 @@
 
 char = 'X';
 colour = c_gray;
-seed = irandom(6);
+char = chr( irandom_range(33, 126) );
+
+sound_step = sndRock2;
+
+seed = irandom(1);
 switch (seed)
 {
+
     case 0:
-        char = '.';
+        colour = c_white;
         break;
     case 1:
-        char = ',';
-        colour = c_white;
-        break;
-    case 2:
-        char = 'I';
-        colour = c_white;
-        break;
-    case 3:
-        char = 'i';
-        colour = c_white;
-        break;
-    case 4:
-        char = 'Y';
-        colour = c_yellow;
-        break;
-    case 5:
-        char = 'y';
-        colour = c_yellow;
-        break;
-    case 6:
-        char = '$';
         colour = c_yellow;
         break;
 }
 //colour = merge_colour(colour, c_black, y/48);
-sound_step = sndRock2;
 </string>
           </argument>
         </arguments>
