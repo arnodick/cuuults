@@ -11,7 +11,7 @@ if instance_exists(oPlayer)
         case 0:                 // exited left side
         {
             generate = true;
-            oPlayer.x = 64;
+            oPlayer.x = r_width;
             break;
         }
         case 1:                 // exited right side
@@ -23,7 +23,7 @@ if instance_exists(oPlayer)
         case 2:                 // exited top side
         {
             generate = true;
-            oPlayer.y = 48;
+            oPlayer.y = r_height - 2;
             break;
         }
         case 3:                 // exited bottom side
