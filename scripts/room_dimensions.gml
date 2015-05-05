@@ -1,3 +1,5 @@
+// MAX SIZE: x 52, y 32
+
 tile_size = argument0;             // the size of each cell on the screen. (mess with this to get weird overlapping effects)
 
 room_width = tile_size * argument1;
@@ -11,5 +13,5 @@ map_update[r_width, r_height] = 0;  // the array of instances that will actually
 
 view_xview[0] = tile_size;
 view_yview[0] = tile_size;
-view_wview[0] = room_width - (tile_size * 2);
-view_hview[0] = room_height - (tile_size * 2);
+view_wview[0] = room_width - (tile_size * 1);
+view_hview[0] = room_height - (tile_size * 1);
