@@ -33,23 +33,12 @@ room_dimensions(100, 32, 20);
 
 room_count = 0;                     // room count. determines what you find in a room (NOTE: will have to figure out a way to save specific room to file)
 
-// array of objects for proc generation
-ground[0] = oRoad;
-ground[1] = oGrass;
-ground[2] = oSpace;
-
-wall[0] = oRoad;
-wall[1] = oWall;
-wall[2] = oSpace;
-
 generate = true;                        // if set to true, regenerates the level. set to true at create, bc gen code is in the STEP, not CREATE, so has to generate when game is started
 
 //instance_create(0, 0, oScreen);
 
-draw_set_font(rd);
-draw_set_halign(fa_left);
-
 draw_init();
+assets_init();
 
 global.debug = true;
 global.player = instance_create(r_width / 2, r_height / 2, oPlayer);    //spawn the player in the middle of the room. (NOTE: does it need to be global? should only ever be 1 player, can refer to oPlayer)
@@ -151,69 +140,9 @@ if generate == true
             }
             else                                                    // assigns proc objects to each cell
             {
-                switch(room_count)                                      // specific actions for each room
-                {
-                    case 0:                                             // room 0
-                        if (a == r_width / 2 and b == r_height / 2)
-                        {
-                            //map[a, b].hp = 0;                         // figure out a way to make this properly destroy object at spot?
-                            map[a, b] = instance_create(a, b, asset_get_index("oSpace"));  // puts a space where player will spawn
-                                                                        // NOTE: old instance from this spot still, exists. will be destroyed when leaving room, but still could be cleaned up
-                                                                        // NOTE: make this spot a proper variable, not a constant
-                        }
-                        else
-                        {
-                            map[a, b] = instance_create(a, b, (asset_get_index("oGrass")));
-                            //map[a, b] = instance_create(a, b, ground[irandom(2)]);
-                        }
-                    break;
-                    case 1:                                             // room 1
-                        //draw_set_font(font2);
-                        if (a == 10 and b == 10)
-                        {
-                            map[a, b] = instance_create(a, b, oSpace);
-                            // TODO: functions for creating terrain, to customize each piece, and remove create code from them
-                            create_creature(a, b, oNPC, '3', c_blue, oBlood); // spawns NPC at middle of room
-                        }                                                       // NOTE: old instance from this spot still, exists. will be destroyed when leaving room, but still could be cleaned up
-                        
-                        else if (a == 60 and b == 40)
-                        {
-                            map[a, b] = instance_create(a, b, oSpace);
-                            create_creature(a, b, oLawnmower, 'L', c_green, oBlood); // spawns NPC at middle of room
-                        } 
-                        else if (a == 12 and b == 12)
-                        {
-                            map[a, b] = instance_create(a, b, oSpace);
-                            create_creature(a, b, oBloooder, 'B', c_maroon, oBlood); // spawns NPC at middle of room
-                        } 
-                        
-                        else
-                        {
-                            map[a, b] = instance_create(a, b, wall[irandom(2)]);
-                        }
-                    break;
-                    case 2:                                             // room 1
-                        //draw_set_font(fontScore);
-                        if (a == 35 and b == 28)
-                        {
-                            map[a, b] = instance_create(a, b, oSpace);
-                            create_creature(a, b, oLawnmower, 'L', c_green, oBlood); // spawns NPC at middle of room
-                        } 
-                        else if (a == 12 and b == 12)
-                        {
-                            map[a, b] = instance_create(a, b, oSpace);
-                            create_creature(a, b, oBloooder, 'B', c_maroon, oBlood); // spawns NPC at middle of room
-                        } 
-                        else
-                        {
-                            map[a, b] = instance_create(a, b, ground[irandom(2)]);
-                        }
-                    break;
-                    default:   
-                        //draw_set_font(fontScore);                          
-                        map[a, b] = instance_create(a, b, ground[irandom(2)]);
-                    break;
-                }
+                map[a, b] = instance_create(a, b, irandom_range(terrain_start, terrain_end));  // puts a space where player will spawn
+                                                            // NOTE: old instance from this spot still, exists. will be destroyed when leaving room, but still could be cleaned up
+                                                            // NOTE: make this spot a proper variable, not a constant
             }
         }
     }

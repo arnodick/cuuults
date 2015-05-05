@@ -60,6 +60,7 @@
     <script>scripts\draw_random_char.gml</script>
     <script>scripts\draw_set_coordinates.gml</script>
     <script>scripts\draw_init.gml</script>
+    <script>scripts\assets_init.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>
@@ -77,6 +78,7 @@
     <object>objects\oBloooder</object>
     <object>objects\oFollower</object>
     <object>objects\oWall</object>
+    <object>objects\oPillar</object>
     <object>objects\oGrass</object>
     <object>objects\oRoad</object>
     <object>objects\oSpace</object>

@@ -29,23 +29,11 @@
 
 
 
-char = 'X';
+char = '.';
 colour = c_gray;
-char = chr( irandom_range(33, 126) );
 
 sound_step = sndRock2;
 
-seed = irandom(1);
-switch (seed)
-{
-
-    case 0:
-        colour = c_white;
-        break;
-    case 1:
-        colour = c_yellow;
-        break;
-}
 //colour = merge_colour(colour, c_black, y/48);
 </string>
           </argument>
