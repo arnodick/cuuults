@@ -76,8 +76,8 @@
     <object>objects\oPlanter</object>
     <object>objects\oBloooder</object>
     <object>objects\oFollower</object>
-    <object>objects\oGrass</object>
     <object>objects\oWall</object>
+    <object>objects\oGrass</object>
     <object>objects\oRoad</object>
     <object>objects\oSpace</object>
     <object>objects\oStamped</object>

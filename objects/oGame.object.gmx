@@ -29,7 +29,7 @@
 randomize();                        // gives a random seed EVERY time the game is run
 texture_set_interpolation(false);   // gets rid of "smudginess" on sprites
                    
-room_dimensions(14, 32, 20);
+room_dimensions(100, 32, 20);
 
 room_count = 0;                     // room count. determines what you find in a room (NOTE: will have to figure out a way to save specific room to file)
 
@@ -157,13 +157,14 @@ if generate == true
                         if (a == r_width / 2 and b == r_height / 2)
                         {
                             //map[a, b].hp = 0;                         // figure out a way to make this properly destroy object at spot?
-                            map[a, b] = instance_create(a, b, oSpace);  // puts a space where player will spawn
+                            map[a, b] = instance_create(a, b, asset_get_index("oSpace"));  // puts a space where player will spawn
                                                                         // NOTE: old instance from this spot still, exists. will be destroyed when leaving room, but still could be cleaned up
                                                                         // NOTE: make this spot a proper variable, not a constant
                         }
                         else
                         {
-                            map[a, b] = instance_create(a, b, ground[irandom(2)]);
+                            map[a, b] = instance_create(a, b, (asset_get_index("oGrass")));
+                            //map[a, b] = instance_create(a, b, ground[irandom(2)]);
                         }
                     break;
                     case 1:                                             // room 1
@@ -294,6 +295,10 @@ if (global.debug == true)
     }
     
     inst_string = "Instance cnt = " + string(instance_count);
+    obj_ind_string = "Obj index = " + string(asset_get_index("oGrass"));
+    // TO DO: make offset values for each type of thing, based on the first one of those things in the asset list
+    //          ie: assume oWall is always the first terrain object, and has index = 7. terrain offset = index of oWall (7)
+    //              then just add random x to that to get a random terrain object.
 }
 </string>
           </argument>
@@ -370,6 +375,7 @@ if (global.debug == true)
     
     //draw the number of instances, below fps count
     draw_text(32, 64, inst_string);
+    draw_text(32, 96, obj_ind_string);
     draw_set_font(rd);
 }
 </string>
