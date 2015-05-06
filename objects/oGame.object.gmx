@@ -120,6 +120,7 @@ check_room_change();
 
 if generate == true
 {
+    var map_file = file_text_open_read(working_directory + "map.txt");
     room_dimensions(14, 52, 32);
     //room_dimensions(14, 52, 32);                    // MAX SIZE: x 52, y 32
     with(oThing)                                                    // destroys all the oThings in the room (NOTE: does this NOT destroy the NPC?)
@@ -129,10 +130,14 @@ if generate == true
             instance_destroy();
         }
     }
-    for (var a = 0; a &lt; r_width; a++)                               // loops through each cell of the map array
+    for (var a = 0; a &lt; r_height; a++)                               // loops through each cell of the map array
+                                                                    // have to loop through height first for some reason?
     {
-        for (var b = 0; b &lt; r_height; b++)
+        for (var b = 0; b &lt; r_width; b++)
         {
+            var cell = file_text_read_real(map_file);
+            map[b, a] = instance_create(a, b, cell);                // a, b must be reversed for text file input for some reason?
+            /*
             if a == 0 or b == 0 or a == 1 or b == 1 or a == r_width - 2 or b == r_height - 2 or a == r_width - 1 or b == r_height - 1
                                                                     // edge and outside edge are assigned open space so player doesn't get stuck inside anything
             {
@@ -144,8 +149,10 @@ if generate == true
                                                             // NOTE: old instance from this spot still, exists. will be destroyed when leaving room, but still could be cleaned up
                                                             // NOTE: make this spot a proper variable, not a constant
             }
+            */
         }
     }
+    file_text_close(map_file);
     generate = false;                                               // set generate to false, so room doesn't keep regenerating
     room_count += 1;                                                // increment room count (this is 1 higher than actual CURRENT room?)
                                                                     // NOTE: will have to figure out a way to DECREMENT this when returning to old room, once array saving is figured out
