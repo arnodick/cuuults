@@ -5,6 +5,9 @@ room_width_max = 52;
 room_height_max = 32;
 draw_offset = 0.5;
 
+view_width = 26;
+view_height = 16;
+
 /*
 for (var a = 0; a < room_width_max; a++)
 {

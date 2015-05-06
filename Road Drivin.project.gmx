@@ -61,6 +61,7 @@
     <script>scripts\draw_set_coordinates.gml</script>
     <script>scripts\draw_init.gml</script>
     <script>scripts\assets_init.gml</script>
+    <script>scripts\room_view.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>

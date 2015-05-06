@@ -1,4 +1,4 @@
-run = false;
+run = true;
 if global.debug == true
 {
     run = true; // delete this and un-comment the above line when not testing run mechanics
