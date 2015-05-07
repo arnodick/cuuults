@@ -1,8 +1,4 @@
-run = true;
-if global.debug == true
-{
-    run = true; // delete this and un-comment the above line when not testing run mechanics
-}
+run = false;
 
 move_time_mult_init = 3;
 move_time_mult = move_time_mult_init;
