@@ -1,4 +1,8 @@
-draw_set_font(rd);
+font[0] = rd;
+font[1] = font2;
+font_switch = false;
+
+draw_set_font(font[0]);
 draw_set_halign(fa_left);
 
 room_width_max = 52;

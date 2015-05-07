@@ -98,8 +98,11 @@
     <object>objects\oFollower</object>
     <object>objects\oWall</object>
     <object>objects\oPillar</object>
+    <object>objects\oPillar_crumbled</object>
+    <object>objects\oRubble</object>
     <object>objects\oGrass</object>
     <object>objects\oRoad</object>
+    <object>objects\oWater</object>
     <object>objects\oSpace</object>
     <object>objects\oTest</object>
     <object>objects\oStamped</object>

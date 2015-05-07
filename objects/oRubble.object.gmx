@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>oThing</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,49 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Attributes
-event_inherited();
+            <string>event_inherited();
 
-// Basic attributes
-char = '@'; //graphic
-colour_init = c_white; //colour
-colour = merge_colour(colour_init, c_black, y/48);
+char = ',';
 
-// Player attributes + variables
+//hue = colour_get_hue(c_olive) + (irandom(80) - 40);
+//val = colour_get_value(c_olive) + (irandom(80) - 40);
+colour = c_dkgray;
 
-oGame.map[x, y] = instance_create(x, y, oSpace);
+//colour = merge_colour(colour, c_black, y/48);
 
-move_init(8);
-move_run_init();
-check_creature_init();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Controls
 
-//colour = merge_colour(colour_init, c_black, y/48);
-
-move_type(mt_key, -1);
-check_creature();
+solid = true;
 </string>
           </argument>
         </arguments>

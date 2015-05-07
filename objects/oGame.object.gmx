@@ -26,7 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
-randomize();     
+randomize();    
+ 
 draw_init();
                                       // gives a random seed EVERY time the game is run
 texture_set_interpolation(false);   // gets rid of "smudginess" on sprites
@@ -40,7 +41,7 @@ generate = true;                        // if set to true, regenerates the level
 //instance_create(0, 0, oScreen);
 assets_init();
 
-global.debug = true;
+global.debug = false;
 global.player = instance_create(1, 1, oPlayer);    //spawn the player in the middle of the room. (NOTE: does it need to be global? should only ever be 1 player, can refer to oPlayer)
 </string>
           </argument>
@@ -116,6 +117,13 @@ inst_string = "Instance # = " + string(instance_count);
 
 //Map Generate
 
+if (keyboard_check_pressed (vk_space))
+{
+    font_switch = !(font_switch);
+    draw_set_font(font[font_switch]);
+    //draw_random_char();
+}
+
 check_room_change();
 
 if generate == true
@@ -130,13 +138,13 @@ if generate == true
             instance_destroy();
         }
     }
-    for (var a = 0; a &lt; r_height; a++)                               // loops through each cell of the map array
+    for (var b = 0; b &lt; r_height; b++)                               // loops through each cell of the map array
                                                                     // have to loop through height first for some reason?
     {
-        for (var b = 0; b &lt; r_width; b++)
+        for (var a = 0; a &lt; r_width; a++)
         {
             var cell = file_text_read_real(map_file);
-            map[b, a] = instance_create(a, b, cell);                // a, b must be reversed for text file input for some reason?
+            map[a, b] = instance_create(a, b, cell);                // a, b must be reversed for text file input for some reason?
             /*
             if a == 0 or b == 0 or a == 1 or b == 1 or a == r_width - 2 or b == r_height - 2 or a == r_width - 1 or b == r_height - 1
                                                                     // edge and outside edge are assigned open space so player doesn't get stuck inside anything
@@ -315,7 +323,7 @@ if (global.debug == true)
     //draw the number of instances, below fps count
     draw_text(32, 64, inst_string);
     draw_text(32, 96, obj_ind_string);
-    draw_set_font(rd);
+    draw_set_font(font[font_switch]);
 }
 </string>
           </argument>
