@@ -14,9 +14,11 @@ room_width_max = 52;
 room_height_max = 32;
 
 // view dimensions
-view_width = 26;
-view_height = 16;
+view_width = room_width_max;
+view_height = room_height_max;
 draw_offset = 0;
+view_factor = 1;                        // the amount to divide the screen width and height by. SHOULDN'T BE ODD
+view_switch =  false;                   // just a switch value to add to the factor, to easily half the screen
 
 
 // SCREEN SHAKE SETTINGS

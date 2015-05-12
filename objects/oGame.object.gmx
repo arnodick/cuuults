@@ -102,11 +102,16 @@ if keyboard_check_pressed (vk_f1)
     font_switch = !(font_switch);
     draw_set_font(font[font_switch]);
 }
+if keyboard_check_pressed (vk_f2)
+{
+    view_switch = !(view_switch);
+}
 // press TAB to switch debug on or off
 if keyboard_check_pressed (vk_tab)
 {
     global.debug = !global.debug;
 }
+
 
 </string>
           </argument>
@@ -136,6 +141,8 @@ check_room_change();
 
 if generate == true
 {
+
+    // TODO: make this a function, just do nested loops!
     var map_file = file_text_open_read(working_directory + "map.txt");
     file_width = textfile_width(map_file);
     
@@ -213,7 +220,7 @@ game_quit();
 // so the draw event doesn't have a bunch of math in it
 
 // sets the view position according to player's position
-room_view(view_width, view_height);
+room_view( view_width / (view_factor + view_switch), view_height / (view_factor + view_switch) );
 
 // pre-sets the draw coordinates, so less math in draw event
 // TODO: GET RID OF THIS WITH SURFACES

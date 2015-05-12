@@ -1,12 +1,19 @@
-// TODO: once warpping movement is set up, GET RID OF THIS
+// argument0 = view width
+// argument1 = view height
+
+// TODO: once wrapping movement is set up, GET RID OF THIS
+// calculates quadrant of the map player is in
 var x_sector = oPlayer.x div argument0;
 var y_sector = oPlayer.y div argument1;
 var x_offset = 0;
 var y_offset = 0;
+
+// if player is in far left quadrant, move screen right by 1 tile to accomodate empty border/exit cell
 if x_sector == 0
 {
     x_offset = tile_size;
 }
+// if player is in top quadrant, move screen down 1 tile to accomodate empty border/exit cell
 if y_sector == 0
 {
     y_offset = tile_size;
