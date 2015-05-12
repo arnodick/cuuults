@@ -31,11 +31,11 @@ randomize();
 
 // fonts + view dimensions
 draw_init();
+                   
+room_dimensions(14, room_width_max, room_height_max);
 
 // sets the offset for pointers to terrain, creatures, items, etc.
 asset_offsets_init();
-                   
-room_dimensions(14, room_width_max, room_height_max);
 
 // room count. TODO : need this? (NOTE: will have to figure out a way to save specific room to file)
 room_count = 0;
@@ -137,7 +137,13 @@ check_room_change();
 if generate == true
 {
     var map_file = file_text_open_read(working_directory + "map.txt");
-    room_dimensions(14, 52, 32);                                        // TODO: reserve 2 lines at beginning of map files to give dimensions
+    file_width = textfile_width(map_file);
+    
+    map_file = file_text_open_read(working_directory + "map.txt");
+    file_height = textfile_length(map_file);
+    
+    map_file = file_text_open_read(working_directory + "map.txt");
+    room_dimensions(14, file_width, file_height);                                        // TODO: reserve 2 lines at beginning of map files to give dimensions
     
     // TODO: write last room to a file here?
     
@@ -149,9 +155,11 @@ if generate == true
             instance_destroy();
         }
     }
-    for (var b = 0; b &lt; r_height; b++)                               // loops through each cell of the map array
+    //for (var b = 0; !file_text_eof(map_file); b++)                               // loops through each cell of the map array
+    for (var b = 0; b &lt; r_height; b++)
                                                                     // have to loop through height first for some reason?
     {
+        //for (var a = 0; !file_text_eoln(map_file); a++)
         for (var a = 0; a &lt; r_width; a++)
         {
             var cell = file_text_read_real(map_file);
@@ -160,9 +168,12 @@ if generate == true
                 map[a, b] = instance_create(a, b, irandom_range(terrain_start, terrain_end));
             }
             */
+
         }
     }
     file_text_close(map_file);
+    //file_width = a;
+    //file_height = b;
     generate = false;                                               // set generate to false, so room doesn't keep regenerating
     room_count += 1;                                                // increment room count (this is 1 higher than actual CURRENT room?)
                                                                     // NOTE: will have to figure out a way to DECREMENT this when returning to old room, once array saving is figured out
@@ -241,7 +252,7 @@ if (global.debug == true)
         fps_timer = fps_timer_init;
         fps_string = "FPS = " + string(round(fps_real));
     }
-    inst_string = "Instance # = " + string(instance_count);
+    inst_string = "Inst \# = " + string(instance_count);
 }
 </string>
           </argument>
@@ -303,10 +314,12 @@ if (global.debug == true)
     //draw the FPS, top left
     draw_set_font(fontScore);
     draw_set_colour(c_red);
-    draw_text(view_xview[0] + 32, view_yview[0] + 32, fps_string);
+    draw_text(view_xview[0] + 32, view_yview[0] + 16, fps_string);
     
     //draw the number of instances, below fps count
-    draw_text(view_xview[0] + 32, view_yview[0] + 64, inst_string);
+    draw_text(view_xview[0] + 32, view_yview[0] + 32, inst_string);
+    draw_text(view_xview[0] + 32, view_yview[0] + 48, file_width);
+    draw_text(view_xview[0] + 32, view_yview[0] + 64, file_height);
     draw_set_font(font[font_switch]);
 }
 </string>

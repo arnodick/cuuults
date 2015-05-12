@@ -36,6 +36,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\textfile_length.gml</script>
+    <script>scripts\textfile_width.gml</script>
     <script>scripts\textfile_readlines.gml</script>
     <script>scripts\menu_init.gml</script>
     <script>scripts\menu_create.gml</script>
