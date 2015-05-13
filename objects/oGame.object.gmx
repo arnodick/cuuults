@@ -219,8 +219,9 @@ game_quit();
             <string>///Draw Calculations
 // so the draw event doesn't have a bunch of math in it
 
+var view_scale = (1 / power(view_factor, view_switch))
 // sets the view position according to player's position
-room_view( view_width / (view_factor + view_switch), view_height / (view_factor + view_switch) );
+room_view( (view_width * view_scale), (view_height * view_scale) );
 
 // pre-sets the draw coordinates, so less math in draw event
 // TODO: GET RID OF THIS WITH SURFACES
