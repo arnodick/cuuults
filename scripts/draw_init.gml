@@ -18,7 +18,7 @@ view_width = room_width_max;
 view_height = room_height_max;
 draw_offset = 0;
 view_factor = 2;                        // the amount to divide the screen width and height by. SHOULDN'T BE ODD
-view_switch =  false;                   // just a switch value to add to the factor, to easily half the screen
+view_switch =  0;                   // just a switch value to add to the factor, to easily half the screen
 
 
 // SCREEN SHAKE SETTINGS
