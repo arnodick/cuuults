@@ -148,6 +148,11 @@ if keyboard_check_pressed (vk_tab)
 
 if generate == true
 {
+
+    var map_write = file_text_open_write(working_directory + "test.txt");
+    file_text_write_string(map_write, "testing...");
+    file_text_close(map_write);
+
     var map_string = working_directory + "map52x32.txt";
 
     // TODO: make this a function, just do nested loops!
