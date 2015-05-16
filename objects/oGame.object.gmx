@@ -74,6 +74,8 @@ fps_timer = fps_timer_init;
 fps_string = "FPS = " + string(round(fps_real));
 
 inst_string = "Instance # = " + string(instance_count);
+
+obj_to_place = terrain_start;
 </string>
           </argument>
         </arguments>
@@ -255,14 +257,33 @@ if (global.debug == true)
     mouse_draw_x = mouse_cell_x * tile_size;
     mouse_draw_y = mouse_cell_y * tile_size;
     
+    if mouse_wheel_up()
+    {
+        obj_to_place++;
+        if (obj_to_place &gt; terrain_end)
+        {
+            obj_to_place = terrain_start;
+        }
+    }
+    else if mouse_wheel_down()
+    {
+        obj_to_place--;
+        if (obj_to_place &lt; terrain_start)
+        {
+            obj_to_place = terrain_end;
+        }
+    }
     if mouse_check_button_pressed(mb_left)
     {
-        with (map[mouse_cell_x, mouse_cell_y])
+        if ( (mouse_cell_x &gt; 0) and (mouse_cell_y &gt; 0) and (mouse_cell_x &lt; r_width) and (mouse_cell_y &lt; r_height) )
         {
-            instance_destroy();
+            with (map[mouse_cell_x, mouse_cell_y])
+            {
+                instance_destroy();
+            }
+            map[mouse_cell_x, mouse_cell_y] = instance_create(mouse_cell_x, mouse_cell_y, obj_to_place);
+            map_update[mouse_cell_x, mouse_cell_y] = map[mouse_cell_x, mouse_cell_y];
         }
-        map[mouse_cell_x, mouse_cell_y] = instance_create(mouse_cell_x, mouse_cell_y, oGrass);
-        map_update[mouse_cell_x, mouse_cell_y] = map[mouse_cell_x, mouse_cell_y];
     }
 }
 </string>
