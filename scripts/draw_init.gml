@@ -10,6 +10,7 @@ draw_set_halign(fa_left);
 texture_set_interpolation(false);
 
 // room dimensions TODO: should this be in here?
+tile_size = 14;
 room_width_max = 52;
 room_height_max = 32;
 
