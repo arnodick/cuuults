@@ -74,7 +74,6 @@ fps_timer = fps_timer_init;
 fps_string = "FPS = " + string(round(fps_real));
 
 inst_string = "Instance # = " + string(instance_count);
-obj_string = "Obj # = " + string(terrain_start);
 </string>
           </argument>
         </arguments>
@@ -232,16 +231,40 @@ game_quit();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw Calculations
-// so the draw event doesn't have a bunch of math in it
+            <string>///Debug Update
 
-var view_scale = (1 / power(view_factor, view_switch))
-// sets the view position according to player's position
-room_view( (r_width * view_scale), (r_height * view_scale) );
-
-// pre-sets the draw coordinates, so less math in draw event
-// TODO: GET RID OF THIS WITH SURFACES
-draw_set_coordinates();
+//FPS timer. stops FPS from cycling so fast you can't see what the number is
+if (global.debug == true)
+{
+    if (fps_timer &gt; 0)
+    {
+        fps_timer -= 1;
+    }
+    else
+    {
+        fps_timer = fps_timer_init;
+        fps_string = "FPS = " + string(round(fps_real));
+    }
+    inst_string = "Inst \# = " + string(instance_count);
+    
+    playerx_string = "X = " + string(oPlayer.x);
+    playery_string = "Y = " + string(oPlayer.y);
+    
+    mouse_cell_x = mouse_x div tile_size;
+    mouse_cell_y = mouse_y div tile_size;
+    mouse_draw_x = mouse_cell_x * tile_size;
+    mouse_draw_y = mouse_cell_y * tile_size;
+    
+    if mouse_check_button_pressed(mb_left)
+    {
+        with (map[mouse_cell_x, mouse_cell_y])
+        {
+            instance_destroy();
+        }
+        map[mouse_cell_x, mouse_cell_y] = instance_create(mouse_cell_x, mouse_cell_y, oGrass);
+        map_update[mouse_cell_x, mouse_cell_y] = map[mouse_cell_x, mouse_cell_y];
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -262,25 +285,16 @@ draw_set_coordinates();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Debug Update
+            <string>///Draw Calculations
+// so the draw event doesn't have a bunch of math in it
 
-//FPS timer. stops FPS from cycling so fast you can't see what the number is
-if (global.debug == true)
-{
-    if (fps_timer &gt; 0)
-    {
-        fps_timer -= 1;
-    }
-    else
-    {
-        fps_timer = fps_timer_init;
-        fps_string = "FPS = " + string(round(fps_real));
-    }
-    inst_string = "Inst \# = " + string(instance_count);
-    
-    playerx_string = "X = " + string(oPlayer.x);
-    playery_string = "Y = " + string(oPlayer.y);
-}
+var view_scale = (1 / power(view_factor, view_switch))
+// sets the view position according to player's position
+room_view( (r_width * view_scale), (r_height * view_scale) );
+
+// pre-sets the draw coordinates, so less math in draw event
+// TODO: GET RID OF THIS WITH SURFACES
+draw_set_coordinates();
 </string>
           </argument>
         </arguments>
@@ -341,16 +355,20 @@ if (global.debug == true)
     //draw the FPS, top left
     draw_set_font(fontScore);
     draw_set_colour(c_red);
-    draw_text(view_xview[0] + 32, view_yview[0] + 16, fps_string);
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size, fps_string);
     
     //draw the number of instances, below fps count
-    draw_text(view_xview[0] + 32, view_yview[0] + 32, inst_string);
-    draw_text(view_xview[0] + 32, view_yview[0] + 48, file_width);
-    draw_text(view_xview[0] + 32, view_yview[0] + 64, file_height);
-    draw_text(view_xview[0] + 32, view_yview[0] + 80, playerx_string);
-    draw_text(view_xview[0] + 32, view_yview[0] + 96, playery_string);
-    draw_text(view_xview[0] + 32, view_yview[0] + 112, obj_string);
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*2, inst_string);
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*3, file_width);
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*4, file_height);
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*5, playerx_string);
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*6, playery_string);
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*7, mouse_x);
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*8, mouse_y);
+    
     draw_set_font(font[font_switch]);
+    draw_rectangle_colour( mouse_draw_x, mouse_draw_y, mouse_draw_x + tile_size, mouse_draw_y + tile_size, c_red, c_red, c_red, c_red, true );
+    
 }
 </string>
           </argument>
