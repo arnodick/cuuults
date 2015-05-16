@@ -74,6 +74,7 @@ fps_timer = fps_timer_init;
 fps_string = "FPS = " + string(round(fps_real));
 
 inst_string = "Instance # = " + string(instance_count);
+obj_string = "Obj # = " + string(terrain_start);
 </string>
           </argument>
         </arguments>
@@ -182,7 +183,12 @@ if generate == true
         //for (var a = 0; !file_text_eoln(map_file); a++)
         for (var a = 0; a &lt; r_width; a++)
         {
-            var cell = file_text_read_real(map_file);
+            var cell = (file_text_read_real(map_file) + terrain_start);
+            // restricts incorrect values from being input into map array from text file
+            if ( (cell &lt; terrain_start) or (cell &gt; terrain_end) )
+            {
+                cell = terrain_start + 1;
+            }
             map[a, b] = instance_create(a, b, cell);                // a, b must be reversed for text file input for some reason?
             /*
                 map[a, b] = instance_create(a, b, irandom_range(terrain_start, terrain_end));
@@ -346,6 +352,7 @@ if (global.debug == true)
     draw_text(view_xview[0] + 32, view_yview[0] + 64, file_height);
     draw_text(view_xview[0] + 32, view_yview[0] + 80, playerx_string);
     draw_text(view_xview[0] + 32, view_yview[0] + 96, playery_string);
+    draw_text(view_xview[0] + 32, view_yview[0] + 112, obj_string);
     draw_set_font(font[font_switch]);
 }
 </string>

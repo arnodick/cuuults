@@ -15,7 +15,7 @@ room_width_max = 52;
 room_height_max = 32;
 
 // view dimensions
-draw_offset = 0;
+draw_offset = 0;                    // unused currently
 view_factor = 2;                        // the amount to divide the screen width and height by. SHOULDN'T BE ODD
 view_switch =  0;                   // just a switch value to add to the factor, to easily half the screen
 
