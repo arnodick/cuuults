@@ -1,5 +1,4 @@
 // the size of each cell on the screen. (mess with this to get weird overlapping effects)
-tile_size = argument0;
 
 // sets the width and height of the room array
 r_width = argument1;
@@ -11,5 +10,5 @@ map[r_width, r_height] = 0;
 map_update[r_width, r_height] = 0;
 
 // the height and width of the gamemaker room, so that the actual screen will be wide enough
-room_width = tile_size * argument1;
-room_height = tile_size *  argument2;
+room_width = argument0 * argument1;
+room_height = argument0 *  argument2;

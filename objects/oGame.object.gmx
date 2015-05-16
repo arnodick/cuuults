@@ -32,7 +32,8 @@ randomize();
 // fonts + view dimensions
 draw_init();
                    
-room_dimensions(14, room_width_max, room_height_max);
+// initialize map arrays and room size
+room_dimensions(tile_size, room_width_max, room_height_max);
 
 // sets the offset for pointers to terrain, creatures, items, etc.
 asset_offsets_init();
@@ -147,16 +148,17 @@ if keyboard_check_pressed (vk_tab)
 
 if generate == true
 {
+    var map_string = working_directory + "map52x32.txt";
 
     // TODO: make this a function, just do nested loops!
-    var map_file = file_text_open_read(working_directory + "map.txt");
+    var map_file = file_text_open_read(map_string);
     file_width = textfile_width(map_file);
     
-    map_file = file_text_open_read(working_directory + "map.txt");
+    map_file = file_text_open_read(map_string);
     file_height = textfile_length(map_file);
     
-    map_file = file_text_open_read(working_directory + "map.txt");
-    room_dimensions(14, file_width, file_height);                                        // TODO: reserve 2 lines at beginning of map files to give dimensions
+    map_file = file_text_open_read(map_string);
+    room_dimensions(tile_size, file_width, file_height);                                        // TODO: reserve 2 lines at beginning of map files to give dimensions
     
     // TODO: write last room to a file here?
     
@@ -227,7 +229,7 @@ game_quit();
 
 var view_scale = (1 / power(view_factor, view_switch))
 // sets the view position according to player's position
-room_view( (view_width * view_scale), (view_height * view_scale) );
+room_view( (r_width * view_scale), (r_height * view_scale) );
 
 // pre-sets the draw coordinates, so less math in draw event
 // TODO: GET RID OF THIS WITH SURFACES
