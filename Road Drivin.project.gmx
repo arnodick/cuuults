@@ -55,6 +55,8 @@
     <script>scripts\textfile_length.gml</script>
     <script>scripts\textfile_width.gml</script>
     <script>scripts\textfile_readlines.gml</script>
+    <script>scripts\textfile_init_map.gml</script>
+    <script>scripts\textfile_save_map.gml</script>
     <script>scripts\menu_init.gml</script>
     <script>scripts\menu_create.gml</script>
     <script>scripts\menu_select.gml</script>
@@ -97,7 +99,6 @@
     <script>scripts\draw_init.gml</script>
     <script>scripts\asset_offsets_init.gml</script>
     <script>scripts\room_view.gml</script>
-    <script>scripts\textfile_write_map.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontScore</font>
