@@ -275,7 +275,7 @@ if (global.debug == true)
     }
     if mouse_check_button_pressed(mb_left)
     {
-        if ( (mouse_cell_x &gt; 0) and (mouse_cell_y &gt; 0) and (mouse_cell_x &lt; r_width) and (mouse_cell_y &lt; r_height) )
+        if ( (mouse_cell_x &gt;= 0) and (mouse_cell_y &gt;= 0) and (mouse_cell_x &lt; r_width) and (mouse_cell_y &lt; r_height) )
         {
             with (map[mouse_cell_x, mouse_cell_y])
             {
@@ -285,12 +285,13 @@ if (global.debug == true)
             map_update[mouse_cell_x, mouse_cell_y] = map[mouse_cell_x, mouse_cell_y];
         }
     }
-    if keyboard_check_pressed(vk_enter)
+    // press s to save the current level to txt file
+    if keyboard_check_pressed(ord("S"))
     {
-        var save_file = get_save_filename("text file|*.txt", "map_00");
-        if save_file != ""
+        var save_file = get_save_filename("Normal text file (*.txt)|*.txt", "map_00"); // takes player's input for a file name
+        if save_file != ""      // as long as user is actually putting characters in, we save
         {
-            textfile_save_map(save_file, map);
+            textfile_save_map(save_file, map);  // converts a map array into a text file
         }
     }
 }
