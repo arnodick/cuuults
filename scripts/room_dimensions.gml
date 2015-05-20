@@ -6,6 +6,7 @@ r_height = argument2;
 
 // the somewhat static map of the level and instances that will actually be drawn (NOTE: should this be in a screen object at the end of the list?)
 // TODO: change map names to map_terrain and map_objects
+// TODO: make this set ALL cells of array to 0, not just the cells of the current array
 map[r_width, r_height] = 0;
 map_update[r_width, r_height] = 0;
 

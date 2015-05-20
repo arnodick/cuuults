@@ -285,13 +285,29 @@ if (global.debug == true)
             map_update[mouse_cell_x, mouse_cell_y] = map[mouse_cell_x, mouse_cell_y];
         }
     }
+    /*
+    // press n to create a new map array
+    if keyboard_check_pressed(ord("N"))
+    {
+        room_dimensions(tile_size, file_width, file_height);
+    }
+    */
     // press s to save the current level to txt file
     if keyboard_check_pressed(ord("S"))
     {
         var save_file = get_save_filename("Normal text file (*.txt)|*.txt", "map_00"); // takes player's input for a file name
         if save_file != ""      // as long as user is actually putting characters in, we save
         {
-            textfile_save_map(save_file, map);  // converts a map array into a text file
+            textfile_save_map(save_file, map, terrain_start);  // converts a map array into a text file
+        }
+    }
+    // press l to load a map from a text file
+    if keyboard_check_pressed(ord("L"))
+    {
+        var load_file = get_open_filename_ext("Normal text file (*.txt)|*.txt", "map_00", working_directory, "Hello");  // takes player's input for a file name
+        if load_file != ""      // as long as user is actually putting characters in, we load
+        {
+            textfile_load_map(load_file);  // converts a map array into a text file
         }
     }
 }

@@ -57,6 +57,7 @@
     <script>scripts\textfile_readlines.gml</script>
     <script>scripts\textfile_init_map.gml</script>
     <script>scripts\textfile_save_map.gml</script>
+    <script>scripts\textfile_load_map.gml</script>
     <script>scripts\menu_init.gml</script>
     <script>scripts\menu_create.gml</script>
     <script>scripts\menu_select.gml</script>
