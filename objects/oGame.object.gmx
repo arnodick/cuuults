@@ -31,12 +31,15 @@ randomize();
 
 // fonts + view dimensions
 draw_init();
-                   
-// initialize map arrays and room size
-room_dimensions(tile_size, room_width_max, room_height_max);
 
 // sets the offset for pointers to terrain, creatures, items, etc.
 asset_offsets_init();
+
+// initialize map arrays and room size
+room_dimensions(tile_size, room_width_max, room_height_max);
+
+// initializes map to all empty spaces
+textfile_load_map(working_directory + "map_auto.txt");
 
 // room count. TODO : need this? (NOTE: will have to figure out a way to save specific room to file)
 room_count = 0;
@@ -148,6 +151,7 @@ if keyboard_check_pressed (vk_tab)
 
 //check_room_change();
 
+/*
 if generate == true
 {
 
@@ -174,9 +178,7 @@ if generate == true
             instance_destroy();
         }
     }
-    //for (var b = 0; !file_text_eof(map_file); b++)                               // loops through each cell of the map array
     for (var b = 0; b &lt; r_height; b++)
-                                                                    // have to loop through height first for some reason?
     {
         //for (var a = 0; !file_text_eoln(map_file); a++)
         for (var a = 0; a &lt; r_width; a++)
@@ -188,11 +190,6 @@ if generate == true
                 cell = terrain_start + 1;
             }
             map[a, b] = instance_create(a, b, cell);                // a, b must be reversed for text file input for some reason?
-            /*
-                map[a, b] = instance_create(a, b, irandom_range(terrain_start, terrain_end));
-            }
-            */
-
         }
     }
     file_text_close(map_file);
@@ -201,7 +198,6 @@ if generate == true
     generate = false;                                               // set generate to false, so room doesn't keep regenerating
     room_count += 1;                                                // increment room count (this is 1 higher than actual CURRENT room?)
                                                                     // NOTE: will have to figure out a way to DECREMENT this when returning to old room, once array saving is figured out
-                                                                    
     map_update = map;                                              // sets the display array to the map array, so that terrain is redrawn, instead of leaving paths of the player character's symbol
     //TODO: here is where you can put in creatures!
     //have list of possible objects
@@ -211,6 +207,8 @@ if generate == true
     // just have an amount of creatures/items each which of which has its own position. loop through the amount, placing them in map_update wherever their x y says to.
     // get this from a file? sometimes randomly?
 }
+*/
+
 
 game_quit();
 </string>
@@ -273,7 +271,7 @@ if (global.debug == true)
             obj_to_place = terrain_end;
         }
     }
-    if mouse_check_button_pressed(mb_left)
+    if mouse_check_button(mb_left)
     {
         if ( (mouse_cell_x &gt;= 0) and (mouse_cell_y &gt;= 0) and (mouse_cell_x &lt; r_width) and (mouse_cell_y &lt; r_height) )
         {
@@ -405,8 +403,8 @@ if (global.debug == true)
     
     //draw the number of instances, below fps count
     draw_text(view_xview[0] + 32, view_yview[0] + tile_size*2, inst_string);
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*3, file_width);
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*4, file_height);
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*3, r_width);
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*4, r_height);
     draw_text(view_xview[0] + 32, view_yview[0] + tile_size*5, playerx_string);
     draw_text(view_xview[0] + 32, view_yview[0] + tile_size*6, playery_string);
     draw_text(view_xview[0] + 32, view_yview[0] + tile_size*7, mouse_x);
