@@ -123,7 +123,7 @@ if keyboard_check_pressed (vk_tab)
 {
     global.debug = !global.debug;
 }
-
+game_quit();
 
 </string>
           </argument>
@@ -209,8 +209,6 @@ if generate == true
 }
 */
 
-
-game_quit();
 </string>
           </argument>
         </arguments>
@@ -283,13 +281,13 @@ if (global.debug == true)
             map_update[mouse_cell_x, mouse_cell_y] = map[mouse_cell_x, mouse_cell_y];
         }
     }
-    /*
     // press n to create a new map array
     if keyboard_check_pressed(ord("N"))
     {
-        room_dimensions(tile_size, file_width, file_height);
+        input_r_width = get_integer_async("Create room. Width: ", "");
+        
+        //room_dimensions(tile_size, file_width, file_height);
     }
-    */
     // press s to save the current level to txt file
     if keyboard_check_pressed(ord("S"))
     {
@@ -339,6 +337,45 @@ room_view( (r_width * view_scale), (r_height * view_scale) );
 // pre-sets the draw coordinates, so less math in draw event
 // TODO: GET RID OF THIS WITH SURFACES
 draw_set_coordinates();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="63">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// User Input
+var id_of_calling_async_event = ds_map_find_value(async_load, "id");
+if id_of_calling_async_event == input_r_width
+{
+    if ds_map_find_value(async_load, "status")
+    {
+        room_dimensions(tile_size, ds_map_find_value(async_load, "value"), r_height);
+        input_r_height = get_integer_async("Height: ", "");
+    }
+}
+if id_of_calling_async_event == input_r_height
+{
+    if ds_map_find_value(async_load, "status")
+    {
+        room_dimensions(tile_size, r_width, ds_map_find_value(async_load, "value"));
+    }
+}
 </string>
           </argument>
         </arguments>
