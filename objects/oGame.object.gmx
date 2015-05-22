@@ -436,7 +436,7 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
 if (global.debug == true)
 {
     //draw the FPS, top left
-    draw_set_font(fontScore);
+    draw_set_font(font[1]);
     draw_set_colour(c_red);
     draw_text(view_xview[0] + 32, view_yview[0] + tile_size, fps_string);
     

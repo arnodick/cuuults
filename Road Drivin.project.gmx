@@ -102,11 +102,10 @@
     <script>scripts\room_view.gml</script>
   </scripts>
   <fonts name="fonts">
-    <font>fonts\fontScore</font>
-    <font>fonts\fontScore_italic</font>
-    <font>fonts\font2</font>
-    <font>fonts\fontLib</font>
-    <font>fonts\rd</font>
+    <font>fonts\font_road_drivin</font>
+    <font>fonts\font_odyssey</font>
+    <font>fonts\font_8bit</font>
+    <font>fonts\font_liberation</font>
   </fonts>
   <objects name="objects">
     <object>objects\oThing</object>

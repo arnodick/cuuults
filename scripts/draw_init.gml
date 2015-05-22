@@ -1,6 +1,6 @@
 // just stuff to set up font switiching with a key press
-font[0] = rd;
-font[1] = font2;
+font[0] = font_road_drivin;
+font[1] = font_odyssey;
 font_switch = false;
 
 // font = Road Drivin' (™) custom "font" + set font alignment left for some reason
