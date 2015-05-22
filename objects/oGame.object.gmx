@@ -29,6 +29,8 @@
 // gives a random seed EVERY time the game is run
 randomize();
 
+window_set_fullscreen(false);   //making this false gives the game a gross startup flicker TODO: remove this when you don't need to create maps anymore, so its ugliness doesn't make it into final build
+
 // fonts + view dimensions
 draw_init();
 
