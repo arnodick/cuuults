@@ -52,6 +52,9 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\surfaces_init.gml</script>
+    <script>scripts\surfaces_begin.gml</script>
+    <script>scripts\surfaces_end.gml</script>
     <script>scripts\textfile_length.gml</script>
     <script>scripts\textfile_width.gml</script>
     <script>scripts\textfile_readlines.gml</script>

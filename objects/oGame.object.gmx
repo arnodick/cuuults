@@ -40,6 +40,8 @@ asset_offsets_init();
 // initialize map arrays and room size
 room_dimensions(tile_size, room_width_max, room_height_max);
 
+surfaces_init();
+
 // initializes map to all empty spaces
 textfile_load_map(working_directory + "map_auto.txt");
 
@@ -335,10 +337,6 @@ if (global.debug == true)
 var view_scale = (1 / power(view_factor, view_switch))
 // sets the view position according to player's position
 room_view( (r_width * view_scale), (r_height * view_scale) );
-
-// pre-sets the draw coordinates, so less math in draw event
-// TODO: GET RID OF THIS WITH SURFACES
-draw_set_coordinates();
 </string>
           </argument>
         </arguments>
@@ -383,6 +381,54 @@ if id_of_calling_async_event == input_r_height
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="73">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw Surface
+surfaces_end();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="72">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set Draw to Surface
+surfaces_begin();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -406,7 +452,7 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
 {
     for (var b = 0; b &lt; r_height; b++)
     {
-        draw_text_colour (draw_x_coords[a],  draw_y_coords[b], draw_cell[a,b].char, draw_cell[a,b].colour, draw_cell[a,b].colour, draw_cell[a,b].colour, draw_cell[a,b].colour, 1 );
+        draw_text_colour (draw_x_coords[a],  draw_y_coords[b], map_update[a,b].char, map_update[a,b].colour, map_update[a,b].colour, map_update[a,b].colour, map_update[a,b].colour, 1 );
                                         // TODO: draws the cell's font with the cell's colour to it's proper spot on the screen
     }
 }
