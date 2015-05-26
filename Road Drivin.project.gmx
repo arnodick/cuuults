@@ -66,9 +66,6 @@
     <script>scripts\menu_select.gml</script>
     <script>scripts\menu_confirm.gml</script>
     <script>scripts\menu_buttons.gml</script>
-    <script>scripts\screen_shake.gml</script>
-    <script>scripts\screen_shake_check.gml</script>
-    <script>scripts\screen_shake_draw.gml</script>
     <script>scripts\create_creature.gml</script>
     <script>scripts\check_OOB.gml</script>
     <script>scripts\check_room_change.gml</script>
@@ -103,6 +100,7 @@
     <script>scripts\draw_init.gml</script>
     <script>scripts\asset_offsets_init.gml</script>
     <script>scripts\room_view.gml</script>
+    <script>scripts\screen_shake.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_road_drivin</font>

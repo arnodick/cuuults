@@ -9,14 +9,13 @@ draw_set_halign(fa_left);
 // gets rid of "smudginess" on sprites
 texture_set_interpolation(false);
 
-// room dimensions TODO: should this be in here?
+// tile size set to constant, max room size set
 tile_size = 14;
 room_width_max = 52;
 room_height_max = 32;
 
 // view dimensions
-draw_offset = 0;                    // unused currently
-view_factor = 2;                        // the amount to divide the screen width and height by. SHOULDN'T BE ODD
+view_factor = 2;                    // the amount to divide the screen width and height by. SHOULDN'T BE ODD
 view_switch =  0;                   // just a switch value to add to the factor, to easily half the screen
 
 

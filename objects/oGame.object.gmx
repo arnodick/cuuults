@@ -422,7 +422,7 @@ surfaces_end();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Set Draw to Surface
+            <string>/// Set Drawing to Surface
 surfaces_begin();
 </string>
           </argument>
