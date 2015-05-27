@@ -2,10 +2,8 @@
 // argument1 = view height
 
 // calculates quadrant of the map player is in
-var x_sector = oPlayer.x div argument0;
-var y_sector = oPlayer.y div argument1;
-var x_offset = 0;
-var y_offset = 0;
+x_sector = oPlayer.x div argument0;
+y_sector = oPlayer.y div argument1;
 
 // shake code, preprocessed before drawing, to avoid putting a load of calcs on the draw event
 if shaking == true                          

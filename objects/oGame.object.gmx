@@ -448,6 +448,7 @@ surfaces_begin();
             <kind>1</kind>
             <string>///Draw
 
+/*
 for (var a = 0; a &lt; r_width; a++)       // loops through the display array
 {
     for (var b = 0; b &lt; r_height; b++)
@@ -455,6 +456,12 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
         draw_text_colour (draw_x_coords[a],  draw_y_coords[b], map_update[a,b].char, map_update[a,b].colour, map_update[a,b].colour, map_update[a,b].colour, map_update[a,b].colour, 1 );
                                         // TODO: draws the cell's font with the cell's colour to it's proper spot on the screen
     }
+}
+*/
+with(oThing)
+{
+    draw_text_colour (oGame.draw_x_coords[x], oGame.draw_y_coords[y], char, colour, colour, colour, colour, 1 );
+    // better i guess? TODO: have each instance calculate own draw coords?
 }
 </string>
           </argument>
