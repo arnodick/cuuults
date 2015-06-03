@@ -1,4 +1,4 @@
-if keyboard_check(vk_shift) and (run == true or global.debug == true)
+if ( (keyboard_check(vk_shift)) and (run == true or global.debug == true) )
 {
     move_run_dir();
 }

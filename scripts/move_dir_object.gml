@@ -43,7 +43,7 @@ if instance_exists(argument0)
         }
     }
 }
-if move_collision(x_pos, y_pos) == true
+if move_collision(x_pos, y_pos, false) == true
 // TODO: MAKE THIS SCRIPT MORE ROBUST AT PATHFINDING!
 //      if it can't go forward, try a bit to the left or right. if not that, then random?
 //      current version a bit weird

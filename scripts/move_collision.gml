@@ -1,5 +1,6 @@
 var x_dest = argument0;
 var y_dest = argument1;
+var running = argument2;
 
 if (x_dest >= (oGame.r_width))
 {
@@ -26,19 +27,58 @@ if (object_index == oPlayer)
 {
     if cant_move == false
     {
-        audio_play_sound(cell_next.sound_step, 1, false);
-        oGame.map_update[x, y] = oGame.map[x, y];
-        x = x_dest;
-        y = y_dest;
+        if (running == true)
+        {
+            if step_count < 5
+            {
+                step_count += 1;
+            }
+            oGame.map_update[x, y] = oGame.map[x, y];
+            x = x_dest;
+            y = y_dest;
+            audio_sound_pitch(sndBloop, step_count);
+            audio_play_sound(sndBloop, 1, false);
+        }
+        else
+        {
+            audio_play_sound(cell_next.sound_step, 1, false);
+            oGame.map_update[x, y] = oGame.map[x, y];
+            x = x_dest;
+            y = y_dest;
+        }
     }
     else
     {
-        screen_shake(oGame.shake_count_max_bump, 4);
-        audio_play_sound(sndBump, 1, false);
-        //TODO: make these inputs into the movement function, so anything can make noise, shake on impact
-        move_timer = true;
-        move_timer_count = oGame.shake_count_max_bump;
-        step_count = 0;
+        if (running == true)
+        {
+            screen_shake(oGame.shake_count_max_crash, 4*step_count);
+            move_timer = true;
+            move_timer_count = oGame.shake_count_max_crash;
+            if step_count > 4
+            {
+                //audio_play_sound(sndCrash, 1, false);
+                //oGame.map_update[argument0, argument1].hp = 0;
+                var cell_hit = oGame.map_update[argument0, argument1]
+                oGame.map[argument0, argument1] = instance_create(argument0, argument1, cell_hit.dead);
+                oGame.map_update[argument0, argument1] = oGame.map[argument0, argument1]; // TODO: this code makes the game crash when you kill yourself for some reason?
+                audio_play_sound(cell_hit.dead_sound, 1, false);
+                with (cell_hit)
+                {
+                    instance_destroy();
+                }
+            }
+            audio_play_sound(sndBump, 1, false);
+            step_count = 0;
+        }
+        else
+        {
+            screen_shake(oGame.shake_count_max_bump, 4);
+            audio_play_sound(sndBump, 1, false);
+            //TODO: make these inputs into the movement function, so anything can make noise, shake on impact
+            move_timer = true;
+            move_timer_count = oGame.shake_count_max_bump;
+            step_count = 0;
+        }
     }
 }
 else
