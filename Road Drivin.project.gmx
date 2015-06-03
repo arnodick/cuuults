@@ -88,7 +88,6 @@
     <script>scripts\move_run_init.gml</script>
     <script>scripts\move_run_dir.gml</script>
     <script>scripts\move_run_start.gml</script>
-    <script>scripts\move_coll_run.gml</script>
     <script>scripts\move_stop.gml</script>
     <script>scripts\bloody_init.gml</script>
     <script>scripts\bloody_check.gml</script>

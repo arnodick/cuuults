@@ -33,26 +33,22 @@ if (object_index == oPlayer)
             {
                 step_count += 1;
             }
-            oGame.map_update[x, y] = oGame.map[x, y];
-            x = x_dest;
-            y = y_dest;
             audio_sound_pitch(sndBloop, step_count);
             audio_play_sound(sndBloop, 1, false);
         }
         else
         {
             audio_play_sound(cell_next.sound_step, 1, false);
-            oGame.map_update[x, y] = oGame.map[x, y];
-            x = x_dest;
-            y = y_dest;
         }
+        oGame.map_update[x, y] = oGame.map[x, y];
+        x = x_dest;
+        y = y_dest;
     }
     else
     {
         if (running == true)
         {
             screen_shake(oGame.shake_count_max_crash, 4*step_count);
-            move_timer = true;
             move_timer_count = oGame.shake_count_max_crash;
             if step_count > 4
             {
@@ -67,18 +63,16 @@ if (object_index == oPlayer)
                     instance_destroy();
                 }
             }
-            audio_play_sound(sndBump, 1, false);
-            step_count = 0;
         }
         else
         {
             screen_shake(oGame.shake_count_max_bump, 4);
-            audio_play_sound(sndBump, 1, false);
             //TODO: make these inputs into the movement function, so anything can make noise, shake on impact
-            move_timer = true;
             move_timer_count = oGame.shake_count_max_bump;
-            step_count = 0;
         }
+        move_timer = true;
+        step_count = 0;
+        audio_play_sound(sndBump, 1, false);
     }
 }
 else
