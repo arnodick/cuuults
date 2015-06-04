@@ -17,7 +17,7 @@ if (key_arrows_check_pressed() == true)
         y_pos += move_distance;
         break;
     }
-    move_collision(x_pos, y_pos, false);
+    move_collision(x_pos, y_pos, false, 1);
 }
 else
 {

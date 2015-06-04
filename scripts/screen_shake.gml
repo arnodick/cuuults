@@ -1,4 +1,6 @@
-// sets the game's shake values to whatever arugments are passed to it
+// makes the screen shake
+// input 1: how long screen shakes
+// input 2: how far the screen shakes horizontally
 // in theory, can be called by any instance?
 oGame.shaking = true;
 oGame.shake_count = argument0;
