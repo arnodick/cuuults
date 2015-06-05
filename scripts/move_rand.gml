@@ -19,4 +19,4 @@ case 3:
     break;
 }
 
-move_collision(x_pos, y_pos, false, 1);
+move_collision(x_pos, y_pos);

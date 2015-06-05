@@ -7,7 +7,7 @@ if move_timer == false
 {
     switch(argument0)
     {
-        case 0: // keyboard con trols
+        case 0: // keyboard controls
             move_key();
             break;
         case 1: // random movement
