@@ -100,6 +100,7 @@
     <script>scripts\asset_offsets_init.gml</script>
     <script>scripts\room_view.gml</script>
     <script>scripts\screen_shake.gml</script>
+    <script>scripts\move_stop_wall.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_road_drivin</font>
