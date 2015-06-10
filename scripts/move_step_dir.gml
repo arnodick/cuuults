@@ -18,6 +18,8 @@ if (key_arrows_check_pressed() == true)
         break;
     }
     
+    //move_timer_start(move_timer_max, 1);
+    
     var cell_next = move_collision(x_pos, y_pos);
     var cant_move = cell_next.solid;
     

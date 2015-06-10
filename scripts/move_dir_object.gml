@@ -1,5 +1,5 @@
 // TODO: rename this to move_at_object? or just generalize to move_coord and input x, y instead of object
-move_halt(move_timer_max);  //conceptually comes after actual movement, but needs to be here bc of breaks in swithc below
+move_timer_start(move_timer_max, 1);  //conceptually comes after actual movement, but needs to be here bc of breaks in swithc below
 var x_pos = x, y_pos = y;
 if instance_exists(argument0)
 // TODO: randomize this a bit? so that they don't beeline, give a bit of variation

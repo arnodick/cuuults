@@ -19,7 +19,12 @@ if (key_arrows_check() == true)
         y_pos += move_distance;
     }
     
-    move_run_start();
+    move_timer_start(move_timer_max, move_timer_mult);
+    
+    if move_timer_mult > 1
+    {
+        move_timer_mult -= 1;
+    }
     
     var cell_next = move_collision(x_pos, y_pos);
     var cant_move = cell_next.solid;
@@ -46,7 +51,7 @@ if (key_arrows_check() == true)
                 instance_destroy();
             }
         }
-        move_stop_wall(step_count);
+        move_stop_wall(step_count+1);   // + 1i s minor hack to stop running into adjacent walls constantly
     }
 }
 else
