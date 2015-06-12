@@ -51,10 +51,10 @@ if (key_arrows_check() == true)
                 instance_destroy();
             }
         }
-        move_stop_wall(step_count+1);   // + 1i s minor hack to stop running into adjacent walls constantly
+        move_stopped_wall(step_count+1);   // + 1i s minor hack to stop running into adjacent walls constantly
     }
 }
 else
 {
-    move_stop();
+   move_stopped();
 }

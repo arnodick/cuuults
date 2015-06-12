@@ -85,7 +85,6 @@ inst_string = "Instance # = " + string(instance_count);
 move_timer_string = string(oPlayer.move_timer_count);
 
 obj_to_place = terrain_start;
-cursor_object = instance_create(0, 0, oSpace);
 </string>
           </argument>
         </arguments>
@@ -129,6 +128,20 @@ if keyboard_check_pressed (vk_f3)
 if keyboard_check_pressed (vk_tab)
 {
     global.debug = !global.debug;
+    if (global.debug == false)
+    {
+        if(instance_exists(cursor_object))
+        {
+            with(cursor_object)
+            {
+                instance_destroy();
+            }
+        }
+    }
+    else
+    {
+        cursor_object = instance_create(0, 0, oSpace);
+    }
 }
 game_quit();
 

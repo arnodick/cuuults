@@ -42,7 +42,7 @@ if move_timer == false
         move_rand_start();
     break;
     default:
-            move_stop();
+           move_stopped();
     break;
     }
     

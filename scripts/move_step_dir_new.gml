@@ -24,5 +24,5 @@ if key_arrows_check() == true
 }
 else
 {
-    move_stop();
+   move_stopped();
 }

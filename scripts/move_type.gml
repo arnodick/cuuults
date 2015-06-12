@@ -20,5 +20,5 @@ if move_timer == false
 }
 else
 {
-    move_stopped();
+    move_timer_dec();
 }

@@ -4,7 +4,6 @@ var shake_timer = 15*argument0; //how long screen shakes for/how long player can
 screen_shake(shake_timer, shake_factor);
 audio_play_sound(sndBump, 1, false);
 
-move_timer = true;
-move_timer_count = shake_timer;
+move_timer_start(shake_timer, 1);
 
-move_stop();
+move_stopped();

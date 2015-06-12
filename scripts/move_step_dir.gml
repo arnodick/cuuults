@@ -29,10 +29,10 @@ if (key_arrows_check_pressed() == true)
     }
     else
     {
-        move_stop_wall(1);
+        move_stopped_wall(1);
     }
 }
 else
 {
-    move_stop();
+   move_stopped();
 }

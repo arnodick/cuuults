@@ -88,11 +88,11 @@
     <script>scripts\move_dir_object.gml</script>
     <script>scripts\move_step_dir.gml</script>
     <script>scripts\move_run_dir.gml</script>
-    <script>scripts\move_timer_start.gml</script>
     <script>scripts\move_collision.gml</script>
-    <script>scripts\move_stop.gml</script>
-    <script>scripts\move_stop_wall.gml</script>
+    <script>scripts\move_timer_start.gml</script>
+    <script>scripts\move_timer_dec.gml</script>
     <script>scripts\move_stopped.gml</script>
+    <script>scripts\move_stopped_wall.gml</script>
     <script>scripts\bloody_init.gml</script>
     <script>scripts\bloody_check.gml</script>
     <script>scripts\screen_shake.gml</script>
