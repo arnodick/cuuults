@@ -98,6 +98,9 @@
     <script>scripts\screen_shake.gml</script>
     <script>scripts\game_quit.gml</script>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\shader_channel_f.shader</shader>
+  </shaders>
   <fonts name="fonts">
     <font>fonts\font_road_drivin</font>
     <font>fonts\font_odyssey</font>
