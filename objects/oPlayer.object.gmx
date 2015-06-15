@@ -36,9 +36,13 @@ colour = merge_colour(colour_init, c_black, y/48);
 // Player attributes + variables
 
 oGame.map[x, y] = instance_create(x, y, oSpace);
+// TODO: properly destroy instance at this position
 
 move_init(8);
 check_creature_init();
+
+move_timer_total_init = 0;
+move_timer_inc = 0;
 </string>
           </argument>
         </arguments>

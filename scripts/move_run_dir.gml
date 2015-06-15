@@ -5,18 +5,22 @@ if (key_arrows_check() == true)
     if keyboard_check(vk_left)
     {
         x_pos -= move_distance;
+        draw_offsets[0] = -move_distance;
     }
     else if keyboard_check(vk_right)
     {
         x_pos += move_distance;
+        draw_offsets[0] = move_distance;
     }
     if keyboard_check(vk_up)
     {
         y_pos -= move_distance;
+        draw_offsets[1] = -move_distance;
     }
     else if keyboard_check(vk_down)
     {
         y_pos += move_distance;
+        draw_offsets[1] = move_distance;
     }
     
     move_timer_start(move_timer_max, move_timer_mult);

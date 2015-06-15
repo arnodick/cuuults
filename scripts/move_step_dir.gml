@@ -6,19 +6,23 @@ if (key_arrows_check_pressed() == true)
     {
     case vk_left:
         x_pos -= move_distance;
+        move_dir[0] = -move_distance;
         break;
     case vk_right:
         x_pos += move_distance;
+        move_dir[0] = move_distance;
         break;
     case vk_up:
         y_pos -= move_distance;
+        move_dir[1] = -move_distance;
         break;
     case vk_down:
         y_pos += move_distance;
+        move_dir[1] = move_distance;
         break;
     }
     
-    //move_timer_start(move_timer_max, 1);
+    move_timer_total_init = move_timer_start(move_timer_max, 1);
     
     var cell_next = move_collision(x_pos, y_pos);
     var cant_move = cell_next.solid;

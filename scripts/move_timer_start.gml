@@ -5,3 +5,4 @@
 
 move_timer = true;
 move_timer_count = argument0*argument1;
+return move_timer_count;
