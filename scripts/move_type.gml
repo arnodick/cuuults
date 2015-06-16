@@ -5,12 +5,6 @@
 //TODO make this function take a variable amount of variables, so you only put a 2nd variable in when you are chasing an object
 if move_timer == false
 {
-    move_timer_inc = 0;
-    move_dir[0] = 0;
-    move_dir[1] = 0;
-    move_timer_total_init = 0;
-    draw_offsets[0] = 0;
-    draw_offsets[1] = 0;
     switch(argument0)
     {
         case 0: // keyboard controls
@@ -26,8 +20,7 @@ if move_timer == false
 }
 else
 {
-    draw_offsets[0] = (move_dir[0] * ((move_timer_inc/move_timer_max)*oGame.tile_size));
-    draw_offsets[1] = (move_dir[1] * ((move_timer_inc/move_timer_max)*oGame.tile_size));
-    move_timer_dec();
-    move_timer_inc += 1;
+    draw_offset_x = (move_dir[0] * ((move_timer_count/move_timer_total_init)*tile_size));
+    draw_offset_y = (move_dir[1] * ((move_timer_count/move_timer_total_init)*tile_size));
+    move_timer_inc();
 }

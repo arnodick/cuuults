@@ -31,4 +31,4 @@ view_hview[0] = (argument1) * tile_size;
 
 // pre-sets the draw coordinates, so less math in draw event
 // TODO: GET RID OF THIS WITH SURFACES
-draw_set_coordinates(r_width, r_height);
+//draw_set_coordinates(r_width, r_height);

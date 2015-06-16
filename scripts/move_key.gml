@@ -6,4 +6,3 @@ else
 {
     move_step_dir();
 }
-oGame.map_update[x, y] = id;    //puts this object into its proper cell in the active grid

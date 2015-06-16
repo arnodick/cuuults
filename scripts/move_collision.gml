@@ -19,20 +19,5 @@ else if (y_dest < 0)
 {
     y_dest = (oGame.r_height - 1);
 }
-
-var cell_next = oGame.map_update[x_dest, y_dest]; // temp var for destination cell contents
-var cant_move = cell_next.solid;
-
-if (cant_move == false)
-{
-    oGame.map_update[x, y] = oGame.map[x, y];   // swaps the current cell on the active grid for its sister in the terrain grid
-    x = x_dest;   // sets your position to the destination cell
-    y = y_dest;   // but we still haven't actually moved you into the active grid yet!!
-}
-/*
-else
-{
-    
-}
-*/
+var cell_next = oGame.map_update[x_dest, y_dest];
 return cell_next;

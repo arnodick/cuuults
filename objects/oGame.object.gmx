@@ -500,7 +500,7 @@ for (var a = 0; a &lt; r_width; a++)       // loops through the display array
 */
 with(oThing)
 {
-    draw_text_colour (oGame.draw_x_coords[x] + draw_offsets[0] -(move_dir[0]*oGame.tile_size), oGame.draw_y_coords[y] , char, colour, colour, colour, colour, alpha );
+    draw_text_colour (draw_x_coords, draw_y_coords, char, colour, colour, colour, colour, alpha );
     // better i guess? TODO: have each instance calculate own draw coords?
 }
 </string>
@@ -542,7 +542,7 @@ if (global.debug == true)
     draw_text(view_xview[0] + 32, view_yview[0] + tile_size*7, mouse_x);
     draw_text(view_xview[0] + 32, view_yview[0] + tile_size*8, mouse_y);
     draw_text(view_xview[0] + 32, view_yview[0] + tile_size*9, move_timer_string);
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*10, string(oPlayer.draw_offsets[0]));
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*10, string(oPlayer.draw_offset_x));
     
     draw_rectangle_colour( mouse_draw_x, mouse_draw_y, mouse_draw_x + tile_size, mouse_draw_y + tile_size, c_red, c_red, c_red, c_red, true );
     //draw_text( mouse_draw_x, mouse_draw_y, cursor_object_char );

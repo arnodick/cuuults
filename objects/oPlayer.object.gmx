@@ -38,11 +38,10 @@ colour = merge_colour(colour_init, c_black, y/48);
 oGame.map[x, y] = instance_create(x, y, oSpace);
 // TODO: properly destroy instance at this position
 
-move_init(8);
+move_init(4);
 check_creature_init();
 
 move_timer_total_init = 0;
-move_timer_inc = 0;
 </string>
           </argument>
         </arguments>
@@ -66,11 +65,13 @@ move_timer_inc = 0;
           <argument>
             <kind>1</kind>
             <string>///Controls
-
 //colour = merge_colour(colour_init, c_black, y/48);
 
 move_type(mt_key, -1);
 check_creature();
+
+draw_x_coords = ( x * tile_size ) + ( draw_offset_x );
+draw_y_coords = ( y * tile_size ) + ( draw_offset_y );
 </string>
           </argument>
         </arguments>
