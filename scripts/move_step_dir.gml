@@ -15,9 +15,9 @@ if (key_arrows_check_pressed() == true)
         move_dir[1] = move_distance;
         break;
     }
-    var cell_next;
-    cell_next = move_collision(x + move_dir[0], y + move_dir[1]);
-    if (cell_next.solid == true)
+    var cell_next = move_collision(x + move_dir[0], y + move_dir[1]);
+    var cant_move = cell_next.solid;
+    if (cant_move == true)
     {
         move_stopped_wall(1);
     }

@@ -300,6 +300,8 @@ if (global.debug == true)
     
     cursor_object.x = mouse_cell_x;
     cursor_object.y = mouse_cell_y;
+    cursor_object.draw_x_coords = ( cursor_object.x * tile_size );
+    cursor_object.draw_y_coords = ( cursor_object.y * tile_size );
     
     if mouse_check_button(mb_left)
     {

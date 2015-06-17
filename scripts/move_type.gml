@@ -20,7 +20,5 @@ if move_timer == false
 }
 else
 {
-    draw_offset_x = (move_dir[0] * ((move_timer_count/move_timer_total_init)*tile_size));
-    draw_offset_y = (move_dir[1] * ((move_timer_count/move_timer_total_init)*tile_size));
     move_timer_inc();
 }
