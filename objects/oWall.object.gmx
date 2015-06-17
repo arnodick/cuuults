@@ -37,6 +37,8 @@ colour = c_dkgray;
 
 
 solid = true;
+
+sound_step = sndBump;
 </string>
           </argument>
         </arguments>

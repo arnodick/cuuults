@@ -34,6 +34,8 @@ colour = c_gray;
 //colour = merge_colour(colour, c_black, y/48);
 
 solid = true;
+
+sound_step = sndBump;
 </string>
           </argument>
         </arguments>

@@ -15,7 +15,16 @@ if (key_arrows_check_pressed() == true)
         move_dir[1] = move_distance;
         break;
     }
-    move_timer_start(move_timer_max, 1);
+    var cell_next;
+    cell_next = move_collision(x + move_dir[0], y + move_dir[1]);
+    if (cell_next.solid == true)
+    {
+        move_stopped_wall(1);
+    }
+    else
+    {
+        move_timer_start(move_timer_max, 1);
+    }
 }
 else
 {
