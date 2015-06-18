@@ -1,6 +1,5 @@
 if (key_arrows_check() == true)
 {
-    
     if keyboard_check(vk_left)
     {
         move_dir[0] = -move_distance;

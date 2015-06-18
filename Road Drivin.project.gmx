@@ -61,6 +61,7 @@
     <script>scripts\textfile_init_map.gml</script>
     <script>scripts\textfile_save_map.gml</script>
     <script>scripts\textfile_load_map.gml</script>
+    <script>scripts\textfile_load_map_proc.gml</script>
     <script>scripts\asset_offsets_init.gml</script>
     <script>scripts\draw_init.gml</script>
     <script>scripts\draw_set_coordinates.gml</script>
@@ -124,6 +125,7 @@
     <object>objects\oPillar</object>
     <object>objects\oPillar_crumbled</object>
     <object>objects\oRubble</object>
+    <object>objects\oTest</object>
     <object>objects\oStamped</object>
     <object>objects\oBlood</object>
     <object>objects\oMessage</object>

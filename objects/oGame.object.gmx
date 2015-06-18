@@ -43,7 +43,8 @@ room_dimensions(tile_size, room_width_max, room_height_max);
 surfaces_init();
 
 // initializes map to all empty spaces
-textfile_load_map(working_directory + "map_auto.txt");
+//textfile_load_map(working_directory + "map_0" + string(irandom(3)) + ".txt");
+textfile_load_map_proc(working_directory + "map_0" + string(irandom(3)) + ".txt");
 
 // room count. TODO : need this? (NOTE: will have to figure out a way to save specific room to file)
 room_count = 0;
