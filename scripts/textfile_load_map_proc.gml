@@ -2,6 +2,7 @@
 // input 0: file name chosen by user
 
 var map_string = argument0; // the name of the file to load. chosen by user.
+var sectors = argument1; // the amount of sectors in the map
 
 // TODO: make this a function, just do nested loops!
 // opens the chosen file for reading and calculates the amount of cells per row
@@ -15,7 +16,7 @@ var file_height = textfile_length(map_file);
 file_text_close(map_file);
 
 // set room and array dimensions according to map file dimensions
-room_dimensions(tile_size, file_width*2, file_height*2);
+room_dimensions(tile_size, file_width*sectors, file_height*sectors);
 
 // destroys all the oThings in the room
 with(oThing)
@@ -26,14 +27,42 @@ with(oThing)
     }
 }
 
-map_file = file_text_open_read(working_directory + "map_0" + string(irandom(3)) + ".txt"); // open the text file one more time, for actual loading.
-
-// TODO: write last room to a file here?
-
-// loops through each cell of the map file, assigning the values to the map array
-for (var b = 0; b < r_height/2; b++)
+for (var d = 0; d < sectors; d++)
 {
-    for (var a = 0; a < r_width/2; a++)
+    for (var c = 0; c < sectors; c++)
+    {
+        map_file = file_text_open_read(working_directory + "map_0" + string(irandom(3)) + ".txt"); // open the text file one more time, for actual loading.
+        // TODO: write last room to a file here?
+        // loops through each cell of the map file, assigning the values to the map array
+        var bottom_side = 0 + (file_height*d);
+        var top_side = bottom_side + file_height;
+        var left_side = 0 + (file_width*c);
+        var right_side = left_side + file_width;
+        for (var b = bottom_side; b < top_side; b++)
+        {
+            for (var a = left_side; a < right_side; a++)
+            {
+                var cell = (file_text_read_real(map_file) + terrain_start); // grabs the integer value of each cell in the map file
+                // restricts incorrect values from being input into map array from text file
+                if ( (cell < terrain_start) or (cell > terrain_end) )
+                {
+                    cell = terrain_start + 1;
+                }
+                // set the map array to an instance created from the value grabbed from the text file
+                map[a, b] = instance_create(a, b, cell);
+            }
+        }
+        file_text_close(map_file);  // close the file to stop baddy things
+    }
+}
+
+/*
+//bottom left quadrant of map
+map_file = file_text_open_read(working_directory + "map_0" + string(irandom(3)) + ".txt"); // open the text file one more time, for actual loading.
+// loops through each cell of the map file, assigning the values to the map array
+for (var b = r_height/sectors; b < r_height; b++)
+{
+    for (var a = 0; a < r_width/sectors; a++)
     {
         var cell = (file_text_read_real(map_file) + terrain_start); // grabs the integer value of each cell in the map file
         // restricts incorrect values from being input into map array from text file
@@ -47,11 +76,12 @@ for (var b = 0; b < r_height/2; b++)
 }
 file_text_close(map_file);  // close the file to stop baddy things
 
+// top right
 map_file = file_text_open_read(working_directory + "map_0" + string(irandom(3)) + ".txt"); // open the text file one more time, for actual loading.
 // loops through each cell of the map file, assigning the values to the map array
-for (var b = r_height/2; b < r_height; b++)
+for (var b = 0; b < r_height/sectors; b++)
 {
-    for (var a = 0; a < r_width/2; a++)
+    for (var a = r_width/sectors; a < r_width; a++)
     {
         var cell = (file_text_read_real(map_file) + terrain_start); // grabs the integer value of each cell in the map file
         // restricts incorrect values from being input into map array from text file
@@ -65,11 +95,12 @@ for (var b = r_height/2; b < r_height; b++)
 }
 file_text_close(map_file);  // close the file to stop baddy things
 
+// bottom right
 map_file = file_text_open_read(working_directory + "map_0" + string(irandom(3)) + ".txt"); // open the text file one more time, for actual loading.
 // loops through each cell of the map file, assigning the values to the map array
-for (var b = 0; b < r_height/2; b++)
+for (var b = r_height/sectors; b < r_height; b++)
 {
-    for (var a = r_width/2; a < r_width; a++)
+    for (var a = r_width/sectors; a < r_width; a++)
     {
         var cell = (file_text_read_real(map_file) + terrain_start); // grabs the integer value of each cell in the map file
         // restricts incorrect values from being input into map array from text file
@@ -82,23 +113,6 @@ for (var b = 0; b < r_height/2; b++)
     }
 }
 file_text_close(map_file);  // close the file to stop baddy things
-
-map_file = file_text_open_read(working_directory + "map_0" + string(irandom(3)) + ".txt"); // open the text file one more time, for actual loading.
-// loops through each cell of the map file, assigning the values to the map array
-for (var b = r_height/2; b < r_height; b++)
-{
-    for (var a = r_width/2; a < r_width; a++)
-    {
-        var cell = (file_text_read_real(map_file) + terrain_start); // grabs the integer value of each cell in the map file
-        // restricts incorrect values from being input into map array from text file
-        if ( (cell < terrain_start) or (cell > terrain_end) )
-        {
-            cell = terrain_start + 1;
-        }
-        // set the map array to an instance created from the value grabbed from the text file
-        map[a, b] = instance_create(a, b, cell);
-    }
-}
-file_text_close(map_file);  // close the file to stop baddy things
+*/
 
 map_update = map;   // copy map to map_update
