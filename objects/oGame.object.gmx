@@ -29,8 +29,6 @@
 // gives a random seed EVERY time the game is run
 randomize();
 
-window_set_fullscreen(false);   //making this false gives the game a gross startup flicker TODO: remove this when you don't need to create maps anymore, so its ugliness doesn't make it into final build
-
 // fonts + view dimensions
 draw_init();
 
@@ -44,7 +42,7 @@ surfaces_init();
 
 // initializes map to all empty spaces
 //textfile_load_map(working_directory + "map_0" + string(irandom(3)) + ".txt");
-textfile_load_map_proc(working_directory + "map_0" + string(irandom(3)) + ".txt", 2);
+textfile_load_map_proc(working_directory + "map_0" + string(irandom(3)) + ".txt", 3);
 
 // room count. TODO : need this? (NOTE: will have to figure out a way to save specific room to file)
 room_count = 0;
@@ -326,6 +324,13 @@ if (global.debug == true)
             }
             map[mouse_cell_x, mouse_cell_y] = instance_create(mouse_cell_x, mouse_cell_y, terrain_start);
             map_update[mouse_cell_x, mouse_cell_y] = map[mouse_cell_x, mouse_cell_y];
+        }
+    }
+    if mouse_check_button_pressed(mb_middle)
+    {
+        if ( (mouse_cell_x &gt;= 0) and (mouse_cell_y &gt;= 0) and (mouse_cell_x &lt; r_width) and (mouse_cell_y &lt; r_height) )
+        {
+            map_update[mouse_cell_x, mouse_cell_y] = instance_create(mouse_cell_x, mouse_cell_y, oFollower);
         }
     }
     // press n to create a new map array

@@ -116,6 +116,7 @@
     <object>objects\oLawnmower</object>
     <object>objects\oPlanter</object>
     <object>objects\oBloooder</object>
+    <object>objects\oWalker</object>
     <object>objects\oFollower</object>
     <object>objects\oSpace</object>
     <object>objects\oRoad</object>

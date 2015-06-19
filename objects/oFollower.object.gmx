@@ -28,17 +28,11 @@
             <string>///Attributes
 event_inherited();
 
-char = '+';
+char = '$';
 colour = c_blue;
 
-cell_current_left  = 1;
-cell_current_right = 1;
-cell_current_top   = 1;
-cell_current_bot   = 1;
-
-pos_last[2] = 0;
-pos_2nd_last[2] = 0;
-pos_3rd_last[2] = 0;
+move_init(8); // waits 30 steps after each move it makes
+check_creature_init();
 </string>
           </argument>
         </arguments>
@@ -62,34 +56,9 @@ pos_3rd_last[2] = 0;
           <argument>
             <kind>1</kind>
             <string>///Controller
-event_inherited();
+move_type(mt_obj, oPlayer);
 
-if (x != global.player.pos_2nd_last[0]) or (y != global.player.pos_2nd_last[1])
-{
-    oGame.map_update[x, y] = oGame.map[x, y];
-    x = global.player.pos_2nd_last[0];
-    y = global.player.pos_2nd_last[1];
-}
-
-cell_current_left  = oGame.map_update[x - 1, y];
-cell_current_right = oGame.map_update[x + 1, y];
-cell_current_top   = oGame.map_update[x, y - 1];
-cell_current_bot   = oGame.map_update[x, y + 1];
-
-if (cell_current_left.object_index == oPlayer or cell_current_right.object_index == oPlayer or cell_current_top.object_index == oPlayer or cell_current_bot.object_index == oPlayer)
-{
-    mess = instance_create(0, 0, oMessage2);
-    mess.parent = id;
-}
-else if instance_exists(oMessage2)
-{
-    with(oMessage2)
-    {
-        instance_destroy();
-    }
-}
-
-oGame.map_update[x, y] = id;
+check_creature();
 </string>
           </argument>
         </arguments>

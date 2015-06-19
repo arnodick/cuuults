@@ -1,3 +1,5 @@
+window_set_fullscreen(true);   //making this false gives the game a gross startup flicker TODO: remove this when you don't need to create maps anymore, so its ugliness doesn't make it into final build
+
 // just stuff to set up font switiching with a key press
 font[0] = font_road_drivin;
 font[1] = font_odyssey;
@@ -11,11 +13,11 @@ texture_set_interpolation(false);
 
 // tile size set to constant, max room size set
 tile_size = 14;
-room_width_max = 52;
-room_height_max = 32;
+room_width_max = 104;
+room_height_max = 64;
 
 // view dimensions
-view_factor = 2;                    // the amount to divide the screen width and height by. SHOULDN'T BE ODD
+view_factor = 2;                    // the amount to divide the screen width and height by.
 view_switch =  0;                   // just a switch value to add to the factor, to easily half the screen
 
 

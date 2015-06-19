@@ -23,7 +23,7 @@ if (key_arrows_check() == true)
     
     if (cant_move == false)
     {
-        move_timer_start(move_timer_max, move_timer_mult);
+        move_timer_start(move_timer_max*2, move_timer_mult);
         if move_timer_mult > 1
         {
             move_timer_mult -= 1;
