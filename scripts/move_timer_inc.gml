@@ -18,10 +18,6 @@ else
         y = cell_next.y;   // but we still haven't actually moved you into the active grid yet!!
         oGame.map_update[x, y] = id;    //puts this object into its proper cell in the active grid
     }
-    if (cell_next.sound_step != -1)
-    {
-        audio_play_sound(cell_next.sound_step, 1, false); // maybe we want this here? so everything makes noises?
-    }
     //move_stopped_wall(1);
     move_timer = false;
     move_timer_total_init = 0;

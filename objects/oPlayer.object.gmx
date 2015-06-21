@@ -2,9 +2,9 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>oThing</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -40,6 +40,8 @@ oGame.map[x, y] = instance_create(x, y, oSpace);
 
 move_init(3.5); // set this to 1 for instant movement
 check_creature_init();
+
+solid = false;
 </string>
           </argument>
         </arguments>

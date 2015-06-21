@@ -25,6 +25,10 @@ if (key_arrows_check_pressed() == true)
     {
         move_timer_start(move_timer_max, 1);
     }
+    if (cell_next.sound_step != -1)
+    {
+        audio_play_sound(cell_next.sound_step, 1, false); // maybe we want this here? so everything makes noises?
+    }
 }
 else
 {

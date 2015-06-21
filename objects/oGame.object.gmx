@@ -40,18 +40,14 @@ room_dimensions(tile_size, room_width_max, room_height_max);
 
 surfaces_init();
 
+// spawn the player. (TODO: does it need to be global? should only ever be 1 player, can refer to oPlayer)
+global.player = instance_create(1, 1, oPlayer);
 // initializes map to all empty spaces
 //textfile_load_map(working_directory + "map_0" + string(irandom(3)) + ".txt");
 textfile_load_map_proc(working_directory + "map_0" + string(irandom(3)) + ".txt", 3);
 
 // room count. TODO : need this? (NOTE: will have to figure out a way to save specific room to file)
 room_count = 0;
-// if set to true, regenerates the level. set to true at create, bc gen code is in the STEP, not CREATE, so has to generate when game is started
-// TODO: need this? wrapping movement should get rid of it
-generate = true;
-
-// spawn the player. (TODO: does it need to be global? should only ever be 1 player, can refer to oPlayer)
-global.player = instance_create(1, 1, oPlayer);
 </string>
           </argument>
         </arguments>
@@ -165,69 +161,6 @@ game_quit();
           <argument>
             <kind>1</kind>
             <string>///Map Processing
-
-//Map Generate
-
-//check_room_change();
-
-/*
-if generate == true
-{
-
-    //var map_string = working_directory + "map52x32.txt";
-    var map_string = textfile_init_map(52, 32);
-
-    // TODO: make this a function, just do nested loops!
-    var map_file = file_text_open_read(map_string);
-    file_width = textfile_width(map_file);
-    
-    map_file = file_text_open_read(map_string);
-    file_height = textfile_length(map_file);
-    
-    map_file = file_text_open_read(map_string);
-    room_dimensions(tile_size, file_width, file_height);
-    
-    // TODO: write last room to a file here?
-    
-    // destroys all the oThings in the room (NOTE: does this NOT destroy the NPC?)
-    with(oThing)
-    {
-        if (object_index != oPlayer)
-        {
-            instance_destroy();
-        }
-    }
-    for (var b = 0; b &lt; r_height; b++)
-    {
-        //for (var a = 0; !file_text_eoln(map_file); a++)
-        for (var a = 0; a &lt; r_width; a++)
-        {
-            var cell = (file_text_read_real(map_file) + terrain_start);
-            // restricts incorrect values from being input into map array from text file
-            if ( (cell &lt; terrain_start) or (cell &gt; terrain_end) )
-            {
-                cell = terrain_start + 1;
-            }
-            map[a, b] = instance_create(a, b, cell);                // a, b must be reversed for text file input for some reason?
-        }
-    }
-    file_text_close(map_file);
-    //file_width = a;
-    //file_height = b;
-    generate = false;                                               // set generate to false, so room doesn't keep regenerating
-    room_count += 1;                                                // increment room count (this is 1 higher than actual CURRENT room?)
-                                                                    // NOTE: will have to figure out a way to DECREMENT this when returning to old room, once array saving is figured out
-    map_update = map;                                              // sets the display array to the map array, so that terrain is redrawn, instead of leaving paths of the player character's symbol
-    //TODO: here is where you can put in creatures!
-    //have list of possible objects
-    //  0 = nothing
-    //  1 = player
-    //  2 = npc etc.
-    // just have an amount of creatures/items each which of which has its own position. loop through the amount, placing them in map_update wherever their x y says to.
-    // get this from a file? sometimes randomly?
-}
-*/
-
 </string>
           </argument>
         </arguments>
@@ -264,15 +197,17 @@ if (global.debug == true)
     }
     inst_string = "Inst \# = " + string(instance_count);
     
-    playerx_string = "X = " + string(oPlayer.x);
-    playery_string = "Y = " + string(oPlayer.y);
-    
+    if (instance_exists(oPlayer))
+    {
+        playerx_string = "X = " + string(oPlayer.x);
+        playery_string = "Y = " + string(oPlayer.y);
+        move_timer_string = string(oPlayer.move_timer_count);
+    }
+        
     mouse_cell_x = mouse_x div tile_size;
     mouse_cell_y = mouse_y div tile_size;
     mouse_draw_x = mouse_cell_x * tile_size;
     mouse_draw_y = mouse_cell_y * tile_size;
-    
-    move_timer_string = string(oPlayer.move_timer_count);
     
     // cycles through all the terrain objects
     if mouse_wheel_up()
@@ -496,20 +431,9 @@ surfaces_begin();
             <kind>1</kind>
             <string>///Draw
 
-/*
-for (var a = 0; a &lt; r_width; a++)       // loops through the display array
-{
-    for (var b = 0; b &lt; r_height; b++)
-    {
-        draw_text_colour (draw_x_coords[a],  draw_y_coords[b], map_update[a,b].char, map_update[a,b].colour, map_update[a,b].colour, map_update[a,b].colour, map_update[a,b].colour, 1 );
-                                        // TODO: draws the cell's font with the cell's colour to it's proper spot on the screen
-    }
-}
-*/
 with(oThing)
 {
     draw_text_colour (draw_x_coords, draw_y_coords, char, colour, colour, colour, colour, alpha );
-    // better i guess? TODO: have each instance calculate own draw coords?
 }
 </string>
           </argument>

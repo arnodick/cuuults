@@ -21,6 +21,11 @@ if (key_arrows_check() == true)
     var cell_next = move_collision(x_dest, y_dest );
     var cant_move = cell_next.solid;
     
+    if (cell_next.sound_step != -1)
+    {
+        audio_play_sound(cell_next.sound_step, 1, false); // maybe we want this here? so everything makes noises?
+    }
+    
     if (cant_move == false)
     {
         move_timer_start(move_timer_max*2, move_timer_mult);
