@@ -1,9 +1,12 @@
+var timer_on = true;
+
 //counts down the timer until it reaches zero, at which point you can move again
 if move_timer_count < move_timer_total_init
 {
     move_timer_count += 1;
     draw_offset_x = (move_dir[0] * ((move_timer_count/move_timer_total_init)*tile_size));
     draw_offset_y = (move_dir[1] * ((move_timer_count/move_timer_total_init)*tile_size));
+    timer_on = true; // timer IS still going
 }
 // TODO: MAKE TIMERS INTO A FUNCTION?
 else
@@ -18,15 +21,10 @@ else
         y = cell_next.y;   // but we still haven't actually moved you into the active grid yet!!
         oGame.map_update[x, y] = id;    //puts this object into its proper cell in the active grid
     }
-    //move_stopped_wall(1);
-    move_timer = false;
-    move_timer_total_init = 0;
-    move_timer_count = 0;
-    move_dir[0] = 0;
-    move_dir[1] = 0;
     draw_offset_x = 0;
     draw_offset_y = 0;
-    // put shift speed multipler here if shift is pressed! decrease move_timer_ma or it's equivalent
+    timer_on = false; // timer is NOT still going
 }
 draw_x_coords = ( x * tile_size ) + ( draw_offset_x );
 draw_y_coords = ( y * tile_size ) + ( draw_offset_y );
+return timer_on;

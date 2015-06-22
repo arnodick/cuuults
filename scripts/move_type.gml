@@ -20,5 +20,13 @@ if move_timer == false
 }
 else
 {
-    move_timer_inc();
+    var timer_on = move_timer_inc();
+    if (timer_on == false)
+    {
+        move_timer = false;
+        move_timer_count = 0;
+        move_timer_total_init = 0;
+        move_dir[0] = 0;
+        move_dir[1] = 0;
+    }
 }

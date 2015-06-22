@@ -31,10 +31,12 @@ event_inherited();
 char = 'y';
 colour = c_yellow;
 
-move_init(2); // waits 30 steps after each move it makes
+move_init(15); // waits 30 steps after each move it makes
 
-///Controller
-move_projectile(mt_proj);
+move_distance = 1;
+
+//Controller
+move_projectile_dir();
 </string>
           </argument>
         </arguments>
@@ -57,7 +59,30 @@ move_projectile(mt_proj);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move_projectile(mt_proj);
+            <string>/*
+if (move_timer != false)
+{
+    move_timer_inc_proj();
+}
+*/
+
+
+    var timer_on = move_timer_inc();
+    if (timer_on == false)
+    {
+        var cell_next = move_collision(x + move_dir[0], y + move_dir[1]);
+        var cant_move = cell_next.solid;
+        if (cant_move == true)
+        {
+            instance_destroy();
+            oGame.map_update[x, y] = oGame.map[x, y];
+        }
+        else
+        {
+            move_timer_start(move_timer_max, 1);
+        }
+    }
+
 </string>
           </argument>
         </arguments>

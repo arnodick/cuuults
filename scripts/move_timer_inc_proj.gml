@@ -19,9 +19,10 @@ else
         oGame.map_update[x, y] = id;    //puts this object into its proper cell in the active grid
     }
     //move_stopped_wall(1);
-    
-    move_timer_start(move_timer_max, 1);
     // put shift speed multipler here if shift is pressed! decrease move_timer_ma or it's equivalent
+    move_timer_start(move_timer_max, 1);
+    draw_offset_x = (move_dir[0] * ((move_timer_count/move_timer_total_init)*tile_size));
+    draw_offset_y = (move_dir[1] * ((move_timer_count/move_timer_total_init)*tile_size));
 }
 draw_x_coords = ( x * tile_size ) + ( draw_offset_x );
 draw_y_coords = ( y * tile_size ) + ( draw_offset_y );

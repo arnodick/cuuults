@@ -4,4 +4,5 @@
 // TODO: use an acceleration value instead of multipler?
 
 move_timer = true;
+move_timer_count = 0;
 move_timer_total_init = argument0*argument1;
