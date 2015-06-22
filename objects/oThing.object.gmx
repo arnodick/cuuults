@@ -39,9 +39,6 @@ dead_sound = sndCrash;
 sound_step = -1; // NOTE: is this a good idea? seems to work, just not sure if it will screw up somehow
 draw_random_char_init();
 
-move_dir[0] = 0;
-move_dir[1] = 0;
-
 tile_size = oGame.tile_size;
 
 draw_offset_x = 0;

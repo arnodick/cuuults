@@ -11,8 +11,12 @@ move_time_mult = move_time_mult_init;
 move_timer_total_init = 0; // the move timer X move timer multiplier. THIS is what gets counted up to every time you take a step.
 step_count = 0;
 
+move_dir[0] = 0;
+move_dir[1] = 0;
+
 // constants for move_type input
 //basically just nmemonic so you don't have to remember 0 = key movement, 1 = rand, etc
 mt_key = 0;
 mt_rand = 1;
 mt_obj = 2;
+mt_proj = 3;

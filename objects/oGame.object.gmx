@@ -203,6 +203,12 @@ if (global.debug == true)
         playery_string = "Y = " + string(oPlayer.y);
         move_timer_string = string(oPlayer.move_timer_count);
     }
+    
+    if (instance_exists(oSpell))
+    {
+        spell_x_string = "X = " + string(oSpell.move_dir[0]);
+        spell_y_string = "Y = " + string(oSpell.move_dir[1]);
+    }
         
     mouse_cell_x = mouse_x div tile_size;
     mouse_cell_y = mouse_y div tile_size;
@@ -475,7 +481,11 @@ if (global.debug == true)
     draw_text(view_xview[0] + 32, view_yview[0] + tile_size*8, mouse_y);
     draw_text(view_xview[0] + 32, view_yview[0] + tile_size*9, move_timer_string);
     draw_text(view_xview[0] + 32, view_yview[0] + tile_size*10, string(oPlayer.draw_offset_x));
-    
+    if (instance_exists(oSpell))
+    {
+        draw_text(view_xview[0] + 32, view_yview[0] + tile_size*11, spell_x_string);
+        draw_text(view_xview[0] + 32, view_yview[0] + tile_size*12, spell_y_string);
+    }
     draw_rectangle_colour( mouse_draw_x, mouse_draw_y, mouse_draw_x + tile_size, mouse_draw_y + tile_size, c_red, c_red, c_red, c_red, true );
     //draw_text( mouse_draw_x, mouse_draw_y, cursor_object_char );
     

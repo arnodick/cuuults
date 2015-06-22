@@ -89,10 +89,13 @@
     <script>scripts\move_dir_object.gml</script>
     <script>scripts\move_step_dir.gml</script>
     <script>scripts\move_run_dir.gml</script>
+    <script>scripts\move_projectile.gml</script>
+    <script>scripts\move_bullet.gml</script>
     <script>scripts\move_collision.gml</script>
     <script>scripts\move_timer_start.gml</script>
     <script>scripts\move_timer_dec.gml</script>
     <script>scripts\move_timer_inc.gml</script>
+    <script>scripts\move_timer_inc_proj.gml</script>
     <script>scripts\move_stopped.gml</script>
     <script>scripts\move_stopped_wall.gml</script>
     <script>scripts\bloody_init.gml</script>
@@ -118,6 +121,7 @@
     <object>objects\oBloooder</object>
     <object>objects\oWalker</object>
     <object>objects\oFollower</object>
+    <object>objects\oSpell</object>
     <object>objects\oSpace</object>
     <object>objects\oRoad</object>
     <object>objects\oGrass</object>
