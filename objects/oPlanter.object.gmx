@@ -35,7 +35,7 @@ cell_current_top    = oGame.map_update[x, y - 1];
 cell_current_bot    = oGame.map_update[x, y + 1];
 
 
-move_init(20); // waits 20 steps after each move it makes
+move_init(20, 1); // waits 20 steps after each move it makes
 check_creature_init();
 </string>
           </argument>

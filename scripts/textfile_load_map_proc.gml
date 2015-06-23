@@ -23,7 +23,7 @@ room_dimensions(tile_size, file_width*sectors, file_height*sectors);
 // destroys all the oThings in the room
 with(oThing)
 {
-    if (object_index != oPlayer)
+    if ((object_index != oPlayer) and (object_index != oSpace))
     {
         instance_destroy();
     }
@@ -51,7 +51,14 @@ for (var d = 0; d < sectors; d++)
                     cell = terrain_start + 1;
                 }
                 // set the map array to an instance created from the value grabbed from the text file
-                map[a, b] = instance_create(a, b, cell);
+                if (cell == terrain_start)
+                {
+                    map[a, b] = space;
+                }
+                else
+                {
+                    map[a, b] = instance_create(a, b, cell);
+                }
             }
         }
         file_text_close(map_file);  // close the file to stop baddy things

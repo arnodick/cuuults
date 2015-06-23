@@ -31,7 +31,7 @@ event_inherited();
 char = '$';
 colour = c_blue;
 
-move_init(8); // waits 30 steps after each move it makes
+move_init(8, 1); // waits 30 steps after each move it makes
 check_creature_init();
 </string>
           </argument>

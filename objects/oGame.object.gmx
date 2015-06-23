@@ -439,7 +439,8 @@ surfaces_begin();
 
 with(oThing)
 {
-    draw_text_colour (draw_x_coords, draw_y_coords, char, colour, colour, colour, colour, alpha );
+    //draw_text_colour (draw_x_coords, draw_y_coords, char, colour, colour, colour, colour, alpha );
+    draw_text_transformed_colour(draw_x_coords, draw_y_coords, char, 1, 1, angle, colour, colour, colour, colour, alpha);
 }
 </string>
           </argument>

@@ -31,9 +31,7 @@ event_inherited();
 char = 'y';
 colour = c_yellow;
 
-move_init(8); // waits 30 steps after each move it makes
-
-move_distance = 1;
+move_init(32, 4); // waits 30 steps after each move it makes
 
 //Controller
 move_projectile_dir();
@@ -80,6 +78,7 @@ if (timer_on == false)
     move_timer_start(move_timer_max, 1);
 }
 
+angle += (10*(-move_dir[0]/move_distance));
 </string>
           </argument>
         </arguments>
