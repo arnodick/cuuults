@@ -8,6 +8,8 @@ font_switch = false;
 // font = Road Drivin' (™) custom "font" + set font alignment left for some reason
 draw_set_font(font[0]);
 draw_set_halign(fa_left);
+//draw_set_halign(fa_center);
+//draw_set_valign(fa_middle);
 // gets rid of "smudginess" on sprites
 texture_set_interpolation(false);
 

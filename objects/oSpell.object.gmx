@@ -79,6 +79,7 @@ if (timer_on == false)
 }
 
 angle += (10*(-move_dir[0]/move_distance));
+size += sin(x*10);//0.1;
 </string>
           </argument>
         </arguments>

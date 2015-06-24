@@ -42,6 +42,7 @@ move_init(3.5, 1); // set this to 1 for instant movement
 check_creature_init();
 
 solid = false;
+
 </string>
           </argument>
         </arguments>
