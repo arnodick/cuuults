@@ -48,12 +48,6 @@ textfile_load_map_proc(working_directory + "map_0" + string(irandom(3)) + ".txt"
 
 // room count. TODO : need this? (NOTE: will have to figure out a way to save specific room to file)
 room_count = 0;
-
-with(oThing)
-{
-    //draw_text_transformed_colour(draw_x_coords, draw_y_coords, char, size, size, angle, colour, colour, colour, colour, alpha);
-    tile = tile_add(bg_tiles, 0, 0, 8, 8, draw_x_coords, draw_y_coords, 1);
-}
 </string>
           </argument>
         </arguments>
@@ -332,12 +326,6 @@ if (global.debug == true)
 var view_scale = (1 / power(view_factor, view_switch))
 // sets the view position according to player's position
 room_view( (r_width * view_scale), (r_height * view_scale) );
-
-with(oThing)
-{
-    //draw_text_transformed_colour(draw_x_coords, draw_y_coords, char, size, size, angle, colour, colour, colour, colour, alpha);
-    tile_set_position(tile, draw_x_coords, draw_y_coords);
-}
 </string>
           </argument>
         </arguments>
@@ -448,13 +436,13 @@ surfaces_begin();
           <argument>
             <kind>1</kind>
             <string>///Draw
-/*
+
 with(oThing)
 {
     //draw_text_transformed_colour(draw_x_coords, draw_y_coords, char, size, size, angle, colour, colour, colour, colour, alpha);
-    tile_add(bg_tiles, 0, 0, 8, 8, draw_x_coords, draw_y_coords, 1);
+    draw_background_general(bg_tiles, 0, 0, 8, 8, draw_x_coords, draw_y_coords, size, size, angle, colour, colour, colour, colour, 1);
 }
-*/
+
 </string>
           </argument>
         </arguments>
