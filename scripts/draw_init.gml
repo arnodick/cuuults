@@ -14,9 +14,9 @@ draw_set_halign(fa_left);
 texture_set_interpolation(false);
 
 // tile size set to constant, max room size set
-tile_size = 14;
-room_width_max = 104;
-room_height_max = 64;
+tile_size = 16;
+room_width_max = 160;
+room_height_max = 120;
 
 // view dimensions
 view_factor = 2;                    // the amount to divide the screen width and height by.
