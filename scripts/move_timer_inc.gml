@@ -44,6 +44,6 @@ else
     draw_offset_y = 0;
     timer_on = false; // timer is NOT still going
 }
-draw_x_coords = ( x * tile_size ) + ( draw_offset_x );
-draw_y_coords = ( y * tile_size ) + ( draw_offset_y );
+draw_x_coords = ( x * tile_size ) + ( draw_offset_x ) + (4);
+draw_y_coords = ( y * tile_size ) + ( draw_offset_y ) + (4);
 return timer_on;

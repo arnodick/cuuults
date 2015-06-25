@@ -48,7 +48,9 @@
     <sound>sound\sndSwish</sound>
     <sound>sound\sndRock2</sound>
   </sounds>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\spr_tiles</sprite>
+  </sprites>
   <backgrounds name="background">
     <background>background\bg_tiles</background>
   </backgrounds>
