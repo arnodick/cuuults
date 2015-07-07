@@ -31,7 +31,7 @@ event_inherited();
 char = 'y';
 colour = c_yellow;
 
-move_init(32, 4); // waits 30 steps after each move it makes
+move_init(8, 1);
 
 //Controller
 move_projectile_dir();
@@ -59,8 +59,7 @@ destroy = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-var timer_on = move_timer_inc();
+            <string>var timer_on = move_timer_inc();
 if (timer_on == false)
 {
     if (destroy == true)

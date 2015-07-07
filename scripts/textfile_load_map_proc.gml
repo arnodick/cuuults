@@ -1,5 +1,6 @@
 // loads a map array from a text file
 // input 0: file name chosen by user
+// input 1: amount of sectors
 
 var map_string = argument0; // the name of the file to load. chosen by user.
 var sectors = argument1; // the amount of sectors in the map
@@ -19,6 +20,7 @@ file_text_close(map_file);
 
 // set room and array dimensions according to map file dimensions
 room_dimensions(tile_size, file_width*sectors, file_height*sectors);
+
 
 // destroys all the oThings in the room
 with(oThing)

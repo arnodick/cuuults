@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>oThing</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,31 +25,56 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Variables
-// this gives all in-game objects these values:
-hp = 1;                                                             // TODO: do we NEED this for every object? could just change terrain to solid = false and different char
-//char = '/#';                                                         // the default symbol displayed for the object. will be set by a function usually
-//tile = 0;
-colour_init = c_maroon;                                             // default colour. will also be changed by function most likely
-colour = colour_init; 
-alpha = true;
-angle = 0;
-size = 1;
-//colour = merge_colour(colour_init, c_black, y/oGame.r_height);      // TODO: prob won't need this if sprites are used. changes the colour of every object so that they fade to black near bottom of screen.
-solid = false;      // sets the object to solid, so it can't be walked through
-dead = oStamped;    // the default object created when the instance is destroyed. set by a function usually
-dead_sound = sndCrash;
-sound_step = -1; // NOTE: is this a good idea? seems to work, just not sure if it will screw up somehow
-draw_random_char_init();
+            <string>///Attributes
+event_inherited();
 
-tile_size = oGame.tile_size;
-spr_middle = oGame.spr_middle;
+char = 'y';
+colour = c_dkgray;
+solid = true;
 
-draw_offset_x = 0;
-draw_offset_y = 0;
+move_init(8, 1);
 
-draw_x_coords = x*tile_size + spr_middle;
-draw_y_coords = y*tile_size + spr_middle;
+//Controller
+//move_projectile_dir();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/*
+var timer_on = move_timer_inc();
+if (timer_on == false)
+{
+    var cell_next = move_collision(x + move_dir[0], y + move_dir[1]);
+    var cant_move = cell_next.solid;
+    if (cant_move == false)
+    {
+        move_timer_start(move_timer_max, 1);
+    }
+}
+else
+{
+    angle += 1;
+    
+}
+*/
 </string>
           </argument>
         </arguments>

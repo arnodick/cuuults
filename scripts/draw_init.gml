@@ -15,9 +15,10 @@ texture_set_interpolation(false);
 
 spr_width = sprite_get_width(spr_tiles);
 sprite_set_offset(spr_tiles, spr_width/2, spr_width/2);
+spr_middle = spr_width / 2;
 
 // tile size set to constant, max room size set
-tile_size = 16;
+tile_size = spr_width;
 room_width_max = 160;
 room_height_max = 120;
 

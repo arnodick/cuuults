@@ -134,6 +134,7 @@
     <object>objects\oRubble</object>
     <object>objects\oTest</object>
     <object>objects\oStamped</object>
+    <object>objects\oRock</object>
     <object>objects\oBlood</object>
     <object>objects\oMessage</object>
     <object>objects\oGame</object>
