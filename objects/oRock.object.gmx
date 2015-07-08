@@ -36,6 +36,10 @@ move_init(3, 1);
 
 sound_step = sndBump;
 
+// TODO: cahnge this to move_type, and move_type() to just move()
+move_value_init = -1;
+move_value = move_value_init;
+
 //Controller
 //move_projectile_dir();
 </string>
@@ -60,7 +64,9 @@ sound_step = sndBump;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
+            <string>move_type(move_value, -1);
+
+/*
 var timer_on = move_timer_inc();
 if (timer_on == false)
 {
