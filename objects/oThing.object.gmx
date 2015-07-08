@@ -50,6 +50,8 @@ draw_offset_y = 0;
 
 draw_x_coords = x*tile_size + spr_middle;
 draw_y_coords = y*tile_size + spr_middle;
+
+carryable = false;
 </string>
           </argument>
         </arguments>

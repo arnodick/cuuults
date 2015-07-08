@@ -40,6 +40,8 @@ sound_step = sndBump;
 move_value_init = -1;
 move_value = move_value_init;
 
+carryable = true;
+
 //Controller
 //move_projectile_dir();
 </string>

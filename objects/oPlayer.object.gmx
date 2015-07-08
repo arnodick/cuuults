@@ -97,7 +97,7 @@ else
 {
     if (keyboard_check_pressed(ord('X')))
     {
-        if (oGame.map_update[x-1,y].object_index == oRock)
+        if (oGame.map_update[x-1,y].carryable == true)
         {
             carry = true;
             carrying = oGame.map_update[x-1,y];
