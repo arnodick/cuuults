@@ -38,7 +38,7 @@ colour = merge_colour(colour_init, c_black, y/48);
 oGame.map[x, y] = instance_create(x, y, oSpace);
 // TODO: properly destroy instance at this position
 
-move_init(3.5, 1); // set this to 1 for instant movement
+move_init(3, 1); // set this to 1 for instant movement
 check_creature_init();
 
 solid = false;
@@ -76,14 +76,6 @@ if keyboard_check_pressed(vk_shift)
 move_type(mt_key, -1);
 check_creature();
 
-if (keyboard_check_pressed(ord('X')))
-{
-    if (oGame.map_update[x-1,y].object_index == oRock)
-    {
-        carry = true;
-        carrying = oGame.map_update[x-1,y];
-    }
-}
 if (carry == true)
 {
     if (instance_exists(carrying))
@@ -94,16 +86,30 @@ if (carry == true)
             solid = false;
         }
     }
-    //carrying.x = x;
-    //carrying.y = y-1;
-}
-/*
-        with (carrying)
+    if (keyboard_check_pressed(ord('X')))
+    {
+        if (instance_exists(carrying))
         {
-            move_dir[0] = -move_distance;
-            move_timer_start(move_timer_max, 1);
+            with (carrying)
+            {
+                solid = true;
+            }
         }
-        */
+        carry = false;
+        carrying = 0;
+    }
+}
+else
+{
+    if (keyboard_check_pressed(ord('X')))
+    {
+        if (oGame.map_update[x-1,y].object_index == oRock)
+        {
+            carry = true;
+            carrying = oGame.map_update[x-1,y];
+        }
+    }
+}
 </string>
           </argument>
         </arguments>
