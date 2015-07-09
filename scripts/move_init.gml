@@ -20,3 +20,5 @@ mt_key = 0;
 mt_rand = 1;
 mt_obj = 2;
 mt_proj = 3;
+
+stopped_wall = false;

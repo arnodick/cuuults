@@ -22,6 +22,7 @@ if move_timer == false
 }
 else
 {
+    stopped_wall = false;
     var timer_on = move_timer_inc();
     if (timer_on == false)
     {

@@ -7,3 +7,5 @@ move_timer_start(shake_timer, 1);
 screen_shake(shake_timer, shake_factor);
 
 move_stopped();
+
+stopped_wall = true;
