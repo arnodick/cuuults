@@ -45,6 +45,9 @@ solid = false;
 
 carry = false;
 carrying = 0;
+
+move_value_init = mt_key;
+move_value = move_value_init;
 </string>
           </argument>
         </arguments>
@@ -67,13 +70,13 @@ carrying = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Controls
+            <string> ///Controls
 //colour = merge_colour(colour_init, c_black, y/48);
 if keyboard_check_pressed(vk_shift)
 {
     instance_create(x, y, oSpell);   
 }
-move_type(mt_key, -1);
+move_type(move_value, -1);
 check_creature();
 
 if (carry == true)
@@ -82,21 +85,29 @@ if (carry == true)
     {
         check_carry_drop();
     }
-    else if keyboard_check_pressed(ord('X'))
+    else if (move_timer = false)
+    {
+    if keyboard_check_pressed(ord('X'))
     {
         if (instance_exists(carrying))
         {
-            with (carrying)
-            {
-                move_value = 3;
-                move_timer_max = 10;
-                solid = true;
-                sound_step = sndBump;
-                move_distance = 4;
-            }
+        with (carrying)
+        {
+            move_value = 3;
+            move_timer_max = 5;
+            move_distance = 1;
+            move_dir[0] = -1;
+            
+            solid = true;
+            sound_step = sndBump;
         }
+        }
+        move_value = 3;
+        move_dir[0] = 1;
         carry = false;
         carrying = 0;   // will this cause problems? make me carry something, like whatever the 1st instance is?
+        move_timer_max = move_timer_max_init;
+    }
     }
 }
 else
@@ -107,12 +118,13 @@ else
         {
             carry = true;
             carrying = oGame.map_update[x-1,y];
+            move_timer_max = 10;
             if (instance_exists(carrying))
             {
                 with(carrying)
                 {
                     move_value = mt_key;
-                    move_timer_max = 3;
+                    move_timer_max = oPlayer.move_timer_max;
                     move_distance = 1;
                     solid = false;
                     sound_step = -1;

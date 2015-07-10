@@ -77,6 +77,10 @@ if (stopped_wall = true)
     move_value = -1;
 }
 
+if (move_timer == true)
+{
+    angle += 6;
+}
 /*
 var timer_on = move_timer_inc();
 if (timer_on == false)

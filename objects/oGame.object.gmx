@@ -420,7 +420,7 @@ with(oThing)
 {
     //draw_text_transformed_colour(draw_x_coords, draw_y_coords, char, size, size, angle, colour, colour, colour, colour, alpha);
     //draw_background_general(bg_tiles, 0, 0, 8, 8, draw_x_coords, draw_y_coords, size, size, angle, colour, colour, colour, colour, 1);
-    draw_sprite_ext(spr_tiles, object_index, draw_x_coords, draw_y_coords, 1, 1, angle, colour, 1);
+    draw_sprite_ext(spr_tiles, object_index, draw_x_coords, draw_y_coords, scale, scale, angle, colour, 1);
 }
 
 </string>
