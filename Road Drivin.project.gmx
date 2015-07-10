@@ -84,6 +84,7 @@
     <script>scripts\check_room_change.gml</script>
     <script>scripts\check_creature_init.gml</script>
     <script>scripts\check_creature.gml</script>
+    <script>scripts\check_carry_drop.gml</script>
     <script>scripts\key_arrows_check.gml</script>
     <script>scripts\key_arrows_check_pressed.gml</script>
     <script>scripts\move_init.gml</script>
@@ -91,6 +92,7 @@
     <script>scripts\move_key.gml</script>
     <script>scripts\move_rand.gml</script>
     <script>scripts\move_dir_object.gml</script>
+    <script>scripts\move_direction.gml</script>
     <script>scripts\move_step_dir.gml</script>
     <script>scripts\move_run_dir.gml</script>
     <script>scripts\move_projectile_dir.gml</script>

@@ -16,6 +16,8 @@ if move_timer == false
         case 2: // move towards object
             move_dir_object(argument1);
             break;
+        case 3:
+            move_direction();
         default:
             break;
     }
