@@ -41,7 +41,7 @@ surfaces_init();
 global.player = instance_create(1, 1, oPlayer);
 // initializes map to all empty spaces
 //textfile_load_map(working_directory + "map_0" + string(irandom(3)) + ".txt");
-textfile_load_map_proc(working_directory + "map_0" + string(irandom(3)) + ".txt", 4);
+textfile_load_map_proc(working_directory + "map_0" + string(irandom(3)) + ".txt", 1);
 
 // room count. TODO : need this? (NOTE: will have to figure out a way to save specific room to file)
 room_count = 0;

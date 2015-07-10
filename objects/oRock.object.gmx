@@ -33,6 +33,7 @@ colour = c_dkgray;
 solid = true;
 
 move_init(3, 1);
+check_creature_init();
 
 sound_step = sndBump;
 
@@ -79,8 +80,9 @@ if (stopped_wall = true)
 
 if (move_timer == true)
 {
-    angle += 6;
+    angle += (6)*(-move_dir[0]);
 }
+check_creature();
 /*
 var timer_on = move_timer_inc();
 if (timer_on == false)
