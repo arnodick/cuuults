@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>0</visible>
-  <depth>0</depth>
+  <depth>-10</depth>
   <persistent>0</persistent>
   <parentName>oThing</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -42,6 +42,8 @@ move_value_init = -1;
 move_value = move_value_init;
 
 carryable = true;
+
+depth = -10;
 
 //Controller
 //move_projectile_dir();

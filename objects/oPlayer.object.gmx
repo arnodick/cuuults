@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>0</visible>
-  <depth>0</depth>
+  <depth>-10</depth>
   <persistent>0</persistent>
   <parentName>oThing</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -114,7 +114,7 @@ else
 {
     if (keyboard_check_pressed(ord('X')))
     {
-        if (oGame.map_update[x-1,y].carryable == true)
+        if (oGame.map_update[x-1,y].carryable == true) // BUG TODO: this crashes game if at edge fo screen (have to warp detection)
         {
             carry = true;
             carrying = oGame.map_update[x-1,y];

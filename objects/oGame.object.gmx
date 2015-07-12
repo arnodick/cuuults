@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-500</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -35,13 +35,13 @@ asset_offsets_init();   // sets the offset for pointers to terrain, creatures, i
 
 room_dimensions(tile_size, room_width_max, room_height_max);    // initialize map arrays and room size
 
-surfaces_init();
-
 // spawn the player. (TODO: does it need to be global? should only ever be 1 player, can refer to oPlayer)
 global.player = instance_create(1, 1, oPlayer);
 // initializes map to all empty spaces
 //textfile_load_map(working_directory + "map_0" + string(irandom(3)) + ".txt");
 textfile_load_map_proc(working_directory + "map_0" + string(irandom(3)) + ".txt", 1);
+
+surfaces_init();
 
 // room count. TODO : need this? (NOTE: will have to figure out a way to save specific room to file)
 room_count = 0;
@@ -302,7 +302,7 @@ if (global.debug == true)
             <string>///Draw Calculations
 // so the draw event doesn't have a bunch of math in it
 
-var view_scale = (1 / power(view_factor, view_switch))
+var view_scale = (1 / power(view_factor, view_switch));
 // sets the view position according to player's position
 room_view( (r_width * view_scale), (r_height * view_scale) );
 </string>
@@ -416,13 +416,26 @@ surfaces_begin();
             <kind>1</kind>
             <string>///Draw
 
+// this draws things at their proper depth, but is VERY inneffcient. Better way?
 with(oThing)
 {
     //draw_text_transformed_colour(draw_x_coords, draw_y_coords, char, size, size, angle, colour, colour, colour, colour, alpha);
     //draw_background_general(bg_tiles, 0, 0, 8, 8, draw_x_coords, draw_y_coords, size, size, angle, colour, colour, colour, colour, 1);
-    draw_sprite_ext(spr_tiles, object_index, draw_x_coords, draw_y_coords, scale, scale, angle, colour, 1);
+    if (depth &gt;= 0)
+    {
+        draw_sprite_ext(spr_tiles, object_index, draw_x_coords, draw_y_coords, scale, scale, angle, colour, 1);
+    }
 }
 
+with(oThing)
+{
+    //draw_text_transformed_colour(draw_x_coords, draw_y_coords, char, size, size, angle, colour, colour, colour, colour, alpha);
+    //draw_background_general(bg_tiles, 0, 0, 8, 8, draw_x_coords, draw_y_coords, size, size, angle, colour, colour, colour, colour, 1);
+    if (depth &lt; 0)
+    {
+        draw_sprite_ext(spr_tiles, object_index, draw_x_coords, draw_y_coords, scale, scale, angle, colour, 1);
+    }
+}
 </string>
           </argument>
         </arguments>

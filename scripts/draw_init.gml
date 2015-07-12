@@ -1,4 +1,4 @@
-window_set_fullscreen(true);   //making this false gives the game a gross startup flicker TODO: remove this when you don't need to create maps anymore, so its ugliness doesn't make it into final build
+window_set_fullscreen(false);   //making this false gives the game a gross startup flicker TODO: remove this when you don't need to create maps anymore, so its ugliness doesn't make it into final build
 
 // just stuff to set up font switiching with a key press
 font[0] = font_road_drivin;
