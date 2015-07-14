@@ -39,7 +39,7 @@ room_dimensions(tile_size, room_width_max, room_height_max);    // initialize ma
 global.player = instance_create(1, 1, oPlayer);
 // initializes map to all empty spaces
 //textfile_load_map(working_directory + "map_0" + string(irandom(3)) + ".txt");
-textfile_load_map_proc(working_directory + "map_0" + string(irandom(3)) + ".txt", 1);
+textfile_load_map_proc(working_directory + "map_0" + string(irandom(3)) + ".txt", 4);
 
 surfaces_init();
 
