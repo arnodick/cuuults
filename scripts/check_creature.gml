@@ -1,5 +1,7 @@
 var cell_current = oGame.map[x, y];
 
+if (instance_exists(oGrass))
+{
 if (cell_current.object_index == oGrass)
 {
     /*
@@ -16,6 +18,7 @@ if (cell_current.object_index == oGrass)
         instance_destroy();
     }
     cell_current = oGame.map[x, y];
+}
 }
 if (cell_current.object_index == oBlood)
 {

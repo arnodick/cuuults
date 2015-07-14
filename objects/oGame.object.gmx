@@ -27,19 +27,21 @@
             <kind>1</kind>
             <string>///Inits
 
+sectors = 8;
+
 randomize();    // gives a random seed EVERY time the game is run
 
 draw_init();    // fonts + view dimensions
 
 asset_offsets_init();   // sets the offset for pointers to terrain, creatures, items, etc.
 
-room_dimensions(tile_size, room_width_max, room_height_max);    // initialize map arrays and room size
+//room_dimensions(tile_size, room_width_max, room_height_max);    // initialize map arrays and room size
 
 // spawn the player. (TODO: does it need to be global? should only ever be 1 player, can refer to oPlayer)
 global.player = instance_create(1, 1, oPlayer);
 // initializes map to all empty spaces
 //textfile_load_map(working_directory + "map_0" + string(irandom(3)) + ".txt");
-textfile_load_map_proc(working_directory + "map_0" + string(irandom(3)) + ".txt", 4);
+textfile_load_map_proc(working_directory + "map_0" + string(irandom(3)) + ".txt", sectors);
 
 surfaces_init();
 
@@ -305,6 +307,7 @@ if (global.debug == true)
 var view_scale = (1 / power(view_factor, view_switch));
 // sets the view position according to player's position
 room_view( (r_width * view_scale), (r_height * view_scale) );
+
 </string>
           </argument>
         </arguments>
