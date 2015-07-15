@@ -18,10 +18,10 @@ sprite_set_offset(spr_tiles, spr_width/2, spr_width/2);
 spr_middle = spr_width / 2;
 
 // tile size set to constant, max room size set
-//tile_size = spr_width;
-tile_size = 14;
-room_width_max = 160;
-room_height_max = 120;
+tile_size = spr_width;
+//tile_size = 14;
+//room_width_max = 160;
+//room_height_max = 120;
 
 // view dimensions
 view_factor = 2;                    // the amount to divide the screen width and height by.

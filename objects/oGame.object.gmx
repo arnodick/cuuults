@@ -168,6 +168,7 @@ if (global.debug == true)
     mouse_cell_y = mouse_y div tile_size;
     mouse_draw_x = mouse_cell_x * tile_size;
     mouse_draw_y = mouse_cell_y * tile_size;
+    var map_cell = -1;
 
     if (fps_timer &gt; 0)
     {
@@ -223,14 +224,18 @@ if (global.debug == true)
         cursor_object.draw_x_coords = ( cursor_object.x * tile_size ) + spr_middle;
         cursor_object.draw_y_coords = ( cursor_object.y * tile_size ) + spr_middle;
     }
-    
+    // TODO: put in stuff to detect oSpace here, to make sure it doesn't mess up the placement.
     if mouse_check_button(mb_left)
     {
         if ( (mouse_cell_x &gt;= 0) and (mouse_cell_y &gt;= 0) and (mouse_cell_x &lt; r_width) and (mouse_cell_y &lt; r_height) )
         {
-            with (map[mouse_cell_x, mouse_cell_y])
+            map_cell = map[mouse_cell_x, mouse_cell_y];
+            if (map_cell.object_index != oSpace)
+            {
+            with (map_cell)
             {
                 instance_destroy();
+            }
             }
             map[mouse_cell_x, mouse_cell_y] = instance_create(mouse_cell_x, mouse_cell_y, obj_to_place);
             map_update[mouse_cell_x, mouse_cell_y] = map[mouse_cell_x, mouse_cell_y];
@@ -240,9 +245,13 @@ if (global.debug == true)
     {
         if ( (mouse_cell_x &gt;= 0) and (mouse_cell_y &gt;= 0) and (mouse_cell_x &lt; r_width) and (mouse_cell_y &lt; r_height) )
         {
-            with (map[mouse_cell_x, mouse_cell_y])
+            map_cell = map[mouse_cell_x, mouse_cell_y];
+            if (map_cell.object_index != oSpace)
+            {
+            with (map_cell)
             {
                 instance_destroy();
+            }
             }
             map[mouse_cell_x, mouse_cell_y] = instance_create(mouse_cell_x, mouse_cell_y, terrain_start);
             map_update[mouse_cell_x, mouse_cell_y] = map[mouse_cell_x, mouse_cell_y];
