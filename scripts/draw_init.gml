@@ -1,32 +1,25 @@
 window_set_fullscreen(false);   //making this false gives the game a gross startup flicker TODO: remove this when you don't need to create maps anymore, so its ugliness doesn't make it into final build
+texture_set_interpolation(false);   // gets rid of "smudginess" on sprites
+
+spr_width = sprite_get_width(spr_tiles);    // gets the width of the sprite resource
+spr_middle = spr_width/2;
+sprite_set_offset(spr_tiles, spr_middle, spr_middle); // the amount to offset drawing of sprites, so they are centred in the cell
+
+tile_size = spr_width;  // the width and height of each tile (NOT nec same as sprite size, but it is or now)
+
+// view dimensions
+view_factor = 1;    // the number to power with switch. will be set by sector amount later.
+view_switch =  1;   // the exponent. gets + or - by f2 and f3
 
 // just stuff to set up font switiching with a key press
+// TODO: make this happen with sprites too
 font[0] = font_road_drivin;
-font[1] = font_odyssey;
+font[1] = font_8bit;
 font_switch = false;
 
 // font = Road Drivin' (™) custom "font" + set font alignment left for some reason
 draw_set_font(font[0]);
 draw_set_halign(fa_left);
-//draw_set_halign(fa_center);
-//draw_set_valign(fa_middle);
-// gets rid of "smudginess" on sprites
-texture_set_interpolation(false);
-
-spr_width = sprite_get_width(spr_tiles);
-sprite_set_offset(spr_tiles, spr_width/2, spr_width/2);
-spr_middle = spr_width / 2;
-
-// tile size set to constant, max room size set
-tile_size = spr_width;
-//tile_size = 14;
-//room_width_max = 160;
-//room_height_max = 120;
-
-// view dimensions
-view_factor = 2;                    // the amount to divide the screen width and height by.
-view_switch =  1;                   // just a switch value to add to the factor, to easily half the screen
-
 
 // SCREEN SHAKE SETTINGS
 // YOU NEED THIS TO USE screen_shake functions!

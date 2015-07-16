@@ -4,8 +4,8 @@
 // calculates quadrant of the map player is in
 if (instance_exists(oPlayer))
 {
-    x_sector = oPlayer.x div argument0;
-    y_sector = oPlayer.y div argument1;
+    x_sector = (oPlayer.x div argument0);
+    y_sector = (oPlayer.y div argument1);
 }
 // shake code, preprocessed before drawing, to avoid putting a load of calcs on the draw event
 if shaking == true                          

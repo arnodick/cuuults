@@ -5,7 +5,7 @@
 var map_string = argument0; // the name of the file to load. chosen by user.
 var sectors = argument1; // the amount of sectors in the map
 
-view_factor = sectors;
+view_factor = sectors/4;
 
 // TODO: make this a function, just do nested loops!
 // opens the chosen file for reading and calculates the amount of cells per row

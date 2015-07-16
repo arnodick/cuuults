@@ -38,9 +38,9 @@ window_right = window_centre[0] + window_length;
 window_top = window_centre[1] - window_height;
 window_bot = window_centre[1] + window_height;
 
-if global.player.run == false
+if (oPlayer.run == false)
 {
-    global.player.run = true;
+    oPlayer.run = true;
 }
 
 parent = 0;

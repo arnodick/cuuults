@@ -33,20 +33,13 @@ randomize();    // gives a random seed EVERY time the game is run
 
 draw_init();    // fonts + view dimensions
 
-asset_offsets_init();   // sets the offset for pointers to terrain, creatures, items, etc.
+assets_init();   // sets the offset for pointers to terrain, creatures, items, etc.
 
-//room_dimensions(tile_size, room_width_max, room_height_max);    // initialize map arrays and room size
+instance_create(1, 1, oPlayer); // creates player
 
-// spawn the player. (TODO: does it need to be global? should only ever be 1 player, can refer to oPlayer)
-global.player = instance_create(1, 1, oPlayer);
-// initializes map to all empty spaces
-//textfile_load_map(working_directory + "map_0" + string(irandom(3)) + ".txt");
-textfile_load_map_proc(working_directory + "map_0" + string(irandom(3)) + ".txt", sectors);
+textfile_load_map_proc(working_directory + "map_0" + string(irandom(3)) + ".txt", sectors); // creates map
 
-surfaces_init();
-
-// room count. TODO : need this? (NOTE: will have to figure out a way to save specific room to file)
-room_count = 0;
+surfaces_init();    // init draw surfaces
 </string>
           </argument>
         </arguments>
@@ -183,16 +176,18 @@ if (global.debug == true)
     
     if (instance_exists(oPlayer))
     {
-        playerx_string = "X = " + string(oPlayer.x);
-        playery_string = "Y = " + string(oPlayer.y);
-        move_timer_string = string(oPlayer.move_timer_count);
+        playerx_string = "Plr X = " + string(oPlayer.x);
+        playery_string = "Plr Y = " + string(oPlayer.y);
+        move_timer_string = "Mov tmr = " + string(oPlayer.move_timer_count);
     }
     
+    /*
     if (instance_exists(oSpell))
     {
-        spell_x_string = "X = " + string(oSpell.move_dir[0]);
-        spell_y_string = "Y = " + string(oSpell.move_dir[1]);
+        spell_x_string = "Spl X = " + string(oSpell.move_dir[0]);
+        spell_y_string = "Spl Y = " + string(oSpell.move_dir[1]);
     }
+    */
     
     // cycles through all the terrain objects
     if mouse_wheel_up()
@@ -476,25 +471,29 @@ if (global.debug == true)
     //draw the FPS, top left
     draw_set_font(font[1]);
     draw_set_colour(c_red);
+    draw_set_alpha(0.7);
     draw_text(view_xview[0] + 32, view_yview[0] + tile_size, fps_string);
     
     //draw the number of instances, below fps count
     draw_text(view_xview[0] + 32, view_yview[0] + tile_size*2, inst_string);
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*3, r_width);
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*4, r_height);
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*5, playerx_string);
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*6, playery_string);
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*7, mouse_x);
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*8, mouse_y);
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*9, move_timer_string);
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*10, string(oPlayer.draw_offset_x));
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*3, "R_wdth = " + string(r_width));
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*4, "R_hght = " + string(r_height));
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*5, "Room wdth = " + string(room_width));
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*6, "Room hgth = " + string(room_height));
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*7, playerx_string);
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*8, playery_string);
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*9, "Mouse X = " + string(mouse_x));
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*10, "Mouse Y = " + string(mouse_y));
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*11, move_timer_string);
+    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*12, "Draw off X = " + string(oPlayer.draw_offset_x));
+    /*
     if (instance_exists(oSpell))
     {
-        draw_text(view_xview[0] + 32, view_yview[0] + tile_size*11, spell_x_string);
-        draw_text(view_xview[0] + 32, view_yview[0] + tile_size*12, spell_y_string);
+        draw_text(view_xview[0] + 32, view_yview[0] + tile_size*13, spell_x_string);
+        draw_text(view_xview[0] + 32, view_yview[0] + tile_size*14, spell_y_string);
     }
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*11, room_width);
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*12, room_height);
+    */
+    draw_set_alpha(1);
     draw_rectangle_colour( mouse_draw_x, mouse_draw_y, mouse_draw_x + tile_size, mouse_draw_y + tile_size, c_red, c_red, c_red, c_red, true );
     //draw_text( mouse_draw_x, mouse_draw_y, cursor_object_char );
     
