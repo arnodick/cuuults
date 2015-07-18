@@ -1,5 +1,3 @@
-// the size of each cell on the screen. (mess with this to get weird overlapping effects)
-
 // sets the width and height of the room array
 r_width = argument1;
 r_height = argument2;

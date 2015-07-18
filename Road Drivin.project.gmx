@@ -66,6 +66,7 @@
     <script>scripts\textfile_save_map.gml</script>
     <script>scripts\textfile_load_map.gml</script>
     <script>scripts\textfile_load_map_proc.gml</script>
+    <script>scripts\textfile_create_map.gml</script>
     <script>scripts\assets_init.gml</script>
     <script>scripts\draw_init.gml</script>
     <script>scripts\draw_set_coordinates.gml</script>

@@ -39,7 +39,11 @@ instance_create(1, 1, oPlayer); // creates player
 
 textfile_load_map_proc(working_directory + "map_0" + string(irandom(3)) + ".txt", sectors); // creates map
 
-surfaces_init();    // init draw surfaces
+surfaces_init();    //  init draw surfaces
+
+input_r_width = 0;
+input_r_height = 0;
+input_r_sectors = 0;
 </string>
           </argument>
         </arguments>
@@ -103,12 +107,10 @@ if keyboard_check_pressed (vk_f1)
 }
 if keyboard_check_pressed (vk_f2)
 {
-    //view_switch = !(view_switch);
     view_switch++;
 }
 if keyboard_check_pressed (vk_f3)
 {
-    //view_switch = !(view_switch);
     view_switch--;
 }
 // press TAB to switch debug on or off
@@ -130,8 +132,8 @@ if keyboard_check_pressed (vk_tab)
         cursor_object = instance_create(0, 0, oSpace);
     }
 }
-game_quit();
 
+game_quit();
 </string>
           </argument>
         </arguments>
@@ -263,8 +265,6 @@ if (global.debug == true)
     if keyboard_check_pressed(ord("N"))
     {
         input_r_width = get_integer_async("Create room. Width: ", "");
-        
-        //room_dimensions(tile_size, file_width, file_height);
     }
     // press s to save the current level to txt file
     if keyboard_check_pressed(ord("S"))
@@ -278,11 +278,7 @@ if (global.debug == true)
     // press l to load a map from a text file
     if keyboard_check_pressed(ord("L"))
     {
-        var load_file = get_open_filename_ext("Normal text file (*.txt)|*.txt", "map_00", working_directory, "Hello");  // takes player's input for a file name
-        if load_file != ""      // as long as user is actually putting characters in, we load
-        {
-            textfile_load_map(load_file);  // converts a map array into a text file
-        }
+        input_r_sectors = get_integer_async("Create room. Sectors: ", "");
     }
 }
 </string>
@@ -308,7 +304,16 @@ if (global.debug == true)
             <string>///Draw Calculations
 // so the draw event doesn't have a bunch of math in it
 
+// this works for some reason
 var view_scale = (1 / power(view_factor, view_switch));
+
+// hack to stop game from crashing bc of / by zero in room_view
+if ( ((r_width * view_scale) &lt; 1) or ((r_height * view_scale) &lt; 1) )
+{
+    view_switch --;
+    view_scale = (1 / power(view_factor, view_switch));
+}
+
 // sets the view position according to player's position
 room_view( (r_width * view_scale), (r_height * view_scale) );
 
@@ -335,6 +340,8 @@ room_view( (r_width * view_scale), (r_height * view_scale) );
           <argument>
             <kind>1</kind>
             <string>/// User Input
+// for input of map sizes
+// TODO: add a sectors option here
 var id_of_calling_async_event = ds_map_find_value(async_load, "id");
 if id_of_calling_async_event == input_r_width
 {
@@ -351,6 +358,45 @@ if id_of_calling_async_event == input_r_height
         room_dimensions(tile_size, r_width, ds_map_find_value(async_load, "value"));
     }
 }
+if id_of_calling_async_event == input_r_sectors
+{
+    if ds_map_find_value(async_load, "status")
+    {
+        var load_file = get_open_filename_ext("Normal text file (*.txt)|*.txt", "map_00", working_directory, "Hello");  // takes player's input for a file name
+        if load_file != ""      // as long as user is actually putting characters in, we load
+        {
+            textfile_load_map(load_file);  // converts a map array into a text file
+        }
+    }
+}
+/*
+var id_of_calling_async_event = ds_map_find_value(async_load, "id");
+if id_of_calling_async_event == input_r_width
+{
+    if ds_map_find_value(async_load, "status")
+    {
+        //room_dimensions(tile_size, ds_map_find_value(async_load, "value"), r_height);
+        var width = ds_map_find_value(async_load, "value");
+        input_r_height = get_integer_async("Height: ", "");
+    }
+}
+if id_of_calling_async_event == input_r_height
+{
+    if ds_map_find_value(async_load, "status")
+    {
+        //room_dimensions(tile_size, r_width, ds_map_find_value(async_load, "value"));
+        var height = ds_map_find_value(async_load, "value");
+        input_r_sectors = get_integer_async("Sectors: ", "");
+    }
+    if id_of_calling_async_event == input_r_sectors
+    {
+        if ds_map_find_value(async_load, "status")
+        {
+            var sectorz = ds_map_find_value(async_load, "value");
+        }
+    }
+}
+*/
 </string>
           </argument>
         </arguments>
