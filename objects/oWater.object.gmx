@@ -34,6 +34,8 @@ colour = c_blue;
 
 sound_step = sndRock2;
 
+solid = true;
+
 //colour = merge_colour(colour, c_black, y/48);
 </string>
           </argument>

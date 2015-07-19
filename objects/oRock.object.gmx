@@ -28,6 +28,8 @@
             <string>///Attributes
 event_inherited();
 
+oGame.map_update[x, y] = id;
+
 char = 'y';
 colour = c_dkgray;
 solid = true;
@@ -102,6 +104,7 @@ else
     
 }
 */
+oGame.map_update[x, y] = id;
 </string>
           </argument>
         </arguments>

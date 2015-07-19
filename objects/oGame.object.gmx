@@ -450,49 +450,7 @@ surfaces_begin();
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Draw
-
-// this draws things at their proper depth, but is VERY inneffcient. Better way?
-with(oThing)
-{
-    //draw_text_transformed_colour(draw_x_coords, draw_y_coords, char, size, size, angle, colour, colour, colour, colour, alpha);
-    //draw_background_general(bg_tiles, 0, 0, 8, 8, draw_x_coords, draw_y_coords, size, size, angle, colour, colour, colour, colour, 1);
-    if (depth &gt;= 0)
-    {
-        draw_sprite_ext(spr_tiles, object_index, draw_x_coords, draw_y_coords, scale, scale, angle, colour, 1);
-    }
-}
-
-with(oThing)
-{
-    //draw_text_transformed_colour(draw_x_coords, draw_y_coords, char, size, size, angle, colour, colour, colour, colour, alpha);
-    //draw_background_general(bg_tiles, 0, 0, 8, 8, draw_x_coords, draw_y_coords, size, size, angle, colour, colour, colour, colour, 1);
-    if (depth &lt; 0)
-    {
-        draw_sprite_ext(spr_tiles, object_index, draw_x_coords, draw_y_coords, scale, scale, angle, colour, 1);
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -540,11 +498,59 @@ if (global.debug == true)
     }
     */
     draw_set_alpha(1);
-    draw_rectangle_colour( mouse_draw_x, mouse_draw_y, mouse_draw_x + tile_size, mouse_draw_y + tile_size, c_red, c_red, c_red, c_red, true );
     //draw_text( mouse_draw_x, mouse_draw_y, cursor_object_char );
     
     draw_set_font(font[font_switch]);
     
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw
+
+// this draws things at their proper depth, but is VERY inneffcient. Better way?
+
+with(oThing)
+{
+    //draw_text_transformed_colour(draw_x_coords, draw_y_coords, char, size, size, angle, colour, colour, colour, colour, alpha);
+    //draw_background_general(bg_tiles, 0, 0, 8, 8, draw_x_coords, draw_y_coords, size, size, angle, colour, colour, colour, colour, 1);
+    if (depth &gt;= 0)
+    {
+        draw_sprite_ext(spr_tiles, object_index, draw_x_coords, draw_y_coords, scale, scale, angle, colour, 1);
+    }
+}
+
+with(oThing)
+{
+    //draw_text_transformed_colour(draw_x_coords, draw_y_coords, char, size, size, angle, colour, colour, colour, colour, alpha);
+    //draw_background_general(bg_tiles, 0, 0, 8, 8, draw_x_coords, draw_y_coords, size, size, angle, colour, colour, colour, colour, 1);
+    if (depth &lt; 0)
+    {
+        draw_sprite_ext(spr_tiles, object_index, draw_x_coords, draw_y_coords, scale, scale, angle, colour, 1);
+    }
+}
+if (global.debug == true)
+{
+    draw_rectangle_colour( mouse_draw_x, mouse_draw_y, mouse_draw_x + tile_size, mouse_draw_y + tile_size, c_red, c_red, c_red, c_red, true );
 }
 </string>
           </argument>

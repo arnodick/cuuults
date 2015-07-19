@@ -36,6 +36,8 @@ colour = c_gray;
 solid = true;
 
 sound_step = sndBump;
+
+instance_create(x, y - 1, oRock);
 </string>
           </argument>
         </arguments>

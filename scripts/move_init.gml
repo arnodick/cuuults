@@ -1,8 +1,8 @@
 //initializes: counter that restricts movement, distance moved per step
+move_timer_max_init = argument0;
 move_distance = argument1;  // how far it moves per step. could this be something other than 1, or just use timer?
 move_timer = false; // TODO: is the nec? could just check if move timer count is > 0
 move_timer_count = 0;       // this gets incremented until it reaches move_timer_total_init
-move_timer_max_init = argument0;
 move_timer_max = move_timer_max_init; // how long you are paused for after taking a step. this is how fast you move
 
 //variables for running. will be used when move animation implemented.
