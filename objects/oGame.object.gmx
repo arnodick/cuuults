@@ -475,21 +475,19 @@ if (global.debug == true)
     //draw the FPS, top left
     draw_set_font(font[1]);
     draw_set_colour(c_red);
-    draw_set_alpha(0.7);
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size, fps_string);
-    
-    //draw the number of instances, below fps count
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*2, inst_string);
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*3, "R_wdth = " + string(r_width));
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*4, "R_hght = " + string(r_height));
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*5, "Room wdth = " + string(room_width));
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*6, "Room hgth = " + string(room_height));
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*7, playerx_string);
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*8, playery_string);
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*9, "Mouse X = " + string(mouse_x));
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*10, "Mouse Y = " + string(mouse_y));
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*11, move_timer_string);
-    draw_text(view_xview[0] + 32, view_yview[0] + tile_size*12, "Draw off X = " + string(oPlayer.draw_offset_x));
+    draw_set_alpha(0.5);
+    draw_text(32, tile_size, fps_string);
+    draw_text(32, tile_size*2, inst_string);
+    draw_text(32, tile_size*3, "R_wdth = " + string(r_width));
+    draw_text(32, tile_size*4, "R_hght = " + string(r_height));
+    draw_text(32, tile_size*5, "Room wdth = " + string(room_width));
+    draw_text(32, tile_size*6, "Room hgth = " + string(room_height));
+    draw_text(32, tile_size*7, playerx_string);
+    draw_text(32, tile_size*8, playery_string);
+    draw_text(32, tile_size*9, "Mouse X = " + string(mouse_x));
+    draw_text(32, tile_size*10, "Mouse Y = " + string(mouse_y));
+    draw_text(32, tile_size*11, move_timer_string);
+    draw_text(32, tile_size*12, "Draw off X = " + string(oPlayer.draw_offset_x));
     /*
     if (instance_exists(oSpell))
     {
@@ -551,6 +549,14 @@ with(oThing)
 if (global.debug == true)
 {
     draw_rectangle_colour( mouse_draw_x, mouse_draw_y, mouse_draw_x + tile_size, mouse_draw_y + tile_size, c_red, c_red, c_red, c_red, true );
+    with (oPlayer)
+    {
+        draw_rectangle_colour( (x*tile_size), (y*tile_size), (x*tile_size) + tile_size, (y*tile_size + tile_size), c_red, c_red, c_red, c_red, true );
+    }
+    with (oWalker)
+    {
+        draw_rectangle_colour( (x*tile_size), (y*tile_size), (x*tile_size) + tile_size, (y*tile_size + tile_size), c_red, c_red, c_red, c_red, true );
+    }
 }
 </string>
           </argument>
