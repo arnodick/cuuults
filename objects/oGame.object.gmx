@@ -258,7 +258,7 @@ if (global.debug == true)
     {
         if ( (mouse_cell_x &gt;= 0) and (mouse_cell_y &gt;= 0) and (mouse_cell_x &lt; r_width) and (mouse_cell_y &lt; r_height) )
         {
-            map_update[mouse_cell_x, mouse_cell_y] = instance_create(mouse_cell_x, mouse_cell_y, oRock);
+            map_update[mouse_cell_x, mouse_cell_y] = instance_create(mouse_cell_x, mouse_cell_y, oWalker);
         }
     }
     // press n to create a new map array

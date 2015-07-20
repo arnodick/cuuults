@@ -17,6 +17,9 @@ case 3:
     break;
 }
 
-move_collision(x + move_dir[0], y + move_dir[1]);
+var cant_move = move_collision(x + move_dir[0], y + move_dir[1]).solid;
 
-move_timer_start(move_timer_max, 1);  //conceptually comes after actual movement, but needs to be here bc of breaks in swithc below
+if (cant_move == false)
+{
+    move_timer_start(move_timer_max, 1);
+}

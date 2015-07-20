@@ -30,7 +30,7 @@ event_inherited();
 
 char = '_';
 colour = c_gray;
-colour = merge_colour(colour, c_black, y/48);
+//colour = merge_colour(colour, c_black, y/48);
 </string>
           </argument>
         </arguments>

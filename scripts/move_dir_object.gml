@@ -51,10 +51,11 @@ if instance_exists(argument0)
         */
     }
 }
-if move_collision(x + move_dir[0], y + move_dir[1]) == true
+var cant_move = move_collision(x + move_dir[0], y + move_dir[1]).solid;
 // TODO: MAKE THIS SCRIPT MORE ROBUST AT PATHFINDING!
 //      if it can't go forward, try a bit to the left or right. if not that, then random?
 //      current version a bit weird
+if (cant_move == true)
 {
     move_rand();
 }
