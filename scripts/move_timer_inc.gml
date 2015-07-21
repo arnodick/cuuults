@@ -53,7 +53,8 @@ if (move_timer_count < move_timer_total_init)
         {
             draw_offset_x = 0;
             draw_offset_y = 0;
-            timer_on = false; // timer is NOT still going
+            timer_on = true; // timer is still going
+            stopped_wall = true;
         }
     }
 }
@@ -63,7 +64,6 @@ else
     draw_offset_y = 0;
     timer_on = false; // timer is NOT still going
 }
-
 draw_x_coords = ( x * tile_size ) + ( draw_offset_x ) + (spr_middle);
 draw_y_coords = ( y * tile_size ) + ( draw_offset_y ) + (spr_middle);
 return timer_on;

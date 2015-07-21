@@ -38,7 +38,7 @@ colour = merge_colour(colour_init, c_black, y/48);
 oGame.map[x, y] = instance_create(x, y, oSpace);
 // TODO: properly destroy instance at this position
 
-move_init(30, 1); // set this to 1 for instant movement
+move_init(6, 1); // set this to 1 for instant movement
 check_creature_init();
 
 solid = false;
@@ -81,6 +81,18 @@ check_creature();
 
 if (stopped_wall == true)
 {
+    var cell_next = move_collision(x + move_dir[0], y + move_dir[1]);
+    var cant_move = cell_next.solid;
+    
+    // TODO: put this and sound playing at END of timer for collision
+    if (cant_move == true)
+    {
+        move_stopped_wall(1);
+    }
+    if (cell_next.sound_step != -1)
+    {
+        audio_play_sound(cell_next.sound_step, 1, false); // maybe we want this here? so everything makes noises?
+    }
     //TODO put code for moving rocks around by bumping into them here
 }
 
@@ -99,7 +111,7 @@ if (carry == true)
         with (carrying)
         {
             move_value = 3;
-            move_timer_max = 5;
+            move_timer_max = 10;
             move_distance = 1;
             move_dir[0] = -1;
             
@@ -123,7 +135,7 @@ else
         {
             carry = true;
             carrying = oGame.map_update[x-1,y];
-            move_timer_max = 10;
+            move_timer_max = 20;
             if (instance_exists(carrying))
             {
                 with(carrying)
