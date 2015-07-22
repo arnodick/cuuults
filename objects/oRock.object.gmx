@@ -69,13 +69,13 @@ depth = -10;
             <kind>1</kind>
             <string>move(move_type, -1);
 
-if (stopped_wall = true)
+if (stopped_wall == true)
 {
     with (oPlayer)
     {
         check_carry_drop();
     }
-    move_type = -1;
+    //move_type = -1;
 }
 
 if (move_timer == true)

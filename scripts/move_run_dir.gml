@@ -20,11 +20,6 @@ if (key_arrows_check() == true)
     var x_dest = x + move_dir[0], y_dest = y + move_dir[1];
     var cell_next = move_collision(x_dest, y_dest);
     var cant_move = cell_next.solid;
-        
-    if (cell_next.sound_step != -1)
-    {
-        audio_play_sound(cell_next.sound_step, 1, false); // maybe we want this here? so everything makes noises?
-    }
     
     if (cant_move == false)
     {
@@ -39,6 +34,7 @@ if (key_arrows_check() == true)
         }
         audio_sound_pitch(sndBloop, step_count);
         audio_play_sound(sndBloop, 1, false);
+        move_timer_start(move_timer_max*2, move_timer_mult);
     }
     else
     {
@@ -57,8 +53,6 @@ if (key_arrows_check() == true)
         }
         */
     }
-    
-    move_timer_start(move_timer_max*2, move_timer_mult);
 }
 else
 {

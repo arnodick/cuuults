@@ -38,7 +38,7 @@ colour = merge_colour(colour_init, c_black, y/48);
 oGame.map[x, y] = instance_create(x, y, oSpace);
 // TODO: properly destroy instance at this position
 
-move_init(mt_key, 6, 1); // set this to 1 for instant movement
+move_init(mt_key, 16, 1); // set this to 1 for instant movement
 check_creature_init();
 
 solid = false;

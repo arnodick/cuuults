@@ -1,4 +1,5 @@
- if (key_arrows_check_pressed() == true)
+//if (key_arrows_check_pressed() == true)
+if (key_arrows_check() == true)
 {
     switch(keyboard_key)
     {

@@ -58,7 +58,7 @@ if (move_timer_count < move_timer_total_init)
         {
             draw_offset_x = 0;
             draw_offset_y = 0;
-            timer_on = true; // timer is still going
+            timer_on = true; // timer IS still going
             stopped_wall = true;
         }
     }
