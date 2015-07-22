@@ -30,7 +30,7 @@ event_inherited();
 
 char = '$';
 
-move_init(30, 1); // waits 30 steps after each move it makes
+move_init(mt_rand, 30, 1); // waits 30 steps after each move it makes
 check_creature_init();
 </string>
           </argument>
@@ -56,7 +56,7 @@ check_creature_init();
             <kind>1</kind>
             <string>///Controller
 
-move_type(mt_rand, -1);
+move(move_type, -1);
 
 check_creature();
 </string>

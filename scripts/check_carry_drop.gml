@@ -4,7 +4,7 @@ if (instance_exists(carrying))
     {
         with (carrying)
         {
-            move_value = move_value_init;
+            move_type = move_type_init;
             solid = true;
             sound_step = sndBump;
         }

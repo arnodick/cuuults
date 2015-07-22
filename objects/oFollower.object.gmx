@@ -31,7 +31,7 @@ event_inherited();
 char = '$';
 colour = c_blue;
 
-move_init(8, 1); // waits 30 steps after each move it makes
+move_init(mt_obj, 8, 1); // waits 30 steps after each move it makes
 check_creature_init();
 </string>
           </argument>
@@ -56,7 +56,7 @@ check_creature_init();
           <argument>
             <kind>1</kind>
             <string>///Controller
-move_type(mt_obj, oPlayer);
+move(move_type, oPlayer);
 
 check_creature();
 

@@ -42,6 +42,8 @@ if (key_arrows_check() == true)
     }
     else
     {
+        move_stopped_wall(cell_next, step_count+1);   // + 1i s minor hack to stop running into adjacent walls constantly
+        /*
         if (step_count > 4)
         {
             var cell_hit = oGame.map_update[x_dest, y_dest]
@@ -53,7 +55,7 @@ if (key_arrows_check() == true)
                 instance_destroy();
             }
         }
-        move_stopped_wall(step_count+1);   // + 1i s minor hack to stop running into adjacent walls constantly
+        */
     }
     
     move_timer_start(move_timer_max*2, move_timer_mult);

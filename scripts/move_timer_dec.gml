@@ -16,7 +16,7 @@ else
     }
     else
     {
-        move_stopped_wall(1);
+        move_stopped_wall(cell_next, 1);
     }
     // put shift speed multipler here if shift is pressed! decrease move_timer_ma or it's equivalent
 }

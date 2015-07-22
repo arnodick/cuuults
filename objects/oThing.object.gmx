@@ -54,6 +54,13 @@ draw_y_coords = y*tile_size + spr_middle;
 carryable = false;
 
 scale = 1;
+
+// constants for move input
+//basically just nmemonic so you don't have to remember 0 = key movement, 1 = rand, etc
+mt_key = 0;
+mt_rand = 1;
+mt_obj = 2;
+mt_proj = 3;
 </string>
           </argument>
         </arguments>

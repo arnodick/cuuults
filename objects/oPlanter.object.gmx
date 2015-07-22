@@ -35,7 +35,7 @@ cell_current_top    = oGame.map_update[x, y - 1];
 cell_current_bot    = oGame.map_update[x, y + 1];
 
 
-move_init(20, 1); // waits 20 steps after each move it makes
+move_init(mt_obj, 20, 1); // waits 20 steps after each move it makes
 check_creature_init();
 </string>
           </argument>
@@ -83,14 +83,14 @@ if cell_current_bot.object_index == oStamped
     create_thing(cell_current_bot, oGrass);
 }
 
-move_type(mt_obj, oStamped);
+move(move_type, oStamped);
 
 check_creature();
 
 cell_current        = oGame.map_update[x    , y];
 if cell_current.object_index == oStamped
 {
-    move_type(mt_rand, -1);
+    move(mt_rand, -1);
 }
 
 </string>

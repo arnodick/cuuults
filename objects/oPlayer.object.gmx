@@ -38,16 +38,13 @@ colour = merge_colour(colour_init, c_black, y/48);
 oGame.map[x, y] = instance_create(x, y, oSpace);
 // TODO: properly destroy instance at this position
 
-move_init(6, 1); // set this to 1 for instant movement
+move_init(mt_key, 6, 1); // set this to 1 for instant movement
 check_creature_init();
 
 solid = false;
 
 carry = false;
 carrying = 0;
-
-move_value_init = mt_key;
-move_value = move_value_init;
 </string>
           </argument>
         </arguments>
@@ -76,7 +73,7 @@ if keyboard_check_pressed(vk_shift)
 {
     instance_create(x, y, oSpell);   
 }
-move_type(move_value, -1);
+move(move_type, -1);
 check_creature();
 
 if (stopped_wall == true)
@@ -87,11 +84,7 @@ if (stopped_wall == true)
     // TODO: put this and sound playing at END of timer for collision
     if (cant_move == true)
     {
-        move_stopped_wall(1);
-    }
-    if (cell_next.sound_step != -1)
-    {
-        audio_play_sound(cell_next.sound_step, 1, false); // maybe we want this here? so everything makes noises?
+        move_stopped_wall(cell_next, 1);
     }
     //TODO put code for moving rocks around by bumping into them here
 }
@@ -110,7 +103,7 @@ if (carry == true)
         {
         with (carrying)
         {
-            move_value = 3;
+            move_type = 3;
             move_timer_max = 10;
             move_distance = 1;
             move_dir[0] = -1;
@@ -119,7 +112,7 @@ if (carry == true)
             sound_step = sndBump;
         }
         }
-        move_value = 3;
+        move_type = 3;
         move_dir[0] = 1;
         carry = false;
         carrying = 0;   // will this cause problems? make me carry something, like whatever the 1st instance is?
@@ -140,7 +133,7 @@ else
             {
                 with(carrying)
                 {
-                    move_value = mt_key;
+                    move_type = mt_key;
                     move_timer_max = oPlayer.move_timer_max;
                     move_distance = 1;
                     solid = false;
