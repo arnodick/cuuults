@@ -1,11 +1,14 @@
 //initializes: counter that restricts movement, distance moved per step
-move_type_init = argument0;
+// argument 0: move type
+// argument 1: move speed
+// arugment 2: move distance
+move_type_init = argument0; // the initial typ eof movement. IE: keyboard controlled, random, etc.
 move_type = move_type_init;
-move_timer_max_init = argument1;
-move_distance = argument2;  // how far it moves per step. could this be something other than 1, or just use timer?
+move_speed_init = argument1; // how long you are paused for after taking a step. this is how fast you move
+move_speed = move_speed_init;
+move_distance = argument2;  // how many spaces you move per step
 move_timer = false; // TODO: is the nec? could just check if move timer count is > 0
-move_timer_count = 0;       // this gets incremented until it reaches move_timer_total_init
-move_timer_max = move_timer_max_init; // how long you are paused for after taking a step. this is how fast you move
+move_timer_count = 0; // this gets incremented until it reaches move_timer_total_init
 
 //variables for running. will be used when move animation implemented.
 run = true;

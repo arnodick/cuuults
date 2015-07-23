@@ -16,4 +16,4 @@ else if (keyboard_check(vk_down))
 }
 //var cell_next = move_collision(x + move_dir[0], y + move_dir[1]);
 //var cant_move = cell_next.solid;
-move_timer_start(move_timer_max, 1);
+move_timer_start(move_speed, 1);

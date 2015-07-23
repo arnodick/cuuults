@@ -488,6 +488,7 @@ if (global.debug == true)
     draw_text(32, tile_size*10, "Mouse Y = " + string(mouse_y));
     draw_text(32, tile_size*11, move_timer_string);
     draw_text(32, tile_size*12, "Draw off X = " + string(oPlayer.draw_offset_x));
+    draw_text(32, tile_size*13, "Move speed = " + string(oPlayer.move_speed));
     /*
     if (instance_exists(oSpell))
     {

@@ -61,5 +61,5 @@ if (cant_move == true)
 }
 else
 {
-    move_timer_start(move_timer_max, 1);  //conceptually comes after actual movement, but needs to be here bc of breaks in swithc below
+    move_timer_start(move_speed, 1);  //conceptually comes after actual movement, but needs to be here bc of breaks in swithc below
 }

@@ -31,7 +31,7 @@ event_inherited();
 // Basic attributes
 char = '@'; //graphic
 colour_init = c_white; //colour
-colour = merge_colour(colour_init, c_black, y/48);
+colour = colour_init;
 
 // Player attributes + variables
 
@@ -41,7 +41,7 @@ oGame.map[x, y] = instance_create(x, y, oSpace);
 move_init(mt_key, 16, 1); // set this to 1 for instant movement
 check_creature_init();
 
-solid = false;
+//solid = false;
 
 carry = false;
 carrying = 0;
@@ -67,12 +67,19 @@ carrying = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string> ///Controls
-//colour = merge_colour(colour_init, c_black, y/48);
+            <string>///Controls
+
+// TODO: BUG: this makes you halt if you pressed shift WHILE mvoing?
 if keyboard_check_pressed(vk_shift)
 {
-    instance_create(x, y, oSpell);   
+    //instance_create(x, y, oSpell);
+    move_speed = move_speed_init/2;
 }
+else if keyboard_check_released(vk_shift)
+{
+    move_speed = move_speed_init;
+}
+
 move(move_type, -1);
 check_creature();
 
@@ -82,6 +89,7 @@ if (stopped_wall == true)
     var cant_move = cell_next.solid;
     
     // TODO: put this and sound playing at END of timer for collision
+    // maybe put it so if move_type == mt_key then do this bumpy thing
     if (cant_move == true)
     {
         move_stopped_wall(cell_next, 1);
@@ -104,7 +112,7 @@ if (carry == true)
         with (carrying)
         {
             move_type = 3;
-            move_timer_max = 10;
+            move_speed = 10;
             move_distance = 1;
             move_dir[0] = -1;
             
@@ -116,7 +124,7 @@ if (carry == true)
         move_dir[0] = 1;
         carry = false;
         carrying = 0;   // will this cause problems? make me carry something, like whatever the 1st instance is?
-        move_timer_max = move_timer_max_init;
+        move_speed = move_speed_init;
     }
     }
 }
@@ -128,13 +136,13 @@ else
         {
             carry = true;
             carrying = oGame.map_update[x-1,y];
-            move_timer_max = 20;
+            move_speed = 20;
             if (instance_exists(carrying))
             {
                 with(carrying)
                 {
                     move_type = mt_key;
-                    move_timer_max = oPlayer.move_timer_max;
+                    move_speed = oPlayer.move_speed;
                     move_distance = 1;
                     solid = false;
                     sound_step = -1;

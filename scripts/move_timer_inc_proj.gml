@@ -20,7 +20,7 @@ else
     }
     //move_stopped_wall(1);
     // put shift speed multipler here if shift is pressed! decrease move_timer_ma or it's equivalent
-    move_timer_start(move_timer_max, 1);
+    move_timer_start(move_speed, 1);
     draw_offset_x = (move_dir[0] * ((move_timer_count/move_timer_total_init)*tile_size));
     draw_offset_y = (move_dir[1] * ((move_timer_count/move_timer_total_init)*tile_size));
 }

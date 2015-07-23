@@ -21,5 +21,5 @@ var cant_move = move_collision(x + move_dir[0], y + move_dir[1]).solid;
 
 if (cant_move == false)
 {
-    move_timer_start(move_timer_max, 1);
+    move_timer_start(move_speed, 1);
 }

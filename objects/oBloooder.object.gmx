@@ -58,15 +58,15 @@ if bloody == false
 {
     if instance_exists(oBlood)
     {
-        move_timer_max = 10;
+        move_speed = 10;
         move(mt_obj, oBlood);
     }
     else
     {
-        move_timer_max = 30;
+        move_speed = 30;
         move(mt_rand, -1);
         // ZOMBIE MODE!
-        //move_timer_max = 10;
+        //move_speed = 10;
         //move(mt_obj, oPlayer);
     }
 }

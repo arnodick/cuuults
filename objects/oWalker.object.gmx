@@ -56,7 +56,8 @@ check_creature_init();
             <kind>1</kind>
             <string>///Controller
 
-move(move_type, -1);
+//move(move_type, -1);
+move(mt_obj, oPlayer);
 
 check_creature();
 </string>

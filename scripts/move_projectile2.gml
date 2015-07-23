@@ -4,7 +4,7 @@
 
 if move_timer == false
 {
-    move_timer_start(move_timer_max, 1);
+    move_timer_start(move_speed, 1);
 }
 else
 {

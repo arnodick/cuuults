@@ -91,7 +91,7 @@ if (timer_on == false)
     var cant_move = cell_next.solid;
     if (cant_move == false)
     {
-        move_timer_start(move_timer_max, 1);
+        move_timer_start(move_speed, 1);
     }
 }
 else

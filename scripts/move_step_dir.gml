@@ -16,7 +16,7 @@ if (key_arrows_check() == true)
         move_dir[1] = move_distance;
         break;
     }
-    move_timer_start(move_timer_max, 1);
+    move_timer_start(move_speed, 1);
 }
 else
 {

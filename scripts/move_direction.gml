@@ -6,7 +6,7 @@ var cant_move = cell_next.solid;
 //}
 //else
 //{
-    move_timer_start(move_timer_max, 1);
+    move_timer_start(move_speed, 1);
 //}
 if (cell_next.sound_step != -1)
 {

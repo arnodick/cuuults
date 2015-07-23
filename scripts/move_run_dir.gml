@@ -34,7 +34,7 @@ if (key_arrows_check() == true)
         }
         audio_sound_pitch(sndBloop, step_count);
         audio_play_sound(sndBloop, 1, false);
-        move_timer_start(move_timer_max*2, move_timer_mult);
+        move_timer_start(move_speed*2, move_timer_mult);
     }
     else
     {
