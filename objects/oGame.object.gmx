@@ -475,20 +475,24 @@ if (global.debug == true)
     //draw the FPS, top left
     draw_set_font(font[1]);
     draw_set_colour(c_red);
-    draw_set_alpha(0.5);
+    //draw_set_alpha(0.5);
     draw_text(32, tile_size, fps_string);
     draw_text(32, tile_size*2, inst_string);
     draw_text(32, tile_size*3, "R_wdth = " + string(r_width));
     draw_text(32, tile_size*4, "R_hght = " + string(r_height));
     draw_text(32, tile_size*5, "Room wdth = " + string(room_width));
     draw_text(32, tile_size*6, "Room hgth = " + string(room_height));
-    draw_text(32, tile_size*7, playerx_string);
-    draw_text(32, tile_size*8, playery_string);
-    draw_text(32, tile_size*9, "Mouse X = " + string(mouse_x));
-    draw_text(32, tile_size*10, "Mouse Y = " + string(mouse_y));
-    draw_text(32, tile_size*11, move_timer_string);
-    draw_text(32, tile_size*12, "Draw off X = " + string(oPlayer.draw_offset_x));
-    draw_text(32, tile_size*13, "Move speed = " + string(oPlayer.move_speed));
+    draw_text(32, tile_size*7, "View wdth = " + string(view_wview[0]));
+    draw_text(32, tile_size*8, "View hgth = " + string(view_hview[0]));
+    draw_text(32, tile_size*9, "Port wdth = " + string(view_wport[0]));
+    draw_text(32, tile_size*10, "Port hgth = " + string(view_hport[0]));
+    draw_text(32, tile_size*11, playerx_string);
+    draw_text(32, tile_size*12, playery_string);
+    draw_text(32, tile_size*13, "Mouse X = " + string(mouse_x));
+    draw_text(32, tile_size*14, "Mouse Y = " + string(mouse_y));
+    draw_text(32, tile_size*15, move_timer_string);
+    draw_text(32, tile_size*16, "Draw off X = " + string(oPlayer.draw_offset_x));
+    draw_text(32, tile_size*17, "Move speed = " + string(oPlayer.move_speed));
     /*
     if (instance_exists(oSpell))
     {
