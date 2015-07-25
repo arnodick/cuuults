@@ -39,8 +39,6 @@ instance_create(1, 1, oPlayer); // creates player
 
 textfile_load_map_proc(working_directory + "map_0" + string(irandom(3)) + ".txt", sectors); // creates map
 
-surfaces_init();    //  init draw surfaces
-
 input_r_width = 0;
 input_r_height = 0;
 input_r_sectors = 0;
@@ -435,16 +433,24 @@ if id_of_calling_async_event == input_r_height
           <argument>
             <kind>1</kind>
             <string>/// Draw Surface + Shaders
-/*
+
+// PIXELATED SETTINGS
 // sets the drawing target back to the screen (rather than drawing to the surface)
 surface_reset_target();
 
 shader_set(shader_channel_f);
 // Draws the screen surface, which has had all the objects' images written to it during normal draw event
 draw_surface(screen, 0 + shake, 0); // TODO: make x and y positions variables, calculate with shake earlier
-//draw_surface_stretched(screen, 0 + shake, 0, 640, 480);
-shader_reset();
+draw_surface_ext(screen, 1, 0, 1, 1, 0, c_red, 0.4);
+draw_surface_ext(screen, -1, 0, 1, 1, 0, c_blue, 0.4);
+
+// VECTOR SETTINGS
+/*
+draw_surface_ext(screen, 5, 0, 1, 1, 0, c_red, 0.4);
+draw_surface_ext(screen, -5, 0, 1, 1, 0, c_blue, 0.4);
 */
+shader_reset();
+
 </string>
           </argument>
         </arguments>
@@ -468,12 +474,13 @@ shader_reset();
           <argument>
             <kind>1</kind>
             <string>/// Set Drawing to Surface
-/*
+
+// PIXELATED SETTINGS
 // If the screen surface is destroyed (b/c of alt+enter for example) then:
 // Re-create the screen surface
 if !surface_exists(screen)
 {
-    screen = surface_create(view_wport[0], view_hport[0]);
+    screen = surface_create(room_width, room_height);
 }
 
 // If the screen surface does exist, then:
@@ -485,7 +492,7 @@ draw_clear(0);  // Removing draw_clear makes this into a painting game!
 //draw_set_blend_mode_ext(bm_src_alpha, bm_inv_src_colour);
 //draw_surface_stretched(global.screen, view_xview[0], view_yview[0], view_wview[0]*screen_scale, view_hview[0]*screen_scale);
 //draw_set_blend_mode(bm_add);
-*/
+
 </string>
           </argument>
         </arguments>
@@ -509,9 +516,13 @@ draw_clear(0);  // Removing draw_clear makes this into a painting game!
           <argument>
             <kind>1</kind>
             <string>///Debug Draw
+
+/* VECTOR SETTINGS
 draw_surface(screen, 0 + shake, 0); // TODO: make x and y positions variables, calculate with shake earlier
 draw_surface_ext(screen, 5, 0, 1, 1, 0, c_red, 0.4);
 draw_surface_ext(screen, -5, 0, 1, 1, 0, c_blue, 0.4);
+*/
+
 // TODO: get rid if this conditional?
 if (global.debug == true)
 {
@@ -608,11 +619,13 @@ if (global.debug == true)
         draw_rectangle_colour( (x*tile_size), (y*tile_size), (x*tile_size) + tile_size, (y*tile_size + tile_size), c_red, c_red, c_red, c_red, true );
     }
 }
+/* VECTOR SETTINGS
 if (!surface_exists(screen))
 {
     screen = surface_create(window_get_width(), window_get_height());
     view_surface_id[0] = screen;
 }
+*/
 </string>
           </argument>
         </arguments>

@@ -9,7 +9,7 @@ tile_size = spr_width;  // the width and height of each tile (NOT nec same as sp
 
 // view dimensions
 view_factor = 1;    // the number to power with switch. will be set by sector amount later.
-view_switch =  1;   // the exponent. gets + or - by f2 and f3
+view_switch =  3;   // the exponent. gets + or - by f2 and f3
 
 // just stuff to set up font switiching with a key press
 // TODO: make this happen with sprites too
@@ -35,3 +35,14 @@ screen_angle = 0;
 screen_angle_inc = 0.5;
 screen_offset = 0;
 screen_offset_timer = 0;
+
+// Creates a surface that the whole screen will be drawn on
+screen = -1;
+/*
+// If the screen surface can't be created because surfaces are not supported by the graphics card, then:
+// Destroy the oScreen object, reverting to the viewport method
+if (screen == -1)
+{
+    instance_destroy();
+}
+*/
