@@ -31,7 +31,7 @@ event_inherited();
 oGame.map_update[x, y] = id;
 
 char = 'y';
-colour = c_dkgray;
+colour = c_white;
 solid = true;
 
 move_init(-1, 3, 1);
