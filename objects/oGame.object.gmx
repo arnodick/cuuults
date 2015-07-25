@@ -317,6 +317,21 @@ if ( ((r_width * view_scale) &lt; 1) or ((r_height * view_scale) &lt; 1) )
 // sets the view position according to player's position
 room_view( (r_width * view_scale), (r_height * view_scale) );
 
+if ((screen_angle &gt; 13) or (screen_angle &lt; -13))
+{
+    screen_angle_inc = -screen_angle_inc;
+}
+
+screen_angle += screen_angle_inc;
+if (screen_offset_timer &lt; 10)
+{
+    screen_offset_timer += 1;
+}
+else
+{
+    screen_offset = irandom(10);
+    screen_offset_timer = 0;
+}
 </string>
           </argument>
         </arguments>
@@ -495,6 +510,8 @@ draw_clear(0);  // Removing draw_clear makes this into a painting game!
             <kind>1</kind>
             <string>///Debug Draw
 draw_surface(screen, 0 + shake, 0); // TODO: make x and y positions variables, calculate with shake earlier
+draw_surface_ext(screen, 5, 0, 1, 1, 0, c_red, 0.4);
+draw_surface_ext(screen, -5, 0, 1, 1, 0, c_blue, 0.4);
 // TODO: get rid if this conditional?
 if (global.debug == true)
 {
