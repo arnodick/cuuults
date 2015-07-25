@@ -419,8 +419,17 @@ if id_of_calling_async_event == input_r_height
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Draw Surface
-surfaces_end();
+            <string>/// Draw Surface + Shaders
+/*
+// sets the drawing target back to the screen (rather than drawing to the surface)
+surface_reset_target();
+
+shader_set(shader_channel_f);
+// Draws the screen surface, which has had all the objects' images written to it during normal draw event
+draw_surface(screen, 0 + shake, 0); // TODO: make x and y positions variables, calculate with shake earlier
+//draw_surface_stretched(screen, 0 + shake, 0, 640, 480);
+shader_reset();
+*/
 </string>
           </argument>
         </arguments>
@@ -444,7 +453,24 @@ surfaces_end();
           <argument>
             <kind>1</kind>
             <string>/// Set Drawing to Surface
-surfaces_begin();
+/*
+// If the screen surface is destroyed (b/c of alt+enter for example) then:
+// Re-create the screen surface
+if !surface_exists(screen)
+{
+    screen = surface_create(view_wport[0], view_hport[0]);
+}
+
+// If the screen surface does exist, then:
+// Clear the screen of last step's images, 
+surface_set_target(screen);
+draw_clear(0);  // Removing draw_clear makes this into a painting game!
+
+//Don't know why any of this stuff was here
+//draw_set_blend_mode_ext(bm_src_alpha, bm_inv_src_colour);
+//draw_surface_stretched(global.screen, view_xview[0], view_yview[0], view_wview[0]*screen_scale, view_hview[0]*screen_scale);
+//draw_set_blend_mode(bm_add);
+*/
 </string>
           </argument>
         </arguments>
@@ -468,7 +494,7 @@ surfaces_begin();
           <argument>
             <kind>1</kind>
             <string>///Debug Draw
-
+draw_surface(screen, 0 + shake, 0); // TODO: make x and y positions variables, calculate with shake earlier
 // TODO: get rid if this conditional?
 if (global.debug == true)
 {
@@ -486,13 +512,15 @@ if (global.debug == true)
     draw_text(32, tile_size*8, "View hgth = " + string(view_hview[0]));
     draw_text(32, tile_size*9, "Port wdth = " + string(view_wport[0]));
     draw_text(32, tile_size*10, "Port hgth = " + string(view_hport[0]));
-    draw_text(32, tile_size*11, playerx_string);
-    draw_text(32, tile_size*12, playery_string);
-    draw_text(32, tile_size*13, "Mouse X = " + string(mouse_x));
-    draw_text(32, tile_size*14, "Mouse Y = " + string(mouse_y));
-    draw_text(32, tile_size*15, move_timer_string);
-    draw_text(32, tile_size*16, "Draw off X = " + string(oPlayer.draw_offset_x));
-    draw_text(32, tile_size*17, "Move speed = " + string(oPlayer.move_speed));
+    draw_text(32, tile_size*11, "Surf wdth = " + string(surface_get_width(screen)));
+    draw_text(32, tile_size*12, "Surf hgth = " + string(surface_get_height(screen)));
+    draw_text(32, tile_size*13, playerx_string);
+    draw_text(32, tile_size*14, playery_string);
+    draw_text(32, tile_size*15, "Mouse X = " + string(mouse_x));
+    draw_text(32, tile_size*16, "Mouse Y = " + string(mouse_y));
+    draw_text(32, tile_size*17, move_timer_string);
+    draw_text(32, tile_size*18, "Draw off X = " + string(oPlayer.draw_offset_x));
+    draw_text(32, tile_size*19, "Move speed = " + string(oPlayer.move_speed));
     /*
     if (instance_exists(oSpell))
     {
@@ -562,6 +590,11 @@ if (global.debug == true)
     {
         draw_rectangle_colour( (x*tile_size), (y*tile_size), (x*tile_size) + tile_size, (y*tile_size + tile_size), c_red, c_red, c_red, c_red, true );
     }
+}
+if (!surface_exists(screen))
+{
+    screen = surface_create(view_wport[0], view_hport[0]);
+    view_surface_id[0] = screen;
 }
 </string>
           </argument>

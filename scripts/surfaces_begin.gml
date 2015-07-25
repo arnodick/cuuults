@@ -2,7 +2,7 @@
 // Re-create the screen surface
 if !surface_exists(screen)
 {
-    screen = surface_create(room_width, room_height);
+    screen = surface_create(view_wport[0], view_hport[0]);
 }
 
 // If the screen surface does exist, then:
