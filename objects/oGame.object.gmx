@@ -37,7 +37,7 @@ assets_init();   // sets the offset for pointers to terrain, creatures, items, e
 
 instance_create(1, 1, oPlayer); // creates player
 
-textfile_load_map_proc(working_directory + "map_0" + string(irandom(3)) + ".txt", sectors); // creates map
+textfile_load_map_proc(working_directory + "map_0" + string(irandom(4)) + ".txt", sectors); // creates map
 
 input_r_width = 0;
 input_r_height = 0;
@@ -441,8 +441,9 @@ surface_reset_target();
 shader_set(shader_channel_f);
 // Draws the screen surface, which has had all the objects' images written to it during normal draw event
 draw_surface(screen, 0 + shake, 0); // TODO: make x and y positions variables, calculate with shake earlier
-draw_surface_ext(screen, 1, 0, 1, 1, 0, c_red, 0.4);
-draw_surface_ext(screen, -1, 0, 1, 1, 0, c_blue, 0.4);
+draw_surface_ext(screen, 1, 0, 1, 1, 0, c_red, 0.3);
+draw_surface_ext(screen, -1, 0, 1, 1, 0, c_blue, 0.3);
+
 
 // VECTOR SETTINGS
 /*

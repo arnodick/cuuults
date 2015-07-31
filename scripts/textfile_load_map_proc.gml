@@ -35,7 +35,7 @@ for (var d = 0; d < sectors; d++)
 {
     for (var c = 0; c < sectors; c++)
     {
-        map_file = file_text_open_read(working_directory + "map_0" + string(irandom(3)) + ".txt"); // open the text file one more time, for actual loading.
+        map_file = file_text_open_read(working_directory + "map_0" + string(irandom(4)) + ".txt"); // open the text file one more time, for actual loading.
         // TODO: write last room to a file here?
         // loops through each cell of the map file, assigning the values to the map array
         var bottom_side = 0 + (file_height*d);

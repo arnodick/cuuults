@@ -3,11 +3,11 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="10" name="datafiles">
+  <datafiles number="15" name="datafiles">
     <datafile>
-      <name>map.txt</name>
+      <name>map_00.txt</name>
       <exists>-1</exists>
-      <size>6563</size>
+      <size>208</size>
       <exportAction>2</exportAction>
       <exportDir></exportDir>
       <overwrite>0</overwrite>
@@ -19,12 +19,12 @@
           <CopyToMask>9223372036854775807</CopyToMask>
         </Config>
       </ConfigOptions>
-      <filename>map.txt</filename>
+      <filename>map_00.txt</filename>
     </datafile>
     <datafile>
-      <name>map52x32.txt</name>
+      <name>map_01.txt</name>
       <exists>-1</exists>
-      <size>6594</size>
+      <size>208</size>
       <exportAction>2</exportAction>
       <exportDir></exportDir>
       <overwrite>0</overwrite>
@@ -36,7 +36,58 @@
           <CopyToMask>9223372036854775807</CopyToMask>
         </Config>
       </ConfigOptions>
-      <filename>map52x32.txt</filename>
+      <filename>map_01.txt</filename>
+    </datafile>
+    <datafile>
+      <name>map_02.txt</name>
+      <exists>-1</exists>
+      <size>208</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>map_02.txt</filename>
+    </datafile>
+    <datafile>
+      <name>map_03.txt</name>
+      <exists>-1</exists>
+      <size>208</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>map_03.txt</filename>
+    </datafile>
+    <datafile>
+      <name>map_04.txt</name>
+      <exists>-1</exists>
+      <size>208</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>map_04.txt</filename>
     </datafile>
   </datafiles>
   <NewExtensions/>
