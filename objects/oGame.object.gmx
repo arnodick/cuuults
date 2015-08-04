@@ -33,11 +33,11 @@ map_count = 0;
 
 randomize();    // gives a random seed EVERY time the game is run
 
+instance_create(1, 1, oPlayer); // creates player
+
 draw_init();    // fonts + view dimensions
 
 assets_init();   // sets the offset for pointers to terrain, creatures, items, etc.
-
-instance_create(1, 1, oPlayer); // creates player
 
 textfile_load_map_proc("map", sectors); // creates map
 
@@ -322,6 +322,17 @@ if ((screen_angle &gt; 13) or (screen_angle &lt; -13))
     screen_angle_inc = -screen_angle_inc;
 }
 
+if (screen_offset_timer_start == true)
+{
+    screen_offset += screen_offset_timer/screen_offset_timer_init;
+    screen_offset_timer --;
+    if (screen_offset_timer &lt;= 0)
+    {
+        screen_offset_timer_start = false;
+        screen_offset = 0;
+    }
+}
+/*
 screen_angle += screen_angle_inc;
 if (screen_offset_timer &lt; 10)
 {
@@ -332,6 +343,7 @@ else
     screen_offset = irandom(10);
     screen_offset_timer = 0;
 }
+*/
 </string>
           </argument>
         </arguments>

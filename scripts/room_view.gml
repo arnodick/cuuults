@@ -6,11 +6,17 @@ if (instance_exists(oPlayer))
 {
     x_sector = (oPlayer.x div argument0);
     y_sector = (oPlayer.y div argument1);
+    
+    if (x_sector != last_x_sector)
+    {
+        screen_offset_timer_start = true;
+        screen_offset_timer = screen_offset_timer_init;
+    }
 }
 // shake code, preprocessed before drawing, to avoid putting a load of calcs on the draw event
-if shaking == true                          
+if (shaking == true)
 {
-    if shake_count > 0                      // if there is still time to screen shake, then shake away!
+    if (shake_count > 0)                   // if there is still time to screen shake, then shake away!
     {
                                             // NOTE: make shake decrement with time? divide it by shake_count/shake_count_max?
         shake = random(shake_intensity);    // assigns the actual shake value to a random number within a shake range.
@@ -26,11 +32,13 @@ if shaking == true
 }
 
 // sets what part of the room we are looing at
-view_xview[0] = ( (x_sector) * (argument0 * tile_size) );
-view_yview[0] = ( (y_sector) * (argument1 * tile_size) );
+view_xview[0] = ( (x_sector) * (argument0 * tile_size) ) + (view_offset);
+view_yview[0] = ( (y_sector) * (argument1 * tile_size) ) + (view_offset);
 view_wview[0] = (argument0) * tile_size; 
 view_hview[0] = (argument1) * tile_size; 
 
+last_x_sector = x_sector;
+last_y_sector = y_sector;
 // pre-sets the draw coordinates, so less math in draw event
 // TODO: GET RID OF THIS WITH SURFACES
 //draw_set_coordinates(r_width, r_height);
