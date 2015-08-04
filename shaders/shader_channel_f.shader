@@ -30,3 +30,4 @@ void main()
     //gl_FragColor.bg = vec2(0.25,0.25);
 }
 
+// do something like if pixel == white and next pixel over is not, then blend with blue or red (maybe flicker this?)

@@ -29,6 +29,8 @@
 
 sectors = 8;
 
+map_count = 0;
+
 randomize();    // gives a random seed EVERY time the game is run
 
 draw_init();    // fonts + view dimensions
@@ -37,7 +39,7 @@ assets_init();   // sets the offset for pointers to terrain, creatures, items, e
 
 instance_create(1, 1, oPlayer); // creates player
 
-textfile_load_map_proc(working_directory + "map_0" + string(irandom(4)) + ".txt", sectors); // creates map
+textfile_load_map_proc("map", sectors); // creates map
 
 input_r_width = 0;
 input_r_height = 0;
@@ -444,6 +446,9 @@ draw_surface(screen, 0 + shake, 0); // TODO: make x and y positions variables, c
 draw_surface_ext(screen, 1, 0, 1, 1, 0, c_red, 0.3);
 draw_surface_ext(screen, -1, 0, 1, 1, 0, c_blue, 0.3);
 
+// NOTE: TODO: will have to do this with a blend mode or shader or something, to get desired effect
+// IE: perfect white surrounded by messy colours. (the transparent ones BEHIND the white)
+
 
 // VECTOR SETTINGS
 /*
@@ -550,6 +555,8 @@ if (global.debug == true)
     draw_text(32, tile_size*17, move_timer_string);
     draw_text(32, tile_size*18, "Draw off X = " + string(oPlayer.draw_offset_x));
     draw_text(32, tile_size*19, "Move speed = " + string(oPlayer.move_speed));
+    draw_text(32, tile_size*20, "Map count = " + string(map_count));
+    
     /*
     if (instance_exists(oSpell))
     {

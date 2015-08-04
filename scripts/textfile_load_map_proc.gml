@@ -2,10 +2,15 @@
 // input 0: file name chosen by user
 // input 1: amount of sectors
 
-var map_string = argument0; // the name of the file to load. chosen by user.
+var map_string = working_directory + argument0 + "_00.txt"; // the name of the file to load.
 var sectors = argument1; // the amount of sectors in the map
 
-view_factor = sectors/4;
+while (file_exists("map_0" + string(map_count) + ".txt"))
+{
+    map_count++;
+}
+
+view_factor = sectors/4; // TODO: use map count instead of 4 here?
 
 // TODO: make this a function, just do nested loops!
 // opens the chosen file for reading and calculates the amount of cells per row
@@ -35,7 +40,7 @@ for (var d = 0; d < sectors; d++)
 {
     for (var c = 0; c < sectors; c++)
     {
-        map_file = file_text_open_read(working_directory + "map_0" + string(irandom(4)) + ".txt"); // open the text file one more time, for actual loading.
+        map_file = file_text_open_read(working_directory + "map_0" + string(irandom(map_count - 1)) + ".txt"); // open the text file one more time, for actual loading.
         // TODO: write last room to a file here?
         // loops through each cell of the map file, assigning the values to the map array
         var bottom_side = 0 + (file_height*d);
