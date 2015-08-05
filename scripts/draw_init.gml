@@ -34,15 +34,7 @@ shaking = false;                        // needs to be on for shaking to happen
 screen_angle = 0;
 screen_angle_inc = 0.5;
 screen_offset = 0;
-screen_offset_timer_init = 600;
-screen_offset_timer = screen_offset_timer_init;
-screen_offset_timer_start = false;
-
-x_sector = (oPlayer.x div argument0);
-y_sector = (oPlayer.y div argument1);
-
-last_x_sector = x_sector;
-last_y_sector = y_sector;
+screen_offset_timer = 0;
 
 // Creates a surface that the whole screen will be drawn on
 screen = -1;

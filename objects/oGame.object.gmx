@@ -33,11 +33,11 @@ map_count = 0;
 
 randomize();    // gives a random seed EVERY time the game is run
 
-instance_create(1, 1, oPlayer); // creates player
-
 draw_init();    // fonts + view dimensions
 
 assets_init();   // sets the offset for pointers to terrain, creatures, items, etc.
+
+instance_create(1, 1, oPlayer); // creates player
 
 textfile_load_map_proc("map", sectors); // creates map
 
@@ -98,7 +98,7 @@ obj_to_place = terrain_start;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Controls Interface
+            <string>///Controls
 // press F1 to switch the font bettwen Road Drivin' (™) + Odyssey
 if keyboard_check_pressed (vk_f1)
 {
@@ -278,7 +278,12 @@ if (global.debug == true)
     // press l to load a map from a text file
     if keyboard_check_pressed(ord("L"))
     {
-        input_r_sectors = get_integer_async("Create room. Sectors: ", "");
+        var load_file = get_open_filename_ext("Normal text file (*.txt)|*.txt", "map_00", working_directory, "Hello");  // takes player's input for a file name
+        if load_file != ""      // as long as user is actually putting characters in, we load
+        {
+            textfile_load_map(load_file);  // converts a map array into a text file
+        }
+        //input_r_sectors = get_integer_async("Create room. Sectors: ", "");
     }
 }
 </string>
@@ -317,22 +322,12 @@ if ( ((r_width * view_scale) &lt; 1) or ((r_height * view_scale) &lt; 1) )
 // sets the view position according to player's position
 room_view( (r_width * view_scale), (r_height * view_scale) );
 
+/*
 if ((screen_angle &gt; 13) or (screen_angle &lt; -13))
 {
     screen_angle_inc = -screen_angle_inc;
 }
 
-if (screen_offset_timer_start == true)
-{
-    screen_offset += screen_offset_timer/screen_offset_timer_init;
-    screen_offset_timer --;
-    if (screen_offset_timer &lt;= 0)
-    {
-        screen_offset_timer_start = false;
-        screen_offset = 0;
-    }
-}
-/*
 screen_angle += screen_angle_inc;
 if (screen_offset_timer &lt; 10)
 {
@@ -385,6 +380,8 @@ if id_of_calling_async_event == input_r_height
         room_dimensions(tile_size, r_width, ds_map_find_value(async_load, "value"));
     }
 }
+
+/*
 if id_of_calling_async_event == input_r_sectors
 {
     if ds_map_find_value(async_load, "status")
@@ -396,7 +393,7 @@ if id_of_calling_async_event == input_r_sectors
         }
     }
 }
-/*
+
 var id_of_calling_async_event = ds_map_find_value(async_load, "id");
 if id_of_calling_async_event == input_r_width
 {
