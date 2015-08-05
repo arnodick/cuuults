@@ -136,7 +136,7 @@ else
         {
             carry = true;
             carrying = oGame.map_update[x-1,y];
-            move_speed = 20;
+            move_speed = move_speed_init*2;
             if (instance_exists(carrying))
             {
                 with(carrying)

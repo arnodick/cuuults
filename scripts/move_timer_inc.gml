@@ -60,6 +60,7 @@ if (move_timer_count < move_timer_total_init)
             draw_offset_y = 0;
             timer_on = true; // timer IS still going
             stopped_wall = true;
+            move_stopped();
         }
     }
 }
