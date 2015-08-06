@@ -19,7 +19,9 @@ if (key_arrows_check() == true)
     }
     move_timer_start(move_speed, 1);
 }
+/*
 else
 {
    move_stopped();
 }
+*/

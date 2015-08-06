@@ -7,9 +7,10 @@ move_timer_start(shake_timer, 1);
 
 screen_shake(shake_timer, shake_factor);
 
+/*
 if (cell_next.sound_step != -1)
 {
     audio_play_sound(cell_next.sound_step, 1, false); // maybe we want this here? so everything makes noises?
 }
-
+*/
 //move_stopped();

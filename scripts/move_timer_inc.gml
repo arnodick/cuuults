@@ -60,6 +60,10 @@ if (move_timer_count < move_timer_total_init)
             draw_offset_y = 0;
             timer_on = true; // timer IS still going
             stopped_wall = true;
+            if (cell_next.sound_step != -1)
+            {
+                audio_play_sound(cell_next.sound_step, 1, false); // maybe we want this here? so everything makes noises?
+            }
             move_stopped();
         }
     }

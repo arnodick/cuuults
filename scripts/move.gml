@@ -2,6 +2,7 @@
 //argument0 = the type of movement
 //argument1 = object to move towards, if applicable (if not, just put -1 or something)
 //TODO make this function take a variable amount of variables, so you only put a 2nd variable in when you are chasing an object
+// TODO: make each move_type set a temp var to
 
 if (move_timer == false)
 {
@@ -31,7 +32,6 @@ else
         move_timer = false;
         move_timer_count = 0;
         move_timer_total_init = 0;
-        move_dir[0] = 0;
-        move_dir[1] = 0;
+        move_stopped();
     }
 }

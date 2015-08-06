@@ -70,6 +70,7 @@ carrying = 0;
             <string>///Controls
 
 // TODO: BUG: this makes you halt if you pressed shift WHILE mvoing?
+
 if keyboard_check_pressed(vk_shift)
 {
     //instance_create(x, y, oSpell);
