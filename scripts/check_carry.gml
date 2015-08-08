@@ -19,6 +19,7 @@ if (carry == true)
             solid = true;
             sound_step = sndBump;
             move_direction(-1, 0);
+            move_type = move_type_init;
         }
         }
         //move_type = 3;

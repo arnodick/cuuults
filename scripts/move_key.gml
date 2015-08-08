@@ -1,27 +1,20 @@
-//if (key_arrows_check_pressed() == true)
-
 if (key_arrows_check() == true)
 {
+    var x_dir = 0, y_dir = 0;
     switch(keyboard_key)
     {
     case vk_left:
-        move_dir[0] = -move_distance;
+        x_dir = -move_distance;
         break;
     case vk_right:
-        move_dir[0] = move_distance;
+        x_dir = move_distance;
         break;
     case vk_up:
-        move_dir[1] = -move_distance;
+        y_dir = -move_distance;
         break;
     case vk_down:
-        move_dir[1] = move_distance;
+        y_dir = move_distance;
         break;
     }
-    move_timer_start(move_speed, 1);
+    move_direction(x_dir, y_dir);
 }
-/*
-else
-{
-   move_stopped();
-}
-*/
