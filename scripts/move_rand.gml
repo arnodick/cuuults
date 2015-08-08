@@ -22,5 +22,5 @@ var cant_move = move_collision(x + x_dir, y + y_dir).solid;
 
 if (cant_move == false)
 {
-    move_direction(x_dir, y_dir);
+    move_direction(x_dir, y_dir, move_speed);
 }

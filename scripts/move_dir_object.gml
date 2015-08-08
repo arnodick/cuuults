@@ -35,5 +35,5 @@ if (cant_move == true)
 }
 else
 {
-    move_direction(x_dir, y_dir);
+    move_direction(x_dir, y_dir, move_speed);
 }

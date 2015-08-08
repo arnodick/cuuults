@@ -17,4 +17,4 @@ else if (keyboard_check(vk_down))
     y_dir = move_distance;
 }
 
-move_direction(x_dir, y_dir);
+move_direction(x_dir, y_dir, move_speed);

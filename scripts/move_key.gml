@@ -16,5 +16,5 @@ if (key_arrows_check() == true)
         y_dir = move_distance;
         break;
     }
-    move_direction(x_dir, y_dir);
+    move_direction(x_dir, y_dir, move_speed);
 }

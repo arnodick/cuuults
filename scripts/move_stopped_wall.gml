@@ -3,7 +3,8 @@ var cell_next = argument0;
 var shake_factor = 4*argument1;   // how widely screen should shake if bumping into solid object
 var shake_timer = 15*argument1; //how long screen shakes for/how long player can't move for
 
-move_timer_start(shake_timer);
+move_direction(0, 0, shake_timer);
+//move_timer_start(shake_timer);
 
 screen_shake(shake_timer, shake_factor);
 

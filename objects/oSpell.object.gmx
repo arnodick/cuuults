@@ -74,7 +74,7 @@ if (timer_on == false)
         //move_stopped_wall(1);
         destroy = true;
     }
-    move_timer_start(move_speed);
+    //move_timer_start(move_speed);
 }
 
 angle += 1;

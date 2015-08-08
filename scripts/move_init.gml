@@ -11,6 +11,8 @@ move_timer = false; // TODO: is the nec? could just check if move timer count is
 move_timer_count = 0; // this gets incremented until it reaches move_timer_total_init
 
 //variables for running. will be used when move animation implemented.
+
+//TODO: don't need multiplier any more
 run = true;
 move_time_mult_init = 3;
 move_time_mult = move_time_mult_init;

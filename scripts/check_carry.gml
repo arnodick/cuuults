@@ -18,7 +18,7 @@ if (carry == true)
             
             solid = true;
             sound_step = sndBump;
-            move_direction(-1, 0);
+            move_direction(-1, 0, move_speed);
             move_type = move_type_init;
         }
         }
@@ -27,7 +27,7 @@ if (carry == true)
         carry = false;
         carrying = 0;   // will this cause problems? make me carry something, like whatever the 1st instance is?
         move_speed = move_speed_init;
-        move_direction(1, 0);
+        move_direction(1, 0, move_speed);
     }
     }
 }
