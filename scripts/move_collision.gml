@@ -1,3 +1,5 @@
+
+// TODO: comment and change this to check_pos
 var x_dest = argument0;
 var y_dest = argument1;
 

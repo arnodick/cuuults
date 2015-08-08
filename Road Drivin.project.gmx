@@ -134,7 +134,6 @@
     <script>scripts\textfile_create_map.gml</script>
     <script>scripts\assets_init.gml</script>
     <script>scripts\draw_init.gml</script>
-    <script>scripts\draw_set_coordinates.gml</script>
     <script>scripts\draw_random_char_init.gml</script>
     <script>scripts\draw_random_char.gml</script>
     <script>scripts\room_dimensions.gml</script>
@@ -147,7 +146,6 @@
     <script>scripts\create_thing.gml</script>
     <script>scripts\create_creature.gml</script>
     <script>scripts\check_OOB.gml</script>
-    <script>scripts\check_room_change.gml</script>
     <script>scripts\check_creature_init.gml</script>
     <script>scripts\check_creature.gml</script>
     <script>scripts\check_carry.gml</script>
