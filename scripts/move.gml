@@ -26,7 +26,8 @@ if (move_timer == false)
 else
 {
     stopped_wall = false;
-    var timer_on = move_timer_inc();
+    var timer_on = move_collision();
+    // TODO: get rid of var timer_on? just use move_timer instead
     if (timer_on == false)
     {
         move_timer = false;

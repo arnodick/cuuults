@@ -2,6 +2,7 @@ var cell_current = oGame.map[x, y];
 
 if (instance_exists(oGrass))
 {
+// TODO: put this in movement code?
 if (cell_current.object_index == oGrass)
 {
     /*

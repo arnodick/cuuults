@@ -84,7 +84,7 @@ if (move_timer == true)
 }
 check_creature();
 /*
-var timer_on = move_timer_inc();
+var timer_on = move_collision();
 if (timer_on == false)
 {
     var cell_next = check_pos(x + move_dir[0], y + move_dir[1]);
@@ -100,6 +100,8 @@ else
     
 }
 */
+
+// TODO: get rid of this by making maps ahve a items/characters/objects layer above the terrain
 oGame.map_update[x, y] = id;
 </string>
           </argument>

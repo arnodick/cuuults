@@ -166,7 +166,7 @@
       <script>scripts\move_dir_object.gml</script>
       <script>scripts\move_direction.gml</script>
       <script>scripts\move_projectile_dir.gml</script>
-      <script>scripts\move_timer_inc.gml</script>
+      <script>scripts\move_collision.gml</script>
       <script>scripts\move_stopped.gml</script>
       <script>scripts\move_stopped_wall.gml</script>
     </scripts>
