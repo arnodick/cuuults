@@ -8,13 +8,13 @@ if (move_timer == false)
 {
     switch(argument0)
     {
-        case 0: // keyboard controls
+        case move_types.key: // keyboard controls
             move_key();
             break;
-        case 1: // random movement
+        case move_types.rand: // random movement
             move_rand();
             break;
-        case 2: // move towards object
+        case move_types.obj: // move towards object
             move_dir_object(argument1);
             break;
         //case 3:

@@ -2,7 +2,7 @@
 // argument 0: move type
 // argument 1: move speed
 // arugment 2: move distance
-move_type_init = argument0; // the initial typ eof movement. IE: keyboard controlled, random, etc.
+move_type_init = argument0; // the initial type of movement. IE: keyboard controlled, random, etc.
 move_type = move_type_init;
 move_speed_init = argument1; // how long you are paused for after taking a step. this is how fast you move
 move_speed = move_speed_init;

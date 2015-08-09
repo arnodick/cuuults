@@ -44,7 +44,7 @@ else
             {
                 with(carrying)
                 {
-                    move_type = mt_key;
+                    move_type = move_types.key;
                     move_speed = oPlayer.move_speed;
                     move_distance = 1;
                     solid = false;
