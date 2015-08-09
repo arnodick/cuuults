@@ -35,10 +35,11 @@ else
 {
     if (keyboard_check_pressed(ord('X')))
     {
-        if (check_pos(x-1,y).carryable == true) // BUG TODO: this crashes game if at edge fo screen (have to warp detection)
+        var cell_checked = check_pos(x-1,y);
+        if (cell_checked.carryable == true)
         {
             carry = true;
-            carrying = oGame.map_update[x-1,y];
+            carrying = cell_checked;
             move_speed = move_speed_init*2;
             if (instance_exists(carrying))
             {
