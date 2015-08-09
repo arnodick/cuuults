@@ -1,12 +1,12 @@
 var timer_on = true;
 
-//counts down the timer until it reaches zero, at which point you can move again
+//counts up the timer until it reaches movement speed, at which point you can move again
 if (move_timer_count < move_timer_total_init)
 {
     move_timer_count += 1;
     timer_on = true; // timer IS still going
     
-    // hacky thing to get animation to work properly with collision detection at halfway through step
+    // hacky thing to get animation to work properly with collision detection at halfway through move timer
     if (move_timer_count < (move_timer_total_init/2))
     {
         draw_offset_x = (move_dir[0] * ((move_timer_count/move_timer_total_init)*tile_size));
@@ -18,14 +18,17 @@ if (move_timer_count < move_timer_total_init)
         draw_offset_y = (move_dir[1] * ((move_timer_count/move_timer_total_init)*tile_size)) - move_dir[1] * tile_size;
     }
     
+    // checks next cell for collision once timer is half up
     if (move_timer_count == (move_timer_total_init/2))
     {
-        var cell_next = move_collision(x + move_dir[0], y + move_dir[1]);
+        var cell_next = check_pos(x + move_dir[0], y + move_dir[1]);
         var cant_move = cell_next.solid;
         
+        // if you can move, then move into the next cell
         if (cant_move == false)
         {
             oGame.map_update[x, y] = oGame.map[x, y];   // swaps the current cell on the active grid for its sister in the terrain grid
+            
             x += move_dir[0];
             y += move_dir[1];
             if (x >= (oGame.r_width))
@@ -45,8 +48,6 @@ if (move_timer_count < move_timer_total_init)
             {
                 y = (oGame.r_height - 1);
             }
-            //x = cell_next.x;   // sets your position to the destination cell
-            //y = cell_next.y;   // but we still haven't actually moved you into the active grid yet!!
             oGame.map_update[x, y] = id;    //puts this object into its proper cell in the active grid
             
             if (cell_next.sound_step != -1)

@@ -87,7 +87,7 @@ check_creature();
 var timer_on = move_timer_inc();
 if (timer_on == false)
 {
-    var cell_next = move_collision(x + move_dir[0], y + move_dir[1]);
+    var cell_next = check_pos(x + move_dir[0], y + move_dir[1]);
     var cant_move = cell_next.solid;
     if (cant_move == false)
     {

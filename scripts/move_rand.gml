@@ -18,7 +18,7 @@ case 3:
     break;
 }
 
-var cant_move = move_collision(x + x_dir, y + y_dir).solid;
+var cant_move = check_pos(x + x_dir, y + y_dir).solid;
 
 if (cant_move == false)
 {

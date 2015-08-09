@@ -149,11 +149,13 @@
     </scripts>
     <script>scripts\create_thing.gml</script>
     <script>scripts\create_creature.gml</script>
-    <script>scripts\check_OOB.gml</script>
-    <script>scripts\check_creature_init.gml</script>
-    <script>scripts\check_creature.gml</script>
-    <script>scripts\check_carry.gml</script>
-    <script>scripts\check_carry_drop.gml</script>
+    <scripts name="Checks">
+      <script>scripts\check_pos.gml</script>
+      <script>scripts\check_creature_init.gml</script>
+      <script>scripts\check_creature.gml</script>
+      <script>scripts\check_carry.gml</script>
+      <script>scripts\check_carry_drop.gml</script>
+    </scripts>
     <script>scripts\key_arrows_check.gml</script>
     <script>scripts\key_arrows_check_pressed.gml</script>
     <scripts name="Movement">
@@ -164,7 +166,6 @@
       <script>scripts\move_dir_object.gml</script>
       <script>scripts\move_direction.gml</script>
       <script>scripts\move_projectile_dir.gml</script>
-      <script>scripts\move_collision.gml</script>
       <script>scripts\move_timer_inc.gml</script>
       <script>scripts\move_stopped.gml</script>
       <script>scripts\move_stopped_wall.gml</script>

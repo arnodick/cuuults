@@ -12,7 +12,6 @@ else if (x_dest < 0)
 {
     x_dest = (oGame.r_width - 1);
 }
-
 if (y_dest >= oGame.r_height)
 {
     y_dest = 0;

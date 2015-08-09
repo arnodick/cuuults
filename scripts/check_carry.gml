@@ -35,7 +35,7 @@ else
 {
     if (keyboard_check_pressed(ord('X')))
     {
-        if (oGame.map_update[x-1,y].carryable == true) // BUG TODO: this crashes game if at edge fo screen (have to warp detection)
+        if (check_pos(x-1,y).carryable == true) // BUG TODO: this crashes game if at edge fo screen (have to warp detection)
         {
             carry = true;
             carrying = oGame.map_update[x-1,y];

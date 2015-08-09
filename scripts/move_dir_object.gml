@@ -25,7 +25,7 @@ if instance_exists(argument0)
         y_dir = move_distance;
     }
 }
-var cant_move = move_collision(x + x_dir, y + y_dir).solid;
+var cant_move = check_pos(x + x_dir, y + y_dir).solid;
 // TODO: MAKE THIS SCRIPT MORE ROBUST AT PATHFINDING!
 //      if it can't go forward, try a bit to the left or right. if not that, then random?
 //      current version a bit weird
