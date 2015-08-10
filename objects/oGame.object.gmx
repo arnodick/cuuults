@@ -44,6 +44,8 @@ textfile_load_map_proc("map", sectors); // creates map
 input_r_width = 0;
 input_r_height = 0;
 input_r_sectors = 0;
+
+audio_falloff_set_model(audio_falloff_linear_distance_clamped);
 </string>
           </argument>
         </arguments>

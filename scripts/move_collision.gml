@@ -52,7 +52,8 @@ if (move_timer_count < move_timer_total_init)
             
             if (cell_next.sound_step != -1)
             {
-                audio_play_sound(cell_next.sound_step, 1, false); // maybe we want this here? so everything makes noises?
+                audio_play_sound_at(cell_next.sound_step, x, y, 0, 10, 12, 1, false, 1);
+                //audio_play_sound(cell_next.sound_step, 1, false); // maybe we want this here? so everything makes noises?
             }
         }
         else
@@ -63,7 +64,8 @@ if (move_timer_count < move_timer_total_init)
             stopped_wall = true;
             if (cell_next.sound_step != -1)
             {
-                audio_play_sound(cell_next.sound_step, 1, false); // maybe we want this here? so everything makes noises?
+                audio_play_sound_at(cell_next.sound_step, x, y, 0, 10, 12, 1, false, 1);
+                //audio_play_sound(cell_next.sound_step, 1, false); // maybe we want this here? so everything makes noises?
             }
             move_stopped();
         }
