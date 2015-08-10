@@ -23,7 +23,8 @@ if (move_timer == false)
             break;
     }
 }
-else
+//else  // use this to give a more choppy movement, small pause at each cell
+if (move_timer == true)
 {
     stopped_wall = false;
     var timer_on = move_collision();
