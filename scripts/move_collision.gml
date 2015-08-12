@@ -3,7 +3,7 @@ stopped_wall = false;
 //counts up the timer until it reaches movement speed, at which point you can move again
 if (move_timer_count < move_timer_total_init)
 {
-    
+    move_timer_count += 1;
     // hacky thing to get animation to work properly with collision detection at halfway through move timer
     if (move_timer_count < (move_timer_total_init/2))
     {
@@ -21,8 +21,6 @@ if (move_timer_count < move_timer_total_init)
     {
         var cell_next = check_pos(x + move_dir[0], y + move_dir[1]);
         var cant_move = cell_next.solid;
-        
-        move_timer_count += 1;
         
         // if you can move, then move into the next cell
         if (cant_move == false)

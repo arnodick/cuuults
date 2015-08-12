@@ -40,7 +40,6 @@ oGame.map[x, y] = instance_create(x, y, oSpace);
 
 move_init(move_types.key, 16, 1); // set this to 1 for instant movement
 check_creature_init();
-animate_init();
 
 //solid = false;
 
