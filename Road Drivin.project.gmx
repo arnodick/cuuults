@@ -187,12 +187,9 @@
     <object>objects\oThing</object>
     <object>objects\oPlayer</object>
     <object>objects\oNPC</object>
-    <object>objects\oLawnmower</object>
     <object>objects\oPlanter</object>
     <object>objects\oBloooder</object>
-    <object>objects\oWalker</object>
-    <object>objects\oFollower</object>
-    <object>objects\oSpell</object>
+    <object>objects\oCultist</object>
     <object>objects\oRock</object>
     <object>objects\oSpace</object>
     <object>objects\oRoad</object>
@@ -202,7 +199,6 @@
     <object>objects\oPillar</object>
     <object>objects\oPillar_crumbled</object>
     <object>objects\oRubble</object>
-    <object>objects\oTest</object>
     <object>objects\oStamped</object>
     <object>objects\oBlood</object>
     <object>objects\oMessage</object>

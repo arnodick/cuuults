@@ -263,7 +263,7 @@ if (global.debug == true)
     {
         if ( (mouse_cell_x &gt;= 0) and (mouse_cell_y &gt;= 0) and (mouse_cell_x &lt; r_width) and (mouse_cell_y &lt; r_height) )
         {
-            map_update[mouse_cell_x, mouse_cell_y] = instance_create(mouse_cell_x, mouse_cell_y, oWalker);
+            map_update[mouse_cell_x, mouse_cell_y] = instance_create(mouse_cell_x, mouse_cell_y, oCultist);
         }
     }
     // press n to create a new map array
@@ -570,6 +570,10 @@ if (global.debug == true)
     draw_text(32, tile_size*18, "Draw off X = " + string(oPlayer.draw_offset_x));
     draw_text(32, tile_size*19, "Move speed = " + string(oPlayer.move_speed));
     draw_text(32, tile_size*20, "Map count = " + string(map_count));
+    draw_text(32, tile_size*21, "Things \# = " + string(things_amount) );
+    draw_text(32, tile_size*22, "Creatures \# = " + string(creatures_amount) );
+    draw_text(32, tile_size*23, "Items \# = " + string(items_amount) );
+    draw_text(32, tile_size*24, "Terrain \# = " + string(terrain_amount) );
     
     /*
     if (instance_exists(oSpell))
@@ -616,7 +620,7 @@ with(oThing)
     //draw_background_general(bg_tiles, 0, 0, 8, 8, draw_x_coords, draw_y_coords, size, size, angle, colour, colour, colour, colour, 1);
     if (depth &gt;= 0)
     {
-        draw_sprite_ext(spr_tiles, object_index, draw_x_coords, draw_y_coords, scale, scale, angle, colour, 1);
+        draw_sprite_ext(spr_tiles, object_index - oGame.things_start, draw_x_coords, draw_y_coords, scale, scale, angle, colour, 1);
     }
 }
 
@@ -626,7 +630,7 @@ with(oThing)
     //draw_background_general(bg_tiles, 0, 0, 8, 8, draw_x_coords, draw_y_coords, size, size, angle, colour, colour, colour, colour, 1);
     if (depth &lt; 0)
     {
-        draw_sprite_ext(spr_tiles, object_index, draw_x_coords, draw_y_coords, scale, scale, angle, colour, 1);
+        draw_sprite_ext(spr_tiles, object_index - oGame.things_start /*change this to -2 for glitchy effects on player!*/, draw_x_coords, draw_y_coords, scale, scale, angle, colour, 1);
     }
 }
 if (global.debug == true)
@@ -636,7 +640,7 @@ if (global.debug == true)
     {
         draw_rectangle_colour( (x*tile_size), (y*tile_size), (x*tile_size) + tile_size, (y*tile_size + tile_size), c_red, c_red, c_red, c_red, true );
     }
-    with (oWalker)
+    with (oCultist)
     {
         draw_rectangle_colour( (x*tile_size), (y*tile_size), (x*tile_size) + tile_size, (y*tile_size + tile_size), c_red, c_red, c_red, c_red, true );
     }
