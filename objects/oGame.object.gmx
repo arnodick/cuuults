@@ -456,9 +456,10 @@ surface_reset_target();
 
 shader_set(shader_channel_f);
 // Draws the screen surface, which has had all the objects' images written to it during normal draw event
-draw_surface(screen, 0 + shake, 0); // TODO: make x and y positions variables, calculate with shake earlier
-draw_surface_ext(screen, 1, 0, 1, 1, 0, c_red, 0.3);
-draw_surface_ext(screen, -1, 0, 1, 1, 0, c_blue, 0.3);
+//draw_surface(screen, 0 + shake, 0); // TODO: make x and y positions variables, calculate with shake earlier
+draw_surface_ext(screen, 0 + shake, 0, 1, 1, 0, c_white, 1);    // TODO: just use surface scaling to make things pxiely?
+//draw_surface_ext(screen, 1, 0, 1, 1, 0, c_red, 0.3);
+//draw_surface_ext(screen, -1, 0, 1, 1, 0, c_blue, 0.3);
 
 // NOTE: TODO: will have to do this with a blend mode or shader or something, to get desired effect
 // IE: perfect white surrounded by messy colours. (the transparent ones BEHIND the white)
@@ -620,19 +621,20 @@ with(oThing)
     //draw_background_general(bg_tiles, 0, 0, 8, 8, draw_x_coords, draw_y_coords, size, size, angle, colour, colour, colour, colour, 1);
     if (depth &gt;= 0)
     {
-        draw_sprite_ext(spr_tiles, object_index - oGame.things_start, draw_x_coords, draw_y_coords, scale, scale, angle, colour, 1);
+        draw_sprite_ext(spr_tiles, (object_index - oGame.things_start)* 2  + animate_frame, draw_x_coords, draw_y_coords, scale, scale, angle, colour, 1);
     }
 }
-
 with(oThing)
 {
     //draw_text_transformed_colour(draw_x_coords, draw_y_coords, char, size, size, angle, colour, colour, colour, colour, alpha);
     //draw_background_general(bg_tiles, 0, 0, 8, 8, draw_x_coords, draw_y_coords, size, size, angle, colour, colour, colour, colour, 1);
     if (depth &lt; 0)
     {
-        draw_sprite_ext(spr_tiles, object_index - oGame.things_start /*change this to -2 for glitchy effects on player!*/, draw_x_coords, draw_y_coords, scale, scale, angle, colour, 1);
+        /*change this to -2 for glitchy effects on player!*/
+        draw_sprite_ext(spr_tiles, (object_index - oGame.things_start) * 2  + animate_frame, draw_x_coords, draw_y_coords, scale, scale, angle, colour, 1);
     }
 }
+
 if (global.debug == true)
 {
     draw_rectangle_colour( mouse_draw_x, mouse_draw_y, mouse_draw_x + tile_size, mouse_draw_y + tile_size, c_red, c_red, c_red, c_red, true );

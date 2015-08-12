@@ -1,0 +1,1 @@
+animate_frame = false;
