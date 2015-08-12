@@ -9,3 +9,5 @@ move_dir[1] = argument1;
 move_timer_total_init = argument2;
 move_timer = true;
 move_timer_count = 0;
+
+//alarm[0] = 4;

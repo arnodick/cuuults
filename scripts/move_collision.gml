@@ -77,4 +77,4 @@ else
     
 }
 draw_x_coords = ( x * tile_size ) + ( draw_offset_x ) + (spr_middle);
-draw_y_coords = ( y * tile_size ) + ( draw_offset_y ) + (spr_middle);
+draw_y_coords = ( y * tile_size ) + ( draw_offset_y ) + (spr_middle) + animate_walk;
