@@ -1,10 +1,9 @@
-var timer_on = true;
+stopped_wall = false; 
 
 //counts up the timer until it reaches movement speed, at which point you can move again
 if (move_timer_count < move_timer_total_init)
 {
     move_timer_count += 1;
-    timer_on = true; // timer IS still going
     
     // hacky thing to get animation to work properly with collision detection at halfway through move timer
     if (move_timer_count < (move_timer_total_init/2))
@@ -58,9 +57,6 @@ if (move_timer_count < move_timer_total_init)
         }
         else
         {
-            draw_offset_x = 0;
-            draw_offset_y = 0;
-            timer_on = true; // timer IS still going
             stopped_wall = true;
             if (cell_next.sound_step != -1)
             {
@@ -72,11 +68,12 @@ if (move_timer_count < move_timer_total_init)
     }
 }
 else
-{
-    draw_offset_x = 0;
-    draw_offset_y = 0;
-    timer_on = false; // timer is NOT still going
+{  
+    move_timer = false; // timer is NOT still going
+    move_timer_count = 0;
+    move_timer_total_init = 0;
+    move_stopped();
+    
 }
 draw_x_coords = ( x * tile_size ) + ( draw_offset_x ) + (spr_middle);
 draw_y_coords = ( y * tile_size ) + ( draw_offset_y ) + (spr_middle);
-return timer_on;

@@ -26,14 +26,5 @@ if (move_timer == false)
 //else  // use this to give a more choppy movement, small pause at each cell
 if (move_timer == true)
 {
-    stopped_wall = false;
-    var timer_on = move_collision();
-    // TODO: get rid of var timer_on? just use move_timer instead
-    if (timer_on == false)
-    {
-        move_timer = false;
-        move_timer_count = 0;
-        move_timer_total_init = 0;
-        move_stopped();
-    }
+    move_collision();
 }
