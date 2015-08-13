@@ -76,6 +76,7 @@ animate_walk = !animate_walk;
 if (animate_walk == true)
 {
     audio_sound_pitch(sndStep, random_range(0.5, 1.5));
+    audio_sound_gain(sndStep, 0.5, 0);
     audio_play_sound(sndStep, 1, false);
 }
 </string>

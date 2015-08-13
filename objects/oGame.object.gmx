@@ -621,7 +621,7 @@ with(oThing)
     //draw_background_general(bg_tiles, 0, 0, 8, 8, draw_x_coords, draw_y_coords, size, size, angle, colour, colour, colour, colour, 1);
     if (depth &gt;= 0)
     {
-        draw_sprite_ext(spr_tiles, (object_index - oGame.things_start)* 2  + animate_frame, draw_x_coords, draw_y_coords, scale, scale, angle, colour, 1);
+        draw_sprite_ext(spr_tiles, (object_index - oGame.things_start)* 2  + animate_frame, draw_x_coords, draw_y_coords, x_scale, y_scale, angle, colour, 1);
     }
 }
 with(oThing)
@@ -631,7 +631,7 @@ with(oThing)
     if (depth &lt; 0)
     {
         /*change this to -2 for glitchy effects on player!*/
-        draw_sprite_ext(spr_tiles, (object_index - oGame.things_start) * 2  + animate_frame, draw_x_coords, draw_y_coords, scale, scale, angle, colour, 1);
+        draw_sprite_ext(spr_tiles, (object_index - oGame.things_start) * 2  + animate_frame, draw_x_coords, draw_y_coords, x_scale, y_scale, angle, colour, 1);
     }
 }
 

@@ -33,13 +33,14 @@ char = '$';
 move_init(move_types.rand, 30, 1); // waits 30 steps after each move it makes
 check_creature_init();
 
-alarm[0] = 30;
+animate_frame_speed = 60;
+alarm[1] = animate_frame_speed;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
+    <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -58,7 +59,7 @@ alarm[0] = 30;
             <kind>1</kind>
             <string>///Animation
 animate_frame = !animate_frame;
-alarm[0] = 30;
+alarm[1] = animate_frame_speed;
 </string>
           </argument>
         </arguments>

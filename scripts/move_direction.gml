@@ -10,4 +10,4 @@ move_timer_total_init = argument2;
 move_timer = true;
 move_timer_count = 0;
 
-alarm[0] = 4;
+alarm[0] = 1;

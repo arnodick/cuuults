@@ -55,7 +55,8 @@ animate_init();
 
 carryable = false;
 
-scale = 1;
+x_scale = 1;
+y_scale = 1;
 </string>
           </argument>
         </arguments>
