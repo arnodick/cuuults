@@ -72,7 +72,12 @@ audio_listener_orientation(0, 1, 0, 0, 0, 1);
             <kind>1</kind>
             <string>///Animation
 animate_walk = !animate_walk;
-alarm[0] = 4;
+//alarm[0] = 4;
+if (animate_walk == true)
+{
+    audio_sound_pitch(sndStep, random_range(0.5, 1.5));
+    audio_play_sound(sndStep, 1, false);
+}
 </string>
           </argument>
         </arguments>
