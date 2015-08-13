@@ -9,7 +9,11 @@ if (move_timer == false)
     switch(argument0)
     {
         case move_types.key: // keyboard controls
-            move_key();
+            if ((key_arrows_check() == true) and (!keyboard_check(vk_shift)))
+            {
+                move_dir = move_key(move_dir);
+                move_direction(move_dir[0], move_dir[1], move_speed);
+            }
             break;
         case move_types.rand: // random movement
             move_rand();

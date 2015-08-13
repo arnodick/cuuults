@@ -6,7 +6,7 @@ if (carry == true)
     }
     else if (move_timer = false)
     {
-    if keyboard_check_pressed(ord('X'))
+    if (keyboard_check_pressed(vk_shift))
     {
         if (instance_exists(carrying))
         {
@@ -28,19 +28,24 @@ if (carry == true)
         carrying = 0;   // will this cause problems? make me carry something, like whatever the 1st instance is?
         move_speed = move_speed_init;
         move_direction(1, 0, move_speed);
+        anim_offset_x = 0;
     }
     }
 }
 else
 {
-    if (keyboard_check_pressed(ord('X')))
+    if (keyboard_check(vk_shift))
     {
-        var cell_checked = check_pos(x-1,y);
+        if key_arrows_check_pressed()
+        {
+        move_dir = move_key_pressed(move_dir);
+        var cell_checked = check_pos(x + move_dir[0], y + move_dir[1]);
         if (cell_checked.carryable == true)
         {
             carry = true;
             carrying = cell_checked;
             move_speed = move_speed_init*2;
+            anim_offset_x = -(tile_size/2);
             if (instance_exists(carrying))
             {
                 with(carrying)
@@ -52,6 +57,7 @@ else
                     sound_step = -1;
                 }
             }
+        }
         }
     }
 }

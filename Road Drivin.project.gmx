@@ -164,6 +164,7 @@
       <script>scripts\move_init.gml</script>
       <script>scripts\move.gml</script>
       <script>scripts\move_key.gml</script>
+      <script>scripts\move_key_pressed.gml</script>
       <script>scripts\move_rand.gml</script>
       <script>scripts\move_dir_object.gml</script>
       <script>scripts\move_direction.gml</script>

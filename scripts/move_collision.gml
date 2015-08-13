@@ -74,8 +74,8 @@ else
     move_stopped();
     
 }
-draw_x_coords = ( x * tile_size ) + ( draw_offset_x ) + (spr_middle) + (animate_walk * move_dir[0]);
-draw_y_coords = ( y * tile_size ) + ( draw_offset_y ) + (spr_middle) - (animate_walk);
+draw_x_coords = ( x * tile_size ) + ( draw_offset_x ) + (spr_middle) + (anim_offset_x) + (animate_walk * move_dir[0]);
+draw_y_coords = ( y * tile_size ) + ( draw_offset_y ) + (spr_middle) + (anim_offset_y) - (animate_walk);
 
 if (move_dir[0] != 0)
 {
