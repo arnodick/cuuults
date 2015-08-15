@@ -18,14 +18,15 @@ if (carry == true)
             
             solid = true;
             sound_step = sndBump;
-            move_direction(x - oPlayer.x, y - oPlayer.y, move_speed);   //TODO: use carry_dir here instead?
+            move_direction(carrier.carry_dir[0], carrier.carry_dir[1], move_speed);   //TODO: use carry_dir here instead?
             move_type = move_type_init;
+            carrier = -1;
         }
         }
         //move_type = 3;
         //carry_dir[0] = 1;
         move_speed = move_speed_init;
-        move_direction(x - carrying.x, y - carrying.y, move_speed);
+        move_direction(-carry_dir[0], -carry_dir[1], move_speed);
         carry = false;
         carrying = 0;   // will this cause problems? make me carry something, like whatever the 1st instance is?
         carry_dir[0] = 0;
@@ -47,6 +48,7 @@ else
             carry = true;
             carrying = cell_checked;
             move_speed = move_speed_init*2;
+            carrying.carrier = id;
             //anim_offset_x = -(tile_size/2);
             if (instance_exists(carrying))
             {

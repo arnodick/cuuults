@@ -20,7 +20,14 @@ case 3:
 
 var cant_move = check_pos(x + x_dir, y + y_dir).solid;
 
+argument0[0] = x_dir;
+argument0[1] = y_dir;
+
+return argument0;
+
+/*
 if (cant_move == false)
 {
     move_direction(x_dir, y_dir, move_speed);
 }
+*/
