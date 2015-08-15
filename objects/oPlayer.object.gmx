@@ -45,6 +45,8 @@ check_creature_init();
 
 carry = false;
 carrying = 0;
+carry_dir[0] = 0;
+carry_dir[1] = 0;
 
 audio_listener_position(x, y, 0);
 audio_listener_orientation(0, 1, 0, 0, 0, 1);
