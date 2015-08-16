@@ -9,11 +9,8 @@ if (move_timer == false)
     switch(argument0)
     {
         case move_types.key: // keyboard controls
-            if ((key_arrows_check() == true) and (!keyboard_check(vk_shift)))
-            {
-                move_dir = move_key(move_dir);
-                move_direction(move_dir[0], move_dir[1], move_speed);
-            }
+            move_dir = move_key(move_dir);
+            move_direction(move_dir[0], move_dir[1], move_speed);
             break;
         case move_types.rand: // random movement
             move_dir = move_rand(move_dir);
@@ -21,7 +18,6 @@ if (move_timer == false)
             break;
         case move_types.obj: // move towards object
             move_dir = move_dir_object(move_dir, argument1);
-            move_direction(move_dir[0], move_dir[1], move_speed);
             break;
         //case 3:
             //move_direction();

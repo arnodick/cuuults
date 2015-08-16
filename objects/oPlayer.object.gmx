@@ -118,7 +118,14 @@ else if keyboard_check_released(ord('X'))
     move_speed = move_speed_init;
 }
 
-move(move_type, -1);
+if ((key_arrows_check() == true) and (!keyboard_check(vk_shift)))
+{
+    move(move_type, -1);
+}
+else
+{
+    check_carry();
+}
 check_creature();
 
 if (stopped_wall == true)
@@ -134,8 +141,6 @@ if (stopped_wall == true)
     }
     //TODO put code for moving rocks around by bumping into them here
 }
-
-check_carry();
 audio_listener_position(x, y, 0);
 </string>
           </argument>
