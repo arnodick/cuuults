@@ -68,7 +68,9 @@ depth = -10;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move(move_type, -1);
+            <string>if(global.go == true)
+{
+move(move_type, -1);
 
 if (stopped_wall == true)
 {
@@ -104,6 +106,7 @@ else
 
 // TODO: get rid of this by making maps ahve a items/characters/objects layer above the terrain
 oGame.map_update[x, y] = id;
+}
 </string>
           </argument>
         </arguments>

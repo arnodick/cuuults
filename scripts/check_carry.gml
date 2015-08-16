@@ -41,7 +41,7 @@ else
     {
         if key_arrows_check_pressed()
         {
-        carry_dir = move_key_pressed(carry_dir);
+        carry_dir = move_key(carry_dir);
         var cell_checked = check_pos(x + carry_dir[0], y + carry_dir[1]);
         if (cell_checked.carryable == true)
         {

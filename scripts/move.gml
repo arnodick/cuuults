@@ -18,6 +18,7 @@ if (move_timer == false)
             break;
         case move_types.obj: // move towards object
             move_dir = move_dir_object(move_dir, argument1);
+            move_direction(move_dir[0], move_dir[1], move_speed);
             break;
         //case 3:
             //move_direction();

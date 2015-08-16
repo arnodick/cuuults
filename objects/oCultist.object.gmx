@@ -84,10 +84,12 @@ alarm[1] = animate_frame_speed;
             <kind>1</kind>
             <string>///Controller
 
-//move(move_type, -1);
-move(move_types.obj, oPlayer);
-
-check_creature();
+if (global.go == true)
+{
+    move(move_types.obj, oPlayer);
+    //move(move_type, -1);
+    check_creature();
+}
 </string>
           </argument>
         </arguments>

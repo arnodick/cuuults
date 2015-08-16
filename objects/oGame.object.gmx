@@ -46,6 +46,8 @@ input_r_height = 0;
 input_r_sectors = 0;
 
 audio_falloff_set_model(audio_falloff_linear_distance_clamped);
+
+global.go = false;
 </string>
           </argument>
         </arguments>
@@ -654,6 +656,11 @@ if (!surface_exists(screen))
     view_surface_id[0] = screen;
 }
 */
+
+with (oPlayer)
+{
+    draw_rectangle_colour( ((x + carry_dir[0])*tile_size), ((y + carry_dir[1])*tile_size), ((x + carry_dir[0])*tile_size) + tile_size, ((y + carry_dir[1])*tile_size) + tile_size, c_red, c_red, c_red, c_red, true );
+}
 </string>
           </argument>
         </arguments>
