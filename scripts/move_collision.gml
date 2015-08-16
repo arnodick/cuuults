@@ -53,6 +53,19 @@ if (move_timer_count < move_timer_total_init)
                 audio_play_sound_at(cell_next.sound_step, x, y, 0, 10, 12, 1, false, 1);
                 //audio_play_sound(cell_next.sound_step, 1, false); // maybe we want this here? so everything makes noises?
             }
+            with (cell_next)
+            {
+                alarm[9] = 1;
+                /*
+                if (instance_exists(oGrass))
+                {
+                if (cell_next.object_index == oGrass)
+                {
+                    alarm[9] = 1;
+                }
+                }
+                */
+            }
         }
         else
         {
@@ -62,6 +75,7 @@ if (move_timer_count < move_timer_total_init)
                 audio_play_sound_at(cell_next.sound_step, x, y, 0, 10, 12, 1, false, 1);
                 //audio_play_sound(cell_next.sound_step, 1, false); // maybe we want this here? so everything makes noises?
             }
+            //cell_current = oGame.map[x, y];
             move_stopped();
         }
     }

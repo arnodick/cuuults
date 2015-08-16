@@ -659,7 +659,13 @@ if (!surface_exists(screen))
 
 with (oPlayer)
 {
-    draw_rectangle_colour( ((x + carry_dir[0])*tile_size), ((y + carry_dir[1])*tile_size), ((x + carry_dir[0])*tile_size) + tile_size, ((y + carry_dir[1])*tile_size) + tile_size, c_red, c_red, c_red, c_red, true );
+    if (keyboard_check(vk_shift) == true)
+    {
+        //draw_rectangle_colour( ((x + carry_dir[0])*tile_size), ((y + carry_dir[1])*tile_size), ((x + carry_dir[0])*tile_size) + tile_size, ((y + carry_dir[1])*tile_size) + tile_size, c_red, c_red, c_red, c_red, true );
+        draw_set_alpha(0.7);
+        draw_roundrect_colour_ext( ((x + carry_dir[0])*tile_size), ((y + carry_dir[1])*tile_size), ((x + carry_dir[0])*tile_size) + tile_size, ((y + carry_dir[1])*tile_size) + tile_size, 4, 4, c_red, c_red, true );
+        draw_set_alpha(1);
+    }
 }
 </string>
           </argument>

@@ -132,12 +132,7 @@ else
     global.go = false;
 }
 
-    if (!keyboard_check(vk_shift))
-    {
-        carry_dir[0] = 0;
-        carry_dir[1] = 0;
-    }
-check_creature();
+//check_creature();
 
 if (stopped_wall == true)
 {
