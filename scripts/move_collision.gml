@@ -56,15 +56,6 @@ if (move_timer_count < move_timer_total_init)
             with (cell_next)
             {
                 alarm[9] = 1;
-                /*
-                if (instance_exists(oGrass))
-                {
-                if (cell_next.object_index == oGrass)
-                {
-                    alarm[9] = 1;
-                }
-                }
-                */
             }
         }
         else
