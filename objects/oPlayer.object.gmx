@@ -132,8 +132,6 @@ else
     global.go = false;
 }
 
-//check_creature();
-
 if (stopped_wall == true)
 {
     var cell_next = check_pos(x + move_dir[0], y + move_dir[1]);

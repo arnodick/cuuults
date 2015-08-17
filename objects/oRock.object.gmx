@@ -85,24 +85,6 @@ if (move_timer == true)
 {
     angle += (6)*(-move_dir[0]);
 }
-check_creature();
-/*
-var timer_on = move_collision();
-if (timer_on == false)
-{
-    var cell_next = check_pos(x + move_dir[0], y + move_dir[1]);
-    var cant_move = cell_next.solid;
-    if (cant_move == false)
-    {
-        move_timer_start(move_speed, 1);
-    }
-}
-else
-{
-    angle += 1;
-    
-}
-*/
 
 // TODO: get rid of this by making maps ahve a items/characters/objects layer above the terrain
 oGame.map_update[x, y] = id;

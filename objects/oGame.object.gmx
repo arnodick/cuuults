@@ -617,6 +617,20 @@ if (global.debug == true)
 
 // this draws things at their proper depth, but is VERY inneffcient. Better way?
 
+for (var i = 0; i &lt; r_width; i++)
+{
+    draw_set_alpha(0.7);
+    draw_line_colour(i * tile_size, 0, i * tile_size, room_height, c_gray, c_gray);
+    draw_set_alpha(1);
+}
+
+for (var i = 0; i &lt; r_height; i++)
+{
+    draw_set_alpha(0.7);
+    draw_line_colour(0, i *tile_size, room_width, i * tile_size, c_gray, c_gray);
+    draw_set_alpha(1);
+}
+
 with(oThing)
 {
     //draw_text_transformed_colour(draw_x_coords, draw_y_coords, char, size, size, angle, colour, colour, colour, colour, alpha);

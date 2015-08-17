@@ -85,8 +85,6 @@ if cell_current_bot.object_index == oStamped
 
 move(move_type, oStamped);
 
-check_creature();
-
 cell_current        = oGame.map_update[x    , y];
 if cell_current.object_index == oStamped
 {

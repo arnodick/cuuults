@@ -74,8 +74,6 @@ else
 {
     move(move_type, -1);
 }
-
-check_creature();
 </string>
           </argument>
         </arguments>

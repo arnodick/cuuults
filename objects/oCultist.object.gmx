@@ -88,7 +88,6 @@ if (global.go == true)
 {
     move(move_types.obj, oPlayer);
     //move(move_type, -1);
-    check_creature();
 }
 </string>
           </argument>
