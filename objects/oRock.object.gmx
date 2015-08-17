@@ -40,7 +40,6 @@ check_creature_init();
 sound_step = sndBump;
 
 carryable = true;
-carrier = -1;
 
 depth = -10;
 

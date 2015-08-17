@@ -135,22 +135,6 @@
       <script>scripts\textfile_load_map_proc.gml</script>
       <script>scripts\textfile_save_map.gml</script>
     </scripts>
-    <script>scripts\assets_init.gml</script>
-    <script>scripts\animate_init.gml</script>
-    <script>scripts\draw_init.gml</script>
-    <script>scripts\draw_random_char_init.gml</script>
-    <script>scripts\draw_random_char.gml</script>
-    <script>scripts\room_dimensions.gml</script>
-    <script>scripts\room_view.gml</script>
-    <scripts name="Menus">
-      <script>scripts\menu_init.gml</script>
-      <script>scripts\menu_create.gml</script>
-      <script>scripts\menu_select.gml</script>
-      <script>scripts\menu_confirm.gml</script>
-      <script>scripts\menu_buttons.gml</script>
-    </scripts>
-    <script>scripts\create_thing.gml</script>
-    <script>scripts\create_creature.gml</script>
     <scripts name="Checks">
       <script>scripts\check_pos.gml</script>
       <script>scripts\check_creature_init.gml</script>
@@ -158,8 +142,13 @@
       <script>scripts\check_carry.gml</script>
       <script>scripts\check_carry_drop.gml</script>
     </scripts>
-    <script>scripts\key_arrows_check.gml</script>
-    <script>scripts\key_arrows_check_pressed.gml</script>
+    <scripts name="Menus">
+      <script>scripts\menu_init.gml</script>
+      <script>scripts\menu_create.gml</script>
+      <script>scripts\menu_select.gml</script>
+      <script>scripts\menu_confirm.gml</script>
+      <script>scripts\menu_buttons.gml</script>
+    </scripts>
     <scripts name="Movement">
       <script>scripts\move_init.gml</script>
       <script>scripts\move.gml</script>
@@ -173,6 +162,17 @@
       <script>scripts\move_stopped.gml</script>
       <script>scripts\move_stopped_wall.gml</script>
     </scripts>
+    <script>scripts\assets_init.gml</script>
+    <script>scripts\animate_init.gml</script>
+    <script>scripts\draw_init.gml</script>
+    <script>scripts\draw_random_char_init.gml</script>
+    <script>scripts\draw_random_char.gml</script>
+    <script>scripts\room_dimensions.gml</script>
+    <script>scripts\room_view.gml</script>
+    <script>scripts\create_thing.gml</script>
+    <script>scripts\create_creature.gml</script>
+    <script>scripts\key_arrows_check.gml</script>
+    <script>scripts\key_arrows_check_pressed.gml</script>
     <script>scripts\bloody_init.gml</script>
     <script>scripts\bloody_check.gml</script>
     <script>scripts\screen_shake.gml</script>
