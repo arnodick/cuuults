@@ -25,6 +25,12 @@ if instance_exists(argument1)
         y_dir = move_distance;
     }
 }
+// will bump into walls
+argument0[0] = x_dir;
+argument0[1] = y_dir;
+
+/*
+// decides not to bump into walls, almost ever
 var cant_move = check_pos(x + x_dir, y + y_dir).solid;
 // TODO: MAKE THIS SCRIPT MORE ROBUST AT PATHFINDING!
 //      if it can't go forward, try a bit to the left or right. if not that, then random?
@@ -40,5 +46,6 @@ else
     argument0[1] = y_dir;
     //move_direction(x_dir, y_dir, move_speed);
 }
+*/
 
 return argument0;

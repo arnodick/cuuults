@@ -32,6 +32,9 @@ colour = c_gray;
 
 sound_step = sndRock2;
 
+if (random(1) &lt; 0.5)
+animate_frame = !animate_frame;
+
 //colour = merge_colour(colour, c_black, y/48);
 </string>
           </argument>
