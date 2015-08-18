@@ -72,7 +72,7 @@ audio_listener_orientation(0, 1, 0, 0, 0, 1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Animation
+            <string>///Walk
 animate_walk = !animate_walk;
 //alarm[0] = 4;
 if (animate_walk == true)
@@ -121,7 +121,7 @@ else if (keyboard_check_released(ord('X')))
 //{
 //}
 
-if (key_arrows_check() == true)
+if ((key_arrows_check() == true) or keyboard_check(vk_space))
 {
     move(move_type, -1);
     check_carry();

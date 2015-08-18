@@ -10,24 +10,25 @@ if (move_timer == false)
     {
         case move_types.key: // keyboard controls
             move_dir = move_key(move_dir);
-            move_direction(move_dir[0], move_dir[1], move_speed);
             break;
         case move_types.rand: // random movement
             move_dir = move_rand(move_dir);
-            move_direction(move_dir[0], move_dir[1], move_speed);
             break;
         case move_types.obj: // move towards object
             move_dir = move_dir_object(move_dir, argument1);
-            move_direction(move_dir[0], move_dir[1], move_speed);
             break;
         //case 3:
             //move_direction();
         default:
             break;
     }
+    if ((move_dir[0] != 0) or (move_dir[1] != 0))
+    {
+        move_direction(move_dir[0], move_dir[1], move_speed);
+    }
 }
-//else  // use this to give a more choppy movement, small pause at each cell
-if (move_timer == true)
+else  // use this to give a more choppy movement, small pause at each cell
+//if (move_timer == true)
 {
     move_collision();
 }

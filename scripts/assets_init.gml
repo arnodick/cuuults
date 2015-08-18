@@ -27,3 +27,11 @@ enum move_types
     obj,
     proj
 }
+
+enum alarm_types
+{
+    animate,
+    walk,
+    collided_with,
+    colliding
+}
