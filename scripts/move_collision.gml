@@ -51,7 +51,6 @@ if (move_timer_count < move_timer_total_init)
             if (cell_next.sound_step != -1)
             {
                 audio_play_sound_at(cell_next.sound_step, x, y, 0, 10, 12, 1, false, 1);
-                //audio_play_sound(cell_next.sound_step, 1, false); // maybe we want this here? so everything makes noises?
             }
             with (cell_next)
             {
@@ -64,12 +63,17 @@ if (move_timer_count < move_timer_total_init)
             if (cell_next.sound_step != -1)
             {
                 audio_play_sound_at(cell_next.sound_step, x, y, 0, 10, 12, 1, false, 1);
-                //audio_play_sound(cell_next.sound_step, 1, false); // maybe we want this here? so everything makes noises?
             }
+            /*
             if (cell_next.object_index == oPlayer)
             {
                 audio_play_sound(sndCrash, 1, false);
             }
+            */
+            
+            alarm[10] = 1;
+            colliding_into = cell_next;
+            
             //cell_current = oGame.map[x, y];
             move_stopped();
         }

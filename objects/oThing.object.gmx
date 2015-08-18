@@ -54,6 +54,7 @@ draw_y_coords = y*tile_size + spr_middle;
 animate_init();
 
 carryable = false;
+colliding_into = -1;
 
 x_scale = 1;
 y_scale = 1;
