@@ -34,7 +34,7 @@ char = 'y';
 colour = c_white;
 solid = true;
 
-move_init(-1, 3, 1);
+move_init(-1, 32, 1);
 check_creature_init();
 
 sound_step = sndBump;

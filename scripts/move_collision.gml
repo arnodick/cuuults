@@ -22,6 +22,14 @@ if (move_timer_count < move_timer_total_init)
         var cell_next = check_pos(x + move_dir[0], y + move_dir[1]);
         var cant_move = cell_next.solid;
         
+        with (cell_next)
+        {
+            alarm[9] = 1;
+        }
+        
+        alarm[10] = 1;
+        colliding_into = cell_next;
+        
         // if you can move, then move into the next cell
         if (cant_move == false)
         {
@@ -52,10 +60,6 @@ if (move_timer_count < move_timer_total_init)
             {
                 audio_play_sound_at(cell_next.sound_step, x, y, 0, 10, 12, 1, false, 1);
             }
-            with (cell_next)
-            {
-                alarm[9] = 1;
-            }
         }
         else
         {
@@ -64,15 +68,6 @@ if (move_timer_count < move_timer_total_init)
             {
                 audio_play_sound_at(cell_next.sound_step, x, y, 0, 10, 12, 1, false, 1);
             }
-            /*
-            if (cell_next.object_index == oPlayer)
-            {
-                audio_play_sound(sndCrash, 1, false);
-            }
-            */
-            
-            alarm[10] = 1;
-            colliding_into = cell_next;
             
             //cell_current = oGame.map[x, y];
             move_stopped();
