@@ -26,10 +26,15 @@ if shaking == true
 }
 
 // sets what part of the room we are looing at
-view_xview[0] = ( (x_sector) * (argument0 * tile_size) );
-view_yview[0] = ( (y_sector) * (argument1 * tile_size) );
+room_x_view = ( (x_sector) * (argument0 * tile_size) );
+room_y_view = ( (y_sector) * (argument1 * tile_size) );
 view_wview[0] = (argument0) * tile_size; 
-view_hview[0] = (argument1) * tile_size; 
+view_hview[0] = (argument1) * tile_size;
+
+if (surface_exists(screen))
+{
+    surface_resize(screen, view_wview[0], view_hview[0]);
+}
 
 // pre-sets the draw coordinates, so less math in draw event
 // TODO: GET RID OF THIS WITH SURFACES

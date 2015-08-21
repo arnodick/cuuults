@@ -38,6 +38,12 @@ screen_offset_timer = 0;
 
 // Creates a surface that the whole screen will be drawn on
 screen = -1;
+
+room_x_view = 0;
+room_y_view = 0;
+
+view_xview[0] = 0;
+view_yview[0] = 0;
 /*
 // If the screen surface can't be created because surfaces are not supported by the graphics card, then:
 // Destroy the oScreen object, reverting to the viewport method

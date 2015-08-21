@@ -166,10 +166,10 @@ if keyboard_check_pressed(vk_escape)    // exits the game if escape is pressed
 //FPS timer. stops FPS from cycling so fast you can't see what the number is
 if (global.debug == true)
 {
-    mouse_cell_x = mouse_x div tile_size;
-    mouse_cell_y = mouse_y div tile_size;
-    mouse_draw_x = mouse_cell_x * tile_size;
-    mouse_draw_y = mouse_cell_y * tile_size;
+    mouse_cell_x = (mouse_x + room_x_view) div tile_size;
+    mouse_cell_y = (mouse_y + room_y_view) div tile_size;
+    mouse_draw_x = (mouse_x div tile_size) * tile_size;
+    mouse_draw_y = (mouse_y div tile_size) * tile_size;
     var map_cell = -1;
 
     if (fps_timer &gt; 0)
@@ -559,24 +559,28 @@ if (global.debug == true)
     draw_text(32, tile_size*4, "R_hght = " + string(r_height));
     draw_text(32, tile_size*5, "Room wdth = " + string(room_width));
     draw_text(32, tile_size*6, "Room hgth = " + string(room_height));
-    draw_text(32, tile_size*7, "View wdth = " + string(view_wview[0]));
-    draw_text(32, tile_size*8, "View hgth = " + string(view_hview[0]));
-    draw_text(32, tile_size*9, "Port wdth = " + string(view_wport[0]));
-    draw_text(32, tile_size*10, "Port hgth = " + string(view_hport[0]));
-    draw_text(32, tile_size*11, "Surf wdth = " + string(surface_get_width(screen)));
-    draw_text(32, tile_size*12, "Surf hgth = " + string(surface_get_height(screen)));
-    draw_text(32, tile_size*13, playerx_string);
-    draw_text(32, tile_size*14, playery_string);
-    draw_text(32, tile_size*15, "Mouse X = " + string(mouse_x));
-    draw_text(32, tile_size*16, "Mouse Y = " + string(mouse_y));
-    draw_text(32, tile_size*17, move_timer_string);
-    draw_text(32, tile_size*18, "Draw off X = " + string(oPlayer.draw_offset_x));
-    draw_text(32, tile_size*19, "Move speed = " + string(oPlayer.move_speed));
-    draw_text(32, tile_size*20, "Map count = " + string(map_count));
-    draw_text(32, tile_size*21, "Things \# = " + string(things_amount) );
-    draw_text(32, tile_size*22, "Creatures \# = " + string(creatures_amount) );
-    draw_text(32, tile_size*23, "Items \# = " + string(items_amount) );
-    draw_text(32, tile_size*24, "Terrain \# = " + string(terrain_amount) );
+    draw_text(32, tile_size*7, "Port wdth = " + string(view_wport[0]));
+    draw_text(32, tile_size*8, "Port hgth = " + string(view_hport[0]));
+    draw_text(32, tile_size*9, "Surf wdth = " + string(surface_get_width(screen)));
+    draw_text(32, tile_size*10, "Surf hgth = " + string(surface_get_height(screen)));
+    draw_text(32, tile_size*11, "View wdth = " + string(view_wview[0]));
+    draw_text(32, tile_size*12, "View hgth = " + string(view_hview[0]));
+    draw_text(32, tile_size*13, "View x = " + string(view_xview[0]));
+    draw_text(32, tile_size*14, "View y = " + string(view_yview[0]));
+    draw_text(32, tile_size*15, playerx_string);
+    draw_text(32, tile_size*16, playery_string);
+    draw_text(32, tile_size*17, oPlayer.draw_x_coords);
+    draw_text(32, tile_size*18, oPlayer.draw_y_coords);
+    draw_text(32, tile_size*19, "Mouse X = " + string(mouse_x + room_x_view));
+    draw_text(32, tile_size*20, "Mouse Y = " + string(mouse_y + room_y_view));
+    draw_text(32, tile_size*21, move_timer_string);
+    draw_text(32, tile_size*22, "Draw off X = " + string(oPlayer.draw_offset_x));
+    draw_text(32, tile_size*23, "Move speed = " + string(oPlayer.move_speed));
+    draw_text(32, tile_size*24, "Map count = " + string(map_count));
+    draw_text(32, tile_size*25, "Things \# = " + string(things_amount) );
+    draw_text(32, tile_size*26, "Creatures \# = " + string(creatures_amount) );
+    draw_text(32, tile_size*27, "Items \# = " + string(items_amount) );
+    draw_text(32, tile_size*28, "Terrain \# = " + string(terrain_amount) );
     
     /*
     if (instance_exists(oSpell))
@@ -639,7 +643,16 @@ with(oThing)
     //draw_background_general(bg_tiles, 0, 0, 8, 8, draw_x_coords, draw_y_coords, size, size, angle, colour, colour, colour, colour, 1);
     if (depth &gt;= 0)
     {
-        draw_sprite_ext(spr_tiles, (object_index - oGame.things_start)* 2  + animate_frame, draw_x_coords, draw_y_coords, x_scale, y_scale, angle, colour, 1);
+        if (draw_x_coords &gt; oGame.room_x_view)
+        {
+        if (draw_x_coords &lt; (oGame.room_x_view + view_wview[0]))
+        {
+        if (draw_y_coords &gt; oGame.room_y_view)
+        {
+        if (draw_y_coords &lt; (oGame.room_y_view + view_hview[0]))
+        {
+        draw_sprite_ext(spr_tiles, (object_index - oGame.things_start)* 2  + animate_frame, draw_x_coords - oGame.room_x_view, draw_y_coords - oGame.room_y_view, x_scale, y_scale, angle, colour, 1);
+        }}}}
     }
 }
 with(oThing)
@@ -648,8 +661,17 @@ with(oThing)
     //draw_background_general(bg_tiles, 0, 0, 8, 8, draw_x_coords, draw_y_coords, size, size, angle, colour, colour, colour, colour, 1);
     if (depth &lt; 0)
     {
+        if (draw_x_coords &gt; oGame.room_x_view)
+        {
+        if (draw_x_coords &lt; (oGame.room_x_view + view_wview[0]))
+        {
+        if (draw_y_coords &gt; oGame.room_y_view)  
+        {
+        if (draw_y_coords &lt; (oGame.room_y_view + view_hview[0]))
+        {
         /*change this to -2 for glitchy effects on player!*/
-        draw_sprite_ext(spr_tiles, (object_index - oGame.things_start) * 2  + animate_frame, draw_x_coords, draw_y_coords, x_scale, y_scale, angle, colour, 1);
+        draw_sprite_ext(spr_tiles, (object_index - oGame.things_start) * 2  + animate_frame, draw_x_coords - oGame.room_x_view, draw_y_coords - oGame.room_y_view, x_scale, y_scale, angle, colour, 1);
+        }}}}
     }
 }
 
