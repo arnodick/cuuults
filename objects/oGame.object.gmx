@@ -571,16 +571,19 @@ if (global.debug == true)
     draw_text(32, tile_size*16, playery_string);
     draw_text(32, tile_size*17, oPlayer.draw_x_coords);
     draw_text(32, tile_size*18, oPlayer.draw_y_coords);
-    draw_text(32, tile_size*19, "Mouse X = " + string(mouse_x + room_x_view));
-    draw_text(32, tile_size*20, "Mouse Y = " + string(mouse_y + room_y_view));
-    draw_text(32, tile_size*21, move_timer_string);
-    draw_text(32, tile_size*22, "Draw off X = " + string(oPlayer.draw_offset_x));
-    draw_text(32, tile_size*23, "Move speed = " + string(oPlayer.move_speed));
-    draw_text(32, tile_size*24, "Map count = " + string(map_count));
-    draw_text(32, tile_size*25, "Things \# = " + string(things_amount) );
-    draw_text(32, tile_size*26, "Creatures \# = " + string(creatures_amount) );
-    draw_text(32, tile_size*27, "Items \# = " + string(items_amount) );
-    draw_text(32, tile_size*28, "Terrain \# = " + string(terrain_amount) );
+    draw_text(32, tile_size*19, oPlayer.carry_dir[0]);
+    draw_text(32, tile_size*20, oPlayer.carry_dir[1]);
+    draw_text(32, tile_size*21, playery_string);
+    draw_text(32, tile_size*22, "Mouse X = " + string(mouse_x + room_x_view));
+    draw_text(32, tile_size*23, "Mouse Y = " + string(mouse_y + room_y_view));
+    draw_text(32, tile_size*24, move_timer_string);
+    draw_text(32, tile_size*25, "Draw off X = " + string(oPlayer.draw_offset_x));
+    draw_text(32, tile_size*26, "Move speed = " + string(oPlayer.move_speed));
+    draw_text(32, tile_size*27, "Map count = " + string(map_count));
+    draw_text(32, tile_size*28, "Things \# = " + string(things_amount) );
+    draw_text(32, tile_size*29, "Creatures \# = " + string(creatures_amount) );
+    draw_text(32, tile_size*30, "Items \# = " + string(items_amount) );
+    draw_text(32, tile_size*31, "Terrain \# = " + string(terrain_amount) );
     
     /*
     if (instance_exists(oSpell))
@@ -651,7 +654,7 @@ with(oThing)
         {
         if (draw_y_coords &lt; (oGame.room_y_view + view_hview[0]))
         {
-        draw_sprite_ext(spr_tiles, (object_index - oGame.things_start)* 2  + animate_frame, draw_x_coords - oGame.room_x_view, draw_y_coords - oGame.room_y_view, x_scale, y_scale, angle, colour, 1);
+            draw_sprite_ext(spr_tiles, (object_index - oGame.things_start)* 2  + animate_frame, draw_x_coords - oGame.room_x_view, draw_y_coords - oGame.room_y_view, x_scale, y_scale, angle, colour, 1);
         }}}}
     }
 }
@@ -670,7 +673,7 @@ with(oThing)
         if (draw_y_coords &lt; (oGame.room_y_view + view_hview[0]))
         {
         /*change this to -2 for glitchy effects on player!*/
-        draw_sprite_ext(spr_tiles, (object_index - oGame.things_start) * 2  + animate_frame, draw_x_coords - oGame.room_x_view, draw_y_coords - oGame.room_y_view, x_scale, y_scale, angle, colour, 1);
+            draw_sprite_ext(spr_tiles, (object_index - oGame.things_start) * 2  + animate_frame, draw_x_coords - oGame.room_x_view, draw_y_coords - oGame.room_y_view, x_scale, y_scale, angle, colour, 1);
         }}}}
     }
 }
@@ -680,11 +683,11 @@ if (global.debug == true)
     draw_rectangle_colour( mouse_draw_x, mouse_draw_y, mouse_draw_x + tile_size, mouse_draw_y + tile_size, c_red, c_red, c_red, c_red, true );
     with (oPlayer)
     {
-        draw_rectangle_colour( (x*tile_size), (y*tile_size), (x*tile_size) + tile_size, (y*tile_size + tile_size), c_red, c_red, c_red, c_red, true );
+        draw_rectangle_colour( (x*tile_size) - oGame.room_x_view, (y*tile_size) - oGame.room_y_view, (x*tile_size) + tile_size - oGame.room_x_view, (y*tile_size + tile_size) - oGame.room_y_view, c_red, c_red, c_red, c_red, true );
     }
     with (oCultist)
     {
-        draw_rectangle_colour( (x*tile_size), (y*tile_size), (x*tile_size) + tile_size, (y*tile_size + tile_size), c_red, c_red, c_red, c_red, true );
+        draw_rectangle_colour( (x*tile_size) - oGame.room_x_view, (y*tile_size) - oGame.room_y_view, (x*tile_size) + tile_size - oGame.room_x_view, (y*tile_size + tile_size) - oGame.room_y_view, c_red, c_red, c_red, c_red, true );
     }
 }
 /* VECTOR SETTINGS
@@ -701,7 +704,7 @@ with (oPlayer)
     {
         //draw_rectangle_colour( ((x + carry_dir[0])*tile_size), ((y + carry_dir[1])*tile_size), ((x + carry_dir[0])*tile_size) + tile_size, ((y + carry_dir[1])*tile_size) + tile_size, c_red, c_red, c_red, c_red, true );
         draw_set_alpha(0.7);
-        draw_roundrect_colour_ext( ((x + carry_dir[0])*tile_size), ((y + carry_dir[1])*tile_size), ((x + carry_dir[0])*tile_size) + tile_size, ((y + carry_dir[1])*tile_size) + tile_size, 4, 4, c_red, c_red, true );
+        draw_roundrect_colour_ext( ((x + carry_dir[0])*tile_size) - oGame.room_x_view, ((y + carry_dir[1])*tile_size) - oGame.room_y_view, ((x + carry_dir[0])*tile_size) + tile_size - oGame.room_x_view, ((y + carry_dir[1])*tile_size) + tile_size - oGame.room_y_view, 4, 4, c_red, c_red, true );
         draw_set_alpha(1);
     }
 }
