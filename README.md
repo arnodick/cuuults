@@ -1,4 +1,4 @@
-# road_drivin
-Road Drivin, an ASCII-ish procedural arcade game about drivin roads and gettin $
+# cuuults
+cuuults is a broken ass game
 
 Made in Game Maker Studio.

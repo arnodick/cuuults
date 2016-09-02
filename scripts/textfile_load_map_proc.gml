@@ -73,3 +73,7 @@ for (var d = 0; d < sectors; d++)
 }
 
 map_update = map;   // copy map to map_update
+
+var xx = irandom(r_width);
+var yy = irandom(r_height);
+map_update[xx,yy] = instance_create(xx, yy, oCultist);

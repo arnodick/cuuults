@@ -71,6 +71,8 @@ depth = -10;
 {
 move(move_type, -1);
 
+
+/*
 if (stopped_wall == true)
 {
     with (oPlayer)
@@ -79,6 +81,7 @@ if (stopped_wall == true)
     }
     //move_type = -1;
 }
+*/
 
 if (move_timer == true)
 {

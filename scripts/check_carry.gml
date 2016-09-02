@@ -47,7 +47,7 @@ else
                 {
                     move_type = move_types.key;
                     move_distance = 1;
-                    //solid = false;
+                    solid = false;
                     sound_step = -1;
                 }
             }
